@@ -1,0 +1,5 @@
+@theme {
+  /* TODO: define real tokens */
+  --color-primary: #2563eb;
+  --radius-md: 0.5rem;
+}
