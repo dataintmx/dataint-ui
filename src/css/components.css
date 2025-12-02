@@ -1,17 +1,24 @@
-@layer components {
-  .btn {
-    border-radius: var(--radius-md);
-    padding: 0.5rem 0.875rem;
-    font-weight: 500;
-  }
+@utility btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  padding: 0.5rem 0.875rem;
+  font-weight: 500;
+  border-width: 1px;
+  border-style: solid;
+  cursor: pointer;
+  transition: background-color 150ms ease, color 150ms ease,
+    border-color 150ms ease;
+}
 
-  .btn-primary {
-    background-color: var(--color-primary);
-    color: white;
-  }
+@utility btn-primary {
+  background-color: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+}
 
-  .card {
-    border-radius: var(--radius-md);
-    padding: 1rem;
-  }
+@utility card {
+  border-radius: var(--radius-md);
+  padding: 1rem;
 }

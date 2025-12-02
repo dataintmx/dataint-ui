@@ -1,4 +1,4 @@
-@layer utilities {
+@utility utilities {
   .u-flex-center {
     display: flex;
     align-items: center;
