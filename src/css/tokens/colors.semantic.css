@@ -1,0 +1,223 @@
+/* ================================================
+   Semantic color tokens for dataint-ui
+   - Defaults (equivalentes a light)
+   - @theme para Tailwind
+   - Overrides por tema (light / dark)
+   ================================================ */
+
+/* 1) Defaults en :root (equivalentes a light)
+   Garantizan que todos los tokens existan incluso si no hay data-theme.
+*/
+:root {
+  /* Base surfaces */
+  --color-base-100: var(--neutral-000);
+  --color-base-200: var(--neutral-050);
+  --color-base-300: var(--neutral-100);
+
+  /* Base content */
+  --color-base-content: var(--neutral-body);
+  --color-base-content-muted: color-mix(
+    in srgb,
+    var(--neutral-body) 72%,
+    transparent
+  );
+  --color-base-content-subtle: color-mix(
+    in srgb,
+    var(--neutral-body) 56%,
+    transparent
+  );
+
+  /* Neutral */
+  --color-neutral: var(--neutral-850);
+  --color-neutral-content: var(--neutral-000);
+
+  /* Brand */
+  --color-primary: var(--keppel-green);
+  --color-primary-content: var(--neutral-000);
+
+  --color-secondary: var(--indigo-blue);
+  --color-secondary-content: var(--neutral-000);
+
+  --color-accent: var(--lavender-gray);
+  --color-accent-content: var(--neutral-000);
+
+  /* Status */
+  --color-info: var(--azure-blue-500);
+  --color-info-content: var(--neutral-000);
+
+  --color-success: var(--lime-green-500);
+  --color-success-content: var(--neutral-000);
+
+  --color-warning: var(--sunglow-yellow-500);
+  --color-warning-content: var(--neutral-900);
+
+  --color-error: var(--light-red-500);
+  --color-error-content: var(--neutral-000);
+
+  /* Borders */
+  --color-border-subtle: var(--neutral-100);
+  --color-border-strong: var(--neutral-200);
+  --color-border-muted: color-mix(in srgb, var(--neutral-200) 70%, transparent);
+}
+
+/* 2) Semantic defaults también en @theme
+   Para que Tailwind pueda consumir estos tokens como "design tokens".
+   (Equivalentes a los de :root por defecto / tema light)
+*/
+@theme {
+  /* Base surfaces */
+  --color-base-100: var(--neutral-000);
+  --color-base-200: var(--neutral-050);
+  --color-base-300: var(--neutral-100);
+
+  /* Base content */
+  --color-base-content: var(--neutral-body);
+
+  /* Muted text */
+  --color-base-content-muted: color-mix(
+    in srgb,
+    var(--neutral-body) 72%,
+    transparent
+  );
+  --color-base-content-subtle: color-mix(
+    in srgb,
+    var(--neutral-body) 56%,
+    transparent
+  );
+
+  /* Neutral */
+  --color-neutral: var(--neutral-850);
+  --color-neutral-content: var(--neutral-000);
+
+  /* Brand */
+  --color-primary: var(--keppel-green);
+  --color-primary-content: var(--neutral-000);
+
+  --color-secondary: var(--indigo-blue);
+  --color-secondary-content: var(--neutral-000);
+
+  --color-accent: var(--lavender-gray);
+  --color-accent-content: var(--neutral-000);
+
+  /* Status */
+  --color-info: var(--azure-blue-500);
+  --color-info-content: var(--neutral-000);
+
+  --color-success: var(--lime-green-500);
+  --color-success-content: var(--neutral-000);
+
+  --color-warning: var(--sunglow-yellow-500);
+  --color-warning-content: var(--neutral-900);
+
+  --color-error: var(--light-red-500);
+  --color-error-content: var(--neutral-000);
+
+  /* Borders */
+  --color-border-subtle: var(--neutral-100);
+  --color-border-strong: var(--neutral-200);
+  --color-border-muted: color-mix(in srgb, var(--neutral-200) 70%, transparent);
+}
+
+/* 3) Light theme override (conceptualmente igual al default)
+   Se aplica cuando el host pone data-theme="light".
+*/
+:root[data-theme="light"] {
+  --color-base-100: var(--neutral-000);
+  --color-base-200: var(--neutral-050);
+  --color-base-300: var(--neutral-100);
+
+  --color-base-content: var(--neutral-body);
+  --color-base-content-muted: color-mix(
+    in srgb,
+    var(--neutral-body) 72%,
+    transparent
+  );
+  --color-base-content-subtle: color-mix(
+    in srgb,
+    var(--neutral-body) 56%,
+    transparent
+  );
+
+  --color-neutral: var(--neutral-850);
+  --color-neutral-content: var(--neutral-000);
+
+  --color-primary: var(--keppel-green);
+  --color-primary-content: var(--neutral-000);
+
+  --color-secondary: var(--indigo-blue);
+  --color-secondary-content: var(--neutral-000);
+
+  --color-accent: var(--lavender-gray);
+  --color-accent-content: var(--neutral-000);
+
+  --color-info: var(--azure-blue-500);
+  --color-info-content: var(--neutral-000);
+
+  --color-success: var(--lime-green-500);
+  --color-success-content: var(--neutral-000);
+
+  --color-warning: var(--sunglow-yellow-500);
+  --color-warning-content: var(--neutral-900);
+
+  --color-error: var(--light-red-500);
+  --color-error-content: var(--neutral-000);
+
+  --color-border-subtle: var(--neutral-100);
+  --color-border-strong: var(--neutral-200);
+  --color-border-muted: color-mix(in srgb, var(--neutral-200) 70%, transparent);
+}
+
+/* 4) Dark theme semantic tokens
+   Se aplica cuando el host pone data-theme="dark".
+*/
+:root[data-theme="dark"] {
+  /* Base surfaces */
+  --color-base-100: var(--neutral-900);
+  --color-base-200: var(--neutral-850);
+  --color-base-300: var(--neutral-800);
+
+  /* Base content */
+  --color-base-content: var(--neutral-000);
+  --color-base-content-muted: color-mix(
+    in srgb,
+    var(--neutral-000) 72%,
+    transparent
+  );
+  --color-base-content-subtle: color-mix(
+    in srgb,
+    var(--neutral-000) 56%,
+    transparent
+  );
+
+  /* Neutral */
+  --color-neutral: var(--neutral-050);
+  --color-neutral-content: var(--neutral-900);
+
+  /* Brand */
+  --color-primary: var(--keppel-green);
+  --color-primary-content: var(--neutral-900);
+
+  --color-secondary: var(--indigo-blue);
+  --color-secondary-content: var(--neutral-000);
+
+  --color-accent: var(--lavender-gray);
+  --color-accent-content: var(--neutral-900);
+
+  /* Status */
+  --color-info: var(--azure-blue-400);
+  --color-info-content: var(--neutral-900);
+
+  --color-success: var(--lime-green-400);
+  --color-success-content: var(--neutral-900);
+
+  --color-warning: var(--sunglow-yellow-400);
+  --color-warning-content: var(--neutral-900);
+
+  --color-error: var(--light-red-400);
+  --color-error-content: var(--neutral-900);
+
+  /* Borders */
+  --color-border-subtle: var(--neutral-800);
+  --color-border-strong: var(--neutral-850);
+  --color-border-muted: color-mix(in srgb, var(--neutral-800) 70%, transparent);
+}
