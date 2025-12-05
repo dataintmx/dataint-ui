@@ -1,25 +1,1058 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="utf-8" />
     <title>dataint-ui playground</title>
     <link rel="stylesheet" href="../dist/styles.css" />
-  </head>
-  <body>
-    <main style="padding: 1.5rem; display: grid; gap: 2rem">
-      <section id="buttons">
-        <h1>Buttons</h1>
-        <button class="btn btn-primary">Primary</button>
-        <button class="btn">Default</button>
-      </section>
+    <style>
+      /* Layout propio del playground (no del design system) */
+      body {
+        margin: 0;
+        background-color: var(--color-base-100, #0b1015);
+        color: var(--color-base-content, #f9fafb);
+        font-family: var(
+          --font-body,
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif
+        );
+      }
 
-      <section id="cards">
-        <h2>Cards</h2>
-        <div class="card">
-          <h3>Card title</h3>
-          <p>Some content text…</p>
-        </div>
-      </section>
+      .page {
+        padding: 1.5rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: minmax(200px, 240px) 1fr;
+        gap: 2rem;
+      }
+
+      .sidebar {
+        position: sticky;
+        top: 1.5rem;
+        align-self: start;
+        border: var(--border-subtle, 1px solid rgba(255, 255, 255, 0.05));
+        border-radius: var(--radius-box, 1rem);
+        padding: 1rem;
+        background-color: var(--color-base-200, #0f1720);
+        box-shadow: var(--elevation-1-default, none);
+      }
+
+      .sidebar h1 {
+        font-family: var(--font-display, inherit);
+        font-size: 1.1rem;
+        margin: 0 0 0.75rem;
+      }
+
+      .sidebar p {
+        margin: 0 0 0.75rem;
+        font-size: 0.85rem;
+        color: var(--color-base-content-muted, rgba(248, 250, 252, 0.72));
+      }
+
+      .sidebar nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0.75rem 0 0;
+        display: grid;
+        gap: 0.25rem;
+        font-size: 0.85rem;
+      }
+
+      .sidebar nav a {
+        text-decoration: none;
+        color: inherit;
+        padding: 0.25rem 0.1rem;
+      }
+
+      .sidebar nav a:hover {
+        text-decoration: underline;
+      }
+
+      .content {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        padding-bottom: 3rem;
+      }
+
+      .section {
+        border-bottom: var(
+          --border-subtle,
+          1px solid rgba(255, 255, 255, 0.05)
+        );
+        padding-bottom: 1.5rem;
+      }
+
+      .section:last-of-type {
+        border-bottom: none;
+      }
+
+      .section-title {
+        font-family: var(--font-display, inherit);
+        font-size: 1.25rem;
+        margin: 0 0 0.25rem;
+      }
+
+      .section-subtitle {
+        font-size: 0.9rem;
+        margin: 0 0 1rem;
+        color: var(--color-base-content-muted, rgba(248, 250, 252, 0.72));
+      }
+
+      .token-group-title {
+        font-size: 0.95rem;
+        font-weight: 600;
+        margin: 0 0 0.5rem;
+      }
+
+      .token-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+      }
+
+      .token-swatch {
+        border: var(--border-subtle, 1px solid rgba(255, 255, 255, 0.05));
+        border-radius: var(--radius-box, 1rem);
+        padding: 0.75rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+        background-color: var(--color-base-100, #020617);
+        box-shadow: var(--elevation-1-default, none);
+      }
+
+      .token-swatch-sample {
+        height: 2.5rem;
+        border-radius: var(--radius-field, 1rem);
+        border: var(--border-subtle, 1px solid rgba(255, 255, 255, 0.05));
+      }
+
+      .token-swatch-label {
+        font-size: 0.75rem;
+        line-height: 1.3;
+      }
+
+      .token-swatch-label code {
+        font-family: var(
+          --font-mono,
+          ui-monospace,
+          SFMono-Regular,
+          Menlo,
+          Monaco,
+          Consolas,
+          "Liberation Mono",
+          "Courier New",
+          monospace
+        );
+        font-size: 0.7rem;
+      }
+
+      .token-swatch-desc {
+        opacity: 0.75;
+      }
+
+      .component-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        align-items: center;
+      }
+
+      .component-column {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        min-width: 220px;
+      }
+
+      .component-label {
+        font-size: 0.8rem;
+        opacity: 0.8;
+      }
+
+      .code-inline {
+        font-family: var(
+          --font-mono,
+          ui-monospace,
+          SFMono-Regular,
+          Menlo,
+          Monaco,
+          Consolas,
+          "Liberation Mono",
+          "Courier New",
+          monospace
+        );
+        font-size: 0.75rem;
+        background-color: var(--neutral-100);
+        padding: 0.1rem 0.25rem;
+        border-radius: 0.25rem;
+      }
+
+      table.preview-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.85rem;
+      }
+
+      table.preview-table th,
+      table.preview-table td {
+        text-align: left;
+        padding: 0.5rem 0.5rem;
+        border-bottom: var(--border-subtle, 1px solid rgba(148, 163, 184, 0.3));
+      }
+
+      table.preview-table th {
+        font-weight: 600;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+        color: var(--color-base-content-muted, rgba(148, 163, 184, 0.9));
+      }
+
+      .stats-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+    </style>
+  </head>
+  <body class="base">
+    <main class="page">
+      <!-- Sidebar / índice -->
+      <aside class="sidebar">
+        <h1>dataint-ui playground</h1>
+        <p>
+          Hoja interna de muestras para validar tokens y componentes de
+          <strong>dataint-ui</strong>. Cambiar el atributo
+          <span class="code-inline">data-theme</span> en
+          <span class="code-inline">&lt;html&gt;</span> para ver
+          <span class="code-inline">light</span> /
+          <span class="code-inline">dark</span>.
+        </p>
+
+        <nav>
+          <ul>
+            <li><strong>Tokens</strong></li>
+            <li><a href="#tokens-color">Colores</a></li>
+            <li><a href="#tokens-typography">Tipografía</a></li>
+            <li><a href="#tokens-borders">Bordes</a></li>
+            <li><a href="#tokens-radius">Radios</a></li>
+            <li><a href="#tokens-elevation">Sombras</a></li>
+          </ul>
+          <ul style="margin-top: 1rem">
+            <li><strong>Componentes</strong></li>
+            <li><a href="#components-action">Acción</a></li>
+            <li><a href="#components-forms">Formularios</a></li>
+            <li><a href="#components-containers">Contenedores</a></li>
+            <li><a href="#components-navigation">Navegación</a></li>
+            <li><a href="#components-feedback">Feedback</a></li>
+            <li><a href="#components-badges">Badges</a></li>
+            <li><a href="#components-data">Datos</a></li>
+            <li><a href="#components-overlays">Superposiciones</a></li>
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- Contenido principal -->
+      <div class="content">
+        <!-- TOKENS: COLORES -->
+        <section id="tokens-color" class="section">
+          <h2 class="section-title">Tokens de color</h2>
+          <p class="section-subtitle">
+            Muestra de tokens semánticos de color (superficies, contenido e
+            intenciones:
+            <span class="code-inline">primary</span>,
+            <span class="code-inline">success</span>,
+            <span class="code-inline">warning</span>, etc.).
+          </p>
+
+          <h3 class="token-group-title">Superficies base</h3>
+          <div class="token-grid">
+            <div class="token-swatch">
+              <div
+                class="token-swatch-sample"
+                style="background-color: var(--color-base-100)"
+              ></div>
+              <div class="token-swatch-label">
+                <div><code>--color-base-100</code></div>
+                <div class="token-swatch-desc">
+                  Superficie principal (background).
+                </div>
+              </div>
+            </div>
+            <div class="token-swatch">
+              <div
+                class="token-swatch-sample"
+                style="background-color: var(--color-base-200)"
+              ></div>
+              <div class="token-swatch-label">
+                <div><code>--color-base-200</code></div>
+                <div class="token-swatch-desc">
+                  Superficie secundaria (contenedores).
+                </div>
+              </div>
+            </div>
+            <div class="token-swatch">
+              <div
+                class="token-swatch-sample"
+                style="background-color: var(--color-base-300)"
+              ></div>
+              <div class="token-swatch-label">
+                <div><code>--color-base-300</code></div>
+                <div class="token-swatch-desc">
+                  Superficie elevada / paneles destacados.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="token-group-title">Contenido base</h3>
+          <div class="token-grid">
+            <div class="token-swatch">
+              <div
+                class="token-swatch-sample"
+                style="
+                  background: var(--color-base-100);
+                  color: var(--color-base-content);
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  font-size: 0.85rem;
+                "
+              >
+                Texto base
+              </div>
+              <div class="token-swatch-label">
+                <div><code>--color-base-content</code></div>
+                <div class="token-swatch-desc">Texto principal.</div>
+              </div>
+            </div>
+            <div class="token-swatch">
+              <div
+                class="token-swatch-sample"
+                style="
+                  background: var(--color-base-100);
+                  color: var(--color-base-content-muted);
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  font-size: 0.85rem;
+                "
+              >
+                Texto muted
+              </div>
+              <div class="token-swatch-label">
+                <div><code>--color-base-content-muted</code></div>
+                <div class="token-swatch-desc">Texto de baja relevancia.</div>
+              </div>
+            </div>
+            <div class="token-swatch">
+              <div
+                class="token-swatch-sample"
+                style="
+                  background: var(--color-base-100);
+                  color: var(--color-base-content-subtle);
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  font-size: 0.85rem;
+                "
+              >
+                Texto subtle
+              </div>
+              <div class="token-swatch-label">
+                <div><code>--color-base-content-subtle</code></div>
+                <div class="token-swatch-desc">
+                  Texto de muy baja jerarquía.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="token-group-title">Intenciones (brand & status)</h3>
+          <div class="token-grid">
+            <div class="token-swatch">
+              <div
+                class="token-swatch-sample"
+                style="background-color: var(--color-primary)"
+              ></div>
+              <div class="token-swatch-label">
+                <div><code>--color-primary</code></div>
+                <div class="token-swatch-desc">
+                  Acciones primarias / highlights de marca.
+                </div>
+              </div>
+            </div>
+            <div class="token-swatch">
+              <div
+                class="token-swatch-sample"
+                style="background-color: var(--color-secondary)"
+              ></div>
+              <div class="token-swatch-label">
+                <div><code>--color-secondary</code></div>
+                <div class="token-swatch-desc">
+                  Acciones secundarias / énfasis alterno.
+                </div>
+              </div>
+            </div>
+            <div class="token-swatch">
+              <div
+                class="token-swatch-sample"
+                style="background-color: var(--color-accent)"
+              ></div>
+              <div class="token-swatch-label">
+                <div><code>--color-accent</code></div>
+                <div class="token-swatch-desc">
+                  Detalles decorativos / acentos suaves.
+                </div>
+              </div>
+            </div>
+            <div class="token-swatch">
+              <div
+                class="token-swatch-sample"
+                style="background-color: var(--color-neutral)"
+              ></div>
+              <div class="token-swatch-label">
+                <div><code>--color-neutral</code></div>
+                <div class="token-swatch-desc">
+                  Backgrounds y contornos neutros.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="token-grid">
+            <div class="token-swatch">
+              <div
+                class="token-swatch-sample"
+                style="background-color: var(--color-info)"
+              ></div>
+              <div class="token-swatch-label">
+                <div><code>--color-info</code></div>
+                <div class="token-swatch-desc">Mensajes informativos.</div>
+              </div>
+            </div>
+            <div class="token-swatch">
+              <div
+                class="token-swatch-sample"
+                style="background-color: var(--color-success)"
+              ></div>
+              <div class="token-swatch-label">
+                <div><code>--color-success</code></div>
+                <div class="token-swatch-desc">
+                  Mensajes de éxito / confirmación.
+                </div>
+              </div>
+            </div>
+            <div class="token-swatch">
+              <div
+                class="token-swatch-sample"
+                style="background-color: var(--color-warning)"
+              ></div>
+              <div class="token-swatch-label">
+                <div><code>--color-warning</code></div>
+                <div class="token-swatch-desc">
+                  Advertencias / riesgos moderados.
+                </div>
+              </div>
+            </div>
+            <div class="token-swatch">
+              <div
+                class="token-swatch-sample"
+                style="background-color: var(--color-error)"
+              ></div>
+              <div class="token-swatch-label">
+                <div><code>--color-error</code></div>
+                <div class="token-swatch-desc">Errores / estados críticos.</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- TOKENS: TIPOGRAFÍA -->
+        <section id="tokens-typography" class="section">
+          <h2 class="section-title">Tokens de tipografía</h2>
+          <p class="section-subtitle">
+            Familias semánticas de tipografía. Los tamaños se controlan con la
+            escala nativa de Tailwind (por ejemplo,
+            <span class="code-inline">text-sm</span>,
+            <span class="code-inline">text-base</span>,
+            <span class="code-inline">text-lg</span>).
+          </p>
+
+          <div class="token-grid">
+            <div class="token-swatch" style="font-family: var(--font-body)">
+              <div class="token-swatch-label">
+                <div><code>--font-body</code></div>
+                <div class="token-swatch-desc">
+                  Texto de interfaz, párrafos, labels.
+                </div>
+              </div>
+              <p class="text-base">
+                Ejemplo cuerpo <span class="code-inline">text-base</span> con
+                <span class="code-inline">--font-body</span>.
+              </p>
+              <p class="text-sm" style="opacity: 0.8">
+                Ejemplo cuerpo <span class="code-inline">text-sm</span>.
+              </p>
+            </div>
+
+            <div class="token-swatch" style="font-family: var(--font-display)">
+              <div class="token-swatch-label">
+                <div><code>--font-display</code></div>
+                <div class="token-swatch-desc">
+                  Títulos, headings y textos destacados.
+                </div>
+              </div>
+              <p class="text-xl">
+                Heading <span class="code-inline">text-xl</span> display.
+              </p>
+              <p class="text-base" style="opacity: 0.8">
+                Subtítulo con <span class="code-inline">--font-display</span>.
+              </p>
+            </div>
+
+            <div class="token-swatch" style="font-family: var(--font-mono)">
+              <div class="token-swatch-label">
+                <div><code>--font-mono</code></div>
+                <div class="token-swatch-desc">
+                  Código, métricas, datos tabulares.
+                </div>
+              </div>
+              <p class="text-sm">
+                <span class="code-inline">const incidents = 128;</span>
+              </p>
+            </div>
+
+            <div class="token-swatch" style="font-family: var(--font-serif)">
+              <div class="token-swatch-label">
+                <div><code>--font-serif</code></div>
+                <div class="token-swatch-desc">
+                  Contenido editorial, énfasis especiales.
+                </div>
+              </div>
+              <p class="text-base">
+                Ejemplo de texto serif para resúmenes o descripciones largas.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- TOKENS: BORDES -->
+        <section id="tokens-borders" class="section">
+          <h2 class="section-title">Tokens de bordes</h2>
+          <p class="section-subtitle">
+            Anchuras y estilos básicos de borde aplicados a superficies
+            estándar.
+          </p>
+
+          <div class="token-grid">
+            <div class="token-swatch">
+              <div
+                class="token-swatch-sample"
+                style="
+                  border: var(--border-subtle);
+                  background: var(--color-base-100);
+                "
+              ></div>
+              <div class="token-swatch-label">
+                <div><code>--border-subtle</code></div>
+                <div class="token-swatch-desc">
+                  Borde estándar para cards, inputs y superficies neutras.
+                </div>
+              </div>
+            </div>
+
+            <div class="token-swatch">
+              <div
+                class="token-swatch-sample"
+                style="
+                  border: var(--border-base);
+                  background: var(--color-base-100);
+                "
+              ></div>
+              <div class="token-swatch-label">
+                <div><code>--border-base</code></div>
+                <div class="token-swatch-desc">
+                  Borde estructural más marcado (separadores fuertes).
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- TOKENS: RADIOS -->
+        <section id="tokens-radius" class="section">
+          <h2 class="section-title">Tokens de redondeo de esquinas</h2>
+          <p class="section-subtitle">
+            Radios semánticos para selectores, campos y superficies (todos con
+            base 1rem en v1).
+          </p>
+
+          <div class="token-grid">
+            <div class="token-swatch">
+              <div
+                class="token-swatch-sample"
+                style="
+                  border-radius: var(--radius-selector);
+                  background: var(--color-primary);
+                "
+              ></div>
+              <div class="token-swatch-label">
+                <div><code>--radius-selector</code></div>
+                <div class="token-swatch-desc">
+                  Elementos pequeños de selección (badges, chips, toggles).
+                </div>
+              </div>
+            </div>
+
+            <div class="token-swatch">
+              <div
+                class="token-swatch-sample"
+                style="
+                  border-radius: var(--radius-field);
+                  background: var(--color-base-200);
+                "
+              ></div>
+              <div class="token-swatch-label">
+                <div><code>--radius-field</code></div>
+                <div class="token-swatch-desc">
+                  Inputs, botones, selects, tabs.
+                </div>
+              </div>
+            </div>
+
+            <div class="token-swatch">
+              <div
+                class="token-swatch-sample"
+                style="
+                  border-radius: var(--radius-box);
+                  background: var(--color-base-200);
+                "
+              ></div>
+              <div class="token-swatch-label">
+                <div><code>--radius-box</code></div>
+                <div class="token-swatch-desc">
+                  Cards, paneles y contenedores estructurales.
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- TOKENS: ELEVACIÓN -->
+        <section id="tokens-elevation" class="section">
+          <h2 class="section-title">Tokens de elevación (sombras)</h2>
+          <p class="section-subtitle">
+            Niveles de profundidad 1–4 usando sombras semánticas
+            <span class="code-inline">--elevation-[n]-default</span>.
+          </p>
+
+          <div class="token-grid">
+            <div
+              class="token-swatch"
+              style="box-shadow: var(--elevation-1-default)"
+            >
+              <div class="token-swatch-label">
+                <div><code>--elevation-1-default</code></div>
+                <div class="token-swatch-desc">
+                  Elevación sutil, útil para estados <em>hover</em> o tarjetas
+                  muy ligeras.
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="token-swatch"
+              style="box-shadow: var(--elevation-2-default)"
+            >
+              <div class="token-swatch-label">
+                <div><code>--elevation-2-default</code></div>
+                <div class="token-swatch-desc">
+                  Elevación estándar para cards y paneles principales.
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="token-swatch"
+              style="box-shadow: var(--elevation-3-default)"
+            >
+              <div class="token-swatch-label">
+                <div><code>--elevation-3-default</code></div>
+                <div class="token-swatch-desc">
+                  Superficies flotantes (menús, paneles superpuestos).
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="token-swatch"
+              style="box-shadow: var(--elevation-4-default)"
+            >
+              <div class="token-swatch-label">
+                <div><code>--elevation-4-default</code></div>
+                <div class="token-swatch-desc">
+                  Modales y overlays de máxima prioridad visual.
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- COMPONENTES: ACCIÓN -->
+        <section id="components-action" class="section">
+          <h2 class="section-title">Componentes — Acción</h2>
+          <p class="section-subtitle">
+            Componentes que disparan operaciones concretas: botones y enlaces
+            con apariencia de acción.
+          </p>
+
+          <div class="component-grid">
+            <div class="component-column">
+              <span class="component-label"
+                ><code>.btn</code> (acción primaria)</span
+              >
+              <button class="btn btn-primary">Primary button</button>
+            </div>
+
+            <div class="component-column">
+              <span class="component-label"
+                ><code>.btn</code> (acción neutra)</span
+              >
+              <button class="btn">Default button</button>
+            </div>
+
+            <div class="component-column">
+              <span class="component-label"
+                ><code>.link</code> (acción tipo enlace)</span
+              >
+              <a href="#" class="link">Action link</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- COMPONENTES: FORMULARIOS -->
+        <section id="components-forms" class="section">
+          <h2 class="section-title">
+            Componentes — Formularios y entrada de datos
+          </h2>
+          <p class="section-subtitle">
+            Campos para capturar información del usuario: inputs, selects y
+            controles binarios.
+          </p>
+
+          <div class="component-grid">
+            <div class="component-column">
+              <span class="component-label"><code>.input</code></span>
+              <input class="input" placeholder="Input placeholder" />
+            </div>
+
+            <div class="component-column">
+              <span class="component-label"><code>.select</code></span>
+              <select class="select">
+                <option>Option A</option>
+                <option>Option B</option>
+                <option>Option C</option>
+              </select>
+            </div>
+
+            <div class="component-column">
+              <span class="component-label"><code>.checkbox</code></span>
+              <label
+                style="display: inline-flex; align-items: center; gap: 0.4rem"
+              >
+                <input type="checkbox" class="checkbox" />
+                <span style="font-size: 0.85rem">Checkbox label</span>
+              </label>
+            </div>
+
+            <div class="component-column">
+              <span class="component-label"><code>.radio</code></span>
+              <label
+                style="display: inline-flex; align-items: center; gap: 0.4rem"
+              >
+                <input type="radio" name="demo-radio" class="radio" />
+                <span style="font-size: 0.85rem">Radio label</span>
+              </label>
+            </div>
+
+            <div class="component-column">
+              <span class="component-label"><code>.toggle</code></span>
+              <label
+                style="display: inline-flex; align-items: center; gap: 0.4rem"
+              >
+                <input type="checkbox" class="toggle" />
+                <span style="font-size: 0.85rem">Toggle label</span>
+              </label>
+            </div>
+          </div>
+        </section>
+
+        <!-- COMPONENTES: CONTENEDORES Y SUPERFICIES -->
+        <section id="components-containers" class="section">
+          <h2 class="section-title">
+            Componentes — Contenedores y superficies
+          </h2>
+          <p class="section-subtitle">
+            Cards, paneles y divisores que agrupan y jerarquizan contenido.
+          </p>
+
+          <div class="component-grid">
+            <div class="component-column" style="min-width: 260px">
+              <span class="component-label"><code>.card</code></span>
+              <div class="card">
+                <h3>Card title</h3>
+                <p style="font-size: 0.9rem">
+                  Some content text inside a generic card surface.
+                </p>
+                <div style="margin-top: 0.75rem">
+                  <button class="btn btn-primary">Primary action</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="component-column">
+              <span class="component-label"><code>.divider</code></span>
+              <div class="divider">Divider label</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- COMPONENTES: NAVEGACIÓN Y ESTRUCTURA -->
+        <section id="components-navigation" class="section">
+          <h2 class="section-title">Componentes — Navegación y estructura</h2>
+          <p class="section-subtitle">
+            Menús y estructuras que ayudan a entender la jerarquía de vistas.
+          </p>
+
+          <div class="component-grid">
+            <div class="component-column">
+              <span class="component-label"><code>.menu</code></span>
+              <ul class="menu">
+                <li class="menu-title">Main section</li>
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">Incidents</a></li>
+                <li><a href="#">Assets</a></li>
+              </ul>
+            </div>
+
+            <div class="component-column">
+              <span class="component-label"><code>.dropdown</code></span>
+              <div class="dropdown">
+                <!-- La estructura interna exacta puede ajustarse según la implementación final -->
+                <button class="btn">Dropdown trigger</button>
+                <p style="font-size: 0.8rem; margin-top: 0.5rem; opacity: 0.8">
+                  Overlay de ejemplo para menús contextuales.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- COMPONENTES: FEEDBACK Y ESTADO DEL SISTEMA -->
+        <section id="components-feedback" class="section">
+          <h2 class="section-title">
+            Componentes — Feedback y estado del sistema
+          </h2>
+          <p class="section-subtitle">
+            Mensajes y estados que comunican qué está ocurriendo en el sistema
+            (alertas, loaders).
+          </p>
+
+          <div class="component-grid">
+            <div class="component-column" style="min-width: 260px">
+              <span class="component-label"><code>.alert</code></span>
+              <div class="alert">
+                <span>Neutral alert — basic alert layout.</span>
+              </div>
+              <div
+                class="alert"
+                style="
+                  margin-top: 0.5rem;
+                  border-left: 4px solid var(--color-success);
+                "
+              >
+                <span>Success alert — uses <code>--color-success</code>.</span>
+              </div>
+              <div
+                class="alert"
+                style="
+                  margin-top: 0.5rem;
+                  border-left: 4px solid var(--color-error);
+                "
+              >
+                <span>Error alert — uses <code>--color-error</code>.</span>
+              </div>
+            </div>
+
+            <div class="component-column">
+              <span class="component-label"><code>.loading</code></span>
+              <div style="display: flex; flex-direction: column; gap: 0.5rem">
+                <div class="loading"></div>
+                <button class="btn btn-primary">
+                  <span class="loading" style="margin-right: 0.5rem"></span>
+                  Loading inside button
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- COMPONENTES: ETIQUETAS, CHIPS Y BADGES -->
+        <section id="components-badges" class="section">
+          <h2 class="section-title">Componentes — Etiquetas, chips y badges</h2>
+          <p class="section-subtitle">
+            Indicadores compactos de estado o categoría que complementan otros
+            elementos.
+          </p>
+
+          <div class="component-grid">
+            <div class="component-column">
+              <span class="component-label"><code>.badge</code></span>
+              <div style="display: flex; flex-wrap: wrap; gap: 0.5rem">
+                <span class="badge">Default badge</span>
+                <span class="badge" style="background: var(--color-success)">
+                  Success badge
+                </span>
+                <span
+                  class="badge"
+                  style="
+                    background: var(--color-warning);
+                    color: var(--color-warning-content);
+                  "
+                >
+                  Warning badge
+                </span>
+                <span class="badge" style="background: var(--color-error)">
+                  Error badge
+                </span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- COMPONENTES: TABLAS Y DESPLIEGUE DE DATOS -->
+        <section id="components-data" class="section">
+          <h2 class="section-title">
+            Componentes — Tablas y despliegue de datos
+          </h2>
+          <p class="section-subtitle">
+            Tablas y bloques de métricas para presentar información
+            estructurada.
+          </p>
+
+          <div class="component-grid">
+            <div class="component-column" style="min-width: 320px">
+              <span class="component-label"><code>.table</code></span>
+              <div class="table">
+                <table class="preview-table">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Location</th>
+                      <th>Type</th>
+                      <th>Severity</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>#1234</td>
+                      <td>CDMX / Cuauhtémoc</td>
+                      <td>Theft</td>
+                      <td>
+                        <span
+                          class="badge"
+                          style="
+                            background: var(--color-warning);
+                            color: var(--color-warning-content);
+                          "
+                        >
+                          Medium
+                        </span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>#1235</td>
+                      <td>CDMX / Benito Juárez</td>
+                      <td>Robbery</td>
+                      <td>
+                        <span
+                          class="badge"
+                          style="background: var(--color-error)"
+                        >
+                          High
+                        </span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="component-column" style="min-width: 260px">
+              <span class="component-label"
+                >Stats (<code>.stats</code>, <code>.stat</code>)</span
+              >
+              <div class="stats stats-row">
+                <div class="stat">
+                  <div class="stat-title">Incidents (24h)</div>
+                  <div class="stat-value">128</div>
+                </div>
+                <div class="stat">
+                  <div class="stat-title">Avg. risk score</div>
+                  <div class="stat-value">3.7</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- COMPONENTES: SUPERPOSICIONES -->
+        <section id="components-overlays" class="section">
+          <h2 class="section-title">
+            Componentes — Superposiciones (Overlays)
+          </h2>
+          <p class="section-subtitle">
+            Superficies flotantes que se muestran por encima del contenido
+            principal. En esta versión se ilustra el uso de
+            <span class="code-inline">.dropdown</span> como overlay básico; la
+            implementación final podrá extender placement, align, offset, etc.
+          </p>
+
+          <div class="component-grid">
+            <div class="component-column" style="min-width: 260px">
+              <div
+                class="dropdown"
+                style="
+                  padding: 0.75rem;
+                  border-radius: var(--radius-box);
+                  border: var(--border-subtle);
+                "
+              >
+                <button class="btn">Dropdown trigger</button>
+                <div
+                  style="
+                    margin-top: 0.5rem;
+                    padding: 0.5rem;
+                    border-radius: var(--radius-box);
+                    background: var(--color-base-300);
+                    box-shadow: var(--elevation-3-default);
+                    font-size: 0.8rem;
+                  "
+                >
+                  Overlay content sample (menu / actions).
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
     </main>
   </body>
 </html>
