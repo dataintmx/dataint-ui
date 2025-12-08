@@ -58,6 +58,32 @@
   --color-border-subtle: var(--neutral-100);
   --color-border-strong: var(--neutral-200);
   --color-border-muted: color-mix(in srgb, var(--neutral-200) 70%, transparent);
+
+  /* Chart data colors (defaults = light) */
+  --color-data-1: #2e435f;
+  --color-data-2: #688ae8;
+  --color-data-3: #c33d69;
+  --color-data-4: #2ea597;
+  --color-data-5: #8456ce;
+  --color-data-6: #e07941;
+  --color-data-7: #3759ce;
+  --color-data-8: #962249;
+  --color-data-9: #096f64;
+  --color-data-10: #6237a7;
+  --color-data-11: #a84401;
+  --color-data-12: #273ea5;
+  --color-data-13: #780d35;
+  --color-data-14: #03524a;
+  --color-data-15: #4a238b;
+  --color-data-16: #7e3103;
+  --color-data-17: #1b2b88;
+  --color-data-18: #ce567c;
+  --color-data-19: #003e38;
+  --color-data-20: #9469d6;
+  --color-data-21: #602400;
+  --color-data-22: #4066df;
+  --color-data-23: #a32952;
+  --color-data-24: #0d7d70;
 }
 
 /* 2) Semantic defaults también en @theme
@@ -116,6 +142,32 @@
   --color-border-subtle: var(--neutral-100);
   --color-border-strong: var(--neutral-200);
   --color-border-muted: color-mix(in srgb, var(--neutral-200) 70%, transparent);
+
+  /* Chart data colors (para Tailwind, mismos defaults que light) */
+  --color-data-1: #2e435f;
+  --color-data-2: #688ae8;
+  --color-data-3: #c33d69;
+  --color-data-4: #2ea597;
+  --color-data-5: #8456ce;
+  --color-data-6: #e07941;
+  --color-data-7: #3759ce;
+  --color-data-8: #962249;
+  --color-data-9: #096f64;
+  --color-data-10: #6237a7;
+  --color-data-11: #a84401;
+  --color-data-12: #273ea5;
+  --color-data-13: #780d35;
+  --color-data-14: #03524a;
+  --color-data-15: #4a238b;
+  --color-data-16: #7e3103;
+  --color-data-17: #1b2b88;
+  --color-data-18: #ce567c;
+  --color-data-19: #003e38;
+  --color-data-20: #9469d6;
+  --color-data-21: #602400;
+  --color-data-22: #4066df;
+  --color-data-23: #a32952;
+  --color-data-24: #0d7d70;
 }
 
 /* 3) Light theme override (conceptualmente igual al default)
@@ -165,6 +217,32 @@
   --color-border-subtle: var(--neutral-100);
   --color-border-strong: var(--neutral-200);
   --color-border-muted: color-mix(in srgb, var(--neutral-200) 70%, transparent);
+
+  /* Chart data colors for light theme */
+  --color-data-1: #2e435f;
+  --color-data-2: #688ae8;
+  --color-data-3: #c33d69;
+  --color-data-4: #2ea597;
+  --color-data-5: #8456ce;
+  --color-data-6: #e07941;
+  --color-data-7: #3759ce;
+  --color-data-8: #962249;
+  --color-data-9: #096f64;
+  --color-data-10: #6237a7;
+  --color-data-11: #a84401;
+  --color-data-12: #273ea5;
+  --color-data-13: #780d35;
+  --color-data-14: #03524a;
+  --color-data-15: #4a238b;
+  --color-data-16: #7e3103;
+  --color-data-17: #1b2b88;
+  --color-data-18: #ce567c;
+  --color-data-19: #003e38;
+  --color-data-20: #9469d6;
+  --color-data-21: #602400;
+  --color-data-22: #4066df;
+  --color-data-23: #a32952;
+  --color-data-24: #0d7d70;
 }
 
 /* 4) Dark theme semantic tokens
@@ -220,4 +298,30 @@
   --color-border-subtle: var(--neutral-800);
   --color-border-strong: var(--neutral-850);
   --color-border-muted: color-mix(in srgb, var(--neutral-800) 70%, transparent);
+
+  /* Chart data colors for dark theme */
+  --color-data-1: #59bba1;
+  --color-data-2: #486de8;
+  --color-data-3: #e07f9d;
+  --color-data-4: #018977;
+  --color-data-5: #b088f5;
+  --color-data-6: #c55305;
+  --color-data-7: #8ea9ff;
+  --color-data-8: #ffb0c8;
+  --color-data-9: #40bfa9;
+  --color-data-10: #d6baff;
+  --color-data-11: #f89256;
+  --color-data-12: #c3d1ff;
+  --color-data-13: #ffdfe8;
+  --color-data-14: #94e0d0;
+  --color-data-15: #efe2ff;
+  --color-data-16: #ffc6a4;
+  --color-data-17: #ecf0ff;
+  --color-data-18: #d56889;
+  --color-data-19: #d7f7f0;
+  --color-data-20: #a173ea;
+  --color-data-21: #ffede2;
+  --color-data-22: #7698fe;
+  --color-data-23: #f5a2bb;
+  --color-data-24: #00b09b;
 }
