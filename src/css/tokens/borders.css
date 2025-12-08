@@ -1,0 +1,27 @@
+/* ============================================
+   Border tokens
+   ============================================ */
+
+/* 1) Primitivos + semánticos para Tailwind */
+@theme {
+  /* Primitive border tokens */
+  --border-width-base: 1px;
+  --border-style-base: solid;
+
+  /* Semantic border shorthands (como tokens de theme) */
+  --border-subtle: var(--border-width-base) var(--border-style-base)
+    var(--color-border-subtle);
+  --border-base: var(--border-width-base) var(--border-style-base)
+    var(--color-border-strong);
+}
+
+/* 2) Lo mismo para el navegador (playground + app) */
+:root {
+  --border-width-base: 1px;
+  --border-style-base: solid;
+
+  --border-subtle: var(--border-width-base) var(--border-style-base)
+    var(--color-border-subtle);
+  --border-base: var(--border-width-base) var(--border-style-base)
+    var(--color-border-strong);
+}

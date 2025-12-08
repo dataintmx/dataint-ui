@@ -1,4 +1,15 @@
-@import "./css/tokens.css";
+/* 1) Tokens primitivos */
+@import "./css/tokens/colors.primitives.css";
+@import "./css/tokens/typography.css";
+@import "./css/tokens/borders.css";
+@import "./css/tokens/radius.css";
+@import "./css/tokens/elevation.css";
+@import "./css/tokens/spacing.css";
+@import "./css/tokens/sizes.css";
+
+/* 2) Tokens semánticos que dependen de los primitivos */
+@import "./css/tokens/colors.semantic.css";
+
 @import "./css/base.css";
 @import "./css/components.css";
 @import "./css/overlays.css";

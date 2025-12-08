@@ -1,0 +1,18 @@
+/* ============================================
+   Radius tokens (border-radius)
+   v1: todos los radios = 1rem
+   ============================================ */
+
+/* Para Tailwind */
+@theme {
+  --radius-selector: 1rem; /* badges, chips, toggles */
+  --radius-field: 1rem; /* inputs, buttons, selects, tabs */
+  --radius-box: 1rem; /* cards, panels, containers */
+}
+
+/* Para el navegador */
+:root {
+  --radius-selector: 1rem;
+  --radius-field: 1rem;
+  --radius-box: 1rem;
+}

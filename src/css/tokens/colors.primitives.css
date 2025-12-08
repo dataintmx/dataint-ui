@@ -1,0 +1,137 @@
+/* Brand + scales + neutrals used by semantic tokens */
+
+/* 1) Primitivos en @theme (para Tailwind / design tokens) */
+@theme {
+  /* Brand colors */
+  --keppel-green: #59bba1; /* oklch(0.7255 0.1008 173.63) */
+  --indigo-blue: #2e435f; /* oklch(0.3784 0.0551 255.88) */
+  --oxford-blue: #10253f; /* oklch(0.262 0.0561 254.86) */
+  --yonder-blue: #5e738e; /* oklch(0.549 0.0492 254.89) */
+  --silver-gray: #ebebeb; /* oklch(0.9401 0 0) */
+  --lavender-gray: #9297c4; /* oklch(0.6886 0.0663 279.56) */
+
+  /* Success green */
+  --lime-green-100: #f4fbd4;
+  --lime-green-200: #e8f8ab;
+  --lime-green-300: #d1ea7e;
+  --lime-green-400: #b5d65a;
+  --lime-green-500: #91bc2b;
+  --lime-green-600: #77a11f;
+  --lime-green-700: #5e8715;
+  --lime-green-800: #486d0d;
+  --lime-green-900: #375a08;
+
+  /* Info blue */
+  --azure-blue-100: #d8edfe;
+  --azure-blue-200: #b1d9fe;
+  --azure-blue-300: #89c1fe;
+  --azure-blue-400: #6cacfd;
+  --azure-blue-500: #3c89fc;
+  --azure-blue-600: #2b6ad8;
+  --azure-blue-700: #1e4eb5;
+  --azure-blue-800: #133692;
+  --azure-blue-900: #0b2578;
+
+  /* Warning yellow */
+  --sunglow-yellow-100: #fff9d3;
+  --sunglow-yellow-200: #fff2a8;
+  --sunglow-yellow-300: #ffea7c;
+  --sunglow-yellow-400: #ffe15c;
+  --sunglow-yellow-500: #ffd326;
+  --sunglow-yellow-600: #dbb01b;
+  --sunglow-yellow-700: #b78f13;
+  --sunglow-yellow-800: #936f0c;
+  --sunglow-yellow-900: #7a5907;
+
+  /* Danger red */
+  --light-red-100: #ffe8d8;
+  --light-red-200: #ffcbb2;
+  --light-red-300: #ffa88b;
+  --light-red-400: #ff866f;
+  --light-red-500: #ff4f3f;
+  --light-red-600: #db2e2e;
+  --light-red-700: #b71f2b;
+  --light-red-800: #931428;
+  --light-red-900: #7a0c27;
+
+  /* Neutrals */
+  --neutral-000: #f3f8f7;
+  --neutral-050: #eff6f4;
+  --neutral-100: #dfe6e4;
+  --neutral-200: #d0d6d4;
+
+  --neutral-800: #121917;
+  --neutral-850: #1c2321;
+  --neutral-900: #09100e;
+
+  /* Canonical body text neutral */
+  --neutral-body: #0f1a17;
+}
+
+/* 2) Mismos primitivos en :root para que el navegador siempre tenga valor */
+:root {
+  /* Brand colors */
+  --keppel-green: #59bba1;
+  --indigo-blue: #2e435f;
+  --oxford-blue: #10253f;
+  --yonder-blue: #5e738e;
+  --silver-gray: #ebebeb;
+  --lavender-gray: #9297c4;
+
+  /* Success green */
+  --lime-green-100: #f4fbd4;
+  --lime-green-200: #e8f8ab;
+  --lime-green-300: #d1ea7e;
+  --lime-green-400: #b5d65a;
+  --lime-green-500: #91bc2b;
+  --lime-green-600: #77a11f;
+  --lime-green-700: #5e8715;
+  --lime-green-800: #486d0d;
+  --lime-green-900: #375a08;
+
+  /* Info blue */
+  --azure-blue-100: #d8edfe;
+  --azure-blue-200: #b1d9fe;
+  --azure-blue-300: #89c1fe;
+  --azure-blue-400: #6cacfd;
+  --azure-blue-500: #3c89fc;
+  --azure-blue-600: #2b6ad8;
+  --azure-blue-700: #1e4eb5;
+  --azure-blue-800: #133692;
+  --azure-blue-900: #0b2578;
+
+  /* Warning yellow */
+  --sunglow-yellow-100: #fff9d3;
+  --sunglow-yellow-200: #fff2a8;
+  --sunglow-yellow-300: #ffea7c;
+  --sunglow-yellow-400: #ffe15c;
+  --sunglow-yellow-500: #ffd326;
+  --sunglow-yellow-600: #dbb01b;
+  --sunglow-yellow-700: #b78f13;
+  --sunglow-yellow-800: #936f0c;
+  --sunglow-yellow-900: #7a5907;
+
+  /* Danger red */
+  --light-red-100: #ffe8d8;
+  --light-red-200: #ffcbb2;
+  --light-red-300: #ffa88b;
+  --light-red-400: #ff866f;
+  --light-red-500: #ff4f3f;
+  --light-red-600: #db2e2e;
+  --light-red-700: #b71f2b;
+  --light-red-800: #931428;
+  --light-red-900: #7a0c27;
+
+  /* Neutrals */
+  --neutral-000: #f3f8f7;
+  --neutral-050: #eff6f4;
+  --neutral-100: #dfe6e4;
+  --neutral-200: #d0d6d4;
+
+  --neutral-800: #121917;
+  --neutral-850: #1c2321;
+  --neutral-900: #09100e;
+
+  /* Canonical body text neutral */
+  --neutral-body: #0f1a17;
+}
