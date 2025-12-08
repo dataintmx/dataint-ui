@@ -1,0 +1,239 @@
+/* ======================================================================
+   BTN — Componentes de Acción (DataInt UI)
+   ====================================================================== */
+
+/* ==========================
+   Base
+   ========================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-inline-gap);
+
+  /* Tipografía: hereda familia semántica del sistema */
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.875rem; /* equivalente aproximado a text-sm */
+  line-height: 1.2;
+
+  /* Altura mínima basada en tokens de control */
+  min-height: var(--control-height-md);
+
+  /* Densidad horizontal base */
+  padding-inline: var(--space-sm);
+  padding-block: 0; /* la altura viene de min-height + line-height */
+
+  /* Forma basada en tokens */
+  border-radius: var(--radius-field);
+  border-width: var(--border-width-base);
+  border-style: var(--border-style-base);
+
+  /* Estado neutro por defecto */
+  background-color: var(--color-base-200);
+  color: var(--color-base-content);
+  border-color: var(--color-border-subtle);
+
+  /* Interacción */
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  text-decoration: none;
+
+  /* Evitar stretch/shrink en contenedores flex */
+  flex-grow: 0;
+  flex-shrink: 0;
+
+  /* Motion (aún sin tokens específicos) */
+  transition: background-color 150ms ease-out, color 150ms ease-out,
+    border-color 150ms ease-out, transform 80ms ease-out;
+}
+
+/* Pequeño feedback de “press” */
+.btn:active {
+  transform: translateY(1px);
+}
+
+/* ======================================================================
+   Intents (solo usando tokens semánticos)
+   ====================================================================== */
+
+/* Primary */
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-primary-content);
+  border-color: transparent;
+}
+
+.btn-primary:hover {
+  /* oscurecemos un poco usando el mismo token como base */
+  background-color: color-mix(in srgb, var(--color-primary) 88%, #000 12%);
+}
+
+/* Secondary (neutro visual) */
+.btn-secondary {
+  background-color: var(--color-base-200);
+  color: var(--color-base-content);
+  border-color: var(--color-border-strong);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-base-300);
+}
+
+/* Danger / Destructive */
+.btn-danger {
+  background-color: var(--color-error);
+  color: var(--color-error-content);
+  border-color: transparent;
+}
+
+.btn-danger:hover {
+  background-color: color-mix(in srgb, var(--color-error) 88%, #000 12%);
+}
+
+/* ======================================================================
+   Variants (nivel de énfasis visual)
+   ====================================================================== */
+
+/* Outline: sin fondo, borde y texto con color de acción */
+.btn-outline {
+  background-color: transparent;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.btn-outline:hover {
+  background-color: color-mix(in srgb, var(--color-primary) 12%, transparent);
+}
+
+/* Ghost: sin borde ni fondo, solo texto de acción */
+.btn-ghost {
+  background-color: transparent;
+  color: var(--color-primary);
+  border-color: transparent;
+}
+
+.btn-ghost:hover {
+  background-color: color-mix(in srgb, var(--color-base-200) 40%, transparent);
+}
+
+/* ======================================================================
+   Sizes (altura mínima + densidad horizontal)
+   ====================================================================== */
+
+/* XS — acciones muy compactas (chips, tablas densas) */
+.btn-xs {
+  min-height: var(--control-height-sm);
+  font-size: 0.75rem;
+  padding-inline: var(--space-xs);
+}
+
+/* SM — compacto */
+.btn-sm {
+  min-height: var(--control-height-sm);
+  font-size: 0.875rem;
+  padding-inline: var(--space-sm);
+}
+
+/* MD — tamaño por defecto */
+.btn-md {
+  min-height: var(--control-height-md);
+  font-size: 0.875rem;
+  padding-inline: var(--space-sm);
+}
+
+/* LG — botón prominente */
+.btn-lg {
+  min-height: var(--control-height-lg);
+  font-size: 1rem;
+  padding-inline: var(--space-md);
+}
+
+/* ======================================================================
+   Width behavior
+   ====================================================================== */
+
+/* Ajustar estrictamente al contenido */
+.btn-fit {
+  width: auto;
+  max-width: max-content;
+}
+
+/* Ocupa todo el ancho disponible (fullWidth) */
+.btn-block {
+  width: 100%;
+}
+
+/* ======================================================================
+   Icon relationship
+   ====================================================================== */
+
+/* Solo ícono (botón compacto, ajustado al contenido) */
+.btn-icon-only {
+  padding-inline: var(--space-2xs);
+  padding-block: 0;
+  gap: 0;
+  width: auto;
+  max-width: max-content;
+}
+
+/* ======================================================================
+   Disabled state
+   ====================================================================== */
+
+.btn-disabled,
+.btn[disabled],
+.btn[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: 0.5;
+  transform: none;
+}
+
+/* ============================================================
+   BTN — Tailwind v4 @utility (para tu app real)
+   ============================================================ */
+
+@utility btn {
+  @apply .btn;
+}
+@utility btn-primary {
+  @apply .btn-primary;
+}
+@utility btn-secondary {
+  @apply .btn-secondary;
+}
+@utility btn-danger {
+  @apply .btn-danger;
+}
+
+@utility btn-outline {
+  @apply .btn-outline;
+}
+@utility btn-ghost {
+  @apply .btn-ghost;
+}
+
+@utility btn-xs {
+  @apply .btn-xs;
+}
+@utility btn-sm {
+  @apply .btn-sm;
+}
+@utility btn-md {
+  @apply .btn-md;
+}
+@utility btn-lg {
+  @apply .btn-lg;
+}
+
+@utility btn-block {
+  @apply .btn-block;
+}
+@utility btn-icon-only {
+  @apply .btn-icon-only;
+}
+@utility btn-disabled {
+  @apply .btn-disabled;
+}

@@ -1,0 +1,169 @@
+/* ======================================================================
+   LINK — Enlaces con apariencia de acción (DataInt UI)
+   ====================================================================== */
+
+/* ==========================
+   Base
+   ========================== */
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-inline-gap);
+
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.875rem; /* tamaño base similar a botones */
+  line-height: 1.2;
+
+  cursor: pointer;
+  user-select: none;
+  text-decoration: none;
+
+  /* Color base de acción (equivale a intent=primary) */
+  color: var(--color-primary);
+
+  /* Pequeña transición para color y subrayado */
+  transition: color 150ms ease-out, text-decoration-color 150ms ease-out,
+    background-color 150ms ease-out;
+}
+
+/* ======================================================================
+   Intents
+   ====================================================================== */
+
+/* Primary (por defecto) */
+.link-primary {
+  color: var(--color-primary);
+}
+
+.link-primary:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* Secondary: texto más neutro / menos énfasis */
+.link-secondary {
+  color: var(--color-base-content-muted);
+}
+
+.link-secondary:hover {
+  color: var(--color-base-content);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* Danger: acciones destructivas o críticas */
+.link-danger {
+  color: var(--color-error);
+}
+
+.link-danger:hover {
+  color: color-mix(in srgb, var(--color-error) 88%, #000 12%);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ======================================================================
+   Sizes
+   ====================================================================== */
+
+.link-xs {
+  font-size: 0.75rem;
+}
+
+.link-sm {
+  font-size: 0.875rem;
+}
+
+.link-md {
+  font-size: 1rem;
+}
+
+/* ======================================================================
+   Width behavior
+   ====================================================================== */
+
+/* Enlace que ocupa todo el ancho disponible (ej. ítems de menú) */
+.link-block {
+  display: inline-flex;
+  width: 100%;
+}
+
+/* ======================================================================
+   Icon relationship
+   ====================================================================== */
+
+/* Solo ícono (enlace compacto, ajustado al contenido) */
+.link-icon-only {
+  width: auto;
+  max-width: max-content;
+  padding: 0;
+  gap: 0;
+  justify-content: center;
+}
+
+/* Icono a la izquierda (default) */
+.link-icon-start {
+  flex-direction: row;
+}
+
+/* Icono a la derecha */
+.link-icon-end {
+  flex-direction: row-reverse;
+}
+
+/* ======================================================================
+   Disabled state
+   ====================================================================== */
+
+.link-disabled,
+.link[aria-disabled="true"] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ============================================================
+   LINK — Tailwind v4 @utility
+   ============================================================ */
+
+@utility link {
+  @apply .link;
+}
+@utility link-primary {
+  @apply .link-primary;
+}
+@utility link-secondary {
+  @apply .link-secondary;
+}
+@utility link-danger {
+  @apply .link-danger;
+}
+
+@utility link-xs {
+  @apply .link-xs;
+}
+@utility link-sm {
+  @apply .link-sm;
+}
+@utility link-md {
+  @apply .link-md;
+}
+
+@utility link-block {
+  @apply .link-block;
+}
+@utility link-icon-only {
+  @apply .link-icon-only;
+}
+@utility link-icon-start {
+  @apply .link-icon-start;
+}
+@utility link-icon-end {
+  @apply .link-icon-end;
+}
+
+@utility link-disabled {
+  @apply .link-disabled;
+}
