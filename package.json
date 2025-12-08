@@ -21,7 +21,8 @@
   "scripts": {
     "build": "postcss src/index.css -o dist/styles.css",
     "prepublishOnly": "npm run build",
-    "dev:playground": "npx serve playground"
+    "dev:playground": "npx serve playground",
+    "build:playground": "npx @tailwindcss/cli -i playground/css/input.css -o playground/css/output.css"
   },
   "peerDependencies": {
     "tailwindcss": ">=4.0.0"
