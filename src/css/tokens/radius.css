@@ -9,10 +9,3 @@
   --radius-field: 1rem; /* inputs, buttons, selects, tabs */
   --radius-box: 1rem; /* cards, panels, containers */
 }
-
-/* Para el navegador */
-:root {
-  --radius-selector: 1rem;
-  --radius-field: 1rem;
-  --radius-box: 1rem;
-}

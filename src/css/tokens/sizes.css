@@ -2,7 +2,6 @@
    Size tokens (heights for controls + components)
    ============================================ */
 
-/* Para Tailwind */
 @theme {
   /* Control heights (buttons, inputs, selects, etc.) */
   --control-height-sm: 2rem; /* ~32px */
@@ -15,20 +14,6 @@
   --height-field-lg: var(--control-height-lg);
 
   /* Heights for key components (v1 placeholders) */
-  --height-navbar: 3.5rem;
-  --height-toolbar: 3rem;
-}
-
-/* Para el navegador */
-:root {
-  --control-height-sm: 2rem;
-  --control-height-md: 2.5rem;
-  --control-height-lg: 3rem;
-
-  --height-field-sm: var(--control-height-sm);
-  --height-field-md: var(--control-height-md);
-  --height-field-lg: var(--control-height-lg);
-
   --height-navbar: 3.5rem;
   --height-toolbar: 3rem;
 }
