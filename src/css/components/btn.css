@@ -1,152 +1,386 @@
 /* ======================================================================
-   BTN — Action components (DataInt UI)
+   BTN — Action components (DataInt UI) — Daisy-like
    ====================================================================== */
 
 /* Base button utility */
 @utility btn {
-  /* Tailwind utilities for structure */
-  @apply inline-flex items-center justify-center;
-  @apply font-medium text-sm select-none whitespace-nowrap no-underline;
-  @apply cursor-pointer flex-none;
-  @apply transition-colors ease-out duration-150;
-
-  /* Design tokens */
-  gap: var(--space-inline-gap);
-  font-family: var(--font-body);
-  line-height: 1.2;
-
-  min-height: var(--control-height-md);
-  padding-inline: var(--space-sm);
-  padding-block: 0;
-
-  border-radius: var(--radius-field);
-  border-width: var(--border-width-base);
-  border-style: var(--border-style-base);
-
-  background-color: var(--color-base-200);
-  color: var(--color-base-content);
-  border-color: var(--color-border-subtle);
+  @apply flex items-center justify-center flex-shrink-0 flex-nowrap;
+  @apply select-none cursor-pointer align-middle text-center whitespace-nowrap no-underline;
+  @apply gap-1.5 font-sans font-semibold text-[0.875rem] leading-[24.5px];
+  @apply px-4 py-0 rounded border border-solid transition-colors duration-200 ease-[cubic-bezier(0,0,0.2,1)] shadow-none;
+  font-size: 0.875rem;
+  padding-inline: 1rem;
+  height: 40px;
+  width: auto;
+  max-width: max-content;
+  appearance: button;
+  box-sizing: border-box;
+  touch-action: manipulation;
+  border-width: 0.666667px;
+  border-radius: 4px;
+  border-color: var(--color-border-base, oklab(0.931 0 0));
+  background-color: var(--color-base-200, oklch(0.98 0 0));
+  color: var(--color-base-content, oklch(0.21 0.006 285.885));
+  background-size: auto, 0%;
+  box-shadow: oklch(1 0 0 / 0.06) 0px 0.5px 0px 0.5px inset,
+    oklab(0.98 0 0 / 0.3) 0px 3px 2px -2px,
+    oklab(0.98 0 0 / 0.3) 0px 4px 3px -2px;
+  text-shadow: oklch(1 0 0 / 0.15) 0px 0.5px 0px;
+  transition-property: color, background-color, border-color, box-shadow;
+  outline-offset: 2px;
 }
 
-.btn:active {
+/* Default hover: darken with subtle gray unless overridden by intent/variant */
+.btn:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]):not(
+    .btn-primary
+  ):not(.btn-secondary):not(.btn-accent):not(.btn-info):not(.btn-success):not(
+    .btn-warning
+  ):not(.btn-danger):not(.btn-error):not(.btn-outline):not(.btn-ghost) {
+  background-color: color-mix(
+    in srgb,
+    var(--color-base-200, #f3f4f6) 80%,
+    #000 20%
+  );
+}
+
+/* Active / press feedback */
+.btn:active:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
   transform: translateY(1px);
 }
 
-/* Disabled */
+/* Focus-visible outline */
+.btn:focus-visible,
+.btn:has(:focus-visible) {
+  outline-width: 2px;
+  outline-style: solid;
+  outline-color: currentColor;
+}
+
+/* ======================================================================
+   INTENTS (solid)
+   ====================================================================== */
+
+/* Solid intents */
+@utility btn-neutral {
+  background-color: var(--color-neutral);
+  color: var(--color-neutral-content);
+}
+@utility btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-primary-content);
+}
+@utility btn-secondary {
+  background-color: var(--color-secondary);
+  color: var(--color-secondary-content);
+}
+@utility btn-accent {
+  background-color: var(--color-accent);
+  color: var(--color-accent-content);
+}
+@utility btn-info {
+  background-color: var(--color-info);
+  color: var(--color-info-content);
+}
+@utility btn-success {
+  background-color: var(--color-success);
+  color: var(--color-success-content);
+}
+@utility btn-warning {
+  background-color: var(--color-warning);
+  color: var(--color-warning-content);
+}
+@utility btn-danger {
+  background-color: var(--color-error);
+  color: var(--color-error-content);
+}
+@utility btn-error {
+  background-color: var(--color-error);
+  color: var(--color-error-content);
+}
+
+.btn-neutral:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+  background-color: color-mix(in srgb, var(--color-neutral) 88%, #000 12%);
+}
+.btn-primary:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+  background-color: color-mix(in srgb, var(--color-primary) 88%, #000 12%);
+}
+.btn-secondary:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+  background-color: color-mix(in srgb, var(--color-secondary) 88%, #000 12%);
+}
+.btn-accent:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+  background-color: color-mix(in srgb, var(--color-accent) 88%, #000 12%);
+}
+.btn-info:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+  background-color: color-mix(in srgb, var(--color-info) 88%, #000 12%);
+}
+.btn-success:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+  background-color: color-mix(in srgb, var(--color-success) 88%, #000 12%);
+}
+.btn-warning:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+  background-color: color-mix(in srgb, var(--color-warning) 88%, #000 12%);
+}
+.btn-danger:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]),
+.btn-error:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+  background-color: color-mix(in srgb, var(--color-error) 88%, #000 12%);
+}
+
+/* ======================================================================
+   VARIANTS — OUTLINE & GHOST (Daisy-like)
+   ====================================================================== */
+
+/* Outline: sin relleno, borde y texto con color de intención */
+@utility btn-outline {
+  @apply border-solid;
+  color: var(--color-base-content);
+  border-color: var(--color-border-strong);
+}
+
+/* Outline + intent colors */
+/* Outline intents */
+.btn-outline.btn-neutral {
+  background-color: transparent;
+  color: var(--color-neutral);
+  border-color: var(--color-neutral);
+}
+.btn-outline.btn-primary {
+  background-color: transparent;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+.btn-outline.btn-secondary {
+  background-color: transparent;
+  color: var(--color-secondary);
+  border-color: var(--color-secondary);
+}
+.btn-outline.btn-accent {
+  background-color: transparent;
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+.btn-outline.btn-info {
+  background-color: transparent;
+  color: var(--color-info);
+  border-color: var(--color-info);
+}
+.btn-outline.btn-success {
+  background-color: transparent;
+  color: var(--color-success);
+  border-color: var(--color-success);
+}
+.btn-outline.btn-warning {
+  background-color: transparent;
+  color: var(--color-warning);
+  border-color: var(--color-warning);
+}
+.btn-outline.btn-danger,
+.btn-outline.btn-error {
+  background-color: transparent;
+  color: var(--color-error);
+  border-color: var(--color-error);
+}
+
+/* Hover outline: leve relleno tintado para mejorar legibilidad */
+.btn-outline:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+  background-color: color-mix(in srgb, currentColor 12%, #fff 88%);
+}
+
+/* Ghost: sin borde ni fondo, sólo texto con color de intención */
+@utility btn-ghost {
+  @apply bg-transparent border-solid;
+  background-color: transparent;
+  color: var(--color-base-content);
+  border-width: 1px;
+  border-color: transparent;
+}
+
+/* Ghost + intent (solo color de texto) */
+/* Ghost intents */
+.btn-ghost.btn-neutral {
+  color: var(--color-neutral);
+  background-color: transparent;
+}
+.btn-ghost.btn-primary {
+  color: var(--color-primary);
+  background-color: transparent;
+}
+.btn-ghost.btn-secondary {
+  color: var(--color-secondary);
+  background-color: transparent;
+}
+.btn-ghost.btn-accent {
+  color: var(--color-accent);
+  background-color: transparent;
+}
+.btn-ghost.btn-info {
+  color: var(--color-info);
+  background-color: transparent;
+}
+.btn-ghost.btn-success {
+  color: var(--color-success);
+  background-color: transparent;
+}
+.btn-ghost.btn-warning {
+  color: var(--color-warning);
+  background-color: transparent;
+}
+.btn-ghost.btn-danger,
+.btn-ghost.btn-error {
+  color: var(--color-error);
+  background-color: transparent;
+}
+
+/* Hover ghost: superficie sutil para evitar parecer igual al solid */
+.btn-ghost:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+  background-color: color-mix(in srgb, currentColor 8%, #fff 88%);
+  border-width: 1px;
+  border-style: solid;
+}
+/* Ghost hover por intent: color de borde igual al color de texto */
+.btn-ghost.btn-neutral:hover:not(
+    .btn-disabled,
+    [disabled],
+    [aria-disabled="true"]
+  ) {
+  border-color: var(--color-neutral);
+}
+.btn-ghost.btn-primary:hover:not(
+    .btn-disabled,
+    [disabled],
+    [aria-disabled="true"]
+  ) {
+  border-color: var(--color-primary);
+}
+.btn-ghost.btn-secondary:hover:not(
+    .btn-disabled,
+    [disabled],
+    [aria-disabled="true"]
+  ) {
+  border-color: var(--color-secondary);
+}
+.btn-ghost.btn-accent:hover:not(
+    .btn-disabled,
+    [disabled],
+    [aria-disabled="true"]
+  ) {
+  border-color: var(--color-accent);
+}
+.btn-ghost.btn-info:hover:not(
+    .btn-disabled,
+    [disabled],
+    [aria-disabled="true"]
+  ) {
+  border-color: var(--color-info);
+}
+.btn-ghost.btn-success:hover:not(
+    .btn-disabled,
+    [disabled],
+    [aria-disabled="true"]
+  ) {
+  border-color: var(--color-success);
+}
+.btn-ghost.btn-warning:hover:not(
+    .btn-disabled,
+    [disabled],
+    [aria-disabled="true"]
+  ) {
+  border-color: var(--color-warning);
+}
+.btn-ghost.btn-danger:hover:not(
+    .btn-disabled,
+    [disabled],
+    [aria-disabled="true"]
+  ),
+.btn-ghost.btn-error:hover:not(
+    .btn-disabled,
+    [disabled],
+    [aria-disabled="true"]
+  ) {
+  border-color: var(--color-error);
+}
+
+/* ======================================================================
+   SIZES
+   ====================================================================== */
+
+@utility btn-xs {
+  font-size: 0.6875rem;
+  padding-inline: 0.5rem;
+  height: 24px;
+}
+
+@utility btn-sm {
+  font-size: 0.75rem;
+  padding-inline: 0.75rem;
+  height: 32px;
+}
+
+@utility btn-md {
+  font-size: 0.875rem;
+  padding-inline: 1rem;
+  height: 40px;
+}
+
+@utility btn-lg {
+  font-size: 1.125rem;
+  padding-inline: 1.25rem;
+  height: 48px;
+}
+
+@utility btn-xl {
+  font-size: 1.375rem;
+  padding-inline: 1.5rem;
+  height: 56px;
+}
+
+/* ======================================================================
+   WIDTH BEHAVIOR
+   ====================================================================== */
+
+@utility btn-block {
+  max-width: 100%;
+}
+
+/* ======================================================================
+   ICON-ONLY & SHAPES (Daisy-like)
+   ====================================================================== */
+
+/* Icon-only square button */
+@utility btn-icon-square {
+  @apply h-10 w-10;
+  border-radius: var(--radius-field);
+}
+
+/* Icon-only circle button */
+@utility btn-icon-circle {
+  @apply rounded-full h-10 w-10;
+}
+
+/* ======================================================================
+   DISABLED
+   ====================================================================== */
+
 @utility btn-disabled {
-  cursor: not-allowed;
-  opacity: 0.5;
+  @apply cursor-not-allowed opacity-50 pointer-events-none;
   transform: none;
 }
+
+/* Soporta disabled desde HTML */
 .btn[disabled],
 .btn[aria-disabled="true"] {
   cursor: not-allowed;
   opacity: 0.5;
   transform: none;
+  pointer-events: none;
 }
 
-/* ============================================================
-   INTENTS
-   ============================================================ */
-
-@utility btn-primary {
-  background-color: var(--color-primary);
-  color: var(--color-primary-content);
+/* Opcional: neutralizar fondo en disabled para sólidos no ghost/outline */
+.btn.btn-disabled:not(.btn-ghost, .btn-outline),
+.btn[disabled]:not(.btn-ghost, .btn-outline),
+.btn[aria-disabled="true"]:not(.btn-ghost, .btn-outline) {
+  background-color: color-mix(
+    in srgb,
+    var(--color-base-content) 10%,
+    var(--color-base-100)
+  );
   border-color: transparent;
-}
-.btn-primary:hover {
-  background-color: color-mix(in srgb, var(--color-primary) 88%, #000 12%);
-}
-
-@utility btn-secondary {
-  background-color: var(--color-base-200);
-  color: var(--color-base-content);
-  border-color: var(--color-border-strong);
-}
-.btn-secondary:hover {
-  background-color: var(--color-base-300);
-}
-
-@utility btn-danger {
-  background-color: var(--color-error);
-  color: var(--color-error-content);
-  border-color: transparent;
-}
-.btn-danger:hover {
-  background-color: color-mix(in srgb, var(--color-error) 88%, #000 12%);
-}
-
-/* ============================================================
-   VARIANTS
-   ============================================================ */
-
-@utility btn-outline {
-  background-color: transparent;
-  color: var(--color-primary);
-  border-color: var(--color-primary);
-}
-.btn-outline:hover {
-  background-color: color-mix(in srgb, var(--color-primary) 12%, transparent);
-}
-
-@utility btn-ghost {
-  background-color: transparent;
-  color: var(--color-primary);
-  border-color: transparent;
-}
-.btn-ghost:hover {
-  background-color: color-mix(in srgb, var(--color-base-200) 40%, transparent);
-}
-
-/* ============================================================
-   SIZES
-   ============================================================ */
-
-@utility btn-xs {
-  min-height: var(--control-height-sm);
-  font-size: 0.75rem;
-  padding-inline: var(--space-xs);
-}
-
-@utility btn-sm {
-  min-height: var(--control-height-sm);
-  font-size: 0.875rem;
-  padding-inline: var(--space-sm);
-}
-
-@utility btn-md {
-  min-height: var(--control-height-md);
-  font-size: 0.875rem;
-  padding-inline: var(--space-sm);
-}
-
-@utility btn-lg {
-  min-height: var(--control-height-lg);
-  font-size: 1rem;
-  padding-inline: var(--space-md);
-}
-
-/* ============================================================
-   WIDTH BEHAVIOR
-   ============================================================ */
-
-@utility btn-fit {
-  width: auto;
-  max-width: max-content;
-}
-
-@utility btn-block {
-  width: 100%;
-}
-
-/* ============================================================
-   ICON-ONLY
-   ============================================================ */
-
-@utility btn-icon-only {
-  padding-inline: var(--space-2xs);
-  padding-block: 0;
-  gap: 0;
-  width: auto;
-  max-width: max-content;
 }
