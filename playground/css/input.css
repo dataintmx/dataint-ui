@@ -1,0 +1,2 @@
+/* Consume the library Tailwind source (dist/styles.css) */
+@import "../../dist/styles.css";
