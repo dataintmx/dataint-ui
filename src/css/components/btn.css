@@ -252,11 +252,6 @@
   ) {
   border-color: var(--color-neutral);
 }
-.btn-ghost.btn-neutral,
-.btn-ghost.btn-neutral:focus,
-.btn-ghost.btn-neutral:active {
-  border-color: transparent;
-}
 .btn-ghost.btn-primary:hover:not(
     .btn-disabled,
     [disabled],
