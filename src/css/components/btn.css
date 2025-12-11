@@ -7,7 +7,7 @@
   @apply flex items-center justify-center flex-shrink-0 flex-nowrap;
   @apply select-none cursor-pointer align-middle text-center whitespace-nowrap no-underline;
   @apply font-sans font-semibold text-base;
-  @apply px-4 py-0 rounded border border-solid transition-colors duration-200 ease-[cubic-bezier(0,0,0.2,1)] shadow-none;
+  @apply px-4 py-0 border-solid transition-colors duration-200 ease-[cubic-bezier(0,0,0.2,1)];
   height: var(--sizes-btn-md);
   width: auto;
   max-width: max-content;
