@@ -190,8 +190,6 @@
 /* Ghost: sin borde ni fondo, sólo texto con color de intención */
 @utility btn-ghost {
   @apply bg-transparent border-solid;
-  background-color: transparent;
-  color: transparent;
   border-width: 1px;
   border-color: transparent;
   box-shadow: none;
