@@ -200,9 +200,10 @@
 @utility btn-ghost {
   @apply bg-transparent border-solid;
   background-color: transparent;
-  color: var(--color-base-content);
+  color: transparent;
   border-width: 1px;
   border-color: transparent;
+  box-shadow: none;
 }
 
 /* Ghost + intent (solo color de texto) */
