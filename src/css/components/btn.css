@@ -30,7 +30,7 @@
     .btn-primary
   ):not(.btn-secondary):not(.btn-neutral):not(.btn-accent):not(.btn-info):not(
     .btn-success
-  ):not(.btn-warning):not(.btn-danger):not(.btn-error):not(.btn-outline):not(
+  ):not(.btn-warning):not(.btn-error):not(.btn-outline):not(
     .btn-ghost
   ) {
   background-color: var(--color-base-300);
@@ -89,11 +89,6 @@
   color: var(--color-warning-content);
   border-color: var(--color-warning);
 }
-@utility btn-danger {
-  background-color: var(--color-error);
-  color: var(--color-error-content);
-  border-color: var(--color-error);
-}
 @utility btn-error {
   background-color: var(--color-error);
   color: var(--color-error-content);
@@ -128,7 +123,6 @@
   background-color: var(--color-warning-hover);
   border-color: var(--color-warning-hover);
 }
-.btn-danger:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]),
 .btn-error:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
   background-color: var(--color-error-hover);
   border-color: var(--color-error-hover);
@@ -182,7 +176,6 @@
   color: var(--color-warning);
   border-color: var(--color-warning);
 }
-.btn-outline.btn-danger,
 .btn-outline.btn-error {
   background-color: transparent;
   color: var(--color-error);
@@ -241,7 +234,6 @@
   background-color: transparent;
   border-color: transparent;
 }
-.btn-ghost.btn-danger,
 .btn-ghost.btn-error {
   color: var(--color-error);
   background-color: transparent;
@@ -309,11 +301,6 @@
   ) {
   border-color: var(--color-warning);
 }
-.btn-ghost.btn-danger:hover:not(
-    .btn-disabled,
-    [disabled],
-    [aria-disabled="true"]
-  ),
 .btn-ghost.btn-error:hover:not(
     .btn-disabled,
     [disabled],

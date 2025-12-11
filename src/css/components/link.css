@@ -36,15 +36,6 @@
   text-underline-offset: 2px;
 }
 
-@utility link-danger {
-  color: var(--color-error);
-}
-.link-danger:hover {
-  color: color-mix(in srgb, var(--color-error) 88%, #000 12%);
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-
 /* ============================================================
    SIZES
    ============================================================ */
