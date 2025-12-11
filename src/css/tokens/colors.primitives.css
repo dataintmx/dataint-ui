@@ -58,7 +58,7 @@
   --neutral-050: #eff6f4;
   --neutral-100: #dfe6e4;
   --neutral-200: #d0d6d4;
-
+  --neutral-500: #49504e; /* Slightly darker, better balance for mid neutral */
   --neutral-800: #121917;
   --neutral-850: #1c2321;
   --neutral-900: #09100e;

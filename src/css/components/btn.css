@@ -1,0 +1,369 @@
+/* ======================================================================
+   BTN — Action components (DataInt UI) — Daisy-like
+   ====================================================================== */
+
+/* Base button utility */
+@utility btn {
+  @apply flex items-center justify-center flex-shrink-0 flex-nowrap;
+  @apply select-none cursor-pointer align-middle text-center whitespace-nowrap no-underline;
+  @apply font-sans font-semibold text-base;
+  @apply px-4 py-0 border-solid transition-colors duration-200 ease-[cubic-bezier(0,0,0.2,1)];
+  height: var(--sizes-btn-md);
+  width: auto;
+  max-width: max-content;
+  appearance: button;
+  box-sizing: border-box;
+  touch-action: manipulation;
+  border-width: var(--border-width-base);
+  border-radius: var(--radius-field);
+  border-color: var(--color-border-base);
+  background-color: var(--color-base-200);
+  color: var(--color-base-content);
+  box-shadow: var(--elevation-1-shadow);
+  text-shadow: oklch(1 0 0 / 0.15) 0px 0.5px 0px;
+  transition-property: color, background-color, border-color, box-shadow;
+  outline-offset: 2px;
+}
+
+/* Default hover: darken with subtle gray unless overridden by intent/variant */
+.btn:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]):not(
+    .btn-primary
+  ):not(.btn-secondary):not(.btn-neutral):not(.btn-accent):not(.btn-info):not(
+    .btn-success
+  ):not(.btn-warning):not(.btn-error):not(.btn-outline):not(
+    .btn-ghost
+  ) {
+  background-color: var(--color-base-300);
+}
+
+/* Active / press feedback */
+.btn:active:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+  transform: translateY(1px);
+}
+
+/* Focus-visible outline */
+.btn:focus-visible,
+.btn:has(:focus-visible) {
+  outline-width: 2px;
+  outline-style: solid;
+  outline-color: currentColor;
+}
+
+/* ======================================================================
+   INTENTS (solid)
+   ====================================================================== */
+
+/* Solid intents */
+@utility btn-neutral {
+  background-color: var(--color-neutral);
+  color: var(--color-neutral-content);
+  border-color: var(--color-neutral);
+}
+@utility btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-primary-content);
+  border-color: var(--color-primary);
+}
+@utility btn-secondary {
+  background-color: var(--color-secondary);
+  color: var(--color-secondary-content);
+  border-color: var(--color-secondary);
+}
+@utility btn-accent {
+  background-color: var(--color-accent);
+  color: var(--color-accent-content);
+  border-color: var(--color-accent);
+}
+@utility btn-info {
+  background-color: var(--color-info);
+  color: var(--color-info-content);
+  border-color: var(--color-info);
+}
+@utility btn-success {
+  background-color: var(--color-success);
+  color: var(--color-success-content);
+  border-color: var(--color-success);
+}
+@utility btn-warning {
+  background-color: var(--color-warning);
+  color: var(--color-warning-content);
+  border-color: var(--color-warning);
+}
+@utility btn-error {
+  background-color: var(--color-error);
+  color: var(--color-error-content);
+  border-color: var(--color-error);
+}
+
+.btn-neutral:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+  background-color: var(--color-neutral-hover);
+  border-color: var(--color-neutral-hover);
+}
+.btn-primary:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+  background-color: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+}
+.btn-secondary:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+  background-color: var(--color-secondary-hover);
+  border-color: var(--color-secondary-hover);
+}
+.btn-accent:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+  background-color: var(--color-accent-hover);
+  border-color: var(--color-accent-hover);
+}
+.btn-info:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+  background-color: var(--color-info-hover);
+  border-color: var(--color-info-hover);
+}
+.btn-success:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+  background-color: var(--color-success-hover);
+  border-color: var(--color-success-hover);
+}
+.btn-warning:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+  background-color: var(--color-warning-hover);
+  border-color: var(--color-warning-hover);
+}
+.btn-error:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+  background-color: var(--color-error-hover);
+  border-color: var(--color-error-hover);
+}
+
+/* ======================================================================
+   VARIANTS — OUTLINE & GHOST (Daisy-like)
+   ====================================================================== */
+
+/* Outline: sin relleno, borde y texto con color de intención */
+@utility btn-outline {
+  @apply border-solid;
+  color: var(--color-base-content);
+  border-color: var(--color-border-strong);
+}
+
+/* Outline + intent colors */
+/* Outline intents */
+.btn-outline.btn-neutral {
+  background-color: transparent;
+  color: var(--color-neutral);
+  border-color: var(--color-neutral);
+}
+.btn-outline.btn-primary {
+  background-color: transparent;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+.btn-outline.btn-secondary {
+  background-color: transparent;
+  color: var(--color-secondary);
+  border-color: var(--color-secondary);
+}
+.btn-outline.btn-accent {
+  background-color: transparent;
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+.btn-outline.btn-info {
+  background-color: transparent;
+  color: var(--color-info);
+  border-color: var(--color-info);
+}
+.btn-outline.btn-success {
+  background-color: transparent;
+  color: var(--color-success);
+  border-color: var(--color-success);
+}
+.btn-outline.btn-warning {
+  background-color: transparent;
+  color: var(--color-warning);
+  border-color: var(--color-warning);
+}
+.btn-outline.btn-error {
+  background-color: transparent;
+  color: var(--color-error);
+  border-color: var(--color-error);
+}
+
+/* Hover outline: leve relleno tintado para mejorar legibilidad */
+.btn-outline:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+  background-color: var(--color-base-300);
+}
+
+/* Ghost: sin borde ni fondo, sólo texto con color de intención */
+@utility btn-ghost {
+  @apply bg-transparent border-solid;
+  border-width: 1px;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+/* Ghost + intent (solo color de texto) */
+/* Ghost intents */
+.btn-ghost.btn-neutral {
+  color: var(--color-neutral);
+  background-color: transparent;
+  border-color: transparent;
+}
+.btn-ghost.btn-primary {
+  color: var(--color-primary);
+  background-color: transparent;
+  border-color: transparent;
+}
+.btn-ghost.btn-secondary {
+  color: var(--color-secondary);
+  background-color: transparent;
+  border-color: transparent;
+}
+.btn-ghost.btn-accent {
+  color: var(--color-accent);
+  background-color: transparent;
+  border-color: transparent;
+}
+.btn-ghost.btn-info {
+  color: var(--color-info);
+  background-color: transparent;
+  border-color: transparent;
+}
+.btn-ghost.btn-success {
+  color: var(--color-success);
+  background-color: transparent;
+  border-color: transparent;
+}
+.btn-ghost.btn-warning {
+  color: var(--color-warning);
+  background-color: transparent;
+  border-color: transparent;
+}
+.btn-ghost.btn-error {
+  color: var(--color-error);
+  background-color: transparent;
+  border-color: transparent;
+}
+
+/* Hover ghost: superficie sutil para evitar parecer igual al solid */
+.btn-ghost:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+  background-color: var(--color-base-300);
+  border-width: 1px;
+  border-style: solid;
+}
+/* Ghost hover por intent: color de borde igual al color de texto */
+.btn-ghost.btn-neutral:hover:not(
+    .btn-disabled,
+    [disabled],
+    [aria-disabled="true"]
+  ) {
+  border-color: var(--color-neutral);
+}
+.btn-ghost.btn-primary:hover:not(
+    .btn-disabled,
+    [disabled],
+    [aria-disabled="true"]
+  ) {
+  border-color: var(--color-primary);
+}
+.btn-ghost.btn-secondary:hover:not(
+    .btn-disabled,
+    [disabled],
+    [aria-disabled="true"]
+  ) {
+  border-color: var(--color-secondary);
+}
+.btn-ghost.btn-accent:hover:not(
+    .btn-disabled,
+    [disabled],
+    [aria-disabled="true"]
+  ) {
+  border-color: var(--color-accent);
+}
+.btn-ghost.btn-info:hover:not(
+    .btn-disabled,
+    [disabled],
+    [aria-disabled="true"]
+  ) {
+  border-color: var(--color-info);
+}
+.btn-ghost.btn-success:hover:not(
+    .btn-disabled,
+    [disabled],
+    [aria-disabled="true"]
+  ) {
+  border-color: var(--color-success);
+}
+.btn-ghost.btn-warning:hover:not(
+    .btn-disabled,
+    [disabled],
+    [aria-disabled="true"]
+  ) {
+  border-color: var(--color-warning);
+}
+.btn-ghost.btn-error:hover:not(
+    .btn-disabled,
+    [disabled],
+    [aria-disabled="true"]
+  ) {
+  border-color: var(--color-error);
+}
+
+/* ======================================================================
+   SIZES
+   ====================================================================== */
+
+@utility btn-xs {
+  @apply text-xs;
+  padding-inline: var(--space-xs);
+  height: var(--sizes-btn-xs);
+}
+
+@utility btn-sm {
+  @apply text-sm;
+  padding-inline: var(--space-sm);
+  height: var(--sizes-btn-sm);
+}
+
+@utility btn-md {
+  @apply text-base;
+  padding-inline: var(--space-md);
+  height: var(--sizes-btn-md);
+}
+
+@utility btn-lg {
+  @apply text-lg;
+  padding-inline: var(--space-lg);
+  height: var(--sizes-btn-lg);
+}
+
+@utility btn-xl {
+  @apply text-xl;
+  padding-inline: var(--space-xl);
+  height: var(--sizes-btn-xl);
+}
+
+/* ======================================================================
+   WIDTH BEHAVIOR
+   ====================================================================== */
+
+@utility btn-block {
+  max-width: 100%;
+}
+
+/* ======================================================================
+   ICON-ONLY & SHAPES (Daisy-like)
+   ====================================================================== */
+
+/* Icon-only square button */
+@utility btn-icon {
+  @apply h-10 w-10;
+  border-radius: var(--radius-field);
+}
+
+/* ======================================================================
+   DISABLED
+   ====================================================================== */
+
+@utility btn-disabled {
+  @apply cursor-not-allowed opacity-50 pointer-events-none;
+}
+
+/* HTML attribute based disabled state */
+.btn[disabled],
+.btn[aria-disabled="true"] {
+    @apply btn-disabled;
+}
