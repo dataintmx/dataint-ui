@@ -4,7 +4,7 @@
 
 @utility link {
   @apply inline-flex items-center;
-  @apply font-medium text-sm select-none no-underline cursor-pointer;
+  @apply font-medium select-none no-underline cursor-pointer;
 
   gap: var(--space-inline-gap);
   font-family: var(--font-body);
@@ -40,15 +40,19 @@
    ============================================================ */
 
 @utility link-xs {
-  font-size: 0.75rem;
+  @apply text-sm;
 }
 
 @utility link-sm {
-  font-size: 0.875rem;
+  @apply text-sm
 }
 
 @utility link-md {
-  font-size: 1rem;
+  @apply text-base;
+}
+
+@utility link-lg {
+  @apply text-lg;
 }
 
 /* ============================================================
