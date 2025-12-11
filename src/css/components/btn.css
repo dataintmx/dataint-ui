@@ -371,14 +371,9 @@
    ====================================================================== */
 
 /* Icon-only square button */
-@utility btn-icon-square {
+@utility btn-icon {
   @apply h-10 w-10;
   border-radius: var(--radius-field);
-}
-
-/* Icon-only circle button */
-@utility btn-icon-circle {
-  @apply rounded-full h-10 w-10;
 }
 
 /* ======================================================================
