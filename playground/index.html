@@ -935,10 +935,7 @@
               <span class="component-label">
                 <code>.btn .btn-primary .btn-icon</code> (solo icono)
               </span>
-              <button
-                class="btn btn-primary btn-icon"
-                aria-label="Settings"
-              >
+              <button class="btn btn-primary btn-icon" aria-label="Settings">
                 <span aria-hidden="true">⚙️</span>
               </button>
             </div>
@@ -1099,9 +1096,28 @@
           </p>
 
           <div class="component-grid">
+            <!-- INPUT BASE -->
             <div class="component-column">
-              <span class="component-label"><code>.input</code></span>
+              <span class="component-label"
+                ><code>input.input</code> (default)</span
+              >
               <input class="input" placeholder="Input placeholder" />
+            </div>
+
+            <!-- INPUT ERROR (class .input-error) -->
+            <div class="component-column">
+              <span class="component-label"
+                ><code>input.input-error</code></span
+              >
+              <input class="input input-error" placeholder="Input with error" />
+            </div>
+
+            <!-- DISABLED INPUT -->
+            <div class="component-column">
+              <span class="component-label"
+                ><code>input.input[disabled]</code></span
+              >
+              <input class="input" disabled placeholder="Disabled input" />
             </div>
 
             <div class="component-column">

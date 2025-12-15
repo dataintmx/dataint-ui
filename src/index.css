@@ -13,5 +13,6 @@
 @import "./css/base.css";
 @import "./css/components/btn.css";
 @import "./css/components/link.css";
+@import "./css/components/input.css";
 @import "./css/overlays.css";
 @import "./css/utilities.css";
