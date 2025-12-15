@@ -14,17 +14,16 @@
   border-width: var(--border-width-base);
   border-style: var(--border-style-base);
   border-radius: var(--radius-field);
-  border-color: var(--color-base-content);
-  box-shadow: var(--elevation-1-default, 0 2px 4px 0 rgba(0, 0, 0, 0.06));
+  border-color: var(--color-border-strong);
+  box-shadow: var(--elevation-1-default);
 
   /* Focus state */
   &:focus,
   &:focus-visible,
   &:focus-within {
-    border-color: var(--color-primary);
     box-shadow: var(--elevation-1-default);
-    outline: 1px solid var(--color-primary);
-    outline-offset: var(--space-xs);
+    outline: 1px solid var(--color-border-strong);
+    outline-offset: var(--space-2xs);
     isolation: isolate;
     z-index: 1;
   }
