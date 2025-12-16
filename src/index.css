@@ -14,7 +14,9 @@
 @import "./css/components/btn.css";
 @import "./css/components/link.css";
 @import "./css/components/input.css";
-@import "./css/components/input.css";
+@import "./css/components/checkbox.css";
 @import "./css/components/select.css";
+@import "./css/components/radio.css";
+@import "./css/components/toggle.css";
 @import "./css/overlays.css";
 @import "./css/utilities.css";
