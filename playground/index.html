@@ -1151,6 +1151,46 @@
             </div>
             <div class="component-column">
               <span class="component-label"
+                ><code>input.checkbox[aria-checked="true"]</code></span
+              >
+              <label
+                style="display: inline-flex; align-items: center; gap: 0.4rem"
+              >
+                <input type="checkbox" class="checkbox" aria-checked="true" />
+                <span style="font-size: 0.85rem">Aria checked</span>
+              </label>
+            </div>
+            <div class="component-column">
+              <span class="component-label"
+                ><code>input.checkbox:checked:disabled</code></span
+              >
+              <label
+                style="display: inline-flex; align-items: center; gap: 0.4rem"
+              >
+                <input type="checkbox" class="checkbox" checked disabled />
+                <span style="font-size: 0.85rem">Checked Disabled</span>
+              </label>
+            </div>
+            <div class="component-column">
+              <span class="component-label"
+                ><code
+                  >input.checkbox[aria-checked="true"][disabled]</code
+                ></span
+              >
+              <label
+                style="display: inline-flex; align-items: center; gap: 0.4rem"
+              >
+                <input
+                  type="checkbox"
+                  class="checkbox"
+                  aria-checked="true"
+                  disabled
+                />
+                <span style="font-size: 0.85rem">Aria checked Disabled</span>
+              </label>
+            </div>
+            <div class="component-column">
+              <span class="component-label"
                 ><code>input.checkbox:disabled</code></span
               >
               <label
