@@ -60,23 +60,20 @@
 }
 
 /* Focus */
-.toggle:focus-visible,
-.toggle:has(:focus-visible) {
-  outline: 2px solid currentColor;
-  outline-offset: 2px;
+.toggle:focus {
+  outline: var(--outline-1);
+  outline-offset: var(--outline-offset-2);
 }
 
 /* Checked state (supports: .toggle itself, aria-checked, or nested input) */
 .toggle:checked,
-.toggle[aria-checked="true"],
-.toggle:has(> input:checked) {
+.toggle[aria-checked="true"] {
   grid-template-columns: 1fr 1fr 0fr;
   background-color: var(--color-base-100);
 }
 
 .toggle:checked::before,
-.toggle[aria-checked="true"]::before,
-.toggle:has(> input:checked)::before {
+.toggle[aria-checked="true"]::before {
   background-color: currentColor;
 }
 
