@@ -18,12 +18,10 @@
   box-shadow: var(--elevation-1-default);
 
   /* Focus state */
-  &:focus,
-  &:focus-visible,
-  &:focus-within {
+  &:focus {
     box-shadow: var(--elevation-1-default);
-    outline: 1px solid var(--color-border-strong);
-    outline-offset: var(--space-2xs);
+    outline: var(--outline-1);
+    outline-offset: var(--outline-offset-4);
     isolation: isolate;
     z-index: 1;
   }
