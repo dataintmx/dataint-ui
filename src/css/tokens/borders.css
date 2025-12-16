@@ -6,6 +6,7 @@
   /* Primitive border tokens */
   --border-width-base: 1px;
   --border-style-base: solid;
+  --border-radius-radio: 9999px;
 
   /* Semantic border shorthands (como tokens de theme) */
   --border-subtle: var(--border-width-base) var(--border-style-base)

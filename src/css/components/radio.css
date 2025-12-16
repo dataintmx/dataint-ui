@@ -9,7 +9,7 @@ input[type="radio"].radio {
   /* Visual */
   border-width: var(--border-width-base);
   border-style: var(--border-style-base);
-  border-radius: 9999px;
+  border-radius: var(--border-radius-radio);
   border-color: var(--color-base-content);
   background-color: var(--color-base-100);
   box-shadow: var(--elevation-1-default);
