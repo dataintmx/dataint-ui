@@ -1,0 +1,115 @@
+/* ======================================================================
+   TOGGLE — Switch/Toggle (DataInt UI)
+   ====================================================================== */
+
+@utility toggle {
+  /* Layout + reset */
+  @apply relative inline-grid shrink-0 cursor-pointer appearance-none place-content-center align-middle select-none;
+
+  /* Border + color (token-driven) */
+  border-width: var(--border-width-base);
+  border-style: var(--border-style-base);
+  border-color: var(--color-base-content);
+  color: var(--input-color, var(--color-base-content));
+
+  /* Track behavior */
+  grid-template-columns: 0fr 1fr 1fr;
+
+  /* Tokens / derived vars */
+  --radius-selector-max: calc(var(--radius-selector) * 3);
+  --input-color: color-mix(in oklab, var(--color-base-content) 50%, #0000);
+  --size: calc(var(--size-selector, 0.25rem) * 6);
+  --toggle-p: calc(var(--size, 1.5rem) * 0.125);
+
+  /* Shape + spacing */
+  border-radius: calc(
+    var(--radius-selector) +
+      min(var(--toggle-p, 2px), var(--radius-selector-max)) +
+      min(var(--border-width-base), var(--radius-selector-max))
+  );
+  padding: var(--toggle-p, 2px);
+
+  /* Size */
+  width: calc(
+    (var(--size) * 2) - (var(--border-width-base) + var(--toggle-p)) * 2
+  );
+  height: var(--size);
+
+  /* Visual + motion */
+  box-shadow: 0 1px
+    color-mix(in oklab, currentColor calc(var(--depth, 1) * 10%), #0000) inset;
+  @apply transition-[color,grid-template-columns] duration-200;
+}
+
+/* Inner items (usually icons/labels) */
+.toggle > * {
+  @apply z-10 col-span-1 col-start-2 row-start-1 h-full cursor-pointer appearance-none bg-transparent p-0.5 border-0;
+  @apply transition-[opacity,rotate] duration-200;
+}
+.toggle > :nth-child(2) {
+  color: var(--color-base-100);
+  rotate: 0deg;
+}
+.toggle > :nth-child(3) {
+  color: var(--color-base-100);
+  opacity: 0;
+  rotate: -15deg;
+}
+.toggle:has(:checked) > :nth-child(2) {
+  opacity: 0;
+  rotate: 15deg;
+}
+.toggle:has(:checked) > :nth-child(3) {
+  opacity: 1;
+  rotate: 0deg;
+}
+
+/* Knob */
+.toggle::before {
+  content: "";
+  @apply relative start-0 col-start-2 row-start-1 aspect-square h-full bg-current rounded-selector;
+
+  translate: 0;
+  @apply transition-[background-color,translate,inset-inline-start] duration-200;
+
+  box-shadow: 0 -1px oklch(0% 0 0 / calc(var(--depth, 1) * 0.1)) inset,
+    0 8px 0 -4px oklch(100% 0 0 / calc(var(--depth, 1) * 0.1)) inset,
+    0 1px color-mix(in oklab, currentColor calc(var(--depth, 1) * 10%), #0000);
+
+  background-size: auto, calc(var(--noise, 0.1) * 100%);
+  background-image: none, var(--fx-noise, none);
+}
+
+/* Focus */
+.toggle:focus-visible,
+.toggle:has(:focus-visible) {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+/* Checked state (supports: .toggle itself, aria-checked, or nested input) */
+.toggle:checked,
+.toggle[aria-checked="true"],
+.toggle:has(> input:checked) {
+  grid-template-columns: 1fr 1fr 0fr;
+  background-color: var(--color-base-100);
+  --input-color: var(--color-base-content);
+}
+
+.toggle:checked::before,
+.toggle[aria-checked="true"]::before,
+.toggle:has(> input:checked)::before {
+  background-color: currentColor;
+}
+
+/* Disabled */
+.toggle:disabled,
+.toggle[disabled] {
+  @apply cursor-not-allowed opacity-30;
+}
+
+.toggle:disabled::before,
+.toggle[disabled]::before {
+  @apply bg-transparent;
+  border: var(--border-width-base) solid currentColor;
+}
