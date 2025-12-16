@@ -1,0 +1,46 @@
+/* ======================================================================
+   CHECKBOX — Input checkbox (DataInt UI)
+   ====================================================================== */
+
+input[type="checkbox"].checkbox {
+  /* Layout + reset */
+  @apply relative inline-block shrink-0 cursor-pointer h-5 w-5 appearance-none align-middle bg-transparent;
+
+  /* Visual */
+  border-width: var(--border-width-base);
+  border-style: var(--border-style-base);
+  border-radius: var(--radius-selector, var(--radius-field));
+  border-color: var(--color-base-content);
+  background-color: var(--color-base-100);
+  box-shadow: var(--elevation-1-default);
+
+  /* Motion */
+  @apply transition-[background-color,box-shadow,border-color] duration-200;
+}
+
+input[type="checkbox"].checkbox:focus-visible {
+  outline: 2px solid var(--color-base-content);
+  outline-offset: 2px;
+}
+
+input[type="checkbox"].checkbox:checked {
+  background-color: var(--color-base-content);
+  border-color: var(--color-base-content);
+}
+
+input[type="checkbox"].checkbox:checked::before {
+  content: "";
+  @apply absolute block box-border;
+  @apply left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2;
+  @apply rotate-[-45deg];
+  @apply w-[0.55rem] h-[0.3rem];
+
+  border-left: 2px solid var(--color-base-100);
+  border-bottom: 2px solid var(--color-base-100);
+}
+
+input[type="checkbox"].checkbox:disabled {
+  @apply cursor-not-allowed opacity-40;
+  background-color: var(--color-base-200);
+  border-color: var(--color-base-300);
+}
