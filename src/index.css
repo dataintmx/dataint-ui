@@ -6,6 +6,7 @@
 @import "./css/tokens/elevation.css";
 @import "./css/tokens/spacing.css";
 @import "./css/tokens/sizes.css";
+@import "./css/tokens/outline.css";
 
 /* 2) Tokens semánticos que dependen de los primitivos */
 @import "./css/tokens/colors.semantic.css";
