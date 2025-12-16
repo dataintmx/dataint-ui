@@ -24,11 +24,10 @@
   text-overflow: ellipsis;
 }
 
-select.select:focus {
-  @apply outline-none;
+.select:focus {
   box-shadow: var(--elevation-1-default);
-  outline: 1px solid var(--color-border-strong);
-  outline-offset: var(--space-2xs);
+  outline: var(--outline-1);
+  outline-offset: var(--outline-offset-4);
   isolation: isolate;
   z-index: 1;
 }
@@ -37,7 +36,7 @@ select.select:focus {
   background-position: calc(0% + 12px) 50%, calc(0% + 16px) 50%;
 }
 
-select.select:disabled {
+.select:disabled {
   @apply cursor-not-allowed;
   color: var(--color-base-content-muted);
   border-color: var(--color-base-300);
