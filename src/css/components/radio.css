@@ -77,3 +77,13 @@
   --radio-intent: var(--color-info);
   --radio-intent-content: var(--color-info-content);
 }
+
+.radio-neutral {
+  --radio-intent: var(--color-neutral);
+  --radio-intent-content: var(--color-neutral-content);
+}
+
+.radio-accent {
+  --radio-intent: var(--color-accent);
+  --radio-intent-content: var(--color-accent-content);
+}
