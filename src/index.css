@@ -6,6 +6,7 @@
 @import "./css/tokens/elevation.css";
 @import "./css/tokens/spacing.css";
 @import "./css/tokens/sizes.css";
+@import "./css/tokens/outline.css";
 
 /* 2) Tokens semánticos que dependen de los primitivos */
 @import "./css/tokens/colors.semantic.css";
@@ -13,5 +14,10 @@
 @import "./css/base.css";
 @import "./css/components/btn.css";
 @import "./css/components/link.css";
+@import "./css/components/input.css";
+@import "./css/components/checkbox.css";
+@import "./css/components/select.css";
+@import "./css/components/radio.css";
+@import "./css/components/toggle.css";
 @import "./css/overlays.css";
 @import "./css/utilities.css";

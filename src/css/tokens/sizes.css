@@ -23,4 +23,11 @@
   /* Heights for key components (v1 placeholders) */
   --height-navbar: 3.5rem;
   --height-toolbar: 3rem;
+
+  /* Arrow geometry */
+  --select-arrow-size: 0.25rem; /* 4px */
+  --select-arrow-gap: 0.25rem; /* space between the two triangles */
+
+  /* Inset from the edge: ties arrow to your spacing tokens */
+  --select-arrow-inset: var(--space-md);
 }

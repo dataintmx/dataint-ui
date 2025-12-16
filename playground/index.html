@@ -935,10 +935,7 @@
               <span class="component-label">
                 <code>.btn .btn-primary .btn-icon</code> (solo icono)
               </span>
-              <button
-                class="btn btn-primary btn-icon"
-                aria-label="Settings"
-              >
+              <button class="btn btn-primary btn-icon" aria-label="Settings">
                 <span aria-hidden="true">⚙️</span>
               </button>
             </div>
@@ -1099,13 +1096,33 @@
           </p>
 
           <div class="component-grid">
+            <!-- INPUT BASE -->
             <div class="component-column">
-              <span class="component-label"><code>.input</code></span>
+              <span class="component-label"
+                ><code>input.input</code> (default)</span
+              >
               <input class="input" placeholder="Input placeholder" />
+            </div>
+            <!-- INPUT ERROR (class .input-error) -->
+            <div class="component-column">
+              <span class="component-label"
+                ><code>input.input-error</code></span
+              >
+              <input class="input input-error" placeholder="Input with error" />
+            </div>
+
+            <!-- DISABLED INPUT -->
+            <div class="component-column">
+              <span class="component-label"
+                ><code>input.input[disabled]</code></span
+              >
+              <input class="input" disabled placeholder="Disabled input" />
             </div>
 
             <div class="component-column">
-              <span class="component-label"><code>.select</code></span>
+              <span class="component-label"
+                ><code>select.select</code> (default)</span
+              >
               <select class="select">
                 <option>Option A</option>
                 <option>Option B</option>
@@ -1114,7 +1131,17 @@
             </div>
 
             <div class="component-column">
-              <span class="component-label"><code>.checkbox</code></span>
+              <span class="component-label"
+                ><code>select.select[disabled]</code></span
+              >
+              <select class="select" disabled>
+                <option>Option A</option>
+                <option>Option B</option>
+                <option>Option C</option>
+              </select>
+            </div>
+            <div class="component-column">
+              <span class="component-label"><code>input.checkbox</code></span>
               <label
                 style="display: inline-flex; align-items: center; gap: 0.4rem"
               >
@@ -1122,29 +1149,205 @@
                 <span style="font-size: 0.85rem">Checkbox label</span>
               </label>
             </div>
-
             <div class="component-column">
-              <span class="component-label"><code>.radio</code></span>
+              <span class="component-label"
+                ><code>input.checkbox[aria-checked="true"]</code></span
+              >
               <label
                 style="display: inline-flex; align-items: center; gap: 0.4rem"
               >
-                <input type="radio" name="demo-radio" class="radio" />
-                <span style="font-size: 0.85rem">Radio label</span>
+                <input type="checkbox" class="checkbox" aria-checked="true" />
+                <span style="font-size: 0.85rem">Aria checked</span>
               </label>
             </div>
-
             <div class="component-column">
-              <span class="component-label"><code>.toggle</code></span>
+              <span class="component-label"
+                ><code>input.checkbox:checked:disabled</code></span
+              >
+              <label
+                style="display: inline-flex; align-items: center; gap: 0.4rem"
+              >
+                <input type="checkbox" class="checkbox" checked disabled />
+                <span style="font-size: 0.85rem">Checked Disabled</span>
+              </label>
+            </div>
+            <div class="component-column">
+              <span class="component-label"
+                ><code
+                  >input.checkbox[aria-checked="true"][disabled]</code
+                ></span
+              >
+              <label
+                style="display: inline-flex; align-items: center; gap: 0.4rem"
+              >
+                <input
+                  type="checkbox"
+                  class="checkbox"
+                  aria-checked="true"
+                  disabled
+                />
+                <span style="font-size: 0.85rem">Aria checked Disabled</span>
+              </label>
+            </div>
+            <div class="component-column">
+              <span class="component-label"
+                ><code>input.checkbox:disabled</code></span
+              >
+              <label
+                style="display: inline-flex; align-items: center; gap: 0.4rem"
+              >
+                <input type="checkbox" class="checkbox" disabled />
+                <span style="font-size: 0.85rem">Disabled</span>
+              </label>
+            </div>
+            <div class="component-column">
+              <span class="component-label"><code>.radio</code> (default)</span>
+              <label
+                style="display: inline-flex; align-items: center; gap: 0.4rem"
+              >
+                <input type="radio" name="demo-radio-default" class="radio" />
+                <span style="font-size: 0.85rem">Default</span>
+              </label>
+            </div>
+            <div class="component-column">
+              <span class="component-label"><code>.radio-primary</code></span>
+              <label
+                style="display: inline-flex; align-items: center; gap: 0.4rem"
+              >
+                <input
+                  type="radio"
+                  name="demo-radio-intent"
+                  class="radio radio-primary"
+                />
+                <span style="font-size: 0.85rem">Primary</span>
+              </label>
+            </div>
+            <div class="component-column">
+              <span class="component-label"><code>.radio-secondary</code></span>
+              <label
+                style="display: inline-flex; align-items: center; gap: 0.4rem"
+              >
+                <input
+                  type="radio"
+                  name="demo-radio-intent"
+                  class="radio radio-secondary"
+                />
+                <span style="font-size: 0.85rem">Secondary</span>
+              </label>
+            </div>
+            <div class="component-column">
+              <span class="component-label"><code>.radio-success</code></span>
+              <label
+                style="display: inline-flex; align-items: center; gap: 0.4rem"
+              >
+                <input
+                  type="radio"
+                  name="demo-radio-intent"
+                  class="radio radio-success"
+                />
+                <span style="font-size: 0.85rem">Success</span>
+              </label>
+            </div>
+            <div class="component-column">
+              <span class="component-label"><code>.radio-warning</code></span>
+              <label
+                style="display: inline-flex; align-items: center; gap: 0.4rem"
+              >
+                <input
+                  type="radio"
+                  name="demo-radio-intent"
+                  class="radio radio-warning"
+                />
+                <span style="font-size: 0.85rem">Warning</span>
+              </label>
+            </div>
+            <div class="component-column">
+              <span class="component-label"><code>.radio-error</code></span>
+              <label
+                style="display: inline-flex; align-items: center; gap: 0.4rem"
+              >
+                <input
+                  type="radio"
+                  name="demo-radio-intent"
+                  class="radio radio-error"
+                />
+                <span style="font-size: 0.85rem">Error</span>
+              </label>
+            </div>
+            <div class="component-column">
+              <span class="component-label"><code>.radio-info</code></span>
+              <label
+                style="display: inline-flex; align-items: center; gap: 0.4rem"
+              >
+                <input
+                  type="radio"
+                  name="demo-radio-intent"
+                  class="radio radio-info"
+                />
+                <span style="font-size: 0.85rem">Info</span>
+              </label>
+            </div>
+            <div class="component-column">
+              <span class="component-label"><code>.radio-neutral</code></span>
+              <label
+                style="display: inline-flex; align-items: center; gap: 0.4rem"
+              >
+                <input
+                  type="radio"
+                  name="demo-radio-intent"
+                  class="radio radio-neutral"
+                />
+                <span style="font-size: 0.85rem">Neutral</span>
+              </label>
+            </div>
+            <div class="component-column">
+              <span class="component-label"><code>.radio-accent</code></span>
+              <label
+                style="display: inline-flex; align-items: center; gap: 0.4rem"
+              >
+                <input
+                  type="radio"
+                  name="demo-radio-intent"
+                  class="radio radio-accent"
+                />
+                <span style="font-size: 0.85rem">Accent</span>
+              </label>
+            </div>
+            <div class="component-column">
+              <span class="component-label"><code>.radio[disabled]</code></span>
+              <label
+                style="display: inline-flex; align-items: center; gap: 0.4rem"
+              >
+                <input type="radio" class="radio" disabled />
+                <span style="font-size: 0.85rem">Disabled</span>
+              </label>
+            </div>
+            <!-- TOGGLE BASE -->
+            <div class="component-column">
+              <span class="component-label"
+                ><code>input.toggle</code> (default)</span
+              >
               <label
                 style="display: inline-flex; align-items: center; gap: 0.4rem"
               >
                 <input type="checkbox" class="toggle" />
-                <span style="font-size: 0.85rem">Toggle label</span>
+                <span style="font-size: 0.85rem">Toggle</span>
+              </label>
+            </div>
+            <!-- TOGGLE DISABLED -->
+            <div class="component-column">
+              <span class="component-label"
+                ><code>input.toggle[disabled]</code></span
+              >
+              <label
+                style="display: inline-flex; align-items: center; gap: 0.4rem"
+              >
+                <input type="checkbox" class="toggle" disabled />
+                <span style="font-size: 0.85rem">Disabled</span>
               </label>
             </div>
           </div>
         </section>
-
         <!-- COMPONENTES: CONTENEDORES Y SUPERFICIES -->
         <section id="components-containers" class="section">
           <h2 class="section-title">

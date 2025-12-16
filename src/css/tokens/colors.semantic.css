@@ -61,6 +61,9 @@
   --color-error-content: var(--neutral-000);
   --color-error-hover: var(--light-red-300);
 
+  /* Outlines */
+  --color-outline: var(--neutral-900);
+
   /* Borders */
   --color-border-subtle: var(--neutral-100);
   --color-border-strong: var(--neutral-200);
@@ -148,6 +151,9 @@
   --color-error: var(--light-red-400);
   --color-error-content: var(--neutral-900);
   --color-error-hover: var(--light-red-700);
+
+  /* Outlines */
+  --color-outline: var(--neutral-100);
 
   /* Borders */
   --color-border-subtle: var(--neutral-800);

@@ -1,0 +1,16 @@
+/* ======================================================================
+   OUTLINE TOKENS — DataInt UI
+   Outline width, style, offset y color
+   ====================================================================== */
+
+@theme {
+  --outline-width-1: 1px;
+  --outline-width-2: 2px;
+  --outline-style: solid;
+  --outline-color: var(--color-outline);
+  --outline-offset-1: 1px;
+  --outline-offset-2: 2px;
+  --outline-offset-4: 4px;
+  --outline-1: var(--outline-width-1) var(--outline-style) var(--outline-color);
+  --outline-2: var(--outline-width-2) var(--outline-style) var(--outline-color);
+}
