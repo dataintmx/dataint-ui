@@ -41,6 +41,4 @@ input[type="checkbox"].checkbox:checked::before {
 
 input[type="checkbox"].checkbox:disabled {
   @apply cursor-not-allowed opacity-40;
-  background-color: var(--color-base-200);
-  border-color: var(--color-base-300);
 }
