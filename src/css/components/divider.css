@@ -1,0 +1,56 @@
+/* ======================================================================
+   DIVIDER — Containers & Surfaces (DataInt UI)
+   ====================================================================== */
+
+@utility divider {
+  @apply relative flex items-center w-full;
+
+  /* Tokens / defaults */
+  --divider-color: var(--color-border-subtle);
+  --divider-width: 1px;
+  --divider-gap: var(--space-sm);
+
+  color: var(--divider-color);
+}
+
+/* Line */
+.divider::before,
+.divider::after {
+  content: "";
+  @apply flex-1;
+
+  height: var(--divider-width);
+  background-color: currentColor;
+}
+
+/* Label (optional text inside divider) */
+.divider:not(:empty)::before {
+  margin-right: var(--divider-gap);
+}
+
+.divider:not(:empty)::after {
+  margin-left: var(--divider-gap);
+}
+
+/* ------------------------------
+   Variants (optional, future-safe)
+   ------------------------------ */
+
+/* Subtle divider (default) */
+.divider-subtle {
+  --divider-color: var(--color-base-300);
+}
+
+/* Strong divider */
+.divider-strong {
+  --divider-color: var(--color-border-strong);
+}
+
+/* Spacing density */
+.divider-compact {
+  --divider-gap: var(--space-xs);
+}
+
+.divider-spacious {
+  --divider-gap: var(--space-lg);
+}
