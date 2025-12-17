@@ -1,0 +1,148 @@
+/* ======================================================================
+   DROPDOWN — Navigation & Structure (DataInt UI)
+   Purpose:
+   - Styles for the dropdown trigger/button that opens a navigation menu
+   - No behavioral CSS (Headless handles open/close, aria, etc.)
+   Notes:
+   - Dropdown never includes leading icons
+   - Chevron is purely visual
+   ====================================================================== */
+
+/* ------------------------------
+   Dropdown container
+   ------------------------------ */
+@utility dropdown {
+  @apply relative inline-flex;
+}
+
+/* ------------------------------
+   Dropdown trigger
+   Recommended markup:
+   <button class="dropdown-trigger dropdown-size-md" aria-expanded="false">
+     <span class="dropdown-label">Label</span>
+     <span class="dropdown-chevron">▾</span>
+   </button>
+   ------------------------------ */
+@utility dropdown-trigger {
+  @apply inline-flex items-center justify-between w-full select-none;
+  @apply cursor-pointer transition-colors duration-150 ease-in-out;
+
+  /* Defaults (API fallbacks) */
+  --dropdown-px: var(--space-md);
+  --dropdown-py: var(--space-xs);
+  --dropdown-gap: var(--space-sm);
+
+  --dropdown-radius: var(--radius-field);
+
+  --dropdown-fg: var(--color-base-content);
+  --dropdown-fg-muted: var(--color-base-content-muted);
+
+  --dropdown-bg: var(--color-base-100);
+  --dropdown-bg-hover: var(--color-base-300);
+  --dropdown-bg-open: var(--color-base-200);
+
+  --dropdown-border-color: var(--color-border-strong);
+  --dropdown-border-width: var(--border-width-base);
+  --dropdown-border-style: var(--border-style-base);
+
+  --dropdown-shadow: var(--elevation-1-default);
+
+  --dropdown-outline: var(--outline-1);
+  --dropdown-outline-offset: var(--outline-offset-2);
+
+  gap: var(--dropdown-gap);
+  padding: var(--dropdown-py) var(--dropdown-px);
+
+  color: var(--dropdown-fg);
+  background-color: var(--dropdown-bg);
+
+  border-width: var(--dropdown-border-width);
+  border-style: var(--dropdown-border-style);
+  border-color: var(--dropdown-border-color);
+  border-radius: var(--dropdown-radius);
+
+  box-shadow: var(--dropdown-shadow);
+}
+
+/* ------------------------------
+   Hover / focus
+   ------------------------------ */
+.dropdown-trigger:hover {
+  background-color: var(--dropdown-bg-hover);
+}
+
+.dropdown-trigger:focus {
+  outline: var(--dropdown-outline);
+  outline-offset: var(--dropdown-outline-offset);
+  isolation: isolate;
+  z-index: 1;
+}
+
+/* ------------------------------
+   Open state (Headless-driven)
+   ------------------------------ */
+.dropdown-trigger[aria-expanded="true"],
+.dropdown-trigger[data-state="open"],
+.dropdown-trigger.is-open {
+  @apply font-semibold;
+  background-color: var(--dropdown-bg-open);
+}
+
+/* Hover must win over open */
+.dropdown-trigger[aria-expanded="true"]:hover,
+.dropdown-trigger[data-state="open"]:hover,
+.dropdown-trigger.is-open:hover {
+  background-color: var(--dropdown-bg-hover);
+}
+
+/* ------------------------------
+   Disabled
+   ------------------------------ */
+.dropdown-trigger:disabled,
+.dropdown-trigger[aria-disabled="true"] {
+  @apply cursor-not-allowed opacity-50;
+  color: var(--dropdown-fg-muted);
+  box-shadow: none;
+}
+
+/* ------------------------------
+   Shared API — size
+   ------------------------------ */
+.dropdown-size-sm {
+  --dropdown-px: var(--space-sm);
+  --dropdown-py: var(--space-2xs);
+  --dropdown-gap: var(--space-xs);
+}
+
+.dropdown-size-md {
+  --dropdown-px: var(--space-md);
+  --dropdown-py: var(--space-xs);
+  --dropdown-gap: var(--space-sm);
+}
+
+.dropdown-size-lg {
+  --dropdown-px: var(--space-lg);
+  --dropdown-py: var(--space-sm);
+  --dropdown-gap: var(--space-sm);
+}
+
+/* ------------------------------
+   Label & Chevron
+   ------------------------------ */
+.dropdown-trigger .dropdown-label {
+  @apply min-w-0 flex-1 truncate text-left;
+}
+
+.dropdown-trigger .dropdown-chevron {
+  @apply shrink-0 w-5 h-5;
+  @apply flex items-center justify-center;
+  @apply leading-none;
+  @apply transition-transform duration-150 ease-in-out;
+}
+
+/* Rotate chevron when open (visual only) */
+.dropdown-trigger[aria-expanded="true"] .dropdown-chevron,
+.dropdown-trigger[data-state="open"] .dropdown-chevron,
+.dropdown-trigger.is-open .dropdown-chevron {
+  @apply rotate-180;
+}
