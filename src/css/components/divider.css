@@ -10,7 +10,7 @@
   --divider-width: 1px;
   --divider-gap: var(--space-sm);
 
-  color: var(--divider-color);
+  color: var(--color-base-content-muted);
 }
 
 /* Line */
@@ -20,7 +20,7 @@
   @apply flex-1;
 
   height: var(--divider-width);
-  background-color: currentColor;
+  background-color: var(--divider-color);
 }
 
 /* Label (optional text inside divider) */
@@ -37,8 +37,8 @@
    ------------------------------ */
 
 /* Subtle divider (default) */
-.divider-subtle {
-  --divider-color: var(--color-base-300);
+.divider-muted {
+  --divider-color: var(--color-border-muted);
 }
 
 /* Strong divider */
