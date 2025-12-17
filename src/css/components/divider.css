@@ -45,12 +45,3 @@
 .divider-strong {
   --divider-color: var(--color-border-strong);
 }
-
-/* Spacing density */
-.divider-compact {
-  --divider-gap: var(--space-xs);
-}
-
-.divider-spacious {
-  --divider-gap: var(--space-lg);
-}
