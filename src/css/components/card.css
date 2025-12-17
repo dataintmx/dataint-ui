@@ -53,17 +53,12 @@
 
 /* ------------------------------
    Shared API — size
-   (compact / normal / spacious)
    ------------------------------ */
-.card-size-sm {
+.card-sm {
   --card-px: var(--space-sm);
   --card-py: var(--space-sm);
 }
-.card-size-md {
-  --card-px: var(--space-md);
-  --card-py: var(--space-md);
-}
-.card-size-lg {
+.card-lg {
   --card-px: var(--space-lg);
   --card-py: var(--space-lg);
 }
