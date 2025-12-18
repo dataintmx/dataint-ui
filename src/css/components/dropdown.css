@@ -18,7 +18,7 @@
 /* ------------------------------
    Dropdown trigger
    Recommended markup:
-   <button class="dropdown-trigger dropdown-size-md" aria-expanded="false">
+   <button class="dropdown-trigger dropdown-md" aria-expanded="false">
      <span class="dropdown-label">Label</span>
      <span class="dropdown-chevron">▾</span>
    </button>
