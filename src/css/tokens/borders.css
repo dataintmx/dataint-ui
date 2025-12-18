@@ -5,6 +5,8 @@
 @theme {
   /* Primitive border tokens */
   --border-width-base: 1px;
+  --border-width-strong: 2px;
+  --border-width-heavy: 3px;
   --border-style-base: solid;
   --border-radius-radio: 9999px;
 
