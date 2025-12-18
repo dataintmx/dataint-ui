@@ -62,12 +62,12 @@
    - subtle: lighter track
    - solid: stronger track + higher opacity
    ------------------------------ */
-.loading-variant-subtle {
+.loading-subtle {
   --loading-track: color-mix(in oklab, var(--loading-intent) 14%, transparent);
   --loading-opacity: 0.85;
 }
 
-.loading-variant-solid {
+.loading-solid {
   --loading-track: color-mix(in oklab, var(--loading-intent) 28%, transparent);
   --loading-opacity: 1;
 }
@@ -75,17 +75,17 @@
 /* ------------------------------
    Shared API — size
    ------------------------------ */
-.loading-size-sm {
+.loading-sm {
   --loading-size: 1rem; /* 16px */
   --loading-border: var(--border-width-strong);
 }
 
-.loading-size-md {
+.loading-md {
   --loading-size: 1.25rem; /* 20px */
   --loading-border: var(--border-width-strong);
 }
 
-.loading-size-lg {
+.loading-lg {
   --loading-size: 1.75rem; /* 28px */
   --loading-border: var(--border-width-heavy);
 }

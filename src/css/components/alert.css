@@ -124,7 +124,7 @@
    - outline: transparent surface + accent border + colored icon
    ------------------------------ */
 
-.alert-variant-subtle {
+.alert-subtle {
   --alert-bg: color-mix(
     in oklab,
     var(--alert-intent) 12%,
@@ -141,7 +141,7 @@
   --alert-border-width: var(--border-width-base);
 }
 
-.alert-variant-solid {
+.alert-solid {
   --alert-bg: var(--alert-intent);
   --alert-border-width: 0px;
   --alert-fg: var(--alert-intent-content);
@@ -149,7 +149,7 @@
   --alert-shadow: var(--elevation-1-default);
 }
 
-.alert-variant-outline {
+.alert-outline {
   --alert-bg: transparent;
   --alert-border-width: var(--border-width-base);
   --alert-border: color-mix(
@@ -166,7 +166,7 @@
    Shared API — size
    ------------------------------ */
 
-.alert-size-sm {
+.alert-sm {
   --alert-px: var(--space-sm);
   --alert-py: var(--space-xs);
   --alert-gap: var(--space-xs);
@@ -174,7 +174,7 @@
   --alert-line-height: 1.125rem;
 }
 
-.alert-size-md {
+.alert-md {
   --alert-px: var(--space-md);
   --alert-py: var(--space-sm);
   --alert-gap: var(--space-sm);
@@ -182,7 +182,7 @@
   --alert-line-height: 1.25rem;
 }
 
-.alert-size-lg {
+.alert-lg {
   --alert-px: var(--space-lg);
   --alert-py: var(--space-md);
   --alert-gap: var(--space-md);
