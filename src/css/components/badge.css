@@ -1,0 +1,197 @@
+/* ======================================================================
+   BADGE — Labels, Chips and Badges (DataInt UI)
+   Shared API: intent, variant, size, rounded, icon
+   ====================================================================== */
+
+/* ------------------------------
+   Base badge
+   ------------------------------ */
+@utility badge {
+  @apply inline-flex items-center justify-center align-middle;
+  @apply select-none whitespace-nowrap;
+  @apply font-medium;
+  @apply transition-colors duration-150 ease-in-out;
+
+  /* Shared API defaults */
+  --badge-intent: var(--color-neutral);
+  --badge-intent-content: var(--color-neutral-content);
+
+  /* Default variant (subtle) */
+  --badge-bg: color-mix(
+    in oklab,
+    var(--badge-intent) 14%,
+    var(--color-base-100)
+  );
+  --badge-border: color-mix(
+    in oklab,
+    var(--badge-intent) 35%,
+    var(--color-border-subtle)
+  );
+  --badge-fg: var(--color-base-content);
+
+  --badge-border-width: var(--border-width-base);
+  --badge-shadow: none;
+
+  /* Size defaults */
+  --badge-height: 1.5rem;
+  --badge-px: var(--space-sm);
+  --badge-gap: var(--space-2xs);
+  --badge-font-size: 0.75rem;
+  --badge-line-height: 1rem;
+
+  /* Rounded defaults */
+  --badge-radius: var(--radius-field);
+
+  height: var(--badge-height);
+  padding-inline: var(--badge-px);
+  gap: var(--badge-gap);
+
+  font-size: var(--badge-font-size);
+  line-height: var(--badge-line-height);
+
+  background-color: var(--badge-bg);
+  color: var(--badge-fg);
+
+  border-width: var(--badge-border-width);
+  border-style: var(--border-style-base);
+  border-color: var(--badge-border);
+  border-radius: var(--badge-radius);
+
+  box-shadow: var(--badge-shadow);
+}
+
+/* ------------------------------
+   Slots
+   ------------------------------ */
+
+/* Icon slot */
+@utility badge-icon {
+  @apply inline-flex items-center justify-center shrink-0;
+  @apply w-3.5 h-3.5 opacity-90;
+
+  line-height: 1;
+  align-self: center;
+
+  color: currentColor;
+}
+
+@utility badge-label {
+  @apply truncate;
+  max-width: 100%;
+}
+
+/* ------------------------------
+   Shared API — intent
+   ------------------------------ */
+
+.badge-neutral {
+  --badge-intent: var(--color-neutral);
+  --badge-intent-content: var(--color-neutral-content);
+}
+
+.badge-info {
+  --badge-intent: var(--color-info);
+  --badge-intent-content: var(--color-info-content);
+}
+
+.badge-success {
+  --badge-intent: var(--color-success);
+  --badge-intent-content: var(--color-success-content);
+}
+
+.badge-warning {
+  --badge-intent: var(--color-warning);
+  --badge-intent-content: var(--color-warning-content);
+}
+
+.badge-error {
+  --badge-intent: var(--color-error);
+  --badge-intent-content: var(--color-error-content);
+}
+
+/* ------------------------------
+   Shared API — variant
+   ------------------------------ */
+
+.badge-subtle {
+  --badge-bg: color-mix(
+    in oklab,
+    var(--badge-intent) 14%,
+    var(--color-base-100)
+  );
+  --badge-border: color-mix(
+    in oklab,
+    var(--badge-intent) 35%,
+    var(--color-border-subtle)
+  );
+  --badge-fg: var(--color-base-content);
+  --badge-border-width: var(--border-width-base);
+}
+
+.badge-solid {
+  --badge-bg: var(--badge-intent);
+  --badge-fg: var(--badge-intent-content);
+  --badge-border-width: 0px;
+}
+
+.badge-outline {
+  --badge-bg: transparent;
+  --badge-border: color-mix(
+    in oklab,
+    var(--badge-intent) 55%,
+    var(--color-border-subtle)
+  );
+  --badge-fg: var(--color-base-content);
+  --badge-border-width: var(--border-width-base);
+}
+
+/* ------------------------------
+   Shared API — size
+   ------------------------------ */
+
+.badge-sm {
+  --badge-height: 1.25rem;
+  --badge-px: var(--space-xs);
+  --badge-gap: var(--space-2xs);
+  --badge-font-size: 0.6875rem;
+  --badge-line-height: 0.875rem;
+}
+
+.badge-md {
+  --badge-height: 1.5rem;
+  --badge-px: var(--space-sm);
+  --badge-gap: var(--space-2xs);
+  --badge-font-size: 0.75rem;
+  --badge-line-height: 1rem;
+}
+
+.badge-lg {
+  --badge-height: 1.75rem;
+  --badge-px: var(--space-md);
+  --badge-gap: var(--space-xs);
+  --badge-font-size: 0.875rem;
+  --badge-line-height: 1.125rem;
+}
+
+/* ------------------------------
+   Shared API — rounded
+   ------------------------------ */
+
+.badge-rounded-sm {
+  --badge-radius: 0.375rem;
+}
+
+.badge-rounded-md {
+  --badge-radius: var(--radius-field);
+}
+
+.badge-rounded-pill {
+  --badge-radius: var(--border-radius-radio);
+}
+
+/* ------------------------------
+   Shared API — icon (presence)
+   ------------------------------ */
+.badge-no-icon .badge-icon {
+  @apply hidden;
+}
