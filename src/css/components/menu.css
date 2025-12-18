@@ -77,19 +77,19 @@
    Shared API — size (density)
    ------------------------------ */
 
-.menu-size-sm {
+.menu-sm {
   --menu-item-px: var(--space-sm);
   --menu-item-py: var(--space-2xs);
   --menu-gap: var(--space-2xs);
 }
 
-.menu-size-md {
+.menu-md {
   --menu-item-px: var(--space-md);
   --menu-item-py: var(--space-xs);
   --menu-gap: var(--space-2xs);
 }
 
-.menu-size-lg {
+.menu-lg {
   --menu-item-px: var(--space-lg);
   --menu-item-py: var(--space-sm);
   --menu-gap: var(--space-xs);

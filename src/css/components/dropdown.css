@@ -108,19 +108,19 @@
 /* ------------------------------
    Shared API — size
    ------------------------------ */
-.dropdown-size-sm {
+.dropdown-sm {
   --dropdown-px: var(--space-sm);
   --dropdown-py: var(--space-2xs);
   --dropdown-gap: var(--space-xs);
 }
 
-.dropdown-size-md {
+.dropdown-md {
   --dropdown-px: var(--space-md);
   --dropdown-py: var(--space-xs);
   --dropdown-gap: var(--space-sm);
 }
 
-.dropdown-size-lg {
+.dropdown-lg {
   --dropdown-px: var(--space-lg);
   --dropdown-py: var(--space-sm);
   --dropdown-gap: var(--space-sm);
