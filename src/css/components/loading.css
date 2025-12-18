@@ -1,0 +1,101 @@
+/* ======================================================================
+   LOADING — Feedback & System State (DataInt UI)
+   Shared API alignment: intent, variant, size
+   ====================================================================== */
+
+/* ------------------------------
+   Base loading (spinner)
+   ------------------------------ */
+@utility loading {
+  @apply inline-block align-middle;
+  @apply animate-spin;
+
+  /* Shared API defaults */
+  --loading-intent: var(--color-base-content);
+  --loading-track: color-mix(in oklab, var(--loading-intent) 18%, transparent);
+
+  /* Size defaults */
+  --loading-size: 1.25rem; /* ~20px */
+  --loading-border: var(--border-width-strong);
+
+  /* Variant defaults */
+  --loading-opacity: 0.9;
+
+  width: var(--loading-size);
+  height: var(--loading-size);
+
+  border-radius: var(--border-radius-radio);
+  border-width: var(--loading-border);
+  border-style: var(--border-style-base);
+
+  border-color: var(--loading-track);
+  border-top-color: var(--loading-intent);
+
+  opacity: var(--loading-opacity);
+}
+
+/* ------------------------------
+   Shared API — intent
+   ------------------------------ */
+.loading-neutral {
+  --loading-intent: var(--color-base-content);
+}
+
+.loading-info {
+  --loading-intent: var(--color-info);
+}
+
+.loading-success {
+  --loading-intent: var(--color-success);
+}
+
+.loading-warning {
+  --loading-intent: var(--color-warning);
+}
+
+.loading-error {
+  --loading-intent: var(--color-error);
+}
+
+/* ------------------------------
+   Shared API — variant
+   - subtle: lighter track
+   - solid: stronger track + higher opacity
+   ------------------------------ */
+.loading-variant-subtle {
+  --loading-track: color-mix(in oklab, var(--loading-intent) 14%, transparent);
+  --loading-opacity: 0.85;
+}
+
+.loading-variant-solid {
+  --loading-track: color-mix(in oklab, var(--loading-intent) 28%, transparent);
+  --loading-opacity: 1;
+}
+
+/* ------------------------------
+   Shared API — size
+   ------------------------------ */
+.loading-size-sm {
+  --loading-size: 1rem; /* 16px */
+  --loading-border: var(--border-width-strong);
+}
+
+.loading-size-md {
+  --loading-size: 1.25rem; /* 20px */
+  --loading-border: var(--border-width-strong);
+}
+
+.loading-size-lg {
+  --loading-size: 1.75rem; /* 28px */
+  --loading-border: var(--border-width-heavy);
+}
+
+@utility loading-group {
+  @apply inline-flex items-center gap-2;
+  --loading-intent: var(--color-base-content);
+}
+
+.loading-group .loading-text {
+  @apply text-sm;
+  color: var(--color-base-content);
+}
