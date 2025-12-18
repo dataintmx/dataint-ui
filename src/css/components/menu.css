@@ -83,12 +83,6 @@
   --menu-gap: var(--space-2xs);
 }
 
-.menu-md {
-  --menu-item-px: var(--space-md);
-  --menu-item-py: var(--space-xs);
-  --menu-gap: var(--space-2xs);
-}
-
 .menu-lg {
   --menu-item-px: var(--space-lg);
   --menu-item-py: var(--space-sm);
