@@ -1364,10 +1364,7 @@
                 <code>.card</code> — levels (<code>card-level-*</code>)
               </span>
 
-              <div
-                class="card card-level-1"
-                style="margin-bottom: 1rem"
-              >
+              <div class="card card-level-1" style="margin-bottom: 1rem">
                 <h3 class="card-title">Level 1</h3>
                 <p class="card-body" style="font-size: 0.9rem">
                   Neutral surface with minimal emphasis.
@@ -1381,10 +1378,7 @@
                 </div>
               </div>
 
-              <div
-                class="card card-level-2"
-                style="margin-bottom: 1rem"
-              >
+              <div class="card card-level-2" style="margin-bottom: 1rem">
                 <h3 class="card-title">Level 2</h3>
                 <p class="card-body" style="font-size: 0.9rem">
                   Standard emphasis surface with elevation.
@@ -1398,9 +1392,7 @@
                 </div>
               </div>
 
-              <div
-                class="card card-level-3"
-              >
+              <div class="card card-level-3">
                 <h3 class="card-title">Level 3</h3>
                 <p class="card-body" style="font-size: 0.9rem">
                   Higher emphasis surface for highlighted content.
@@ -1418,7 +1410,8 @@
             <!-- Cards: Sizes -->
             <div class="component-column" style="min-width: 320px">
               <span class="component-label">
-                <code>.card</code> — sizes (<code>card-sm</code>, <code>card-lg</code>)
+                <code>.card</code> — sizes (<code>card-sm</code>,
+                <code>card-lg</code>)
               </span>
 
               <div
@@ -1438,10 +1431,7 @@
                 </div>
               </div>
 
-              <div
-                class="card card-level-2"
-                style="margin-bottom: 1rem"
-              >
+              <div class="card card-level-2" style="margin-bottom: 1rem">
                 <h3 class="card-title">Size md (default)</h3>
                 <p class="card-body" style="font-size: 0.9rem">
                   Default spacing for most surfaces.
@@ -1455,9 +1445,7 @@
                 </div>
               </div>
 
-              <div
-                class="card card-level-2 card-lg"
-              >
+              <div class="card card-level-2 card-lg">
                 <h3 class="card-title">Size lg</h3>
                 <p class="card-body" style="font-size: 0.9rem">
                   Spacious padding for prominent sections.
@@ -1475,13 +1463,11 @@
             <!-- Cards: Variants -->
             <div class="component-column" style="min-width: 320px">
               <span class="component-label">
-                <code>.card</code> — variants (<code>card-subtle</code>, <code>card-ghost</code>)
+                <code>.card</code> — variants (<code>card-subtle</code>,
+                <code>card-ghost</code>)
               </span>
 
-              <div
-                class="card card-level-2"
-                style="margin-bottom: 1rem"
-              >
+              <div class="card card-level-2" style="margin-bottom: 1rem">
                 <h3 class="card-title">Default</h3>
                 <p class="card-body" style="font-size: 0.9rem">
                   Standard border and shadow.
@@ -1534,10 +1520,7 @@
                 (<code>card-actions-*</code>)
               </span>
 
-              <div
-                class="card card-level-2"
-                style="margin-bottom: 1rem"
-              >
+              <div class="card card-level-2" style="margin-bottom: 1rem">
                 <h3 class="card-title">Actions horizontal</h3>
                 <p class="card-body" style="font-size: 0.9rem">
                   Inline actions for compact layouts.
@@ -1552,9 +1535,7 @@
                 </div>
               </div>
 
-              <div
-                class="card card-level-2"
-              >
+              <div class="card card-level-2">
                 <h3 class="card-title">Actions vertical</h3>
                 <p class="card-body" style="font-size: 0.9rem">
                   Stacked actions for narrow containers.
@@ -1693,39 +1674,257 @@
           </p>
 
           <div class="component-grid">
-            <div class="component-column" style="min-width: 260px">
+            <!-- ========================= -->
+            <!-- Alerts -->
+            <!-- ========================= -->
+            <div class="component-column" style="min-width: 360px">
               <span class="component-label"><code>.alert</code></span>
-              <div class="alert">
-                <span>Neutral alert — basic alert layout.</span>
-              </div>
-              <div
-                class="alert"
-                style="
-                  margin-top: 0.5rem;
-                  border-left: 4px solid var(--color-success);
-                "
-              >
-                <span>Success alert — uses <code>--color-success</code>.</span>
-              </div>
-              <div
-                class="alert"
-                style="
-                  margin-top: 0.5rem;
-                  border-left: 4px solid var(--color-error);
-                "
-              >
-                <span>Error alert — uses <code>--color-error</code>.</span>
+
+              <div style="display: flex; flex-direction: column; gap: 1rem">
+                <!-- INTENTS -->
+                <div>
+                  <p
+                    class="component-label"
+                    style="opacity: 0.8; margin-bottom: 0.5rem"
+                  >
+                    Intents (subtle, md)
+                  </p>
+
+                  <div
+                    style="display: flex; flex-direction: column; gap: 0.5rem"
+                  >
+                    <div class="alert alert-neutral alert-md alert-subtle">
+                      <div class="alert-content">
+                        <strong class="alert-title">Neutral</strong>
+                        <p class="alert-message">
+                          Neutral alert for generic system messages.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="alert alert-info alert-md alert-subtle">
+                      <span class="alert-icon">ℹ️</span>
+                      <div class="alert-content">
+                        <strong class="alert-title">Info</strong>
+                        <p class="alert-message">
+                          Informational alert with contextual details.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="alert alert-success alert-md alert-subtle">
+                      <span class="alert-icon">✓</span>
+                      <div class="alert-content">
+                        <strong class="alert-title">Success</strong>
+                        <p class="alert-message">
+                          Operation completed successfully.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="alert alert-warning alert-md alert-subtle">
+                      <span class="alert-icon">⚠️</span>
+                      <div class="alert-content">
+                        <strong class="alert-title">Warning</strong>
+                        <p class="alert-message">
+                          This action may have side effects.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="alert alert-error alert-md alert-subtle">
+                      <span class="alert-icon">⛔</span>
+                      <div class="alert-content">
+                        <strong class="alert-title">Error</strong>
+                        <p class="alert-message">
+                          Something went wrong while processing.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- VARIANTS -->
+                <div>
+                  <p
+                    class="component-label"
+                    style="opacity: 0.8; margin-bottom: 0.5rem"
+                  >
+                    Variants
+                  </p>
+
+                  <div
+                    style="display: flex; flex-direction: column; gap: 0.5rem"
+                  >
+                    <div class="alert alert-info alert-md alert-solid">
+                      <span class="alert-icon">ℹ️</span>
+                      <div class="alert-content">
+                        <strong class="alert-title">Solid</strong>
+                        <p class="alert-message">
+                          Higher visual emphasis for critical flows.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="alert alert-warning alert-md alert-outline">
+                      <span class="alert-icon">⚠️</span>
+                      <div class="alert-content">
+                        <strong class="alert-title">Outline</strong>
+                        <p class="alert-message">
+                          Low-fill, border-driven feedback.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- SIZES -->
+                <div>
+                  <p
+                    class="component-label"
+                    style="opacity: 0.8; margin-bottom: 0.5rem"
+                  >
+                    Sizes
+                  </p>
+
+                  <div
+                    style="display: flex; flex-direction: column; gap: 0.5rem"
+                  >
+                    <div class="alert alert-success alert-sm alert-subtle">
+                      <span class="alert-icon">✓</span>
+                      <div class="alert-content">
+                        <p class="alert-message">
+                          Small size alert for dense layouts.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="alert alert-success alert-lg alert-subtle">
+                      <span class="alert-icon">✓</span>
+                      <div class="alert-content">
+                        <strong class="alert-title">Large</strong>
+                        <p class="alert-message">
+                          Larger alert for high-importance system messages.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- DISMISSIBLE + NO ICON -->
+                <div>
+                  <p
+                    class="component-label"
+                    style="opacity: 0.8; margin-bottom: 0.5rem"
+                  >
+                    Icon + dismissible
+                  </p>
+
+                  <div
+                    style="display: flex; flex-direction: column; gap: 0.5rem"
+                  >
+                    <div class="alert alert-info alert-md alert-subtle">
+                      <span class="alert-icon">ℹ️</span>
+                      <div class="alert-content">
+                        <strong class="alert-title">Dismissible</strong>
+                        <p class="alert-message">
+                          This alert can be dismissed by the user.
+                        </p>
+                      </div>
+                      <button class="alert-dismiss" aria-label="Dismiss alert">
+                        ✕
+                      </button>
+                    </div>
+
+                    <div class="alert alert-neutral alert-md alert-subtle">
+                      <div class="alert-content">
+                        <p class="alert-message">Alert without icon using.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <div class="component-column">
+            <!-- ========================= -->
+            <!-- Loading -->
+            <!-- ========================= -->
+            <div class="component-column" style="min-width: 320px">
               <span class="component-label"><code>.loading</code></span>
-              <div style="display: flex; flex-direction: column; gap: 0.5rem">
-                <div class="loading"></div>
-                <button class="btn btn-primary">
-                  <span class="loading" style="margin-right: 0.5rem"></span>
-                  Loading inside button
-                </button>
+
+              <div style="display: flex; flex-direction: column; gap: 1rem">
+                <!-- SIZES -->
+                <div>
+                  <p
+                    class="component-label"
+                    style="opacity: 0.8; margin-bottom: 0.5rem"
+                  >
+                    Sizes
+                  </p>
+                  <div
+                    style="
+                      display: flex;
+                      align-items: center;
+                      gap: 0.75rem;
+                      flex-wrap: wrap;
+                    "
+                  >
+                    <span class="loading loading-sm"></span>
+                    <span class="loading loading-md"></span>
+                    <span class="loading loading-lg"></span>
+                  </div>
+                </div>
+
+                <!-- INTENTS -->
+                <div>
+                  <p
+                    class="component-label"
+                    style="opacity: 0.8; margin-bottom: 0.5rem"
+                  >
+                    Intents
+                  </p>
+                  <div
+                    style="
+                      display: flex;
+                      align-items: center;
+                      gap: 0.75rem;
+                      flex-wrap: wrap;
+                    "
+                  >
+                    <span class="loading loading-neutral"></span>
+                    <span class="loading loading-info"></span>
+                    <span class="loading loading-success"></span>
+                    <span class="loading loading-warning"></span>
+                    <span class="loading loading-error"></span>
+                  </div>
+                </div>
+                <!-- WITH LABEL -->
+                <div>
+                  <p
+                    class="component-label"
+                    style="opacity: 0.8; margin-bottom: 0.5rem"
+                  >
+                    With label
+                  </p>
+                  <div class="loading-group">
+                    <span class="loading loading-info"></span>
+                    <span class="loading-text">Loading data…</span>
+                  </div>
+                </div>
+
+                <!-- INSIDE BUTTON -->
+                <div>
+                  <p
+                    class="component-label"
+                    style="opacity: 0.8; margin-bottom: 0.5rem"
+                  >
+                    Inside button
+                  </p>
+                  <button class="btn btn-primary" disabled>
+                    <span class="loading loading-sm"></span>
+                    <span style="margin-left: 0.5rem">Processing</span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
