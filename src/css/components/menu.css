@@ -54,11 +54,11 @@
    Hover / focus
    ------------------------------ */
 
-.menu-item:hover {
+.menu-item:not(:disabled):not([aria-disabled="true"]):hover {
   background-color: var(--menu-item-bg-hover);
 }
 
-.menu-item:focus {
+.menu-item:not(:disabled):not([aria-disabled="true"]):focus {
   outline: var(--menu-item-outline);
   outline-offset: var(--menu-item-outline-offset);
 }
@@ -102,11 +102,18 @@
   box-shadow: var(--elevation-1-default);
 }
 
-/* Active + hover MUST win over active with box shadow */
-.menu-item.is-active:hover,
-.menu-item[aria-current="page"]:hover,
-.menu-item[aria-current="true"]:hover,
-.menu-item[data-state="active"]:hover {
+/* Active + hover MUST win over active with box shadow
+*/
+.menu-item.is-active:not(:disabled):not([aria-disabled="true"]):hover,
+.menu-item[aria-current="page"]:not(:disabled):not(
+    [aria-disabled="true"]
+  ):hover,
+.menu-item[aria-current="true"]:not(:disabled):not(
+    [aria-disabled="true"]
+  ):hover,
+.menu-item[data-state="active"]:not(:disabled):not(
+    [aria-disabled="true"]
+  ):hover {
   background-color: var(--menu-item-bg-hover);
   box-shadow: var(--elevation-1-default);
 }
