@@ -1939,25 +1939,181 @@
           </p>
 
           <div class="component-grid">
-            <div class="component-column">
+            <div class="component-column" style="min-width: 420px">
               <span class="component-label"><code>.badge</code></span>
-              <div style="display: flex; flex-wrap: wrap; gap: 0.5rem">
-                <span class="badge">Default badge</span>
-                <span class="badge" style="background: var(--color-success)">
-                  Success badge
-                </span>
-                <span
-                  class="badge"
-                  style="
-                    background: var(--color-warning);
-                    color: var(--color-warning-content);
-                  "
-                >
-                  Warning badge
-                </span>
-                <span class="badge" style="background: var(--color-error)">
-                  Error badge
-                </span>
+
+              <div style="display: flex; flex-direction: column; gap: 1.25rem">
+                <!-- INTENTS × VARIANTS -->
+                <div>
+                  <p
+                    class="component-label"
+                    style="opacity: 0.8; margin-bottom: 0.75rem"
+                  >
+                    Intents × variants
+                  </p>
+
+                  <div style="display: grid; gap: 0.75rem">
+                    <!-- Neutral -->
+                    <div
+                      style="
+                        display: flex;
+                        align-items: center;
+                        gap: 0.5rem;
+                        flex-wrap: wrap;
+                      "
+                    >
+                      <span class="badge badge-neutral badge-subtle"
+                        >Neutral · Subtle</span
+                      >
+                      <span class="badge badge-neutral badge-solid"
+                        >Neutral · Solid</span
+                      >
+                      <span class="badge badge-neutral badge-outline"
+                        >Neutral · Outline</span
+                      >
+                    </div>
+
+                    <!-- Info -->
+                    <div
+                      style="
+                        display: flex;
+                        align-items: center;
+                        gap: 0.5rem;
+                        flex-wrap: wrap;
+                      "
+                    >
+                      <span class="badge badge-info badge-subtle"
+                        >Info · Subtle</span
+                      >
+                      <span class="badge badge-info badge-solid"
+                        >Info · Solid</span
+                      >
+                      <span class="badge badge-info badge-outline"
+                        >Info · Outline</span
+                      >
+                    </div>
+
+                    <!-- Success -->
+                    <div
+                      style="
+                        display: flex;
+                        align-items: center;
+                        gap: 0.5rem;
+                        flex-wrap: wrap;
+                      "
+                    >
+                      <span class="badge badge-success badge-subtle"
+                        >Success · Subtle</span
+                      >
+                      <span class="badge badge-success badge-solid"
+                        >Success · Solid</span
+                      >
+                      <span class="badge badge-success badge-outline"
+                        >Success · Outline</span
+                      >
+                    </div>
+
+                    <!-- Warning -->
+                    <div
+                      style="
+                        display: flex;
+                        align-items: center;
+                        gap: 0.5rem;
+                        flex-wrap: wrap;
+                      "
+                    >
+                      <span class="badge badge-warning badge-subtle"
+                        >Warning · Subtle</span
+                      >
+                      <span class="badge badge-warning badge-solid"
+                        >Warning · Solid</span
+                      >
+                      <span class="badge badge-warning badge-outline"
+                        >Warning · Outline</span
+                      >
+                    </div>
+
+                    <!-- Error -->
+                    <div
+                      style="
+                        display: flex;
+                        align-items: center;
+                        gap: 0.5rem;
+                        flex-wrap: wrap;
+                      "
+                    >
+                      <span class="badge badge-error badge-subtle"
+                        >Error · Subtle</span
+                      >
+                      <span class="badge badge-error badge-solid"
+                        >Error · Solid</span
+                      >
+                      <span class="badge badge-error badge-outline"
+                        >Error · Outline</span
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <!-- SIZES -->
+                <div>
+                  <p
+                    class="component-label"
+                    style="opacity: 0.8; margin-bottom: 0.5rem"
+                  >
+                    Sizes
+                  </p>
+                  <div style="display: flex; flex-wrap: wrap; gap: 0.5rem">
+                    <span class="badge badge-info badge-sm">Small</span>
+                    <span class="badge badge-info badge-md">Medium</span>
+                    <span class="badge badge-info badge-lg">Large</span>
+                  </div>
+                </div>
+
+                <!-- ROUNDED -->
+                <div>
+                  <p
+                    class="component-label"
+                    style="opacity: 0.8; margin-bottom: 0.5rem"
+                  >
+                    Rounded
+                  </p>
+                  <div style="display: flex; flex-wrap: wrap; gap: 0.5rem">
+                    <span class="badge badge-neutral badge-rounded-sm"
+                      >Rounded sm</span
+                    >
+                    <span class="badge badge-neutral badge-rounded-md"
+                      >Rounded md</span
+                    >
+                    <span class="badge badge-neutral badge-rounded-pill"
+                      >Pill</span
+                    >
+                  </div>
+                </div>
+
+                <!-- ICON -->
+                <div>
+                  <p
+                    class="component-label"
+                    style="opacity: 0.8; margin-bottom: 0.5rem"
+                  >
+                    With icon
+                  </p>
+                  <div style="display: flex; flex-wrap: wrap; gap: 0.5rem">
+                    <span class="badge badge-info">
+                      <span class="badge-icon">ℹ️</span>
+                      <span class="badge-label">Info</span>
+                    </span>
+                    <span class="badge badge-success">
+                      <span class="badge-icon">✓</span>
+                      <span class="badge-label">Success</span>
+                    </span>
+                    <span class="badge badge-warning">
+                      <span class="badge-icon">⚠️</span>
+                      <span class="badge-label">Warning</span>
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
