@@ -1621,27 +1621,67 @@
           <div class="component-grid">
             <div class="component-column">
               <span class="component-label"><code>.menu</code></span>
-              <ul class="menu">
-                <li class="menu-title">Main section</li>
-                <li><a href="#">Dashboard</a></li>
-                <li><a href="#">Incidents</a></li>
-                <li><a href="#">Assets</a></li>
-              </ul>
-            </div>
 
+              <nav
+                class="menu"
+                aria-label="Main navigation"
+              >
+                <span class="menu-title">Main section</span>
+
+                <a href="#" class="menu-item is-active" aria-current="page">
+                  <span class="menu-icon" aria-hidden="true">🏠</span>
+                  <span class="menu-label">Dashboard</span>
+                </a>
+
+                <a href="#" class="menu-item">
+                  <span class="menu-icon" aria-hidden="true">⚠️</span>
+                  <span class="menu-label">Incidents</span>
+                </a>
+
+                <a href="#" class="menu-item">
+                  <span class="menu-icon" aria-hidden="true">🗺️</span>
+                  <span class="menu-label">Assets</span>
+                </a>
+
+                <button
+                  type="button"
+                  class="menu-item"
+                  aria-disabled="true"
+                  tabindex="-1"
+                >
+                  <span class="menu-icon" aria-hidden="true">⚙️</span>
+                  <span class="menu-label">Settings (disabled)</span>
+                </button>
+              </nav>
+            </div>
             <div class="component-column">
               <span class="component-label"><code>.dropdown</code></span>
               <div class="dropdown">
-                <!-- La estructura interna exacta puede ajustarse según la implementación final -->
-                <button class="btn">Dropdown trigger</button>
-                <p style="font-size: 0.8rem; margin-top: 0.5rem; opacity: 0.8">
-                  Overlay de ejemplo para menús contextuales.
-                </p>
+                <button
+                  type="button"
+                  class="dropdown-trigger"
+                  aria-expanded="false"
+                >
+                  <span class="dropdown-label">Dropdown trigger</span>
+                  <span class="dropdown-chevron" aria-hidden="true">▾</span>
+                </button>
               </div>
+            </div>
+            <div class="component-column">
+            <span class="component-label"><code>.dropdown open</code></span>
+            <div class="dropdown">
+              <button
+                type="button"
+                class="dropdown-trigger"
+                aria-expanded="true"
+                data-state="open"
+              >
+                <span class="dropdown-label">Settings</span>
+                <span class="dropdown-chevron" aria-hidden="true">▾</span>
+              </button>
             </div>
           </div>
         </section>
-
         <!-- COMPONENTES: FEEDBACK Y ESTADO DEL SISTEMA -->
         <section id="components-feedback" class="section">
           <h2 class="section-title">
