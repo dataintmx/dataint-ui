@@ -188,10 +188,3 @@
 .badge-rounded-pill {
   --badge-radius: var(--border-radius-radio);
 }
-
-/* ------------------------------
-   Shared API — icon (presence)
-   ------------------------------ */
-.badge-no-icon .badge-icon {
-  @apply hidden;
-}
