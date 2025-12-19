@@ -1602,27 +1602,67 @@
           <div class="component-grid">
             <div class="component-column">
               <span class="component-label"><code>.menu</code></span>
-              <ul class="menu">
-                <li class="menu-title">Main section</li>
-                <li><a href="#">Dashboard</a></li>
-                <li><a href="#">Incidents</a></li>
-                <li><a href="#">Assets</a></li>
-              </ul>
-            </div>
 
+              <nav
+                class="menu"
+                aria-label="Main navigation"
+              >
+                <span class="menu-title">Main section</span>
+
+                <a href="#" class="menu-item is-active" aria-current="page">
+                  <span class="menu-icon" aria-hidden="true">🏠</span>
+                  <span class="menu-label">Dashboard</span>
+                </a>
+
+                <a href="#" class="menu-item">
+                  <span class="menu-icon" aria-hidden="true">⚠️</span>
+                  <span class="menu-label">Incidents</span>
+                </a>
+
+                <a href="#" class="menu-item">
+                  <span class="menu-icon" aria-hidden="true">🗺️</span>
+                  <span class="menu-label">Assets</span>
+                </a>
+
+                <button
+                  type="button"
+                  class="menu-item"
+                  aria-disabled="true"
+                  tabindex="-1"
+                >
+                  <span class="menu-icon" aria-hidden="true">⚙️</span>
+                  <span class="menu-label">Settings (disabled)</span>
+                </button>
+              </nav>
+            </div>
             <div class="component-column">
               <span class="component-label"><code>.dropdown</code></span>
               <div class="dropdown">
-                <!-- La estructura interna exacta puede ajustarse según la implementación final -->
-                <button class="btn">Dropdown trigger</button>
-                <p style="font-size: 0.8rem; margin-top: 0.5rem; opacity: 0.8">
-                  Overlay de ejemplo para menús contextuales.
-                </p>
+                <button
+                  type="button"
+                  class="dropdown-trigger"
+                  aria-expanded="false"
+                >
+                  <span class="dropdown-label">Dropdown trigger</span>
+                  <span class="dropdown-chevron" aria-hidden="true">▾</span>
+                </button>
               </div>
+            </div>
+            <div class="component-column">
+            <span class="component-label"><code>.dropdown open</code></span>
+            <div class="dropdown">
+              <button
+                type="button"
+                class="dropdown-trigger"
+                aria-expanded="true"
+                data-state="open"
+              >
+                <span class="dropdown-label">Settings</span>
+                <span class="dropdown-chevron" aria-hidden="true">▾</span>
+              </button>
             </div>
           </div>
         </section>
-
         <!-- COMPONENTES: FEEDBACK Y ESTADO DEL SISTEMA -->
         <section id="components-feedback" class="section">
           <h2 class="section-title">
@@ -1634,39 +1674,257 @@
           </p>
 
           <div class="component-grid">
-            <div class="component-column" style="min-width: 260px">
+            <!-- ========================= -->
+            <!-- Alerts -->
+            <!-- ========================= -->
+            <div class="component-column" style="min-width: 360px">
               <span class="component-label"><code>.alert</code></span>
-              <div class="alert">
-                <span>Neutral alert — basic alert layout.</span>
-              </div>
-              <div
-                class="alert"
-                style="
-                  margin-top: 0.5rem;
-                  border-left: 4px solid var(--color-success);
-                "
-              >
-                <span>Success alert — uses <code>--color-success</code>.</span>
-              </div>
-              <div
-                class="alert"
-                style="
-                  margin-top: 0.5rem;
-                  border-left: 4px solid var(--color-error);
-                "
-              >
-                <span>Error alert — uses <code>--color-error</code>.</span>
+
+              <div style="display: flex; flex-direction: column; gap: 1rem">
+                <!-- INTENTS -->
+                <div>
+                  <p
+                    class="component-label"
+                    style="opacity: 0.8; margin-bottom: 0.5rem"
+                  >
+                    Intents (subtle, md)
+                  </p>
+
+                  <div
+                    style="display: flex; flex-direction: column; gap: 0.5rem"
+                  >
+                    <div class="alert alert-neutral alert-md alert-subtle">
+                      <div class="alert-content">
+                        <strong class="alert-title">Neutral</strong>
+                        <p class="alert-message">
+                          Neutral alert for generic system messages.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="alert alert-info alert-md alert-subtle">
+                      <span class="alert-icon">ℹ️</span>
+                      <div class="alert-content">
+                        <strong class="alert-title">Info</strong>
+                        <p class="alert-message">
+                          Informational alert with contextual details.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="alert alert-success alert-md alert-subtle">
+                      <span class="alert-icon">✓</span>
+                      <div class="alert-content">
+                        <strong class="alert-title">Success</strong>
+                        <p class="alert-message">
+                          Operation completed successfully.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="alert alert-warning alert-md alert-subtle">
+                      <span class="alert-icon">⚠️</span>
+                      <div class="alert-content">
+                        <strong class="alert-title">Warning</strong>
+                        <p class="alert-message">
+                          This action may have side effects.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="alert alert-error alert-md alert-subtle">
+                      <span class="alert-icon">⛔</span>
+                      <div class="alert-content">
+                        <strong class="alert-title">Error</strong>
+                        <p class="alert-message">
+                          Something went wrong while processing.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- VARIANTS -->
+                <div>
+                  <p
+                    class="component-label"
+                    style="opacity: 0.8; margin-bottom: 0.5rem"
+                  >
+                    Variants
+                  </p>
+
+                  <div
+                    style="display: flex; flex-direction: column; gap: 0.5rem"
+                  >
+                    <div class="alert alert-info alert-md alert-solid">
+                      <span class="alert-icon">ℹ️</span>
+                      <div class="alert-content">
+                        <strong class="alert-title">Solid</strong>
+                        <p class="alert-message">
+                          Higher visual emphasis for critical flows.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="alert alert-warning alert-md alert-outline">
+                      <span class="alert-icon">⚠️</span>
+                      <div class="alert-content">
+                        <strong class="alert-title">Outline</strong>
+                        <p class="alert-message">
+                          Low-fill, border-driven feedback.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- SIZES -->
+                <div>
+                  <p
+                    class="component-label"
+                    style="opacity: 0.8; margin-bottom: 0.5rem"
+                  >
+                    Sizes
+                  </p>
+
+                  <div
+                    style="display: flex; flex-direction: column; gap: 0.5rem"
+                  >
+                    <div class="alert alert-success alert-sm alert-subtle">
+                      <span class="alert-icon">✓</span>
+                      <div class="alert-content">
+                        <p class="alert-message">
+                          Small size alert for dense layouts.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="alert alert-success alert-lg alert-subtle">
+                      <span class="alert-icon">✓</span>
+                      <div class="alert-content">
+                        <strong class="alert-title">Large</strong>
+                        <p class="alert-message">
+                          Larger alert for high-importance system messages.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- DISMISSIBLE + NO ICON -->
+                <div>
+                  <p
+                    class="component-label"
+                    style="opacity: 0.8; margin-bottom: 0.5rem"
+                  >
+                    Icon + dismissible
+                  </p>
+
+                  <div
+                    style="display: flex; flex-direction: column; gap: 0.5rem"
+                  >
+                    <div class="alert alert-info alert-md alert-subtle">
+                      <span class="alert-icon">ℹ️</span>
+                      <div class="alert-content">
+                        <strong class="alert-title">Dismissible</strong>
+                        <p class="alert-message">
+                          This alert can be dismissed by the user.
+                        </p>
+                      </div>
+                      <button class="alert-dismiss" aria-label="Dismiss alert">
+                        ✕
+                      </button>
+                    </div>
+
+                    <div class="alert alert-neutral alert-md alert-subtle">
+                      <div class="alert-content">
+                        <p class="alert-message">Alert without icon using.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <div class="component-column">
+            <!-- ========================= -->
+            <!-- Loading -->
+            <!-- ========================= -->
+            <div class="component-column" style="min-width: 320px">
               <span class="component-label"><code>.loading</code></span>
-              <div style="display: flex; flex-direction: column; gap: 0.5rem">
-                <div class="loading"></div>
-                <button class="btn btn-primary">
-                  <span class="loading" style="margin-right: 0.5rem"></span>
-                  Loading inside button
-                </button>
+
+              <div style="display: flex; flex-direction: column; gap: 1rem">
+                <!-- SIZES -->
+                <div>
+                  <p
+                    class="component-label"
+                    style="opacity: 0.8; margin-bottom: 0.5rem"
+                  >
+                    Sizes
+                  </p>
+                  <div
+                    style="
+                      display: flex;
+                      align-items: center;
+                      gap: 0.75rem;
+                      flex-wrap: wrap;
+                    "
+                  >
+                    <span class="loading loading-sm"></span>
+                    <span class="loading loading-md"></span>
+                    <span class="loading loading-lg"></span>
+                  </div>
+                </div>
+
+                <!-- INTENTS -->
+                <div>
+                  <p
+                    class="component-label"
+                    style="opacity: 0.8; margin-bottom: 0.5rem"
+                  >
+                    Intents
+                  </p>
+                  <div
+                    style="
+                      display: flex;
+                      align-items: center;
+                      gap: 0.75rem;
+                      flex-wrap: wrap;
+                    "
+                  >
+                    <span class="loading loading-neutral"></span>
+                    <span class="loading loading-info"></span>
+                    <span class="loading loading-success"></span>
+                    <span class="loading loading-warning"></span>
+                    <span class="loading loading-error"></span>
+                  </div>
+                </div>
+                <!-- WITH LABEL -->
+                <div>
+                  <p
+                    class="component-label"
+                    style="opacity: 0.8; margin-bottom: 0.5rem"
+                  >
+                    With label
+                  </p>
+                  <div class="loading-group">
+                    <span class="loading loading-info"></span>
+                    <span class="loading-text">Loading data…</span>
+                  </div>
+                </div>
+
+                <!-- INSIDE BUTTON -->
+                <div>
+                  <p
+                    class="component-label"
+                    style="opacity: 0.8; margin-bottom: 0.5rem"
+                  >
+                    Inside button
+                  </p>
+                  <button class="btn btn-primary" disabled>
+                    <span class="loading loading-sm"></span>
+                    <span style="margin-left: 0.5rem">Processing</span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
