@@ -85,6 +85,6 @@
   --stat-accent: var(--color-warning);
 }
 
-@utility stat-intent-danger {
-  --stat-accent: var(--color-danger);
+@utility stat-intent-error {
+  --stat-accent: var(--color-error);
 }
