@@ -1,0 +1,191 @@
+/* ======================================================================
+   OVERLAYS — Superposición (DataInt UI)
+   Component: dropdown overlay surface (content) + positioning
+   Shared API (conceptual): placement, align, size, offset
+   Notes:
+   - This file styles ONLY the floating surface (overlay) and its positioning.
+   - Trigger/button styling lives in dropdown.css (Navigation & Structure).
+   - Headless handles open/close behavior (aria-expanded/data-state).
+   ====================================================================== */
+
+/* ------------------------------
+   Overlay surface (dropdown panel)
+   Recommended markup:
+   <div class="dropdown dropdown-bottom dropdown-align-start dropdown-offset-md dropdown-panel-md">
+     <button class="dropdown-trigger" aria-expanded="true|false">...</button>
+     <div class="dropdown-content">...</div>
+   </div>
+   ------------------------------ */
+
+@utility dropdown {
+  /* Surface tokens */
+  --overlay-bg: var(--color-base-100);
+  --overlay-fg: var(--color-base-content);
+  --overlay-border: var(--border-subtle);
+
+  --overlay-radius: var(--radius-md);
+  --overlay-shadow: var(--elevation-2-default);
+  --overlay-z: 50;
+
+  /* Shared API defaults */
+  --overlay-offset: var(--space-sm);
+  --overlay-min-w: 14rem;
+
+  /* Positioning variables (computed by placement/align utilities) */
+  --overlay-left: 0;
+  --overlay-right: auto;
+  --overlay-top: calc(100% + var(--overlay-offset));
+  --overlay-bottom: auto;
+
+  --overlay-translate-x: 0;
+  --overlay-translate-y: 0;
+}
+
+/* The floating surface itself */
+@utility dropdown-content {
+  @apply absolute hidden;
+
+  z-index: var(--overlay-z);
+  min-width: var(--overlay-min-w);
+
+  left: var(--overlay-left);
+  right: var(--overlay-right);
+  top: var(--overlay-top);
+  bottom: var(--overlay-bottom);
+
+  transform: translate(var(--overlay-translate-x), var(--overlay-translate-y));
+
+  background-color: var(--overlay-bg);
+  color: var(--overlay-fg);
+
+  border: var(--overlay-border);
+  border-radius: var(--overlay-radius);
+  box-shadow: var(--overlay-shadow);
+}
+
+/* ------------------------------
+   Shared API — size (overlay panel)
+   (Separate from trigger sizing)
+   ------------------------------ */
+@utility dropdown-panel-sm {
+  --overlay-min-w: 12rem;
+
+  .dropdown-content {
+    @apply text-xs p-2;
+  }
+}
+
+@utility dropdown-panel-md {
+  --overlay-min-w: 14rem;
+
+  .dropdown-content {
+    @apply text-sm p-3;
+  }
+}
+
+@utility dropdown-panel-lg {
+  --overlay-min-w: 16rem;
+
+  .dropdown-content {
+    @apply text-base p-4;
+  }
+}
+
+/* ------------------------------
+   Shared API — offset
+   ------------------------------ */
+@utility dropdown-offset-sm {
+  --overlay-offset: var(--space-xs, 0.25rem);
+}
+
+@utility dropdown-offset-md {
+  --overlay-offset: var(--space-sm, 0.5rem);
+}
+
+@utility dropdown-offset-lg {
+  --overlay-offset: var(--space-md, 0.75rem);
+}
+
+/* ------------------------------
+   Shared API — placement
+   ------------------------------ */
+@utility dropdown-bottom {
+  --overlay-top: calc(100% + var(--overlay-offset));
+  --overlay-bottom: auto;
+}
+
+@utility dropdown-top {
+  --overlay-top: auto;
+  --overlay-bottom: calc(100% + var(--overlay-offset));
+}
+
+@utility dropdown-right {
+  /* Side placement anchors to the trigger's left edge by default */
+  --overlay-left: calc(100% + var(--overlay-offset));
+  --overlay-right: auto;
+
+  /* Make vertical placement stable for side menus */
+  --overlay-top: 0;
+  --overlay-bottom: auto;
+}
+
+@utility dropdown-left {
+  --overlay-left: auto;
+  --overlay-right: calc(100% + var(--overlay-offset));
+
+  --overlay-top: 0;
+  --overlay-bottom: auto;
+}
+
+/* ------------------------------
+   Shared API — align (for top/bottom placements)
+   ------------------------------ */
+@utility dropdown-align-start {
+  --overlay-left: 0;
+  --overlay-right: auto;
+  --overlay-translate-x: 0;
+}
+
+@utility dropdown-align-center {
+  --overlay-left: 50%;
+  --overlay-right: auto;
+  --overlay-translate-x: -50%;
+}
+
+@utility dropdown-align-end {
+  --overlay-left: auto;
+  --overlay-right: 0;
+  --overlay-translate-x: 0;
+}
+
+/* ------------------------------
+   Dropdown menu, items & title
+   ------------------------------ */
+@utility dropdown-menu {
+  @apply flex flex-col gap-1;
+}
+
+@utility dropdown-item {
+  @apply w-full text-left rounded-md cursor-pointer px-2 py-2 transition-colors duration-150 ease-in-out;
+  background-color: transparent;
+}
+
+@utility dropdown-title {
+  @apply block text-xs font-medium uppercase tracking-wide;
+
+  margin-bottom: var(--space-sm);
+  color: var(--color-base-content-muted);
+}
+
+/* ------------------------------
+   Dropdown item states
+   ------------------------------ */
+
+.dropdown-item:hover {
+  background-color: var(--color-base-200);
+}
+
+.dropdown-item:focus {
+  outline: var(--outline-1);
+  outline-offset: var(--outline-offset-2);
+}
