@@ -69,22 +69,22 @@
 /* ------------------------------
    Intent (accent)
    ------------------------------ */
-@utility stat-intent-neutral {
+@utility stat-neutral {
   --stat-accent: var(--color-base-content);
 }
 
-@utility stat-intent-primary {
+@utility stat-primary {
   --stat-accent: var(--color-primary);
 }
 
-@utility stat-intent-success {
+@utility stat-success {
   --stat-accent: var(--color-success);
 }
 
-@utility stat-intent-warning {
+@utility stat-warning {
   --stat-accent: var(--color-warning);
 }
 
-@utility stat-intent-error {
+@utility stat-error {
   --stat-accent: var(--color-error);
 }
