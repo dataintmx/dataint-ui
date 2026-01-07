@@ -26,5 +26,6 @@
 @import "./css/components/badge.css";
 @import "./css/components/alert.css";
 @import "./css/components/loading.css";
+@import "./css/components/overlay.css";
 @import "./css/overlays.css";
 @import "./css/utilities.css";

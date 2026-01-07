@@ -2195,45 +2195,345 @@
           </div>
         </section>
 
-        <!-- COMPONENTES: SUPERPOSICIONES -->
-        <section id="components-overlays" class="section">
-          <h2 class="section-title">
-            Componentes — Superposiciones (Overlays)
-          </h2>
-          <p class="section-subtitle">
-            Superficies flotantes que se muestran por encima del contenido
-            principal. En esta versión se ilustra el uso de
-            <span class="code-inline">.dropdown</span> como overlay básico; la
-            implementación final podrá extender placement, align, offset, etc.
-          </p>
+<!-- COMPONENTES: SUPERPOSICIONES (OVERLAYS) -->
+<section id="components-overlays" class="section">
+  <h2 class="section-title">Componentes — Superposiciones</h2>
+  <p class="section-subtitle">
+    Contenedores flotantes (overlays) para mostrar contenido contextual. En este
+    playground se mantienen abiertos con <code>aria-expanded="true"</code> para validar
+    estilos y posicionamiento.
+  </p>
 
-          <div class="component-grid">
-            <div class="component-column" style="min-width: 260px">
-              <div
-                class="dropdown"
-                style="
-                  padding: 0.75rem;
-                  border-radius: var(--radius-box);
-                  border: var(--border-subtle);
-                "
-              >
-                <button class="btn">Dropdown trigger</button>
-                <div
-                  style="
-                    margin-top: 0.5rem;
-                    padding: 0.5rem;
-                    border-radius: var(--radius-box);
-                    background: var(--color-base-300);
-                    box-shadow: var(--elevation-3-default);
-                    font-size: 0.8rem;
-                  "
-                >
-                  Overlay content sample (menu / actions).
-                </div>
-              </div>
+  <h3 class="section-subtitle" style="margin-top: 16px">Overlays</h3>
+
+  <div class="component-grid">
+    <!-- ========================= -->
+    <!-- Overlay: Base (panel md) -->
+    <!-- ========================= -->
+    <div class="component-column" style="min-width: 380px; margin-bottom: 5rem">
+      <span class="component-label">
+        Base (<code>.dropdown</code> + <code>.dropdown-content</code> +
+        <code>.dropdown-panel-md</code>)
+      </span>
+
+      <div
+        class="dropdown dropdown-bottom dropdown-align-start dropdown-offset-md dropdown-panel-md"
+      >
+        <button class="dropdown-trigger" aria-expanded="true">
+          <span class="dropdown-label">Overlay base</span>
+          <span class="dropdown-chevron">▾</span>
+        </button>
+
+        <!-- For visualization without dropdown-open utility -->
+        <div class="dropdown-content" style="display: inline-block">
+          <span class="dropdown-title">Información</span>
+          <p style="margin: 0; opacity: 0.8">Contenido contextual del overlay.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================= -->
+    <!-- Overlay: Sizes -->
+    <!-- ========================= -->
+    <div class="component-column" style="min-width: 380px">
+      <span class="component-label">
+        Sizes — separated (<code>.dropdown-panel-sm</code> / <code>.dropdown-panel-md</code> /
+        <code>.dropdown-panel-lg</code>)
+      </span>
+
+      <div style="display: flex; flex-direction: column; gap: 1.25rem">
+        <!-- Panel sm -->
+        <div
+          class="dropdown dropdown-bottom dropdown-align-start dropdown-offset-md dropdown-panel-sm"
+        >
+          <button class="dropdown-trigger" aria-expanded="true">
+            <span class="dropdown-label">Panel sm</span>
+            <span class="dropdown-chevron">▾</span>
+          </button>
+
+          <div class="dropdown-content" style="display: block">
+            <span class="dropdown-title">Small overlay</span>
+            <div class="dropdown-menu">
+              <button class="dropdown-item" type="button">Option A</button>
+              <button class="dropdown-item" type="button">Option B</button>
             </div>
           </div>
-        </section>
+        </div>
+
+        <!-- Spacer: enough room for bottom placement -->
+        <div style="height: 160px"></div>
+
+        <!-- Panel md -->
+        <div
+          class="dropdown dropdown-bottom dropdown-align-start dropdown-offset-md dropdown-panel-md"
+        >
+          <button class="dropdown-trigger" aria-expanded="true">
+            <span class="dropdown-label">Panel md</span>
+            <span class="dropdown-chevron">▾</span>
+          </button>
+
+          <div class="dropdown-content" style="display: block">
+            <span class="dropdown-title">Medium overlay</span>
+            <div class="dropdown-menu">
+              <button class="dropdown-item" type="button">Option A</button>
+              <button class="dropdown-item" type="button">Option B</button>
+              <button class="dropdown-item" type="button">Option C</button>
+            </div>
+          </div>
+        </div>
+
+        <div style="height: 190px"></div>
+
+        <!-- Panel lg -->
+        <div
+          class="dropdown dropdown-bottom dropdown-align-start dropdown-offset-md dropdown-panel-lg"
+        >
+          <button class="dropdown-trigger" aria-expanded="true">
+            <span class="dropdown-label">Panel lg</span>
+            <span class="dropdown-chevron">▾</span>
+          </button>
+
+          <div class="dropdown-content" style="display: block">
+            <span class="dropdown-title">Large overlay</span>
+            <div class="dropdown-menu">
+              <button class="dropdown-item" type="button">Option A</button>
+              <button class="dropdown-item" type="button">Option B</button>
+              <button class="dropdown-item" type="button">Option C</button>
+              <button class="dropdown-item" type="button">Option D</button>
+            </div>
+          </div>
+        </div>
+
+        <div style="height: 220px"></div>
+      </div>
+    </div>
+
+    <!-- ========================= -->
+    <!-- Overlay: Offset (stacked, prevent overlap) -->
+    <!-- ========================= -->
+    <div class="component-column" style="min-width: 380px">
+      <span class="component-label">
+        Offset (<code>.dropdown-offset-sm</code> / <code>.dropdown-offset-md</code> /
+        <code>.dropdown-offset-lg</code>)
+      </span>
+
+      <div style="display: flex; flex-direction: column; gap: 1.25rem">
+        <div
+          class="dropdown dropdown-bottom dropdown-align-start dropdown-offset-sm dropdown-panel-md"
+        >
+          <button class="dropdown-trigger" aria-expanded="true">
+            <span class="dropdown-label">Offset sm</span>
+            <span class="dropdown-chevron">▾</span>
+          </button>
+
+          <div class="dropdown-content" style="display: block">
+            <span class="dropdown-title">Offset</span>
+            <p style="margin: 0; opacity: 0.8">Small gap from trigger.</p>
+          </div>
+        </div>
+
+        <div style="height: 150px"></div>
+
+        <div
+          class="dropdown dropdown-bottom dropdown-align-start dropdown-offset-md dropdown-panel-md"
+        >
+          <button class="dropdown-trigger" aria-expanded="true">
+            <span class="dropdown-label">Offset md</span>
+            <span class="dropdown-chevron">▾</span>
+          </button>
+
+          <div class="dropdown-content" style="display: block">
+            <span class="dropdown-title">Offset</span>
+            <p style="margin: 0; opacity: 0.8">Default gap from trigger.</p>
+          </div>
+        </div>
+
+        <div style="height: 150px"></div>
+
+        <div
+          class="dropdown dropdown-bottom dropdown-align-start dropdown-offset-lg dropdown-panel-md"
+        >
+          <button class="dropdown-trigger" aria-expanded="true">
+            <span class="dropdown-label">Offset lg</span>
+            <span class="dropdown-chevron">▾</span>
+          </button>
+
+          <div class="dropdown-content" style="display: block">
+            <span class="dropdown-title">Offset</span>
+            <p style="margin: 0; opacity: 0.8">Larger gap from trigger.</p>
+          </div>
+        </div>
+
+        <div style="height: 170px"></div>
+      </div>
+    </div>
+
+    <!-- ========================= -->
+    <!-- Overlay: Placement (top vs bottom) -->
+    <!-- ========================= -->
+    <div class="component-column" style="min-width: 380px">
+      <span class="component-label">
+        Placement (<code>.dropdown-bottom</code> / <code>.dropdown-top</code>)
+      </span>
+
+      <div style="display: flex; flex-direction: column; gap: 1.25rem">
+        <!-- Bottom -->
+        <div
+          class="dropdown dropdown-bottom dropdown-align-start dropdown-offset-md dropdown-panel-md"
+        >
+          <button class="dropdown-trigger" aria-expanded="true">
+            <span class="dropdown-label">Bottom</span>
+            <span class="dropdown-chevron">▾</span>
+          </button>
+
+          <div class="dropdown-content" style="display: block">
+            <span class="dropdown-title">Bottom overlay</span>
+            <div class="dropdown-menu">
+              <button class="dropdown-item" type="button">Option A</button>
+              <button class="dropdown-item" type="button">Option B</button>
+              <button class="dropdown-item" type="button">Option C</button>
+            </div>
+          </div>
+        </div>
+
+        <div style="height: 190px"></div>
+
+        <!-- Top -->
+        <div
+          class="dropdown dropdown-top dropdown-align-start dropdown-offset-md dropdown-panel-md"
+          style="margin-top: 190px"
+        >
+          <button class="dropdown-trigger" aria-expanded="true">
+            <span class="dropdown-label">Top</span>
+            <span class="dropdown-chevron">▾</span>
+          </button>
+
+          <div class="dropdown-content" style="display: block">
+            <span class="dropdown-title">Top overlay</span>
+            <div class="dropdown-menu">
+              <button class="dropdown-item" type="button">Option A</button>
+              <button class="dropdown-item" type="button">Option B</button>
+              <button class="dropdown-item" type="button">Option C</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Spacer so top overlay has room above trigger -->
+        <div style="height: 40px"></div>
+      </div>
+    </div>
+
+    <!-- ========================= -->
+    <!-- Overlay: Align (start / center / end) -->
+    <!-- ========================= -->
+    <div class="component-column" style="min-width: 380px">
+      <span class="component-label">
+        Align (<code>.dropdown-align-start</code> / <code>.dropdown-align-center</code> /
+        <code>.dropdown-align-end</code>)
+      </span>
+
+      <div style="display: flex; flex-direction: column; gap: 1.25rem">
+        <div
+          class="dropdown dropdown-bottom dropdown-align-start dropdown-offset-md dropdown-panel-md"
+        >
+          <button class="dropdown-trigger" aria-expanded="true" style="width: 260px">
+            <span class="dropdown-label">Align start</span>
+            <span class="dropdown-chevron">▾</span>
+          </button>
+
+          <div class="dropdown-content" style="display: block">
+            <span class="dropdown-title">Start</span>
+            <p style="margin: 0; opacity: 0.8">Overlay aligned to start.</p>
+          </div>
+        </div>
+
+        <div style="height: 150px"></div>
+
+        <div
+          class="dropdown dropdown-bottom dropdown-align-center dropdown-offset-md dropdown-panel-md"
+        >
+          <button class="dropdown-trigger" aria-expanded="true" style="width: 260px">
+            <span class="dropdown-label">Align center</span>
+            <span class="dropdown-chevron">▾</span>
+          </button>
+
+          <div class="dropdown-content" style="display: block">
+            <span class="dropdown-title">Center</span>
+            <p style="margin: 0; opacity: 0.8">Overlay aligned to center.</p>
+          </div>
+        </div>
+
+        <div style="height: 150px"></div>
+
+        <div
+          class="dropdown dropdown-bottom dropdown-align-end dropdown-offset-md dropdown-panel-md"
+        >
+          <button class="dropdown-trigger" aria-expanded="true" style="width: 260px">
+            <span class="dropdown-label">Align end</span>
+            <span class="dropdown-chevron">▾</span>
+          </button>
+
+          <div class="dropdown-content" style="display: block">
+            <span class="dropdown-title">End</span>
+            <p style="margin: 0; opacity: 0.8">Overlay aligned to end.</p>
+          </div>
+        </div>
+
+        <div style="height: 160px"></div>
+      </div>
+    </div>
+
+    <!-- ========================= -->
+    <!-- Overlay: Side placement (left/right) -->
+    <!-- ========================= -->
+    <div class="component-column" style="min-width: 420px">
+      <span class="component-label">
+        Side placement (<code>.dropdown-left</code> / <code>.dropdown-right</code>)
+      </span>
+
+      <div style="display: flex; flex-direction: column; gap: 1.25rem">
+        <div
+          class="dropdown dropdown-right dropdown-offset-md dropdown-panel-md"
+          style="margin-right: 200px"
+        >
+          <button class="dropdown-trigger" aria-expanded="true">
+            <span class="dropdown-label">Right</span>
+            <span class="dropdown-chevron">▾</span>
+          </button>
+
+          <div class="dropdown-content" style="display: block">
+            <span class="dropdown-title">Right overlay</span>
+            <div class="dropdown-menu">
+              <button class="dropdown-item" type="button">Option A</button>
+              <button class="dropdown-item" type="button">Option B</button>
+            </div>
+          </div>
+        </div>
+
+        <div style="height: 120px"></div>
+
+        <div
+          class="dropdown dropdown-left dropdown-offset-md dropdown-panel-md"
+          style="margin-left: 220px"
+        >
+          <button class="dropdown-trigger" aria-expanded="true">
+            <span class="dropdown-label">Left</span>
+            <span class="dropdown-chevron">▾</span>
+          </button>
+
+          <div class="dropdown-content" style="display: block">
+            <span class="dropdown-title">Left overlay</span>
+            <div class="dropdown-menu">
+              <button class="dropdown-item" type="button">Option A</button>
+              <button class="dropdown-item" type="button">Option B</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
       </div>
     </main>
   </body>
