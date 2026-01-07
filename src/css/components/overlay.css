@@ -23,7 +23,7 @@
   --overlay-fg: var(--color-base-content);
   --overlay-border: var(--border-subtle);
 
-  --overlay-radius: var(--radius-md);
+  --overlay-radius: var(--radius-box);
   --overlay-shadow: var(--elevation-2-default);
   --overlay-z: 50;
 
