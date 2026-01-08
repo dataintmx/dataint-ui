@@ -2550,45 +2550,164 @@
           </div>
         </section>
 
-        <!-- COMPONENTES: SUPERPOSICIONES -->
-        <section id="components-overlays" class="section">
-          <h2 class="section-title">
-            Componentes — Superposiciones (Overlays)
-          </h2>
-          <p class="section-subtitle">
-            Superficies flotantes que se muestran por encima del contenido
-            principal. En esta versión se ilustra el uso de
-            <span class="code-inline">.dropdown</span> como overlay básico; la
-            implementación final podrá extender placement, align, offset, etc.
-          </p>
+<!-- COMPONENTES: SUPERPOSICIONES (OVERLAYS) -->
+<section id="components-overlays" class="section">
+  <h2 class="section-title">Componentes — Superposiciones</h2>
+  <p class="section-subtitle">
+    Contenedores flotantes (overlays) para mostrar contenido contextual. En este
+    playground se mantienen abiertos con <code>.dropdown-open</code> para validar estilos.
+    El posicionamiento/offset lo controla Headless UI en producto.
+  </p>
 
-          <div class="component-grid">
-            <div class="component-column" style="min-width: 260px">
-              <div
-                class="dropdown"
-                style="
-                  padding: 0.75rem;
-                  border-radius: var(--radius-box);
-                  border: var(--border-subtle);
-                "
-              >
-                <button class="btn">Dropdown trigger</button>
-                <div
-                  style="
-                    margin-top: 0.5rem;
-                    padding: 0.5rem;
-                    border-radius: var(--radius-box);
-                    background: var(--color-base-300);
-                    box-shadow: var(--elevation-3-default);
-                    font-size: 0.8rem;
-                  "
-                >
-                  Overlay content sample (menu / actions).
-                </div>
-              </div>
+  <h3 class="section-subtitle" style="margin-top: 16px">Overlays</h3>
+
+  <div class="component-grid">
+    <!-- ========================= -->
+    <!-- Overlay: Base (panel md) -->
+    <!-- ========================= -->
+    <div class="component-column" style="min-width: 380px; margin-bottom: 5rem">
+      <span class="component-label">
+        Base (<code>.dropdown</code> + <code>.dropdown-open</code> + <code>.dropdown-content</code> +
+        <code>.dropdown-panel-md</code>)
+      </span>
+
+      <div class="dropdown dropdown-open dropdown-panel-md" style="position: relative">
+        <button class="dropdown-trigger" aria-expanded="true">
+          <span class="dropdown-label">Overlay base</span>
+          <span class="dropdown-chevron">▾</span>
+        </button>
+
+        <!-- Playground-only positioning (Headless UI in real app) -->
+        <div
+          class="dropdown-content"
+          style="
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 0;
+            display: block;
+          "
+        >
+          <span class="dropdown-title">Información</span>
+          <p style="margin: 0; opacity: 0.8">Contenido contextual del overlay.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================= -->
+    <!-- Overlay: Sizes -->
+    <!-- ========================= -->
+    <div class="component-column" style="min-width: 380px">
+      <span class="component-label">
+        Sizes (<code>.dropdown-panel-sm</code> / <code>.dropdown-panel-md</code> / <code>.dropdown-panel-lg</code>)
+      </span>
+
+      <div style="display: flex; flex-direction: column; gap: 1.25rem">
+        <!-- Panel sm -->
+        <div class="dropdown dropdown-open dropdown-panel-sm" style="position: relative">
+          <button class="dropdown-trigger" aria-expanded="true">
+            <span class="dropdown-label">Panel sm</span>
+            <span class="dropdown-chevron">▾</span>
+          </button>
+
+          <div
+            class="dropdown-content"
+            style="position: absolute; top: calc(100% + 8px); left: 0; display: block"
+          >
+            <span class="dropdown-title">Small overlay</span>
+            <div class="dropdown-menu">
+              <button class="dropdown-item" type="button">Option A</button>
+              <button class="dropdown-item" type="button">Option B</button>
             </div>
           </div>
-        </section>
+        </div>
+
+        <div style="height: 170px"></div>
+
+        <!-- Panel md -->
+        <div class="dropdown dropdown-open dropdown-panel-md" style="position: relative">
+          <button class="dropdown-trigger" aria-expanded="true">
+            <span class="dropdown-label">Panel md</span>
+            <span class="dropdown-chevron">▾</span>
+          </button>
+
+          <div
+            class="dropdown-content"
+            style="position: absolute; top: calc(100% + 8px); left: 0; display: block"
+          >
+            <span class="dropdown-title">Medium overlay</span>
+            <div class="dropdown-menu">
+              <button class="dropdown-item" type="button">Option A</button>
+              <button class="dropdown-item" type="button">Option B</button>
+              <button class="dropdown-item" type="button">Option C</button>
+            </div>
+          </div>
+        </div>
+
+        <div style="height: 190px"></div>
+
+        <!-- Panel lg -->
+        <div class="dropdown dropdown-open dropdown-panel-lg" style="position: relative">
+          <button class="dropdown-trigger" aria-expanded="true">
+            <span class="dropdown-label">Panel lg</span>
+            <span class="dropdown-chevron">▾</span>
+          </button>
+
+          <div
+            class="dropdown-content"
+            style="position: absolute; top: calc(100% + 8px); left: 0; display: block"
+          >
+            <span class="dropdown-title">Large overlay</span>
+            <div class="dropdown-menu">
+              <button class="dropdown-item" type="button">Option A</button>
+              <button class="dropdown-item" type="button">Option B</button>
+              <button class="dropdown-item" type="button">Option C</button>
+              <button class="dropdown-item" type="button">Option D</button>
+            </div>
+          </div>
+        </div>
+
+        <div style="height: 220px"></div>
+      </div>
+    </div>
+
+    <!-- ========================= -->
+    <!-- Overlay: Menu items (states) -->
+    <!-- ========================= -->
+    <div class="component-column" style="min-width: 380px">
+      <span class="component-label">
+        Menu & items (<code>.dropdown-menu</code> + <code>.dropdown-item</code> + <code>:hover</code>/<code>:focus</code>)
+      </span>
+
+      <div class="dropdown dropdown-open dropdown-panel-md" style="position: relative">
+        <button class="dropdown-trigger" aria-expanded="true">
+          <span class="dropdown-label">Items states</span>
+          <span class="dropdown-chevron">▾</span>
+        </button>
+
+        <div
+          class="dropdown-content"
+          style="position: absolute; top: calc(100% + 8px); left: 0; display: block"
+        >
+          <span class="dropdown-title">Actions</span>
+
+          <div class="dropdown-menu">
+            <button class="dropdown-item" type="button">Hover me</button>
+            <button class="dropdown-item" type="button">Tab to focus</button>
+            <button class="dropdown-item" type="button">Another option</button>
+          </div>
+
+          <p style="margin: 0.75rem 0 0; opacity: 0.7; font-size: 0.75rem">
+            Tip: usa <kbd>Tab</kbd> para ver el estado <code>:focus</code>.
+          </p>
+        </div>
+      </div>
+
+      <div style="height: 200px"></div>
+    </div>
+  </div>
+</section>
+
+
       </div>
     </main>
   </body>
