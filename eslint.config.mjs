@@ -54,6 +54,7 @@ export default defineConfig(
     extends: ["css/recommended"],
     languageOptions: {
       customSyntax: tailwind4,
+      tolerant: true,
     },
     rules: {
       "css/no-duplicate-imports": "error",
