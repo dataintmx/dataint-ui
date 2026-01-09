@@ -22,6 +22,7 @@ export default defineConfig(
     files: ["**/*.{ts,tsx}"],
   })),
 
+  // TypeScript rules (library conventions)
   {
     files: ["**/*.{ts,tsx}"],
     languageOptions: {
@@ -31,7 +32,6 @@ export default defineConfig(
       },
     },
     rules: {
-      "no-unused-vars": "off",
       "@typescript-eslint/no-unused-vars": [
         "error",
         { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
@@ -42,7 +42,7 @@ export default defineConfig(
         { prefer: "type-imports", fixStyle: "separate-type-imports" },
       ],
 
-      "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/no-explicit-any": "error",
     },
   },
 
@@ -54,11 +54,11 @@ export default defineConfig(
     extends: ["css/recommended"],
     languageOptions: {
       customSyntax: tailwind4,
-      tolerant: true,
     },
     rules: {
       "css/no-duplicate-imports": "error",
       "css/no-empty-blocks": "error",
+      "css/no-invalid-properties": ["error", { allowUnknownVariables: true }],
     },
   }
 );
