@@ -1603,10 +1603,7 @@
             <div class="component-column">
               <span class="component-label"><code>.menu</code></span>
 
-              <nav
-                class="menu"
-                aria-label="Main navigation"
-              >
+              <nav class="menu" aria-label="Main navigation">
                 <span class="menu-title">Main section</span>
 
                 <a href="#" class="menu-item is-active" aria-current="page">
@@ -1649,20 +1646,22 @@
               </div>
             </div>
             <div class="component-column">
-            <span class="component-label"><code>.dropdown open</code></span>
-            <div class="dropdown">
-              <button
-                type="button"
-                class="dropdown-trigger"
-                aria-expanded="true"
-                data-state="open"
-              >
-                <span class="dropdown-label">Settings</span>
-                <span class="dropdown-chevron" aria-hidden="true">▾</span>
-              </button>
+              <span class="component-label"><code>.dropdown open</code></span>
+              <div class="dropdown">
+                <button
+                  type="button"
+                  class="dropdown-trigger"
+                  aria-expanded="true"
+                  data-state="open"
+                >
+                  <span class="dropdown-label">Settings</span>
+                  <span class="dropdown-chevron" aria-hidden="true">▾</span>
+                </button>
+              </div>
             </div>
           </div>
         </section>
+
         <!-- COMPONENTES: FEEDBACK Y ESTADO DEL SISTEMA -->
         <section id="components-feedback" class="section">
           <h2 class="section-title">
@@ -2119,121 +2118,596 @@
           </div>
         </section>
 
-        <!-- COMPONENTES: TABLAS Y DESPLIEGUE DE DATOS -->
+        <!-- COMPONENTES: TABLAS -->
         <section id="components-data" class="section">
           <h2 class="section-title">
             Componentes — Tablas y despliegue de datos
           </h2>
           <p class="section-subtitle">
-            Tablas y bloques de métricas para presentar información
-            estructurada.
+            Tablas para presentar información estructurada con densidad, filas
+            alternadas y resaltado por fila.
           </p>
 
+          <h3 class="section-subtitle" style="margin-top: 16px">Table</h3>
+
           <div class="component-grid">
-            <div class="component-column" style="min-width: 320px">
-              <span class="component-label"><code>.table</code></span>
-              <div class="table">
-                <table class="preview-table">
-                  <thead>
-                    <tr>
-                      <th>ID</th>
-                      <th>Location</th>
-                      <th>Type</th>
-                      <th>Severity</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>#1234</td>
-                      <td>CDMX / Cuauhtémoc</td>
-                      <td>Theft</td>
-                      <td>
-                        <span
-                          class="badge"
-                          style="
-                            background: var(--color-warning);
-                            color: var(--color-warning-content);
-                          "
-                        >
-                          Medium
-                        </span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>#1235</td>
-                      <td>CDMX / Benito Juárez</td>
-                      <td>Robbery</td>
-                      <td>
-                        <span
-                          class="badge"
-                          style="background: var(--color-error)"
-                        >
-                          High
-                        </span>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+            <!-- ========================= -->
+            <!-- Base (md) -->
+            <!-- ========================= -->
+            <div class="component-column" style="min-width: 360px">
+              <span class="component-label">
+                Base (<code>.table</code> + <code>.table-md</code>)
+              </span>
+
+              <table class="table table-md">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Location</th>
+                    <th>Type</th>
+                    <th>Severity</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>#1234</td>
+                    <td>CDMX / Cuauhtémoc</td>
+                    <td>Theft</td>
+                    <td>
+                      <span class="badge badge-warning badge-sm">Medium</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>#1235</td>
+                    <td>CDMX / Benito Juárez</td>
+                    <td>Robbery</td>
+                    <td>
+                      <span class="badge badge-error badge-sm">High</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>#1236</td>
+                    <td>CDMX / Iztapalapa</td>
+                    <td>Fraud</td>
+                    <td>
+                      <span class="badge badge-success badge-sm">Low</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- ========================= -->
+            <!-- Sizes (sm / md / lg) -->
+            <!-- ========================= -->
+            <div class="component-column" style="min-width: 360px">
+              <span class="component-label">
+                Sizes (<code>.table-sm</code> / <code>.table-md</code> /
+                <code>.table-lg</code>)
+              </span>
+
+              <div style="display: flex; flex-direction: column; gap: 1rem">
+                <div>
+                  <p
+                    class="component-label"
+                    style="opacity: 0.8; margin-bottom: 0.5rem"
+                  >
+                    <code>.table-sm</code>
+                  </p>
+                  <table class="table table-sm">
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>Location</th>
+                        <th>Type</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>#2210</td>
+                        <td>NL / Monterrey</td>
+                        <td>Assault</td>
+                      </tr>
+                      <tr>
+                        <td>#2211</td>
+                        <td>NL / San Pedro</td>
+                        <td>Burglary</td>
+                      </tr>
+                      <tr>
+                        <td>#2212</td>
+                        <td>NL / Apodaca</td>
+                        <td>Robbery</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div>
+                  <p
+                    class="component-label"
+                    style="opacity: 0.8; margin-bottom: 0.5rem"
+                  >
+                    <code>.table-md</code>
+                  </p>
+                  <table class="table table-md">
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>Location</th>
+                        <th>Type</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>#2213</td>
+                        <td>JAL / Guadalajara</td>
+                        <td>Theft</td>
+                      </tr>
+                      <tr>
+                        <td>#2214</td>
+                        <td>JAL / Zapopan</td>
+                        <td>Robbery</td>
+                      </tr>
+                      <tr>
+                        <td>#2215</td>
+                        <td>JAL / Tlaquepaque</td>
+                        <td>Fraud</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div>
+                  <p
+                    class="component-label"
+                    style="opacity: 0.8; margin-bottom: 0.5rem"
+                  >
+                    <code>.table-lg</code>
+                  </p>
+                  <table class="table table-lg">
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>Location</th>
+                        <th>Type</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>#2216</td>
+                        <td>CDMX / Coyoacán</td>
+                        <td>Fraud</td>
+                      </tr>
+                      <tr>
+                        <td>#2217</td>
+                        <td>CDMX / Tlalpan</td>
+                        <td>Vandalism</td>
+                      </tr>
+                      <tr>
+                        <td>#2218</td>
+                        <td>CDMX / Gustavo A. Madero</td>
+                        <td>Theft</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
 
-            <div class="component-column" style="min-width: 260px">
-              <span class="component-label"
-                >Stats (<code>.stats</code>, <code>.stat</code>)</span
+            <!-- ========================= -->
+            <!-- Striped only -->
+            <!-- ========================= -->
+            <div class="component-column" style="min-width: 360px">
+              <span class="component-label">
+                Striped (<code>.table-striped</code>)
+              </span>
+
+              <table class="table table-md table-striped">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Location</th>
+                    <th>Type</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>#3301</td>
+                    <td>QRO / Querétaro</td>
+                    <td>Road block</td>
+                    <td>Open</td>
+                  </tr>
+                  <tr>
+                    <td>#3302</td>
+                    <td>GTO / León</td>
+                    <td>Robbery</td>
+                    <td>Open</td>
+                  </tr>
+                  <tr>
+                    <td>#3303</td>
+                    <td>PUE / Puebla</td>
+                    <td>Assault</td>
+                    <td>Open</td>
+                  </tr>
+                  <tr>
+                    <td>#3304</td>
+                    <td>MEX / Naucalpan</td>
+                    <td>Theft</td>
+                    <td>Open</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Row highlight only -->
+            <div class="component-column" style="min-width: 360px">
+              <span class="component-label">
+                Row highlight (<code>.table-row-highlight</code>)
+              </span>
+
+              <table class="table table-md table-row-highlight">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Location</th>
+                    <th>Type</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>#3401</td>
+                    <td>BCN / Tijuana</td>
+                    <td>Theft</td>
+                    <td>Open</td>
+                  </tr>
+                  <tr>
+                    <td>#3402</td>
+                    <td>BCN / Mexicali</td>
+                    <td>Robbery</td>
+                    <td>Open</td>
+                  </tr>
+                  <tr>
+                    <td>#3403</td>
+                    <td>BCN / Ensenada</td>
+                    <td>Fraud</td>
+                    <td>Open</td>
+                  </tr>
+                  <tr>
+                    <td>#3404</td>
+                    <td>BCN / Rosarito</td>
+                    <td>Assault</td>
+                    <td>Open</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Striped + Row highlight -->
+            <div class="component-column" style="min-width: 360px">
+              <span class="component-label">
+                Striped + Row highlight (<code>.table-striped</code> +
+                <code>.table-row-highlight</code>)
+              </span>
+
+              <table class="table table-md table-striped table-row-highlight">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Location</th>
+                    <th>Type</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>#3501</td>
+                    <td>SON / Hermosillo</td>
+                    <td>Road block</td>
+                    <td>Open</td>
+                  </tr>
+                  <tr>
+                    <td>#3502</td>
+                    <td>SON / Nogales</td>
+                    <td>Robbery</td>
+                    <td>Open</td>
+                  </tr>
+                  <tr>
+                    <td>#3503</td>
+                    <td>SON / Guaymas</td>
+                    <td>Theft</td>
+                    <td>Open</td>
+                  </tr>
+                  <tr>
+                    <td>#3504</td>
+                    <td>SON / Cajeme</td>
+                    <td>Assault</td>
+                    <td>Open</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== COMPONENTES: STATS ===== -->
+        <section id="components-stats" class="section">
+          <h2 class="section-title">Componentes — Stats</h2>
+          <p class="section-subtitle">
+            Bloques de métricas para resumir información clave y destacar
+            valores relevantes.
+          </p>
+
+          <div class="component-grid">
+            <!-- ========================= -->
+            <!-- Stats: Base (individual / standalone) -->
+            <!-- ========================= -->
+            <div class="component-column" style="min-width: 320px">
+              <span class="component-label">Base (<code>.stat</code>)</span>
+
+              <div
+                style="
+                  display: flex;
+                  gap: 12px;
+                  flex-wrap: wrap;
+                  align-items: flex-start;
+                "
               >
-              <div class="stats stats-row">
                 <div class="stat">
                   <div class="stat-title">Incidents (24h)</div>
                   <div class="stat-value">128</div>
                 </div>
+
                 <div class="stat">
                   <div class="stat-title">Avg. risk score</div>
                   <div class="stat-value">3.7</div>
                 </div>
+
+                <div class="stat">
+                  <div class="stat-title">Resolved</div>
+                  <div class="stat-value">62%</div>
+                </div>
               </div>
             </div>
-          </div>
-        </section>
 
-        <!-- COMPONENTES: SUPERPOSICIONES -->
-        <section id="components-overlays" class="section">
-          <h2 class="section-title">
-            Componentes — Superposiciones (Overlays)
-          </h2>
-          <p class="section-subtitle">
-            Superficies flotantes que se muestran por encima del contenido
-            principal. En esta versión se ilustra el uso de
-            <span class="code-inline">.dropdown</span> como overlay básico; la
-            implementación final podrá extender placement, align, offset, etc.
-          </p>
+            <!-- ========================= -->
+            <!-- Stats: Intents -->
+            <!-- ========================= -->
+            <div class="component-column" style="min-width: 320px">
+              <span class="component-label"
+                >Intents (<code>.stat-*</code>)</span
+              >
 
-          <div class="component-grid">
-            <div class="component-column" style="min-width: 260px">
               <div
-                class="dropdown"
                 style="
-                  padding: 0.75rem;
-                  border-radius: var(--radius-box);
-                  border: var(--border-subtle);
+                  display: flex;
+                  gap: 12px;
+                  flex-wrap: wrap;
+                  align-items: flex-start;
                 "
               >
-                <button class="btn">Dropdown trigger</button>
-                <div
-                  style="
-                    margin-top: 0.5rem;
-                    padding: 0.5rem;
-                    border-radius: var(--radius-box);
-                    background: var(--color-base-300);
-                    box-shadow: var(--elevation-3-default);
-                    font-size: 0.8rem;
-                  "
-                >
-                  Overlay content sample (menu / actions).
+                <div class="stat stat-neutral">
+                  <div class="stat-title">Neutral</div>
+                  <div class="stat-value">10.4</div>
+                </div>
+
+                <div class="stat stat-primary">
+                  <div class="stat-title">Primary</div>
+                  <div class="stat-value">128</div>
+                </div>
+
+                <div class="stat stat-warning">
+                  <div class="stat-title">Warning</div>
+                  <div class="stat-value">3.7</div>
+                </div>
+
+                <div class="stat stat-success">
+                  <div class="stat-title">Success</div>
+                  <div class="stat-value">62%</div>
+                </div>
+
+                <div class="stat stat-error">
+                  <div class="stat-title">Error</div>
+                  <div class="stat-value">0%</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ========================= -->
+            <!-- Stats: Sizes -->
+            <!-- ========================= -->
+            <div class="component-column" style="min-width: 320px">
+              <span class="component-label">
+                Sizes (<code>.stat-sm</code> / <code>.stat-md</code> /
+                <code>.stat-lg</code>)
+              </span>
+
+              <div
+                style="
+                  display: flex;
+                  gap: 12px;
+                  flex-wrap: wrap;
+                  align-items: flex-start;
+                "
+              >
+                <div class="stat stat-sm">
+                  <div class="stat-title">Small</div>
+                  <div class="stat-value">12</div>
+                </div>
+
+                <div class="stat stat-md stat-intent-primary">
+                  <div class="stat-title">Medium</div>
+                  <div class="stat-value">48</div>
+                </div>
+
+                <div class="stat stat-lg stat-intent-danger">
+                  <div class="stat-title">Large</div>
+                  <div class="stat-value">93</div>
                 </div>
               </div>
             </div>
           </div>
         </section>
+
+<!-- COMPONENTES: SUPERPOSICIONES (OVERLAYS) -->
+<section id="components-overlays" class="section">
+  <h2 class="section-title">Componentes — Superposiciones</h2>
+  <p class="section-subtitle">
+    Contenedores flotantes (overlays) para mostrar contenido contextual. En este
+    playground se mantienen abiertos con <code>.dropdown-open</code> para validar estilos.
+    El posicionamiento/offset lo controla Headless UI en producto.
+  </p>
+
+  <h3 class="section-subtitle" style="margin-top: 16px">Overlays</h3>
+
+  <div class="component-grid">
+    <!-- ========================= -->
+    <!-- Overlay: Base (panel md) -->
+    <!-- ========================= -->
+    <div class="component-column" style="min-width: 380px; margin-bottom: 5rem">
+      <span class="component-label">
+        Base (<code>.dropdown</code> + <code>.dropdown-open</code> + <code>.dropdown-content</code> +
+        <code>.dropdown-panel-md</code>)
+      </span>
+
+      <div class="dropdown dropdown-open dropdown-panel-md" style="position: relative">
+        <button class="dropdown-trigger" aria-expanded="true">
+          <span class="dropdown-label">Overlay base</span>
+          <span class="dropdown-chevron">▾</span>
+        </button>
+
+        <!-- Playground-only positioning (Headless UI in real app) -->
+        <div
+          class="dropdown-content"
+          style="
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 0;
+            display: block;
+          "
+        >
+          <span class="dropdown-title">Información</span>
+          <p style="margin: 0; opacity: 0.8">Contenido contextual del overlay.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================= -->
+    <!-- Overlay: Sizes -->
+    <!-- ========================= -->
+    <div class="component-column" style="min-width: 380px">
+      <span class="component-label">
+        Sizes (<code>.dropdown-panel-sm</code> / <code>.dropdown-panel-md</code> / <code>.dropdown-panel-lg</code>)
+      </span>
+
+      <div style="display: flex; flex-direction: column; gap: 1.25rem">
+        <!-- Panel sm -->
+        <div class="dropdown dropdown-open dropdown-panel-sm" style="position: relative">
+          <button class="dropdown-trigger" aria-expanded="true">
+            <span class="dropdown-label">Panel sm</span>
+            <span class="dropdown-chevron">▾</span>
+          </button>
+
+          <div
+            class="dropdown-content"
+            style="position: absolute; top: calc(100% + 8px); left: 0; display: block"
+          >
+            <span class="dropdown-title">Small overlay</span>
+            <div class="dropdown-menu">
+              <button class="dropdown-item" type="button">Option A</button>
+              <button class="dropdown-item" type="button">Option B</button>
+            </div>
+          </div>
+        </div>
+
+        <div style="height: 170px"></div>
+
+        <!-- Panel md -->
+        <div class="dropdown dropdown-open dropdown-panel-md" style="position: relative">
+          <button class="dropdown-trigger" aria-expanded="true">
+            <span class="dropdown-label">Panel md</span>
+            <span class="dropdown-chevron">▾</span>
+          </button>
+
+          <div
+            class="dropdown-content"
+            style="position: absolute; top: calc(100% + 8px); left: 0; display: block"
+          >
+            <span class="dropdown-title">Medium overlay</span>
+            <div class="dropdown-menu">
+              <button class="dropdown-item" type="button">Option A</button>
+              <button class="dropdown-item" type="button">Option B</button>
+              <button class="dropdown-item" type="button">Option C</button>
+            </div>
+          </div>
+        </div>
+
+        <div style="height: 190px"></div>
+
+        <!-- Panel lg -->
+        <div class="dropdown dropdown-open dropdown-panel-lg" style="position: relative">
+          <button class="dropdown-trigger" aria-expanded="true">
+            <span class="dropdown-label">Panel lg</span>
+            <span class="dropdown-chevron">▾</span>
+          </button>
+
+          <div
+            class="dropdown-content"
+            style="position: absolute; top: calc(100% + 8px); left: 0; display: block"
+          >
+            <span class="dropdown-title">Large overlay</span>
+            <div class="dropdown-menu">
+              <button class="dropdown-item" type="button">Option A</button>
+              <button class="dropdown-item" type="button">Option B</button>
+              <button class="dropdown-item" type="button">Option C</button>
+              <button class="dropdown-item" type="button">Option D</button>
+            </div>
+          </div>
+        </div>
+
+        <div style="height: 220px"></div>
+      </div>
+    </div>
+
+    <!-- ========================= -->
+    <!-- Overlay: Menu items (states) -->
+    <!-- ========================= -->
+    <div class="component-column" style="min-width: 380px">
+      <span class="component-label">
+        Menu & items (<code>.dropdown-menu</code> + <code>.dropdown-item</code> + <code>:hover</code>/<code>:focus</code>)
+      </span>
+
+      <div class="dropdown dropdown-open dropdown-panel-md" style="position: relative">
+        <button class="dropdown-trigger" aria-expanded="true">
+          <span class="dropdown-label">Items states</span>
+          <span class="dropdown-chevron">▾</span>
+        </button>
+
+        <div
+          class="dropdown-content"
+          style="position: absolute; top: calc(100% + 8px); left: 0; display: block"
+        >
+          <span class="dropdown-title">Actions</span>
+
+          <div class="dropdown-menu">
+            <button class="dropdown-item" type="button">Hover me</button>
+            <button class="dropdown-item" type="button">Tab to focus</button>
+            <button class="dropdown-item" type="button">Another option</button>
+          </div>
+
+          <p style="margin: 0.75rem 0 0; opacity: 0.7; font-size: 0.75rem">
+            Tip: usa <kbd>Tab</kbd> para ver el estado <code>:focus</code>.
+          </p>
+        </div>
+      </div>
+
+      <div style="height: 200px"></div>
+    </div>
+  </div>
+</section>
+
+
       </div>
     </main>
   </body>

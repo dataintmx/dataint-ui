@@ -1,0 +1,90 @@
+/* ------------------------------
+   STATS
+   ------------------------------ */
+
+/* A single metric container */
+@utility stat {
+  @apply inline-flex flex-col gap-1 rounded-lg border p-4 w-fit;
+
+  --stat-bg: var(--color-base-100);
+  --stat-border: var(--color-border-subtle);
+  --stat-fg: var(--color-base-content);
+
+  /* Accent used by intent utilities */
+  --stat-accent: var(--color-base-content);
+
+  background-color: var(--stat-bg);
+  border-color: var(--stat-border);
+  color: var(--stat-fg);
+}
+
+@utility stat-title {
+  @apply text-xs font-medium opacity-70 whitespace-nowrap;
+}
+
+@utility stat-value {
+  @apply text-2xl font-semibold leading-tight whitespace-nowrap;
+  color: var(--stat-accent);
+}
+
+/* ------------------------------
+   Sizes (density)
+   ------------------------------ */
+@utility stat-sm {
+  @apply p-3;
+
+  .stat-title {
+    @apply text-xs;
+  }
+
+  .stat-value {
+    @apply text-xl;
+  }
+}
+
+@utility stat-md {
+  @apply p-4;
+
+  .stat-title {
+    @apply text-xs;
+  }
+
+  .stat-value {
+    @apply text-2xl;
+  }
+}
+
+@utility stat-lg {
+  @apply p-5;
+
+  .stat-title {
+    @apply text-sm;
+  }
+
+  .stat-value {
+    @apply text-3xl;
+  }
+}
+
+/* ------------------------------
+   Intent (accent)
+   ------------------------------ */
+@utility stat-neutral {
+  --stat-accent: var(--color-base-content);
+}
+
+@utility stat-primary {
+  --stat-accent: var(--color-primary);
+}
+
+@utility stat-success {
+  --stat-accent: var(--color-success);
+}
+
+@utility stat-warning {
+  --stat-accent: var(--color-warning);
+}
+
+@utility stat-error {
+  --stat-accent: var(--color-error);
+}
