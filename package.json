@@ -1,6 +1,7 @@
 {
   "name": "@dataint/ui",
   "version": "0.1.0",
+  "type": "module",
   "description": "A lightweight CSS-based design system for DataInt applications.",
   "license": "MIT",
   "author": "DataInt",
@@ -10,7 +11,15 @@
   },
   "style": "dist/styles.css",
   "exports": {
-    "./styles.css": "./dist/styles.css"
+    "./styles.css": "./dist/styles.css",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./cva": {
+      "types": "./dist/cva/index.d.ts",
+      "default": "./dist/cva/index.js"
+    }
   },
   "files": [
     "dist"
@@ -19,7 +28,11 @@
     "*.css"
   ],
   "scripts": {
-    "build": "postcss src/index.css -o dist/styles.css",
+    "build:css": "postcss src/index.css -o dist/styles.css",
+    "build:ts": "tsc -p tsconfig.build.json",
+    "build": "npm run build:css && npm run build:ts",
+    "typecheck": "tsc -p tsconfig.json",
+    "lint": "eslint \"src/**/*.{ts,tsx,css}\"",
     "prepublishOnly": "npm run build",
     "dev:playground": "npx serve playground",
     "build:playground": "npx @tailwindcss/cli -i playground/css/input.css -o playground/css/output.css"
@@ -28,11 +41,16 @@
     "tailwindcss": ">=4.0.0"
   },
   "devDependencies": {
+    "@eslint/css": "^0.14.1",
     "autoprefixer": "^10.4.22",
+    "eslint": "^9.39.2",
     "postcss": "^8.5.6",
     "postcss-cli": "^11.0.1",
     "postcss-import": "^16.1.1",
-    "tailwindcss": "^4.1.17"
+    "tailwind-csstree": "^0.1.4",
+    "tailwindcss": "^4.1.17",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.52.0"
   },
   "dependencies": {
     "@tailwindcss/cli": "^4.1.17"
