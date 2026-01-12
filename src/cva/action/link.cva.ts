@@ -1,4 +1,3 @@
-// src/cva/action/link.cva.ts
 import { cva, type VariantProps } from "class-variance-authority";
 
 /**
@@ -23,7 +22,6 @@ export const linkSizes = ["xs", "sm", "md", "lg"] as const;
  */
 export const linkIconPositions = ["none", "only", "start", "end"] as const;
 
-// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
 export const linkStyles = cva("link", {
   variants: {
     intent: {
