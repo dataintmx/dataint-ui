@@ -1,59 +1,43 @@
-import { cva, type VariantProps } from "class-variance-authority";
+import type { CvaConfig, CvaProps } from "../../types/cva";
+import type { ButtonSize, ButtonVariants } from "../../types/cva/action/button";
+import type { SemanticIntent } from "../../types/cva/common/intents";
 
 /**
- * Button CVA maps directly to dataint-ui CSS utilities:
- * - base: btn
- * - intents: btn-primary, btn-neutral, ...
- * - variants: btn-outline, btn-ghost
- * - sizes: btn-xs, btn-sm, ...
- * - extras: btn-block, btn-icon, btn-disabled
+ * Base CSS utility for all button variants.
+ *
+ * Consumers are expected to compose this with:
+ *   cva(buttonBase, buttonConfig)
  */
+export const buttonBase = "btn";
 
-export const buttonIntents = [
-  "neutral",
-  "primary",
-  "secondary",
-  "accent",
-  "info",
-  "success",
-  "warning",
-  "error",
-] as const;
-
-export const buttonVariants = ["solid", "outline", "ghost"] as const;
-
-export const buttonSizes = ["xs", "sm", "md", "lg", "xl"] as const;
-
-type Intent = (typeof buttonIntents)[number];
-
-const intentClass: Record<Intent, string> = {
-  neutral: "btn-neutral",
-  primary: "btn-primary",
-  secondary: "btn-secondary",
-  accent: "btn-accent",
-  info: "btn-info",
-  success: "btn-success",
-  warning: "btn-warning",
-  error: "btn-error",
-};
-
-export const buttonStyles = cva("btn", {
+/**
+ * CVA configuration object for Button.
+ *
+ * Important:
+ * - This file exports configuration only.
+ * - The actual `cva(...)` call must happen in the consuming project.
+ * - Boolean-like variants are modeled as "true" | "false" keys to align
+ *   with utility-class patterns in CSS.
+ */
+export const buttonConfig = {
   variants: {
     variant: {
       solid: "",
       outline: "btn-outline",
       ghost: "btn-ghost",
     },
+
     intent: {
-      neutral: intentClass.neutral,
-      primary: intentClass.primary,
-      secondary: intentClass.secondary,
-      accent: intentClass.accent,
-      info: intentClass.info,
-      success: intentClass.success,
-      warning: intentClass.warning,
-      error: intentClass.error,
+      neutral: "btn-neutral",
+      primary: "btn-primary",
+      secondary: "btn-secondary",
+      accent: "btn-accent",
+      info: "btn-info",
+      success: "btn-success",
+      warning: "btn-warning",
+      error: "btn-error",
     },
+
     size: {
       xs: "btn-xs",
       sm: "btn-sm",
@@ -61,36 +45,61 @@ export const buttonStyles = cva("btn", {
       lg: "btn-lg",
       xl: "btn-xl",
     },
+
     block: {
       true: "btn-block",
       false: "",
     },
+
     icon: {
       true: "btn-icon",
       false: "",
     },
+
     disabled: {
       true: "btn-disabled",
       false: "",
     },
+
     loading: {
       true: "btn-loading",
       false: "",
     },
   },
+
+  /**
+   * Default visual configuration.
+   *
+   * Note:
+   * - Defaults use literal keys ("true" | "false") to match variant maps.
+   * - Consumer-facing props remain boolean via `CvaProps`.
+   */
   defaultVariants: {
     variant: "solid",
     size: "md",
     intent: "neutral",
-    block: false,
-    icon: false,
-    disabled: false,
-    loading: false,
+    block: "false",
+    icon: "false",
+    disabled: "false",
+    loading: "false",
   },
-  compoundVariants: [],
-});
 
-export type ButtonCvaProps = VariantProps<typeof buttonStyles>;
-export type ButtonIntent = Intent;
-export type ButtonVariant = (typeof buttonVariants)[number];
-export type ButtonSize = (typeof buttonSizes)[number];
+  compoundVariants: [],
+} satisfies CvaConfig<ButtonVariants>;
+
+/**
+ * Public prop type derived from the configuration object.
+ *
+ * Consumers receive:
+ * - Strongly typed variant props
+ * - Boolean ergonomics for boolean-like variants
+ * - Optional class / className passthrough
+ */
+export type ButtonProps = CvaProps<typeof buttonConfig>;
+
+/**
+ * Re-export intent and size types for convenience and consistency
+ * across consuming applications.
+ */
+export type ButtonIntent = SemanticIntent;
+export type ButtonSizeType = ButtonSize;
