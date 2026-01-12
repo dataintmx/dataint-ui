@@ -11,9 +11,3 @@
  * Default sizing scale for action components.
  */
 export type ActionSize = "xs" | "sm" | "md" | "lg";
-
-/**
- * Button-specific size scale.
- * Buttons support an additional "xl" size.
- */
-export type ButtonSize = ActionSize | "xl";
