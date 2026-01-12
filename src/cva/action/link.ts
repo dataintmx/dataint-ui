@@ -1,67 +1,68 @@
-import { cva, type VariantProps } from "class-variance-authority";
+import type { CvaConfig, CvaProps } from "../../types/cva";
+import type { LinkVariants } from "../../types/cva/action/link";
 
 /**
- * Link CVA maps directly to dataint-ui CSS utilities:
- * - base: link
- * - intents: link-primary, link-secondary
- * - sizes: link-xs, link-sm, link-md, link-lg
- * - width: link-block
- * - icon relationship: link-icon-only, link-icon-start, link-icon-end
- * - disabled: link-disabled
+ * Base CSS utility for all link variants.
+ *
+ * Consumers are expected to compose this with:
+ *   cva(linkBase, linkConfig)
  */
-
-export const linkIntents = ["primary", "secondary"] as const;
-export const linkSizes = ["xs", "sm", "md", "lg"] as const;
+export const linkBase = "link";
 
 /**
- * Icon relationship between label and icon(s).
- * - "none": default behavior (no extra class)
- * - "only": icon-only link (no gap, centered)
- * - "start": icon before text (row)
- * - "end": icon after text (row-reverse)
+ * CVA configuration object for Link.
+ *
+ * Important:
+ * - This file exports configuration only.
+ * - The actual `cva(...)` call must happen in the consuming project.
  */
-export const linkIconPositions = ["none", "only", "start", "end"] as const;
-
-export const linkStyles = cva("link", {
+export const linkConfig = {
   variants: {
     intent: {
       primary: "link-primary",
       secondary: "link-secondary",
     },
+
     size: {
       xs: "link-xs",
       sm: "link-sm",
       md: "link-md",
       lg: "link-lg",
     },
+
     block: {
       true: "link-block",
       false: "",
     },
+
     icon: {
       none: "",
       only: "link-icon-only",
       start: "link-icon-start",
       end: "link-icon-end",
     },
+
     disabled: {
       true: "link-disabled",
       false: "",
     },
   },
 
+  /**
+   * Default behavior: primary, medium, inline, with standard icon/text layout.
+   */
   defaultVariants: {
     intent: "primary",
     size: "md",
-    block: false,
+    block: "false",
     icon: "none",
-    disabled: false,
+    disabled: "false",
   },
 
   compoundVariants: [],
-});
+} satisfies CvaConfig<LinkVariants>;
 
-export type LinkCvaProps = VariantProps<typeof linkStyles>;
-export type LinkIntent = (typeof linkIntents)[number];
-export type LinkSize = (typeof linkSizes)[number];
-export type LinkIconPosition = (typeof linkIconPositions)[number];
+/**
+ * Public prop type derived from the configuration object.
+ */
+export type LinkProps = CvaProps<typeof linkConfig>;
