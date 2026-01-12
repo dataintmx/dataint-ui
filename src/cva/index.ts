@@ -1,1 +1,1 @@
-export const cvaExportsPlaceholder = true;
+export * from "./action";

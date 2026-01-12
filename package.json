@@ -53,6 +53,7 @@
     "typescript-eslint": "^8.52.0"
   },
   "dependencies": {
-    "@tailwindcss/cli": "^4.1.17"
+    "@tailwindcss/cli": "^4.1.17",
+    "class-variance-authority": "^0.7.1"
   }
 }
