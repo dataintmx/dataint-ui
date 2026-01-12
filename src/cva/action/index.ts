@@ -1,2 +1,2 @@
-export * from "./button.cva";
-export * from "./link.cva";
+export * from "./button";
+export * from "./link";
