@@ -1,3 +1,5 @@
+import type { ActionSize } from "./sizes";
+
 /**
  * Shared surface sizing scale.
  *
@@ -5,7 +7,7 @@
  * - This is intentionally different from ActionSize.
  * - Surfaces tend to use fewer size steps (e.g., sm / md / lg) focused on padding.
  */
-export type SurfaceSize = "sm" | "md" | "lg";
+export type SurfaceSize = Extract<ActionSize, "sm" | "md" | "lg">;
 
 /**
  * Common orientation scale for layout containers.
