@@ -10,7 +10,9 @@
         "exactOptionalPropertyTypes": true,
         "forceConsistentCasingInFileNames": true,
         "skipLibCheck": true,
-
+        "paths": {
+            "@/*": ["./src/*"]
+        },
         "noEmit": true
     },
     "include": ["**/*.ts", "**/*.tsx", "eslint.config.mjs"],
