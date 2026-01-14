@@ -1,4 +1,4 @@
-import type { FeedbackIntent, FeedbackSize, FeedbackVariant } from ".";
+import type { FeedbackIntent, FeedbackSize, FeedbackVariant } from "@/types/cva/feedback";
 
 /**
  * Loading (spinner) visual weight.

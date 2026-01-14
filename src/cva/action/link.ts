@@ -1,5 +1,5 @@
-import type { CvaConfig, CvaProps } from "../../types/cva";
-import type { LinkVariants } from "../../types/cva/action/link";
+import type { CvaConfig, CvaProps } from "@/types/cva";
+import type { LinkVariants } from "@/types/cva/action/link";
 
 /**
  * Base CSS utility for all link variants.

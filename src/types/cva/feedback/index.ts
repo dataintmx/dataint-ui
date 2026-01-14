@@ -1,5 +1,5 @@
-import type { SemanticIntent } from "../common/intents";
-import type { ActionSize } from "../common/sizes";
+import type { SemanticIntent } from "@/types/cva/common/intents";
+import type { ActionSize } from "@/types/cva/common/sizes";
 
 /**
  * Shared API scales for Feedback & System State components.

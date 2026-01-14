@@ -1,5 +1,5 @@
-import type { CvaConfig, CvaProps } from "../../types/cva";
-import type { StatVariants } from "../../types/cva/data-display/stat";
+import type { CvaConfig, CvaProps } from "@/types/cva";
+import type { StatVariants } from "@/types/cva/data-display/stat";
 
 /**
  * Base utility for a single metric container.

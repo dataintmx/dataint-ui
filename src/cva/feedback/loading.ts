@@ -1,5 +1,5 @@
-import type { CvaConfig, CvaProps } from "../../types/cva";
-import type { LoadingVariants } from "../../types/cva/feedback/loading";
+import type { CvaConfig, CvaProps } from "@/types/cva";
+import type { LoadingVariants } from "@/types/cva/feedback/loading";
 
 /**
  * Base utility for the spinner element.

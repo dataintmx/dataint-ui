@@ -1,5 +1,5 @@
-import type { CvaConfig, CvaProps } from "../../types/cva";
-import type { CardActionsVariants, CardVariants } from "../../types/cva/surfaces/card";
+import type { CvaConfig, CvaProps } from "@/types/cva";
+import type { CardActionsVariants, CardVariants } from "@/types/cva/surfaces/card";
 
 /**
  * Base CSS utility for the Card container.

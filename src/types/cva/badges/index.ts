@@ -1,5 +1,5 @@
-import type { ActionSize } from "../common/sizes";
-import type { FeedbackIntent, FeedbackVariant } from "../feedback";
+import type { ActionSize } from "@/types/cva/common/sizes";
+import type { FeedbackIntent, FeedbackVariant } from "@/types/cva/feedback";
 
 /**
  * Badge sizing is specific to this family (height + padding + typography),

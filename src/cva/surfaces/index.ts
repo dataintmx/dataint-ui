@@ -1,2 +1,2 @@
-export * from "./card";
-export * from "./divider";
+export * from "@/cva/surfaces/card";
+export * from "@/cva/surfaces/divider";

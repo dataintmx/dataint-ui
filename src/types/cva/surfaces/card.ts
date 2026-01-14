@@ -1,5 +1,5 @@
-import type { ElevationLevel } from "../common/elevation";
-import type { Orientation, SurfaceSize } from "../common/surfaces";
+import type { ElevationLevel } from "@/types/cva/common/elevation";
+import type { Orientation, SurfaceSize } from "@/types/cva/common/surfaces";
 
 /**
  * Card variants describe surface treatment (border and shadow policy),

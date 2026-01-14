@@ -1,5 +1,5 @@
-import type { CvaConfig, CvaProps } from "../../types/cva";
-import type { BadgeVariants } from "../../types/cva/badges";
+import type { CvaConfig, CvaProps } from "@/types/cva";
+import type { BadgeVariants } from "@/types/cva/badges";
 
 /**
  * Base utility for Badge.

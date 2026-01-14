@@ -1,4 +1,4 @@
-import type { ActionSize } from "./sizes";
+import type { ActionSize } from "@/types/cva/common/sizes";
 
 /**
  * Shared surface sizing scale.

@@ -1,5 +1,5 @@
-import type { CvaConfig, CvaProps } from "../../types/cva";
-import type { DropdownTriggerVariants } from "../../types/cva/navigation/dropdown";
+import type { CvaConfig, CvaProps } from "@/types/cva";
+import type { DropdownTriggerVariants } from "@/types/cva/navigation/dropdown";
 
 /**
  * Base utility for the dropdown container (layout only).
