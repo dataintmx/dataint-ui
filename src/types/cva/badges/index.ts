@@ -1,5 +1,6 @@
 import type { ActionSize } from "../common/sizes";
 import type { FeedbackIntent, FeedbackVariant } from "../feedback";
+
 /**
  * Badge sizing is specific to this family (height + padding + typography),
  * so we define its scale locally as a type derived from ActionSize (types are the source of truth).
@@ -23,8 +24,8 @@ export type BadgeVariant = FeedbackVariant;
  * - BadgeVariant: subtle | solid | outline
  */
 export type BadgeVariants = {
-  intent: Record<BadgeIntent, string>;
-  variant: Record<BadgeVariant, string>;
-  size: Record<BadgeSize, string>;
-  rounded: Record<BadgeRounded, string>;
+    intent: Record<BadgeIntent, string>;
+    variant: Record<BadgeVariant, string>;
+    size: Record<BadgeSize, string>;
+    rounded: Record<BadgeRounded, string>;
 };

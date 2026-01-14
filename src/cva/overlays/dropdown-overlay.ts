@@ -15,23 +15,23 @@ import type { DropdownOverlayVariants } from "../../types/cva/overlays/dropdown-
 export const dropdownOverlayBase = "dropdown";
 
 export const dropdownOverlayConfig = {
-  variants: {
-    size: {
-      sm: "dropdown-panel-sm",
-      md: "dropdown-panel-md",
-      lg: "dropdown-panel-lg",
+    variants: {
+        size: {
+            sm: "dropdown-panel-sm",
+            md: "dropdown-panel-md",
+            lg: "dropdown-panel-lg",
+        },
     },
-  },
 
-  /**
-   * Default sizing matches the CSS defaults declared under `.dropdown`.
-   * "md" is the baseline overlay min-width and padding/typography.
-   */
-  defaultVariants: {
-    size: "md",
-  },
+    /**
+     * Default sizing matches the CSS defaults declared under `.dropdown`.
+     * "md" is the baseline overlay min-width and padding/typography.
+     */
+    defaultVariants: {
+        size: "md",
+    },
 
-  compoundVariants: [],
+    compoundVariants: [],
 } satisfies CvaConfig<DropdownOverlayVariants>;
 
 export type DropdownOverlayProps = CvaProps<typeof dropdownOverlayConfig>;

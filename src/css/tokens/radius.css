@@ -5,7 +5,7 @@
 
 /* Para Tailwind */
 @theme {
-  --radius-selector: 1rem; /* badges, chips, toggles */
-  --radius-field: 1rem; /* inputs, buttons, selects, tabs */
-  --radius-box: 1rem; /* cards, panels, containers */
+    --radius-selector: 1rem; /* badges, chips, toggles */
+    --radius-field: 1rem; /* inputs, buttons, selects, tabs */
+    --radius-box: 1rem; /* cards, panels, containers */
 }

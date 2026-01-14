@@ -10,32 +10,32 @@ import type { StatVariants } from "../../types/cva/data-display/stat";
 export const statBase = "stat";
 
 export const statConfig = {
-  variants: {
-    size: {
-      sm: "stat-sm",
-      md: "stat-md",
-      lg: "stat-lg",
+    variants: {
+        size: {
+            sm: "stat-sm",
+            md: "stat-md",
+            lg: "stat-lg",
+        },
+        intent: {
+            neutral: "stat-neutral",
+            primary: "stat-primary",
+            success: "stat-success",
+            warning: "stat-warning",
+            error: "stat-error",
+        },
     },
-    intent: {
-      neutral: "stat-neutral",
-      primary: "stat-primary",
-      success: "stat-success",
-      warning: "stat-warning",
-      error: "stat-error",
+
+    /**
+     * Defaults align with `.stat` base styling:
+     * - size: md
+     * - intent: neutral (accent = base content)
+     */
+    defaultVariants: {
+        size: "md",
+        intent: "neutral",
     },
-  },
 
-  /**
-   * Defaults align with `.stat` base styling:
-   * - size: md
-   * - intent: neutral (accent = base content)
-   */
-  defaultVariants: {
-    size: "md",
-    intent: "neutral",
-  },
-
-  compoundVariants: [],
+    compoundVariants: [],
 } satisfies CvaConfig<StatVariants>;
 
 export type StatProps = CvaProps<typeof statConfig>;

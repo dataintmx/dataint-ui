@@ -31,23 +31,23 @@ export type CvaVariantsShape = Record<string, Record<string, string>>;
  *   with different CVA/consumer conventions.
  */
 export type CvaConfig<V extends CvaVariantsShape> = {
-  variants: V;
+    variants: V;
 
-  /**
-   * Default variants must reference keys in the `variants` object.
-   * We model the value type as the key of each variant map.
-   */
-  defaultVariants?: Partial<{ [K in keyof V]: keyof V[K] }>;
+    /**
+     * Default variants must reference keys in the `variants` object.
+     * We model the value type as the key of each variant map.
+     */
+    defaultVariants?: Partial<{ [K in keyof V]: keyof V[K] }>;
 
-  /**
-   * Compound variants apply additional classes when a set of variant values match.
-   */
-  compoundVariants?: Array<
-    Partial<{ [K in keyof V]: keyof V[K] }> & {
-      class?: string;
-      className?: string;
-    }
-  >;
+    /**
+     * Compound variants apply additional classes when a set of variant values match.
+     */
+    compoundVariants?: Array<
+        Partial<{ [K in keyof V]: keyof V[K] }> & {
+            class?: string;
+            className?: string;
+        }
+    >;
 };
 
 /**
@@ -59,9 +59,7 @@ export type CvaConfig<V extends CvaVariantsShape> = {
  * - We want consumer props to be ergonomic:
  *     disabled?: boolean
  */
-type VariantValue<K extends PropertyKey> = K extends "true" | "false"
-  ? boolean
-  : K;
+type VariantValue<K extends PropertyKey> = K extends "true" | "false" ? boolean : K;
 
 /**
  * Derive a strongly-typed props shape from a config object.
@@ -72,8 +70,8 @@ type VariantValue<K extends PropertyKey> = K extends "true" | "false"
  * - Also supports `class` / `className` passthrough for convenience
  */
 export type CvaProps<C extends { variants: CvaVariantsShape }> = {
-  [K in keyof C["variants"]]?: VariantValue<keyof C["variants"][K]>;
+    [K in keyof C["variants"]]?: VariantValue<keyof C["variants"][K]>;
 } & {
-  class?: string;
-  className?: string;
+    class?: string;
+    className?: string;
 };

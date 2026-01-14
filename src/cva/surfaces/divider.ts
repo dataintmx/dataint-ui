@@ -10,21 +10,21 @@ import type { DividerVariants } from "../../types/cva/surfaces/divider";
 export const dividerBase = "divider";
 
 export const dividerConfig = {
-  variants: {
-    variant: {
-      /**
-       * "default" maps to `.divider` base (no extra class).
-       * Keep the name explicit to preserve readability in JSX props.
-       */
-      default: "",
-      muted: "divider-muted",
-      strong: "divider-strong",
+    variants: {
+        variant: {
+            /**
+             * "default" maps to `.divider` base (no extra class).
+             * Keep the name explicit to preserve readability in JSX props.
+             */
+            default: "",
+            muted: "divider-muted",
+            strong: "divider-strong",
+        },
     },
-  },
-  defaultVariants: {
-    variant: "default",
-  },
-  compoundVariants: [],
+    defaultVariants: {
+        variant: "default",
+    },
+    compoundVariants: [],
 } satisfies CvaConfig<DividerVariants>;
 
 export type DividerProps = CvaProps<typeof dividerConfig>;

@@ -27,9 +27,9 @@ export type LinkIcon = "none" | "only" | "start" | "end";
  * - Make the public API explicit and predictable
  */
 export type LinkVariants = {
-  intent: Record<LinkIntent, string>;
-  size: Record<ActionSize, string>;
-  block: Record<"true" | "false", string>;
-  icon: Record<LinkIcon, string>;
-  disabled: Record<"true" | "false", string>;
+    intent: Record<LinkIntent, string>;
+    size: Record<ActionSize, string>;
+    block: Record<"true" | "false", string>;
+    icon: Record<LinkIcon, string>;
+    disabled: Record<"true" | "false", string>;
 };

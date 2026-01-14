@@ -5,34 +5,34 @@
    ====================================================================== */
 
 @utility menu {
-  @apply w-full flex flex-col;
+    @apply w-full flex flex-col;
 
-  /* Defaults (API fallbacks) */
-  --menu-gap: var(--space-2xs);
-  --menu-item-px: var(--space-md);
-  --menu-item-py: var(--space-xs);
-  --menu-item-radius: var(--radius-field);
+    /* Defaults (API fallbacks) */
+    --menu-gap: var(--space-2xs);
+    --menu-item-px: var(--space-md);
+    --menu-item-py: var(--space-xs);
+    --menu-item-radius: var(--radius-field);
 
-  --menu-item-fg: var(--color-base-content);
-  --menu-item-fg-muted: var(--color-base-content-muted);
-  --menu-item-bg: transparent;
+    --menu-item-fg: var(--color-base-content);
+    --menu-item-fg-muted: var(--color-base-content-muted);
+    --menu-item-bg: transparent;
 
-  --menu-item-bg-hover: var(--color-base-300);
-  --menu-item-bg-active: var(--color-base-200);
+    --menu-item-bg-hover: var(--color-base-300);
+    --menu-item-bg-active: var(--color-base-200);
 
-  --menu-item-outline: var(--outline-1);
-  --menu-item-outline-offset: var(--outline-offset-2);
+    --menu-item-outline: var(--outline-1);
+    --menu-item-outline-offset: var(--outline-offset-2);
 
-  gap: var(--menu-gap);
-  padding: var(--space-xs);
-  border-radius: var(--radius-box);
+    gap: var(--menu-gap);
+    padding: var(--space-xs);
+    border-radius: var(--radius-box);
 }
 
 /* Optional section title inside menus */
 @utility menu-title {
-  @apply text-xs block font-semibold uppercase tracking-wide;
-  color: var(--menu-item-fg-muted);
-  padding: var(--space-xs) var(--menu-item-px);
+    @apply text-xs block font-semibold uppercase tracking-wide;
+    color: var(--menu-item-fg-muted);
+    padding: var(--space-xs) var(--menu-item-px);
 }
 
 /* ------------------------------
@@ -40,14 +40,14 @@
    ------------------------------ */
 
 @utility menu-item {
-  @apply flex w-full items-center gap-2;
-  @apply select-none text-left;
-  @apply transition-colors duration-150 ease-in-out;
+    @apply flex w-full items-center gap-2;
+    @apply select-none text-left;
+    @apply transition-colors duration-150 ease-in-out;
 
-  padding: var(--menu-item-py) var(--menu-item-px);
-  border-radius: var(--menu-item-radius);
-  color: var(--menu-item-fg);
-  background-color: var(--menu-item-bg);
+    padding: var(--menu-item-py) var(--menu-item-px);
+    border-radius: var(--menu-item-radius);
+    color: var(--menu-item-fg);
+    background-color: var(--menu-item-bg);
 }
 
 /* ------------------------------
@@ -55,12 +55,12 @@
    ------------------------------ */
 
 .menu-item:not(:disabled):not([aria-disabled="true"]):hover {
-  background-color: var(--menu-item-bg-hover);
+    background-color: var(--menu-item-bg-hover);
 }
 
 .menu-item:not(:disabled):not([aria-disabled="true"]):focus {
-  outline: var(--menu-item-outline);
-  outline-offset: var(--menu-item-outline-offset);
+    outline: var(--menu-item-outline);
+    outline-offset: var(--menu-item-outline-offset);
 }
 
 /* ------------------------------
@@ -69,8 +69,8 @@
 
 .menu-item:disabled,
 .menu-item[aria-disabled="true"] {
-  @apply cursor-not-allowed opacity-40;
-  color: var(--menu-item-fg-muted);
+    @apply cursor-not-allowed opacity-40;
+    color: var(--menu-item-fg-muted);
 }
 
 /* ------------------------------
@@ -78,15 +78,15 @@
    ------------------------------ */
 
 .menu-sm {
-  --menu-item-px: var(--space-sm);
-  --menu-item-py: var(--space-2xs);
-  --menu-gap: var(--space-2xs);
+    --menu-item-px: var(--space-sm);
+    --menu-item-py: var(--space-2xs);
+    --menu-gap: var(--space-2xs);
 }
 
 .menu-lg {
-  --menu-item-px: var(--space-lg);
-  --menu-item-py: var(--space-sm);
-  --menu-gap: var(--space-xs);
+    --menu-item-px: var(--space-lg);
+    --menu-item-py: var(--space-sm);
+    --menu-gap: var(--space-xs);
 }
 
 /* ------------------------------
@@ -97,25 +97,19 @@
 .menu-item[aria-current="page"],
 .menu-item[aria-current="true"],
 .menu-item[data-state="active"] {
-  @apply font-semibold;
-  background-color: var(--menu-item-bg-active);
-  box-shadow: var(--elevation-1-default);
+    @apply font-semibold;
+    background-color: var(--menu-item-bg-active);
+    box-shadow: var(--elevation-1-default);
 }
 
 /* Active + hover MUST win over active with box shadow
 */
 .menu-item.is-active:not(:disabled):not([aria-disabled="true"]):hover,
-.menu-item[aria-current="page"]:not(:disabled):not(
-    [aria-disabled="true"]
-  ):hover,
-.menu-item[aria-current="true"]:not(:disabled):not(
-    [aria-disabled="true"]
-  ):hover,
-.menu-item[data-state="active"]:not(:disabled):not(
-    [aria-disabled="true"]
-  ):hover {
-  background-color: var(--menu-item-bg-hover);
-  box-shadow: var(--elevation-1-default);
+.menu-item[aria-current="page"]:not(:disabled):not([aria-disabled="true"]):hover,
+.menu-item[aria-current="true"]:not(:disabled):not([aria-disabled="true"]):hover,
+.menu-item[data-state="active"]:not(:disabled):not([aria-disabled="true"]):hover {
+    background-color: var(--menu-item-bg-hover);
+    box-shadow: var(--elevation-1-default);
 }
 
 /* ------------------------------
@@ -123,13 +117,13 @@
    ------------------------------ */
 
 .menu-item .menu-icon {
-  @apply flex justify-center items-center shrink-0 h-4 w-4;
+    @apply flex justify-center items-center shrink-0 h-4 w-4;
 }
 
 .menu-item .menu-icon svg {
-  @apply block align-middle;
+    @apply block align-middle;
 }
 
 .menu-item .menu-label {
-  @apply min-w-0 flex-1 truncate;
+    @apply min-w-0 flex-1 truncate;
 }

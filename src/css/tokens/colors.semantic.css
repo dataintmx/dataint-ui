@@ -5,184 +5,168 @@
    ================================================ */
 
 @theme {
-  /* Base surfaces */
-  --color-base-100: var(--neutral-000);
-  --color-base-200: var(--neutral-050);
-  --color-base-300: var(--neutral-100);
+    /* Base surfaces */
+    --color-base-100: var(--neutral-000);
+    --color-base-200: var(--neutral-050);
+    --color-base-300: var(--neutral-100);
 
-  /* Base content */
-  --color-base-content: var(--neutral-body);
+    /* Base content */
+    --color-base-content: var(--neutral-body);
 
-  /* Muted text */
-  --color-base-content-muted: color-mix(
-    in srgb,
-    var(--neutral-body) 72%,
-    transparent
-  );
-  --color-base-content-subtle: color-mix(
-    in srgb,
-    var(--neutral-body) 56%,
-    transparent
-  );
+    /* Muted text */
+    --color-base-content-muted: color-mix(in srgb, var(--neutral-body) 72%, transparent);
+    --color-base-content-subtle: color-mix(in srgb, var(--neutral-body) 56%, transparent);
 
-  /* Neutral */
-  --color-neutral: var(--neutral-850);
-  --color-neutral-content: var(--neutral-000);
-  --color-neutral-hover: var(--neutral-500);
-  --color-neutral-content-hover: var(--neutral-900);
+    /* Neutral */
+    --color-neutral: var(--neutral-850);
+    --color-neutral-content: var(--neutral-000);
+    --color-neutral-hover: var(--neutral-500);
+    --color-neutral-content-hover: var(--neutral-900);
 
-  /* Brand */
-  --color-primary: var(--keppel-green);
-  --color-primary-content: var(--neutral-000);
-  --color-primary-hover: color-mix(in srgb, var(--color-primary) 85%, #fff 15%);
+    /* Brand */
+    --color-primary: var(--keppel-green);
+    --color-primary-content: var(--neutral-000);
+    --color-primary-hover: color-mix(in srgb, var(--color-primary) 85%, #fff 15%);
 
-  --color-secondary: var(--indigo-blue);
-  --color-secondary-content: var(--neutral-000);
-  --color-secondary-hover: var(--yonder-blue);
+    --color-secondary: var(--indigo-blue);
+    --color-secondary-content: var(--neutral-000);
+    --color-secondary-hover: var(--yonder-blue);
 
-  --color-accent: var(--lavender-gray);
-  --color-accent-content: var(--neutral-000);
-  --color-accent-hover: color-mix(in srgb, var(--color-accent) 85%, #fff 15%);
+    --color-accent: var(--lavender-gray);
+    --color-accent-content: var(--neutral-000);
+    --color-accent-hover: color-mix(in srgb, var(--color-accent) 85%, #fff 15%);
 
-  /* Status */
-  --color-info: var(--azure-blue-500);
-  --color-info-content: var(--neutral-000);
-  --color-info-hover: var(--azure-blue-700);
+    /* Status */
+    --color-info: var(--azure-blue-500);
+    --color-info-content: var(--neutral-000);
+    --color-info-hover: var(--azure-blue-700);
 
-  --color-success: var(--lime-green-500);
-  --color-success-content: var(--neutral-000);
-  --color-success-hover: var(--lime-green-800);
+    --color-success: var(--lime-green-500);
+    --color-success-content: var(--neutral-000);
+    --color-success-hover: var(--lime-green-800);
 
-  --color-warning: var(--sunglow-yellow-500);
-  --color-warning-content: var(--neutral-900);
-  --color-warning-hover: var(--sunglow-yellow-300);
+    --color-warning: var(--sunglow-yellow-500);
+    --color-warning-content: var(--neutral-900);
+    --color-warning-hover: var(--sunglow-yellow-300);
 
-  --color-error: var(--light-red-500);
-  --color-error-content: var(--neutral-000);
-  --color-error-hover: var(--light-red-300);
+    --color-error: var(--light-red-500);
+    --color-error-content: var(--neutral-000);
+    --color-error-hover: var(--light-red-300);
 
-  /* Outlines */
-  --color-outline: var(--neutral-900);
+    /* Outlines */
+    --color-outline: var(--neutral-900);
 
-  /* Borders */
-  --color-border-subtle: var(--neutral-100);
-  --color-border-strong: var(--neutral-200);
-  --color-border-muted: color-mix(in srgb, var(--neutral-200) 70%, transparent);
+    /* Borders */
+    --color-border-subtle: var(--neutral-100);
+    --color-border-strong: var(--neutral-200);
+    --color-border-muted: color-mix(in srgb, var(--neutral-200) 70%, transparent);
 
-  /* Chart data colors (para Tailwind, mismos defaults que light) */
-  --color-data-1: #2e435f;
-  --color-data-2: #688ae8;
-  --color-data-3: #c33d69;
-  --color-data-4: #2ea597;
-  --color-data-5: #8456ce;
-  --color-data-6: #e07941;
-  --color-data-7: #3759ce;
-  --color-data-8: #962249;
-  --color-data-9: #096f64;
-  --color-data-10: #6237a7;
-  --color-data-11: #a84401;
-  --color-data-12: #273ea5;
-  --color-data-13: #780d35;
-  --color-data-14: #03524a;
-  --color-data-15: #4a238b;
-  --color-data-16: #7e3103;
-  --color-data-17: #1b2b88;
-  --color-data-18: #ce567c;
-  --color-data-19: #003e38;
-  --color-data-20: #9469d6;
-  --color-data-21: #602400;
-  --color-data-22: #4066df;
-  --color-data-23: #a32952;
-  --color-data-24: #0d7d70;
+    /* Chart data colors (para Tailwind, mismos defaults que light) */
+    --color-data-1: #2e435f;
+    --color-data-2: #688ae8;
+    --color-data-3: #c33d69;
+    --color-data-4: #2ea597;
+    --color-data-5: #8456ce;
+    --color-data-6: #e07941;
+    --color-data-7: #3759ce;
+    --color-data-8: #962249;
+    --color-data-9: #096f64;
+    --color-data-10: #6237a7;
+    --color-data-11: #a84401;
+    --color-data-12: #273ea5;
+    --color-data-13: #780d35;
+    --color-data-14: #03524a;
+    --color-data-15: #4a238b;
+    --color-data-16: #7e3103;
+    --color-data-17: #1b2b88;
+    --color-data-18: #ce567c;
+    --color-data-19: #003e38;
+    --color-data-20: #9469d6;
+    --color-data-21: #602400;
+    --color-data-22: #4066df;
+    --color-data-23: #a32952;
+    --color-data-24: #0d7d70;
 }
 
 /*  Dark theme semantic tokens
 */
 :root[data-theme="dark"] {
-  /* Base surfaces */
-  --color-base-100: var(--neutral-900);
-  --color-base-200: var(--neutral-850);
-  --color-base-300: var(--neutral-800);
+    /* Base surfaces */
+    --color-base-100: var(--neutral-900);
+    --color-base-200: var(--neutral-850);
+    --color-base-300: var(--neutral-800);
 
-  /* Base content */
-  --color-base-content: var(--neutral-000);
-  --color-base-content-muted: color-mix(
-    in srgb,
-    var(--neutral-000) 72%,
-    transparent
-  );
-  --color-base-content-subtle: color-mix(
-    in srgb,
-    var(--neutral-000) 56%,
-    transparent
-  );
+    /* Base content */
+    --color-base-content: var(--neutral-000);
+    --color-base-content-muted: color-mix(in srgb, var(--neutral-000) 72%, transparent);
+    --color-base-content-subtle: color-mix(in srgb, var(--neutral-000) 56%, transparent);
 
-  /* Neutral */
-  --color-neutral: var(--neutral-050);
-  --color-neutral-content: var(--neutral-900);
-  --color-neutral-hover: var(--neutral-200);
+    /* Neutral */
+    --color-neutral: var(--neutral-050);
+    --color-neutral-content: var(--neutral-900);
+    --color-neutral-hover: var(--neutral-200);
 
-  /* Brand */
-  --color-primary: var(--keppel-green);
-  --color-primary-content: var(--neutral-900);
-  --color-primary-hover: color-mix(in srgb, var(--color-primary) 85%, #fff 15%);
+    /* Brand */
+    --color-primary: var(--keppel-green);
+    --color-primary-content: var(--neutral-900);
+    --color-primary-hover: color-mix(in srgb, var(--color-primary) 85%, #fff 15%);
 
-  --color-secondary: var(--indigo-blue);
-  --color-secondary-content: var(--neutral-000);
-  --color-secondary-hover: var(--oxford-blue);
+    --color-secondary: var(--indigo-blue);
+    --color-secondary-content: var(--neutral-000);
+    --color-secondary-hover: var(--oxford-blue);
 
-  --color-accent: var(--lavender-gray);
-  --color-accent-content: var(--neutral-900);
-  --color-accent-hover: var(--yonder-blue);
+    --color-accent: var(--lavender-gray);
+    --color-accent-content: var(--neutral-900);
+    --color-accent-hover: var(--yonder-blue);
 
-  /* Status */
-  --color-info: var(--azure-blue-400);
-  --color-info-content: var(--neutral-900);
-  --color-info-hover: var(--azure-blue-700);
+    /* Status */
+    --color-info: var(--azure-blue-400);
+    --color-info-content: var(--neutral-900);
+    --color-info-hover: var(--azure-blue-700);
 
-  --color-success: var(--lime-green-400);
-  --color-success-content: var(--neutral-900);
-  --color-success-hover: var(--lime-green-700);
+    --color-success: var(--lime-green-400);
+    --color-success-content: var(--neutral-900);
+    --color-success-hover: var(--lime-green-700);
 
-  --color-warning: var(--sunglow-yellow-400);
-  --color-warning-content: var(--neutral-900);
-  --color-warning-hover: var(--sunglow-yellow-700);
+    --color-warning: var(--sunglow-yellow-400);
+    --color-warning-content: var(--neutral-900);
+    --color-warning-hover: var(--sunglow-yellow-700);
 
-  --color-error: var(--light-red-400);
-  --color-error-content: var(--neutral-900);
-  --color-error-hover: var(--light-red-700);
+    --color-error: var(--light-red-400);
+    --color-error-content: var(--neutral-900);
+    --color-error-hover: var(--light-red-700);
 
-  /* Outlines */
-  --color-outline: var(--neutral-100);
+    /* Outlines */
+    --color-outline: var(--neutral-100);
 
-  /* Borders */
-  --color-border-subtle: var(--neutral-800);
-  --color-border-strong: var(--neutral-850);
-  --color-border-muted: color-mix(in srgb, var(--neutral-800) 70%, transparent);
+    /* Borders */
+    --color-border-subtle: var(--neutral-800);
+    --color-border-strong: var(--neutral-850);
+    --color-border-muted: color-mix(in srgb, var(--neutral-800) 70%, transparent);
 
-  /* Chart data colors for dark theme */
-  --color-data-1: #59bba1;
-  --color-data-2: #486de8;
-  --color-data-3: #e07f9d;
-  --color-data-4: #018977;
-  --color-data-5: #b088f5;
-  --color-data-6: #c55305;
-  --color-data-7: #8ea9ff;
-  --color-data-8: #ffb0c8;
-  --color-data-9: #40bfa9;
-  --color-data-10: #d6baff;
-  --color-data-11: #f89256;
-  --color-data-12: #c3d1ff;
-  --color-data-13: #ffdfe8;
-  --color-data-14: #94e0d0;
-  --color-data-15: #efe2ff;
-  --color-data-16: #ffc6a4;
-  --color-data-17: #ecf0ff;
-  --color-data-18: #d56889;
-  --color-data-19: #d7f7f0;
-  --color-data-20: #a173ea;
-  --color-data-21: #ffede2;
-  --color-data-22: #7698fe;
-  --color-data-23: #f5a2bb;
-  --color-data-24: #00b09b;
+    /* Chart data colors for dark theme */
+    --color-data-1: #59bba1;
+    --color-data-2: #486de8;
+    --color-data-3: #e07f9d;
+    --color-data-4: #018977;
+    --color-data-5: #b088f5;
+    --color-data-6: #c55305;
+    --color-data-7: #8ea9ff;
+    --color-data-8: #ffb0c8;
+    --color-data-9: #40bfa9;
+    --color-data-10: #d6baff;
+    --color-data-11: #f89256;
+    --color-data-12: #c3d1ff;
+    --color-data-13: #ffdfe8;
+    --color-data-14: #94e0d0;
+    --color-data-15: #efe2ff;
+    --color-data-16: #ffc6a4;
+    --color-data-17: #ecf0ff;
+    --color-data-18: #d56889;
+    --color-data-19: #d7f7f0;
+    --color-data-20: #a173ea;
+    --color-data-21: #ffede2;
+    --color-data-22: #7698fe;
+    --color-data-23: #f5a2bb;
+    --color-data-24: #00b09b;
 }

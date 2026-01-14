@@ -12,5 +12,5 @@ export type OverlaySize = Extract<ActionSize, "sm" | "md" | "lg">;
  * Internal shape of the overlay variants map.
  */
 export type DropdownOverlayVariants = {
-  size: Record<OverlaySize, string>;
+    size: Record<OverlaySize, string>;
 };

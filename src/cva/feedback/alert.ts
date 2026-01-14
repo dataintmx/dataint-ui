@@ -10,39 +10,39 @@ import type { AlertVariants } from "../../types/cva/feedback/alert";
 export const alertBase = "alert";
 
 export const alertConfig = {
-  variants: {
-    intent: {
-      neutral: "alert-neutral",
-      info: "alert-info",
-      success: "alert-success",
-      warning: "alert-warning",
-      error: "alert-error",
+    variants: {
+        intent: {
+            neutral: "alert-neutral",
+            info: "alert-info",
+            success: "alert-success",
+            warning: "alert-warning",
+            error: "alert-error",
+        },
+        variant: {
+            subtle: "alert-subtle",
+            solid: "alert-solid",
+            outline: "alert-outline",
+        },
+        size: {
+            sm: "alert-sm",
+            md: "alert-md",
+            lg: "alert-lg",
+        },
     },
-    variant: {
-      subtle: "alert-subtle",
-      solid: "alert-solid",
-      outline: "alert-outline",
-    },
-    size: {
-      sm: "alert-sm",
-      md: "alert-md",
-      lg: "alert-lg",
-    },
-  },
 
-  /**
-   * Defaults should match the base `.alert` design:
-   * - intent: neutral
-   * - variant: subtle (base derives subtle surfaces)
-   * - size: md
-   */
-  defaultVariants: {
-    intent: "neutral",
-    variant: "subtle",
-    size: "md",
-  },
+    /**
+     * Defaults should match the base `.alert` design:
+     * - intent: neutral
+     * - variant: subtle (base derives subtle surfaces)
+     * - size: md
+     */
+    defaultVariants: {
+        intent: "neutral",
+        variant: "subtle",
+        size: "md",
+    },
 
-  compoundVariants: [],
+    compoundVariants: [],
 } satisfies CvaConfig<AlertVariants>;
 
 export type AlertProps = CvaProps<typeof alertConfig>;

@@ -13,7 +13,7 @@ export type TableSize = Extract<ActionSize, "sm" | "md" | "lg">;
  * Internal shape of the Table CVA variants map.
  */
 export type TableVariants = {
-  size: Record<TableSize, string>;
-  striped: Record<"true" | "false", string>;
-  rowHighlight: Record<"true" | "false", string>;
+    size: Record<TableSize, string>;
+    striped: Record<"true" | "false", string>;
+    rowHighlight: Record<"true" | "false", string>;
 };

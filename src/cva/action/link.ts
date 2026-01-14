@@ -17,49 +17,49 @@ export const linkBase = "link";
  * - The actual `cva(...)` call must happen in the consuming project.
  */
 export const linkConfig = {
-  variants: {
-    intent: {
-      primary: "link-primary",
-      secondary: "link-secondary",
+    variants: {
+        intent: {
+            primary: "link-primary",
+            secondary: "link-secondary",
+        },
+
+        size: {
+            xs: "link-xs",
+            sm: "link-sm",
+            md: "link-md",
+            lg: "link-lg",
+        },
+
+        block: {
+            true: "link-block",
+            false: "",
+        },
+
+        icon: {
+            none: "",
+            only: "link-icon-only",
+            start: "link-icon-start",
+            end: "link-icon-end",
+        },
+
+        disabled: {
+            true: "link-disabled",
+            false: "",
+        },
     },
 
-    size: {
-      xs: "link-xs",
-      sm: "link-sm",
-      md: "link-md",
-      lg: "link-lg",
+    /**
+     * Default behavior: primary, medium, inline, with standard icon/text layout.
+     */
+    defaultVariants: {
+        intent: "primary",
+        size: "md",
+        block: "false",
+        icon: "none",
+        disabled: "false",
     },
 
-    block: {
-      true: "link-block",
-      false: "",
-    },
-
-    icon: {
-      none: "",
-      only: "link-icon-only",
-      start: "link-icon-start",
-      end: "link-icon-end",
-    },
-
-    disabled: {
-      true: "link-disabled",
-      false: "",
-    },
-  },
-
-  /**
-   * Default behavior: primary, medium, inline, with standard icon/text layout.
-   */
-  defaultVariants: {
-    intent: "primary",
-    size: "md",
-    block: "false",
-    icon: "none",
-    disabled: "false",
-  },
-
-  compoundVariants: [],
+    compoundVariants: [],
 } satisfies CvaConfig<LinkVariants>;
 
 /**

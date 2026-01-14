@@ -3,15 +3,17 @@
    ====================================================================== */
 
 @utility link {
-  @apply inline-flex items-center;
-  @apply font-medium select-none no-underline cursor-pointer;
+    @apply inline-flex items-center;
+    @apply font-medium select-none no-underline cursor-pointer;
 
-  gap: var(--space-inline-gap);
-  font-family: var(--font-body);
-  line-height: 1.2;
+    gap: var(--space-inline-gap);
+    font-family: var(--font-body);
+    line-height: 1.2;
 
-  transition: color 150ms ease-out, text-decoration-color 150ms ease-out,
-    background-color 150ms ease-out;
+    transition:
+        color 150ms ease-out,
+        text-decoration-color 150ms ease-out,
+        background-color 150ms ease-out;
 }
 
 /* ============================================================
@@ -19,20 +21,20 @@
    ============================================================ */
 
 @utility link-primary {
-  color: var(--color-primary);
+    color: var(--color-primary);
 }
 .link-primary:hover {
-  text-decoration: underline;
-  text-underline-offset: 2px;
+    text-decoration: underline;
+    text-underline-offset: 2px;
 }
 
 @utility link-secondary {
-  color: var(--color-base-content-muted);
+    color: var(--color-base-content-muted);
 }
 .link-secondary:hover {
-  color: var(--color-base-content);
-  text-decoration: underline;
-  text-underline-offset: 2px;
+    color: var(--color-base-content);
+    text-decoration: underline;
+    text-underline-offset: 2px;
 }
 
 /* ============================================================
@@ -40,19 +42,19 @@
    ============================================================ */
 
 @utility link-xs {
-  @apply text-sm;
+    @apply text-sm;
 }
 
 @utility link-sm {
-  @apply text-sm
+    @apply text-sm;
 }
 
 @utility link-md {
-  @apply text-base;
+    @apply text-base;
 }
 
 @utility link-lg {
-  @apply text-lg;
+    @apply text-lg;
 }
 
 /* ============================================================
@@ -60,7 +62,7 @@
    ============================================================ */
 
 @utility link-block {
-  @apply w-full;
+    @apply w-full;
 }
 
 /* ============================================================
@@ -68,19 +70,19 @@
    ============================================================ */
 
 @utility link-icon-only {
-  width: auto;
-  max-width: max-content;
-  padding: 0;
-  gap: 0;
-  justify-content: center;
+    width: auto;
+    max-width: max-content;
+    padding: 0;
+    gap: 0;
+    justify-content: center;
 }
 
 @utility link-icon-start {
-  flex-direction: row;
+    flex-direction: row;
 }
 
 @utility link-icon-end {
-  flex-direction: row-reverse;
+    flex-direction: row-reverse;
 }
 
 /* ============================================================
@@ -88,7 +90,7 @@
    ============================================================ */
 
 @utility link-disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-  pointer-events: none;
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
 }
