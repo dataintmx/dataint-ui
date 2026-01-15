@@ -1,5 +1,5 @@
 import type { SemanticIntent } from "@/types/cva/common/intents";
-import type { ActionSize } from "@/types/cva/common/sizes";
+import type { SizeScale } from "@/types/cva/common/sizes";
 
 /**
  * Shared API scales for Feedback & System State components.
@@ -13,7 +13,7 @@ import type { ActionSize } from "@/types/cva/common/sizes";
  * Feedback components typically use a compact size scale.
  * This size impacts padding/typography for alerts and diameter/border for spinners.
  */
-export type FeedbackSize = Extract<ActionSize, "sm" | "md" | "lg">;
+export type FeedbackSize = Extract<SizeScale, "sm" | "md" | "lg">;
 
 /**
  * Feedback intents supported by Alert and Loading.

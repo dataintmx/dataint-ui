@@ -1,4 +1,4 @@
-import type { ActionSize } from "@/types/cva/common/sizes";
+import type { SizeScale } from "@/types/cva/common/sizes";
 
 /**
  * Link semantic intents.
@@ -28,7 +28,7 @@ export type LinkIcon = "none" | "only" | "start" | "end";
  */
 export type LinkVariants = {
     intent: Record<LinkIntent, string>;
-    size: Record<ActionSize, string>;
+    size: Record<SizeScale, string>;
     block: Record<"true" | "false", string>;
     icon: Record<LinkIcon, string>;
     disabled: Record<"true" | "false", string>;

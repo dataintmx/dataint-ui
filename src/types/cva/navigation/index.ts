@@ -1,4 +1,4 @@
-import type { ActionSize } from "@/types/cva/common/sizes";
+import type { SizeScale } from "@/types/cva/common/sizes";
 
 /**
  * Shared API scales for Navigation & Structure components.
@@ -9,4 +9,4 @@ import type { ActionSize } from "@/types/cva/common/sizes";
  *
  * "md" is the default (maps to base utilities with no extra class).
  */
-export type NavigationSize = Extract<ActionSize, "sm" | "md" | "lg">;
+export type NavigationSize = Extract<SizeScale, "sm" | "md" | "lg">;

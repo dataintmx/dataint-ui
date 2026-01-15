@@ -1,5 +1,5 @@
 /**
- * Shared sizing scales for action-like components (buttons, links, etc.).
+ * Shared sizing scales for all components (buttons, links, etc.).
  *
  * Principles:
  * - Types are the source of truth (no runtime string arrays).
@@ -8,6 +8,6 @@
  */
 
 /**
- * Default sizing scale for action components.
+ * Default sizing scale for all components.
  */
-export type ActionSize = "xs" | "sm" | "md" | "lg";
+export type SizeScale = "xs" | "sm" | "md" | "lg";
