@@ -1,5 +1,5 @@
-import type { CvaConfig, CvaProps } from "../../types/cva";
-import type { AlertVariants } from "../../types/cva/feedback/alert";
+import type { CvaConfig, CvaProps } from "@/types/cva";
+import type { AlertVariants } from "@/types/cva/feedback/alert";
 
 /**
  * Base utility for the alert container.

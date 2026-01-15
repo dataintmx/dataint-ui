@@ -1,5 +1,5 @@
-import type { CvaConfig, CvaProps } from "../../types/cva";
-import type { DividerVariants } from "../../types/cva/surfaces/divider";
+import type { CvaConfig, CvaProps } from "@/types/cva";
+import type { DividerVariants } from "@/types/cva/surfaces/divider";
 
 /**
  * Base CSS utility for Divider.

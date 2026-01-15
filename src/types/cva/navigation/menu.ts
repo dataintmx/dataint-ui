@@ -1,4 +1,4 @@
-import type { NavigationSize } from ".";
+import type { NavigationSize } from "@/types/cva/navigation";
 
 /**
  * Menu container variants.

@@ -1,2 +1,2 @@
-export * from "./menu";
-export * from "./dropdown";
+export * from "@/cva/navigation/menu";
+export * from "@/cva/navigation/dropdown";

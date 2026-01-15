@@ -1,4 +1,4 @@
-import type { ActionSize } from "../common/sizes";
+import type { ActionSize } from "@/types/cva/common/sizes";
 
 /**
  * Shared API scales for Navigation & Structure components.

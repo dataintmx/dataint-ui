@@ -1,5 +1,5 @@
-import type { CvaConfig, CvaProps } from "../../types/cva";
-import type { TableVariants } from "../../types/cva/data-display/table";
+import type { CvaConfig, CvaProps } from "@/types/cva";
+import type { TableVariants } from "@/types/cva/data-display/table";
 
 /**
  * Base utility for the table component.

@@ -1,5 +1,5 @@
-import type { CvaConfig, CvaProps } from "../../types/cva";
-import type { MenuItemVariants, MenuVariants } from "../../types/cva/navigation/menu";
+import type { CvaConfig, CvaProps } from "@/types/cva";
+import type { MenuItemVariants, MenuVariants } from "@/types/cva/navigation/menu";
 
 /**
  * Base utility for the menu container.

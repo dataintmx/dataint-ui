@@ -1,2 +1,1 @@
-export * from "./test/sum";
-export * from "./cva";
+export * from "@/cva";

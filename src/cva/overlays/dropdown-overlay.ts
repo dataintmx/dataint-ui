@@ -1,5 +1,5 @@
-import type { CvaConfig, CvaProps } from "../../types/cva";
-import type { DropdownOverlayVariants } from "../../types/cva/overlays/dropdown-overlay";
+import type { CvaConfig, CvaProps } from "@/types/cva";
+import type { DropdownOverlayVariants } from "@/types/cva/overlays/dropdown-overlay";
 
 /**
  * The dropdown overlay CSS extends `.dropdown` with overlay tokens and styles

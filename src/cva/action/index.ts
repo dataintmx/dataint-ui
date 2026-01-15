@@ -1,2 +1,2 @@
-export * from "./button";
-export * from "./link";
+export * from "@/cva/action/button";
+export * from "@/cva/action/link";

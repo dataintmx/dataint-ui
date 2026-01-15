@@ -9,7 +9,10 @@
         "declarationMap": true,
 
         "module": "ESNext",
-        "moduleResolution": "Bundler"
+        "moduleResolution": "Bundler",
+        "paths": {
+            "@/*": ["./src/*"]
+        }
     },
     "include": ["src/**/*.ts"],
     "exclude": ["dist", "node_modules", "playground"]

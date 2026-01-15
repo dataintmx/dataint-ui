@@ -1,6 +1,6 @@
-import type { CvaConfig, CvaProps } from "../../types/cva";
-import type { ButtonSize, ButtonVariants } from "../../types/cva/action/button";
-import type { SemanticIntent } from "../../types/cva/common/intents";
+import type { CvaConfig, CvaProps } from "@/types/cva";
+import type { ButtonSize, ButtonVariants } from "@/types/cva/action/button";
+import type { SemanticIntent } from "@/types/cva/common/intents";
 
 /**
  * Base CSS utility for all button variants.
