@@ -98,11 +98,15 @@
 /* ------------------------------
    Disabled
    ------------------------------ */
-.dropdown-trigger:disabled,
-.dropdown-trigger[aria-disabled="true"] {
+@utility dropdown-trigger-disabled {
     @apply cursor-not-allowed opacity-50;
     color: var(--dropdown-fg-muted);
     box-shadow: none;
+}
+
+.dropdown-trigger:disabled,
+.dropdown-trigger[aria-disabled="true"] {
+    @apply dropdown-trigger-disabled;
 }
 
 /* ------------------------------

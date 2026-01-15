@@ -26,19 +26,24 @@
         z-index: 1;
     }
 
-    /* Disabled */
-    &:is(:disabled, [disabled]) {
-        @apply cursor-not-allowed;
-        color: var(--color-base-content-muted);
-        border-color: var(--color-base-300);
-        background-color: var(--color-base-200);
-        box-shadow: none;
-    }
-
     /* Placeholder */
     &::placeholder {
         color: var(--color-base-content-muted);
     }
+}
+
+/* Disabled */
+@utility input-disabled {
+    @apply cursor-not-allowed opacity-50 pointer-events-none shadow-none;
+    color: var(--color-base-content-muted);
+    border-color: var(--color-base-300);
+    background-color: var(--color-base-200);
+}
+
+/* HTML attribute based disabled state */
+.input[disabled],
+.input[aria-disabled="true"] {
+    @apply input-disabled;
 }
 
 /* Error state */
