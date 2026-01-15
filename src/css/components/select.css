@@ -69,10 +69,16 @@
     padding-left: calc(var(--space-md) + var(--select-arrow-gap) + (var(--select-arrow-size) * 2));
 }
 
-.select:disabled {
-    @apply cursor-not-allowed;
+/* Disabled state */
+
+@utility select-disabled {
+    @apply cursor-not-allowed opacity-50 pointer-events-none shadow-none;
     color: var(--color-base-content-muted);
     border-color: var(--color-base-300);
     background-color: var(--color-base-200);
-    box-shadow: none;
+}
+
+.select:disabled,
+.select[aria-disabled="true"] {
+    @apply select-disabled;
 }

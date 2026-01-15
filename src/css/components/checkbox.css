@@ -41,14 +41,18 @@
     border-bottom: 2px solid var(--color-base-100);
 }
 
+@utility checkbox-disabled {
+    @apply cursor-not-allowed opacity-40;
+}
+
 .checkbox:disabled,
 .checkbox[disabled] {
-    @apply cursor-not-allowed opacity-40;
+    @apply checkbox-disabled;
 }
 
 .checkbox:checked:disabled,
 .checkbox[aria-checked="true"]:disabled,
 .checkbox:checked[disabled],
 .checkbox[aria-checked="true"][disabled] {
-    @apply cursor-not-allowed opacity-40;
+    @apply checkbox-disabled;
 }

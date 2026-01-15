@@ -67,10 +67,14 @@
    Disabled
    ------------------------------ */
 
-.menu-item:disabled,
-.menu-item[aria-disabled="true"] {
+@utility menu-item-disabled {
     @apply cursor-not-allowed opacity-40;
     color: var(--menu-item-fg-muted);
+}
+
+.menu-item:disabled,
+.menu-item[aria-disabled="true"] {
+    @apply menu-item-disabled;
 }
 
 /* ------------------------------

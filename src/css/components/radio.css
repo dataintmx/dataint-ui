@@ -39,10 +39,17 @@
     background-color: var(--radio-intent-content);
 }
 
-/* Disabled: single rule (keeps intent visible, but muted) */
-.radio:disabled {
+/* Disabled */
+
+@utility radio-disabled {
     @apply cursor-not-allowed opacity-40;
     background-color: var(--color-base-200);
+    border-color: var(--color-base-300);
+}
+
+.radio:disabled,
+.radio[aria-disabled="true"] {
+    @apply radio-disabled;
 }
 
 /* ================= INTENTS =================

@@ -78,13 +78,11 @@
 }
 
 /* Disabled */
-.toggle:disabled,
-.toggle[disabled] {
+@utility toggle-disabled {
     @apply cursor-not-allowed opacity-40;
 }
 
-.toggle:disabled::before,
-.toggle[disabled]::before {
-    @apply bg-transparent;
-    border: var(--border-width-base) solid currentColor;
+.toggle:disabled,
+.toggle[aria-disabled="true"] {
+    @apply toggle-disabled;
 }
