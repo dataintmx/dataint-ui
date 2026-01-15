@@ -1,8 +1,5 @@
 import type { CvaConfig, CvaProps } from "../../types/cva";
-import type {
-  MenuItemVariants,
-  MenuVariants,
-} from "../../types/cva/navigation/menu";
+import type { MenuItemVariants, MenuVariants } from "../../types/cva/navigation/menu";
 
 /**
  * Base utility for the menu container.
@@ -17,17 +14,17 @@ export const menuBase = "menu";
 export const menuTitleBase = "menu-title";
 
 export const menuConfig = {
-  variants: {
-    size: {
-      sm: "menu-sm",
-      md: "",
-      lg: "menu-lg",
+    variants: {
+        size: {
+            sm: "menu-sm",
+            md: "",
+            lg: "menu-lg",
+        },
     },
-  },
-  defaultVariants: {
-    size: "md",
-  },
-  compoundVariants: [],
+    defaultVariants: {
+        size: "md",
+    },
+    compoundVariants: [],
 } satisfies CvaConfig<MenuVariants>;
 
 export type MenuProps = CvaProps<typeof menuConfig>;
@@ -43,36 +40,36 @@ export type MenuProps = CvaProps<typeof menuConfig>;
 export const menuItemBase = "menu-item";
 
 export const menuItemConfig = {
-  variants: {
-    state: {
-      default: "",
-      /**
-       * CSS already supports multiple selectors for active:
-       * - .is-active
-       * - [aria-current="page"|"true"]
-       * - [data-state="active"]
-       *
-       * We pick a single canonical class for CVA usage.
-       */
-      active: "is-active",
+    variants: {
+        state: {
+            default: "",
+            /**
+             * CSS already supports multiple selectors for active:
+             * - .is-active
+             * - [aria-current="page"|"true"]
+             * - [data-state="active"]
+             *
+             * We pick a single canonical class for CVA usage.
+             */
+            active: "is-active",
+        },
+        disabled: {
+            /**
+             * There is no `.menu-item-disabled` utility; disabled styling is selector-based:
+             *   .menu-item:disabled, .menu-item[aria-disabled="true"]
+             *
+             * We still expose the variant for API consistency; consumers should also set
+             * the actual disabled attribute / aria-disabled.
+             */
+            true: "",
+            false: "",
+        },
     },
-    disabled: {
-      /**
-       * There is no `.menu-item-disabled` utility; disabled styling is selector-based:
-       *   .menu-item:disabled, .menu-item[aria-disabled="true"]
-       *
-       * We still expose the variant for API consistency; consumers should also set
-       * the actual disabled attribute / aria-disabled.
-       */
-      true: "",
-      false: "",
+    defaultVariants: {
+        state: "default",
+        disabled: "false",
     },
-  },
-  defaultVariants: {
-    state: "default",
-    disabled: "false",
-  },
-  compoundVariants: [],
+    compoundVariants: [],
 } satisfies CvaConfig<MenuItemVariants>;
 
 export type MenuItemProps = CvaProps<typeof menuItemConfig>;

@@ -7,7 +7,7 @@ import type { NavigationSize } from ".";
  * The default "md" maps to the base `.menu` styles (no extra class).
  */
 export type MenuVariants = {
-  size: Record<NavigationSize, string>;
+    size: Record<NavigationSize, string>;
 };
 
 /**
@@ -19,6 +19,6 @@ export type MenuVariants = {
 export type MenuItemState = "default" | "active";
 
 export type MenuItemVariants = {
-  state: Record<MenuItemState, string>;
-  disabled: Record<"true" | "false", string>;
+    state: Record<MenuItemState, string>;
+    disabled: Record<"true" | "false", string>;
 };

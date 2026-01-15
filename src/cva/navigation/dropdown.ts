@@ -14,34 +14,34 @@ export const dropdownBase = "dropdown";
 export const dropdownTriggerBase = "dropdown-trigger";
 
 export const dropdownTriggerConfig = {
-  variants: {
-    size: {
-      sm: "dropdown-sm",
-      md: "",
-      lg: "dropdown-lg",
+    variants: {
+        size: {
+            sm: "dropdown-sm",
+            md: "",
+            lg: "dropdown-lg",
+        },
+        state: {
+            closed: "",
+            open: "is-open",
+        },
+        disabled: {
+            /**
+             * Disabled styling is selector-based:
+             *   .dropdown-trigger:disabled, .dropdown-trigger[aria-disabled="true"]
+             *
+             * Keep this variant for a consistent shared API. Consumers must set
+             * the actual disabled attribute / aria-disabled for behavior and styling.
+             */
+            true: "",
+            false: "",
+        },
     },
-    state: {
-      closed: "",
-      open: "is-open",
+    defaultVariants: {
+        size: "md",
+        state: "closed",
+        disabled: "false",
     },
-    disabled: {
-      /**
-       * Disabled styling is selector-based:
-       *   .dropdown-trigger:disabled, .dropdown-trigger[aria-disabled="true"]
-       *
-       * Keep this variant for a consistent shared API. Consumers must set
-       * the actual disabled attribute / aria-disabled for behavior and styling.
-       */
-      true: "",
-      false: "",
-    },
-  },
-  defaultVariants: {
-    size: "md",
-    state: "closed",
-    disabled: "false",
-  },
-  compoundVariants: [],
+    compoundVariants: [],
 } satisfies CvaConfig<DropdownTriggerVariants>;
 
 export type DropdownTriggerProps = CvaProps<typeof dropdownTriggerConfig>;

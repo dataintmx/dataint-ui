@@ -17,12 +17,9 @@ export type StatSize = Extract<ActionSize, "sm" | "md" | "lg">;
  * - This is intentionally not `SemanticIntent` or `FeedbackIntent`.
  * - Stats currently support a focused set including `primary`.
  */
-export type StatIntent = Extract<
-  SemanticIntent,
-  "neutral" | "primary" | "success" | "warning" | "error"
->;
+export type StatIntent = Extract<SemanticIntent, "neutral" | "primary" | "success" | "warning" | "error">;
 
 export type StatVariants = {
-  size: Record<StatSize, string>;
-  intent: Record<StatIntent, string>;
+    size: Record<StatSize, string>;
+    intent: Record<StatIntent, string>;
 };

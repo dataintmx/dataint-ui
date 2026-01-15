@@ -3,31 +3,31 @@
    ============================================ */
 
 @theme {
-  /* Semantic Sizes for Buttons */
-  --sizes-btn-xs: 24px;
-  --sizes-btn-sm: 32px;
-  --sizes-btn-md: 40px;
-  --sizes-btn-lg: 48px;
-  --sizes-btn-xl: 56px;
+    /* Semantic Sizes for Buttons */
+    --sizes-btn-xs: 24px;
+    --sizes-btn-sm: 32px;
+    --sizes-btn-md: 40px;
+    --sizes-btn-lg: 48px;
+    --sizes-btn-xl: 56px;
 
-  /* Control heights (buttons, inputs, selects, etc.) */
-  --control-height-sm: 2rem; /* ~32px */
-  --control-height-md: 2.5rem; /* ~40px */
-  --control-height-lg: 3rem; /* ~48px */
+    /* Control heights (buttons, inputs, selects, etc.) */
+    --control-height-sm: 2rem; /* ~32px */
+    --control-height-md: 2.5rem; /* ~40px */
+    --control-height-lg: 3rem; /* ~48px */
 
-  /* Semantic aliases */
-  --height-field-sm: var(--control-height-sm);
-  --height-field-md: var(--control-height-md);
-  --height-field-lg: var(--control-height-lg);
+    /* Semantic aliases */
+    --height-field-sm: var(--control-height-sm);
+    --height-field-md: var(--control-height-md);
+    --height-field-lg: var(--control-height-lg);
 
-  /* Heights for key components (v1 placeholders) */
-  --height-navbar: 3.5rem;
-  --height-toolbar: 3rem;
+    /* Heights for key components (v1 placeholders) */
+    --height-navbar: 3.5rem;
+    --height-toolbar: 3rem;
 
-  /* Arrow geometry */
-  --select-arrow-size: 0.25rem; /* 4px */
-  --select-arrow-gap: 0.25rem; /* space between the two triangles */
+    /* Arrow geometry */
+    --select-arrow-size: 0.25rem; /* 4px */
+    --select-arrow-gap: 0.25rem; /* space between the two triangles */
 
-  /* Inset from the edge: ties arrow to your spacing tokens */
-  --select-arrow-inset: var(--space-md);
+    /* Inset from the edge: ties arrow to your spacing tokens */
+    --select-arrow-inset: var(--space-md);
 }

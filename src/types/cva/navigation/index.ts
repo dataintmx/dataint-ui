@@ -1,4 +1,5 @@
 import type { ActionSize } from "../common/sizes";
+
 /**
  * Shared API scales for Navigation & Structure components.
  */

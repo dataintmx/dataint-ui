@@ -13,7 +13,7 @@ import type { NavigationSize } from ".";
 export type DropdownState = "closed" | "open";
 
 export type DropdownTriggerVariants = {
-  size: Record<NavigationSize, string>;
-  state: Record<DropdownState, string>;
-  disabled: Record<"true" | "false", string>;
+    size: Record<NavigationSize, string>;
+    state: Record<DropdownState, string>;
+    disabled: Record<"true" | "false", string>;
 };

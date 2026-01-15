@@ -1,18 +1,18 @@
 {
-  "$schema": "https://json.schemastore.org/tsconfig",
-  "compilerOptions": {
-    "target": "ES2022",
-    "module": "ESNext",
-    "moduleResolution": "Bundler",
-    "allowJs": true,
-    "strict": true,
-    "noUncheckedIndexedAccess": true,
-    "exactOptionalPropertyTypes": true,
-    "forceConsistentCasingInFileNames": true,
-    "skipLibCheck": true,
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "compilerOptions": {
+        "target": "ES2022",
+        "module": "ESNext",
+        "moduleResolution": "Bundler",
+        "allowJs": true,
+        "strict": true,
+        "noUncheckedIndexedAccess": true,
+        "exactOptionalPropertyTypes": true,
+        "forceConsistentCasingInFileNames": true,
+        "skipLibCheck": true,
 
-    "noEmit": true
-  },
-  "include": ["**/*.ts", "**/*.tsx", "eslint.config.mjs"],
-  "exclude": ["dist", "node_modules", "playground"]
+        "noEmit": true
+    },
+    "include": ["**/*.ts", "**/*.tsx", "eslint.config.mjs"],
+    "exclude": ["dist", "node_modules", "playground"]
 }

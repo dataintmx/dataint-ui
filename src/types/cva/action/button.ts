@@ -23,11 +23,11 @@ export type ButtonVariant = "solid" | "outline" | "ghost";
  * - Make the public API explicit and predictable
  */
 export type ButtonVariants = {
-  variant: Record<ButtonVariant, string>;
-  intent: Record<SemanticIntent, string>;
-  size: Record<ButtonSize, string>;
-  block: Record<"true" | "false", string>;
-  icon: Record<"true" | "false", string>;
-  disabled: Record<"true" | "false", string>;
-  loading: Record<"true" | "false", string>;
+    variant: Record<ButtonVariant, string>;
+    intent: Record<SemanticIntent, string>;
+    size: Record<ButtonSize, string>;
+    block: Record<"true" | "false", string>;
+    icon: Record<"true" | "false", string>;
+    disabled: Record<"true" | "false", string>;
+    loading: Record<"true" | "false", string>;
 };

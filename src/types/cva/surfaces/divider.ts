@@ -7,5 +7,5 @@
 export type DividerVariant = "default" | "muted" | "strong";
 
 export type DividerVariants = {
-  variant: Record<DividerVariant, string>;
+    variant: Record<DividerVariant, string>;
 };

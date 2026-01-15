@@ -18,32 +18,32 @@
    ------------------------------ */
 
 @utility dropdown {
-  /* Surface tokens */
-  --overlay-bg: var(--color-base-100);
-  --overlay-fg: var(--color-base-content);
-  --overlay-border: var(--border-subtle);
+    /* Surface tokens */
+    --overlay-bg: var(--color-base-100);
+    --overlay-fg: var(--color-base-content);
+    --overlay-border: var(--border-subtle);
 
-  --overlay-radius: var(--radius-box);
-  --overlay-shadow: var(--elevation-2-default);
-  --overlay-z: 50;
+    --overlay-radius: var(--radius-box);
+    --overlay-shadow: var(--elevation-2-default);
+    --overlay-z: 50;
 
-  /* Shared API defaults */
-  --overlay-min-w: 14rem;
+    /* Shared API defaults */
+    --overlay-min-w: 14rem;
 }
 
 /* The floating surface itself (positioning handled externally) */
 @utility dropdown-content {
-  @apply hidden;
+    @apply hidden;
 
-  z-index: var(--overlay-z);
-  min-width: var(--overlay-min-w);
+    z-index: var(--overlay-z);
+    min-width: var(--overlay-min-w);
 
-  background-color: var(--overlay-bg);
-  color: var(--overlay-fg);
+    background-color: var(--overlay-bg);
+    color: var(--overlay-fg);
 
-  border: var(--overlay-border);
-  border-radius: var(--overlay-radius);
-  box-shadow: var(--overlay-shadow);
+    border: var(--overlay-border);
+    border-radius: var(--overlay-radius);
+    box-shadow: var(--overlay-shadow);
 }
 
 /* ------------------------------
@@ -51,46 +51,46 @@
    (Separate from trigger sizing)
    ------------------------------ */
 @utility dropdown-panel-sm {
-  --overlay-min-w: 12rem;
+    --overlay-min-w: 12rem;
 
-  .dropdown-content {
-    @apply text-xs p-2;
-  }
+    .dropdown-content {
+        @apply text-xs p-2;
+    }
 }
 
 @utility dropdown-panel-md {
-  --overlay-min-w: 14rem;
+    --overlay-min-w: 14rem;
 
-  .dropdown-content {
-    @apply text-sm p-3;
-  }
+    .dropdown-content {
+        @apply text-sm p-3;
+    }
 }
 
 @utility dropdown-panel-lg {
-  --overlay-min-w: 16rem;
+    --overlay-min-w: 16rem;
 
-  .dropdown-content {
-    @apply text-base p-4;
-  }
+    .dropdown-content {
+        @apply text-base p-4;
+    }
 }
 
 /* ------------------------------
    Dropdown menu, items & title
    ------------------------------ */
 @utility dropdown-menu {
-  @apply flex flex-col gap-1;
+    @apply flex flex-col gap-1;
 }
 
 @utility dropdown-item {
-  @apply w-full text-left rounded-md cursor-pointer px-2 py-2 transition-colors duration-150 ease-in-out;
-  background-color: transparent;
+    @apply w-full text-left rounded-md cursor-pointer px-2 py-2 transition-colors duration-150 ease-in-out;
+    background-color: transparent;
 }
 
 @utility dropdown-title {
-  @apply block text-xs font-medium uppercase tracking-wide;
+    @apply block text-xs font-medium uppercase tracking-wide;
 
-  margin-bottom: var(--space-sm);
-  color: var(--color-base-content-muted);
+    margin-bottom: var(--space-sm);
+    color: var(--color-base-content-muted);
 }
 
 /* ------------------------------
@@ -98,10 +98,10 @@
    ------------------------------ */
 
 .dropdown-item:hover {
-  background-color: var(--color-base-200);
+    background-color: var(--color-base-200);
 }
 
 .dropdown-item:focus {
-  outline: var(--outline-1);
-  outline-offset: var(--outline-offset-2);
+    outline: var(--outline-1);
+    outline-offset: var(--outline-offset-2);
 }

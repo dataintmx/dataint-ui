@@ -13,11 +13,11 @@ export type CardVariant = "default" | "subtle" | "ghost";
  * This keeps the config object strictly typed and prevents accidental drift.
  */
 export type CardVariants = {
-  size: Record<SurfaceSize, string>;
-  variant: Record<CardVariant, string>;
-  level: Record<ElevationLevel, string>;
+    size: Record<SurfaceSize, string>;
+    variant: Record<CardVariant, string>;
+    level: Record<ElevationLevel, string>;
 };
 
 export type CardActionsVariants = {
-  orientation: Record<Orientation, string>;
+    orientation: Record<Orientation, string>;
 };

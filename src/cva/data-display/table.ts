@@ -11,35 +11,35 @@ import type { TableVariants } from "../../types/cva/data-display/table";
 export const tableBase = "table";
 
 export const tableConfig = {
-  variants: {
-    size: {
-      sm: "table-sm",
-      md: "table-md",
-      lg: "table-lg",
+    variants: {
+        size: {
+            sm: "table-sm",
+            md: "table-md",
+            lg: "table-lg",
+        },
+        striped: {
+            true: "table-striped",
+            false: "",
+        },
+        rowHighlight: {
+            true: "table-row-highlight",
+            false: "",
+        },
     },
-    striped: {
-      true: "table-striped",
-      false: "",
-    },
-    rowHighlight: {
-      true: "table-row-highlight",
-      false: "",
-    },
-  },
 
-  /**
-   * Defaults align with `.table` base styling:
-   * - size: md (text-sm, standard padding)
-   * - no stripes
-   * - no hover highlight
-   */
-  defaultVariants: {
-    size: "md",
-    striped: "false",
-    rowHighlight: "false",
-  },
+    /**
+     * Defaults align with `.table` base styling:
+     * - size: md (text-sm, standard padding)
+     * - no stripes
+     * - no hover highlight
+     */
+    defaultVariants: {
+        size: "md",
+        striped: "false",
+        rowHighlight: "false",
+    },
 
-  compoundVariants: [],
+    compoundVariants: [],
 } satisfies CvaConfig<TableVariants>;
 
 export type TableProps = CvaProps<typeof tableConfig>;

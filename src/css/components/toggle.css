@@ -3,88 +3,88 @@
    ====================================================================== */
 
 @utility toggle {
-  /* Layout + reset */
-  @apply relative inline-grid shrink-0 cursor-pointer w-8 h-5 appearance-none place-content-center align-middle select-none;
+    /* Layout + reset */
+    @apply relative inline-grid shrink-0 cursor-pointer w-8 h-5 appearance-none place-content-center align-middle select-none;
 
-  /* Border + color (token-driven) */
-  border-width: var(--border-width-base);
-  border-style: var(--border-style-base);
-  border-color: var(--color-base-content);
-  color: var(--color-base-content);
+    /* Border + color (token-driven) */
+    border-width: var(--border-width-base);
+    border-style: var(--border-style-base);
+    border-color: var(--color-base-content);
+    color: var(--color-base-content);
 
-  /* Track behavior */
-  grid-template-columns: 0fr 1fr 1fr;
+    /* Track behavior */
+    grid-template-columns: 0fr 1fr 1fr;
 
-  /* Shape + spacing */
-  border-radius: calc(
-    var(--radius-selector) + min(2px, calc(var(--radius-selector) * 3)) +
-      min(var(--border-width-base), calc(var(--radius-selector) * 3))
-  );
-  padding: 2px;
+    /* Shape + spacing */
+    border-radius: calc(
+        var(--radius-selector) + min(2px, calc(var(--radius-selector) * 3)) +
+            min(var(--border-width-base), calc(var(--radius-selector) * 3))
+    );
+    padding: 2px;
 
-  /* Visual + motion */
-  box-shadow: var(--elevation-1-shadow);
-  @apply transition-[color,grid-template-columns] duration-200;
+    /* Visual + motion */
+    box-shadow: var(--elevation-1-shadow);
+    @apply transition-[color,grid-template-columns] duration-200;
 }
 
 /* Inner item */
 .toggle > * {
-  @apply z-10 col-span-1 col-start-2 row-start-1 h-full cursor-pointer appearance-none bg-transparent p-0.5 border-0;
-  @apply transition-[opacity,rotate] duration-200;
+    @apply z-10 col-span-1 col-start-2 row-start-1 h-full cursor-pointer appearance-none bg-transparent p-0.5 border-0;
+    @apply transition-[opacity,rotate] duration-200;
 }
 .toggle > :nth-child(2) {
-  color: var(--color-base-100);
-  rotate: 0deg;
+    color: var(--color-base-100);
+    rotate: 0deg;
 }
 .toggle > :nth-child(3) {
-  color: var(--color-base-100);
-  opacity: 0;
-  rotate: -15deg;
+    color: var(--color-base-100);
+    opacity: 0;
+    rotate: -15deg;
 }
 .toggle:has(:checked) > :nth-child(2) {
-  opacity: 0;
-  rotate: 15deg;
+    opacity: 0;
+    rotate: 15deg;
 }
 .toggle:has(:checked) > :nth-child(3) {
-  opacity: 1;
-  rotate: 0deg;
+    opacity: 1;
+    rotate: 0deg;
 }
 
 /* Knob (el "switch" redondo) */
 .toggle::before {
-  content: "";
-  @apply relative start-0 col-start-2 row-start-1 aspect-square h-full bg-current rounded-selector;
-  translate: 0;
-  @apply transition-[background-color,translate,inset-inline-start] duration-200;
-  box-shadow: var(--elevation-1-shadow);
+    content: "";
+    @apply relative start-0 col-start-2 row-start-1 aspect-square h-full bg-current rounded-selector;
+    translate: 0;
+    @apply transition-[background-color,translate,inset-inline-start] duration-200;
+    box-shadow: var(--elevation-1-shadow);
 }
 
 /* Focus */
 .toggle:focus {
-  outline: var(--outline-1);
-  outline-offset: var(--outline-offset-2);
+    outline: var(--outline-1);
+    outline-offset: var(--outline-offset-2);
 }
 
 /* Checked state (supports: .toggle itself, aria-checked, or nested input) */
 .toggle:checked,
 .toggle[aria-checked="true"] {
-  grid-template-columns: 1fr 1fr 0fr;
-  background-color: var(--color-base-100);
+    grid-template-columns: 1fr 1fr 0fr;
+    background-color: var(--color-base-100);
 }
 
 .toggle:checked::before,
 .toggle[aria-checked="true"]::before {
-  background-color: currentColor;
+    background-color: currentColor;
 }
 
 /* Disabled */
 .toggle:disabled,
 .toggle[disabled] {
-  @apply cursor-not-allowed opacity-40;
+    @apply cursor-not-allowed opacity-40;
 }
 
 .toggle:disabled::before,
 .toggle[disabled]::before {
-  @apply bg-transparent;
-  border: var(--border-width-base) solid currentColor;
+    @apply bg-transparent;
+    border: var(--border-width-base) solid currentColor;
 }

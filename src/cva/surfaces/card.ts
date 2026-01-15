@@ -1,8 +1,5 @@
 import type { CvaConfig, CvaProps } from "../../types/cva";
-import type {
-  CardActionsVariants,
-  CardVariants,
-} from "../../types/cva/surfaces/card";
+import type { CardActionsVariants, CardVariants } from "../../types/cva/surfaces/card";
 
 /**
  * Base CSS utility for the Card container.
@@ -20,45 +17,45 @@ export const cardBase = "card";
  * - Defaults are aligned with CSS defaults declared in `.card`.
  */
 export const cardConfig = {
-  variants: {
-    /**
-     * Size controls internal padding (via CSS variables).
-     * "md" is the base/default and maps to no extra class.
-     */
-    size: {
-      sm: "card-sm",
-      md: "",
-      lg: "card-lg",
+    variants: {
+        /**
+         * Size controls internal padding (via CSS variables).
+         * "md" is the base/default and maps to no extra class.
+         */
+        size: {
+            sm: "card-sm",
+            md: "",
+            lg: "card-lg",
+        },
+
+        /**
+         * Variant controls border presence / tone and shadow policy.
+         * "default" maps to the base `.card` treatment (no extra class).
+         */
+        variant: {
+            default: "",
+            subtle: "card-subtle",
+            ghost: "card-ghost",
+        },
+
+        /**
+         * Level controls elevation (shadow depth).
+         * "2" matches the base `.card` default (no extra class).
+         */
+        level: {
+            "1": "card-level-1",
+            "2": "card-level-2",
+            "3": "card-level-3",
+        },
     },
 
-    /**
-     * Variant controls border presence / tone and shadow policy.
-     * "default" maps to the base `.card` treatment (no extra class).
-     */
-    variant: {
-      default: "",
-      subtle: "card-subtle",
-      ghost: "card-ghost",
+    defaultVariants: {
+        size: "md",
+        variant: "default",
+        level: "2",
     },
 
-    /**
-     * Level controls elevation (shadow depth).
-     * "2" matches the base `.card` default (no extra class).
-     */
-    level: {
-      "1": "card-level-1",
-      "2": "card-level-2",
-      "3": "card-level-3",
-    },
-  },
-
-  defaultVariants: {
-    size: "md",
-    variant: "default",
-    level: "2",
-  },
-
-  compoundVariants: [],
+    compoundVariants: [],
 } satisfies CvaConfig<CardVariants>;
 
 export type CardProps = CvaProps<typeof cardConfig>;
@@ -81,16 +78,16 @@ export const cardBodyBase = "card-body";
 export const cardActionsBase = "card-actions";
 
 export const cardActionsConfig = {
-  variants: {
-    orientation: {
-      horizontal: "card-actions-horizontal",
-      vertical: "card-actions-vertical",
+    variants: {
+        orientation: {
+            horizontal: "card-actions-horizontal",
+            vertical: "card-actions-vertical",
+        },
     },
-  },
-  defaultVariants: {
-    orientation: "horizontal",
-  },
-  compoundVariants: [],
+    defaultVariants: {
+        orientation: "horizontal",
+    },
+    compoundVariants: [],
 } satisfies CvaConfig<CardActionsVariants>;
 
 export type CardActionsProps = CvaProps<typeof cardActionsConfig>;

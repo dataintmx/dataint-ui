@@ -1,10 +1,13 @@
 ## Description
+
 Please provide a brief description of the changes or improvements introduced by this PR.
 
 ## Related Issues
+
 - Include a list of related issues, if applicable, by mentioning them using the issue number (#).
 
 ## Checklist
+
 Please ensure that your PR meets the following criteria by checking each item:
 
 - [ ] I have tested my changes thoroughly and they do not introduce new issues.
@@ -16,4 +19,5 @@ Please ensure that your PR meets the following criteria by checking each item:
 - [ ] The code is ready for review and can be merged into the main or dev branch.
 
 ## Additional Information
+
 - Any additional information or context you would like to provide about this PR.

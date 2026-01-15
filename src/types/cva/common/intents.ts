@@ -6,12 +6,4 @@
  * - Intents represent semantic meaning, not visual implementation details.
  * - Component families map these intents to their corresponding CSS utilities.
  */
-export type SemanticIntent =
-  | "neutral"
-  | "primary"
-  | "secondary"
-  | "accent"
-  | "info"
-  | "success"
-  | "warning"
-  | "error";
+export type SemanticIntent = "neutral" | "primary" | "secondary" | "accent" | "info" | "success" | "warning" | "error";

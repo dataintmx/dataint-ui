@@ -4,123 +4,107 @@
 
 /* Para Tailwind (@theme) */
 @theme {
-  /* ELEVATION 1 — subtle */
-  --elevation-1-offset-x-base: 0px;
-  --elevation-1-offset-y-base: 2px;
-  --elevation-1-blur-base: 4px;
-  --elevation-1-spread-base: 0px;
-  --elevation-1-color-base: rgba(0, 0, 0, 0.06);
+    /* ELEVATION 1 — subtle */
+    --elevation-1-offset-x-base: 0px;
+    --elevation-1-offset-y-base: 2px;
+    --elevation-1-blur-base: 4px;
+    --elevation-1-spread-base: 0px;
+    --elevation-1-color-base: rgba(0, 0, 0, 0.06);
 
-  --elevation-1-offset-x: var(--elevation-1-offset-x-base);
-  --elevation-1-offset-y: var(--elevation-1-offset-y-base);
-  --elevation-1-blur: var(--elevation-1-blur-base);
-  --elevation-1-spread: var(--elevation-1-spread-base);
-  --elevation-1-color: var(--elevation-1-color-base);
+    --elevation-1-offset-x: var(--elevation-1-offset-x-base);
+    --elevation-1-offset-y: var(--elevation-1-offset-y-base);
+    --elevation-1-blur: var(--elevation-1-blur-base);
+    --elevation-1-spread: var(--elevation-1-spread-base);
+    --elevation-1-color: var(--elevation-1-color-base);
 
-  --elevation-1-shadow: var(--elevation-1-offset-x) var(--elevation-1-offset-y)
-    var(--elevation-1-blur) var(--elevation-1-spread) var(--elevation-1-color);
+    --elevation-1-shadow: var(--elevation-1-offset-x) var(--elevation-1-offset-y) var(--elevation-1-blur)
+        var(--elevation-1-spread) var(--elevation-1-color);
 
-  --elevation-1-default: var(--elevation-1-shadow);
-  --elevation-1-top: var(--elevation-1-offset-x-base)
-    calc(-1 * var(--elevation-1-offset-y-base)) var(--elevation-1-blur-base)
-    var(--elevation-1-spread-base) var(--elevation-1-color-base);
-  --elevation-1-right: var(--elevation-1-offset-y-base) 0px
-    var(--elevation-1-blur-base) var(--elevation-1-spread-base)
-    var(--elevation-1-color-base);
-  --elevation-1-bottom: var(--elevation-1-offset-x-base)
-    var(--elevation-1-offset-y-base) var(--elevation-1-blur-base)
-    var(--elevation-1-spread-base) var(--elevation-1-color-base);
-  --elevation-1-left: calc(-1 * var(--elevation-1-offset-y-base)) 0px
-    var(--elevation-1-blur-base) var(--elevation-1-spread-base)
-    var(--elevation-1-color-base);
+    --elevation-1-default: var(--elevation-1-shadow);
+    --elevation-1-top: var(--elevation-1-offset-x-base) calc(-1 * var(--elevation-1-offset-y-base))
+        var(--elevation-1-blur-base) var(--elevation-1-spread-base) var(--elevation-1-color-base);
+    --elevation-1-right: var(--elevation-1-offset-y-base) 0px var(--elevation-1-blur-base)
+        var(--elevation-1-spread-base) var(--elevation-1-color-base);
+    --elevation-1-bottom: var(--elevation-1-offset-x-base) var(--elevation-1-offset-y-base) var(--elevation-1-blur-base)
+        var(--elevation-1-spread-base) var(--elevation-1-color-base);
+    --elevation-1-left: calc(-1 * var(--elevation-1-offset-y-base)) 0px var(--elevation-1-blur-base)
+        var(--elevation-1-spread-base) var(--elevation-1-color-base);
 
-  /* ELEVATION 2 — cards */
-  --elevation-2-offset-x-base: 0px;
-  --elevation-2-offset-y-base: 4px;
-  --elevation-2-blur-base: 8px;
-  --elevation-2-spread-base: 0px;
-  --elevation-2-color-base: rgba(0, 0, 0, 0.08);
+    /* ELEVATION 2 — cards */
+    --elevation-2-offset-x-base: 0px;
+    --elevation-2-offset-y-base: 4px;
+    --elevation-2-blur-base: 8px;
+    --elevation-2-spread-base: 0px;
+    --elevation-2-color-base: rgba(0, 0, 0, 0.08);
 
-  --elevation-2-offset-x: var(--elevation-2-offset-x-base);
-  --elevation-2-offset-y: var(--elevation-2-offset-y-base);
-  --elevation-2-blur: var(--elevation-2-blur-base);
-  --elevation-2-spread: var(--elevation-2-spread-base);
-  --elevation-2-color: var(--elevation-2-color-base);
+    --elevation-2-offset-x: var(--elevation-2-offset-x-base);
+    --elevation-2-offset-y: var(--elevation-2-offset-y-base);
+    --elevation-2-blur: var(--elevation-2-blur-base);
+    --elevation-2-spread: var(--elevation-2-spread-base);
+    --elevation-2-color: var(--elevation-2-color-base);
 
-  --elevation-2-shadow: var(--elevation-2-offset-x) var(--elevation-2-offset-y)
-    var(--elevation-2-blur) var(--elevation-2-spread) var(--elevation-2-color);
+    --elevation-2-shadow: var(--elevation-2-offset-x) var(--elevation-2-offset-y) var(--elevation-2-blur)
+        var(--elevation-2-spread) var(--elevation-2-color);
 
-  --elevation-2-default: var(--elevation-2-shadow);
-  --elevation-2-top: var(--elevation-2-offset-x-base)
-    calc(-1 * var(--elevation-2-offset-y-base)) var(--elevation-2-blur-base)
-    var(--elevation-2-spread-base) var(--elevation-2-color-base);
-  --elevation-2-right: var(--elevation-2-offset-y-base) 0px
-    var(--elevation-2-blur-base) var(--elevation-2-spread-base)
-    var(--elevation-2-color-base);
-  --elevation-2-bottom: var(--elevation-2-offset-x-base)
-    var(--elevation-2-offset-y-base) var(--elevation-2-blur-base)
-    var(--elevation-2-spread-base) var(--elevation-2-color-base);
-  --elevation-2-left: calc(-1 * var(--elevation-2-offset-y-base)) 0px
-    var(--elevation-2-blur-base) var(--elevation-2-spread-base)
-    var(--elevation-2-color-base);
+    --elevation-2-default: var(--elevation-2-shadow);
+    --elevation-2-top: var(--elevation-2-offset-x-base) calc(-1 * var(--elevation-2-offset-y-base))
+        var(--elevation-2-blur-base) var(--elevation-2-spread-base) var(--elevation-2-color-base);
+    --elevation-2-right: var(--elevation-2-offset-y-base) 0px var(--elevation-2-blur-base)
+        var(--elevation-2-spread-base) var(--elevation-2-color-base);
+    --elevation-2-bottom: var(--elevation-2-offset-x-base) var(--elevation-2-offset-y-base) var(--elevation-2-blur-base)
+        var(--elevation-2-spread-base) var(--elevation-2-color-base);
+    --elevation-2-left: calc(-1 * var(--elevation-2-offset-y-base)) 0px var(--elevation-2-blur-base)
+        var(--elevation-2-spread-base) var(--elevation-2-color-base);
 
-  /* ELEVATION 3 — floating */
-  --elevation-3-offset-x-base: 0px;
-  --elevation-3-offset-y-base: 8px;
-  --elevation-3-blur-base: 16px;
-  --elevation-3-spread-base: 0px;
-  --elevation-3-color-base: rgba(0, 0, 0, 0.1);
+    /* ELEVATION 3 — floating */
+    --elevation-3-offset-x-base: 0px;
+    --elevation-3-offset-y-base: 8px;
+    --elevation-3-blur-base: 16px;
+    --elevation-3-spread-base: 0px;
+    --elevation-3-color-base: rgba(0, 0, 0, 0.1);
 
-  --elevation-3-offset-x: var(--elevation-3-offset-x-base);
-  --elevation-3-offset-y: var(--elevation-3-offset-y-base);
-  --elevation-3-blur: var(--elevation-3-blur-base);
-  --elevation-3-spread: var(--elevation-3-spread-base);
-  --elevation-3-color: var(--elevation-3-color-base);
+    --elevation-3-offset-x: var(--elevation-3-offset-x-base);
+    --elevation-3-offset-y: var(--elevation-3-offset-y-base);
+    --elevation-3-blur: var(--elevation-3-blur-base);
+    --elevation-3-spread: var(--elevation-3-spread-base);
+    --elevation-3-color: var(--elevation-3-color-base);
 
-  --elevation-3-shadow: var(--elevation-3-offset-x) var(--elevation-3-offset-y)
-    var(--elevation-3-blur) var(--elevation-3-spread) var(--elevation-3-color);
+    --elevation-3-shadow: var(--elevation-3-offset-x) var(--elevation-3-offset-y) var(--elevation-3-blur)
+        var(--elevation-3-spread) var(--elevation-3-color);
 
-  --elevation-3-default: var(--elevation-3-shadow);
-  --elevation-3-top: var(--elevation-3-offset-x-base)
-    calc(-1 * var(--elevation-3-offset-y-base)) var(--elevation-3-blur-base)
-    var(--elevation-3-spread-base) var(--elevation-3-color-base);
-  --elevation-3-right: var(--elevation-3-offset-y-base) 0px
-    var(--elevation-3-blur-base) var(--elevation-3-spread-base)
-    var(--elevation-3-color-base);
-  --elevation-3-bottom: var(--elevation-3-offset-x-base)
-    var(--elevation-3-offset-y-base) var(--elevation-3-blur-base)
-    var(--elevation-3-spread-base) var(--elevation-3-color-base);
-  --elevation-3-left: calc(-1 * var(--elevation-3-offset-y-base)) 0px
-    var(--elevation-3-blur-base) var(--elevation-3-spread-base)
-    var(--elevation-3-color-base);
+    --elevation-3-default: var(--elevation-3-shadow);
+    --elevation-3-top: var(--elevation-3-offset-x-base) calc(-1 * var(--elevation-3-offset-y-base))
+        var(--elevation-3-blur-base) var(--elevation-3-spread-base) var(--elevation-3-color-base);
+    --elevation-3-right: var(--elevation-3-offset-y-base) 0px var(--elevation-3-blur-base)
+        var(--elevation-3-spread-base) var(--elevation-3-color-base);
+    --elevation-3-bottom: var(--elevation-3-offset-x-base) var(--elevation-3-offset-y-base) var(--elevation-3-blur-base)
+        var(--elevation-3-spread-base) var(--elevation-3-color-base);
+    --elevation-3-left: calc(-1 * var(--elevation-3-offset-y-base)) 0px var(--elevation-3-blur-base)
+        var(--elevation-3-spread-base) var(--elevation-3-color-base);
 
-  /* ELEVATION 4 — modals */
-  --elevation-4-offset-x-base: 0px;
-  --elevation-4-offset-y-base: 12px;
-  --elevation-4-blur-base: 24px;
-  --elevation-4-spread-base: 0px;
-  --elevation-4-color-base: rgba(0, 0, 0, 0.14);
+    /* ELEVATION 4 — modals */
+    --elevation-4-offset-x-base: 0px;
+    --elevation-4-offset-y-base: 12px;
+    --elevation-4-blur-base: 24px;
+    --elevation-4-spread-base: 0px;
+    --elevation-4-color-base: rgba(0, 0, 0, 0.14);
 
-  --elevation-4-offset-x: var(--elevation-4-offset-x-base);
-  --elevation-4-offset-y: var(--elevation-4-offset-y-base);
-  --elevation-4-blur: var(--elevation-4-blur-base);
-  --elevation-4-spread: var(--elevation-4-spread-base);
-  --elevation-4-color: var(--elevation-4-color-base);
+    --elevation-4-offset-x: var(--elevation-4-offset-x-base);
+    --elevation-4-offset-y: var(--elevation-4-offset-y-base);
+    --elevation-4-blur: var(--elevation-4-blur-base);
+    --elevation-4-spread: var(--elevation-4-spread-base);
+    --elevation-4-color: var(--elevation-4-color-base);
 
-  --elevation-4-shadow: var(--elevation-4-offset-x) var(--elevation-4-offset-y)
-    var(--elevation-4-blur) var(--elevation-4-spread) var(--elevation-4-color);
+    --elevation-4-shadow: var(--elevation-4-offset-x) var(--elevation-4-offset-y) var(--elevation-4-blur)
+        var(--elevation-4-spread) var(--elevation-4-color);
 
-  --elevation-4-default: var(--elevation-4-shadow);
-  --elevation-4-top: var(--elevation-4-offset-x-base)
-    calc(-1 * var(--elevation-4-offset-y-base)) var(--elevation-4-blur-base)
-    var(--elevation-4-spread-base) var(--elevation-4-color-base);
-  --elevation-4-right: var(--elevation-4-offset-y-base) 0px
-    var(--elevation-4-blur-base) var(--elevation-4-spread-base)
-    var(--elevation-4-color-base);
-  --elevation-4-bottom: var(--elevation-4-offset-x-base)
-    var(--elevation-4-offset-y-base) var(--elevation-4-blur-base)
-    var(--elevation-4-spread-base) var(--elevation-4-color-base);
-  --elevation-4-left: calc(-1 * var(--elevation-4-offset-y-base)) 0px
-    var(--elevation-4-blur-base) var(--elevation-4-spread-base)
-    var(--elevation-4-color-base);
+    --elevation-4-default: var(--elevation-4-shadow);
+    --elevation-4-top: var(--elevation-4-offset-x-base) calc(-1 * var(--elevation-4-offset-y-base))
+        var(--elevation-4-blur-base) var(--elevation-4-spread-base) var(--elevation-4-color-base);
+    --elevation-4-right: var(--elevation-4-offset-y-base) 0px var(--elevation-4-blur-base)
+        var(--elevation-4-spread-base) var(--elevation-4-color-base);
+    --elevation-4-bottom: var(--elevation-4-offset-x-base) var(--elevation-4-offset-y-base) var(--elevation-4-blur-base)
+        var(--elevation-4-spread-base) var(--elevation-4-color-base);
+    --elevation-4-left: calc(-1 * var(--elevation-4-offset-y-base)) 0px var(--elevation-4-blur-base)
+        var(--elevation-4-spread-base) var(--elevation-4-color-base);
 }

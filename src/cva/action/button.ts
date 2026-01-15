@@ -20,71 +20,71 @@ export const buttonBase = "btn";
  *   with utility-class patterns in CSS.
  */
 export const buttonConfig = {
-  variants: {
-    variant: {
-      solid: "",
-      outline: "btn-outline",
-      ghost: "btn-ghost",
+    variants: {
+        variant: {
+            solid: "",
+            outline: "btn-outline",
+            ghost: "btn-ghost",
+        },
+
+        intent: {
+            neutral: "btn-neutral",
+            primary: "btn-primary",
+            secondary: "btn-secondary",
+            accent: "btn-accent",
+            info: "btn-info",
+            success: "btn-success",
+            warning: "btn-warning",
+            error: "btn-error",
+        },
+
+        size: {
+            xs: "btn-xs",
+            sm: "btn-sm",
+            md: "btn-md",
+            lg: "btn-lg",
+            xl: "btn-xl",
+        },
+
+        block: {
+            true: "btn-block",
+            false: "",
+        },
+
+        icon: {
+            true: "btn-icon",
+            false: "",
+        },
+
+        disabled: {
+            true: "btn-disabled",
+            false: "",
+        },
+
+        loading: {
+            true: "btn-loading",
+            false: "",
+        },
     },
 
-    intent: {
-      neutral: "btn-neutral",
-      primary: "btn-primary",
-      secondary: "btn-secondary",
-      accent: "btn-accent",
-      info: "btn-info",
-      success: "btn-success",
-      warning: "btn-warning",
-      error: "btn-error",
+    /**
+     * Default visual configuration.
+     *
+     * Note:
+     * - Defaults use literal keys ("true" | "false") to match variant maps.
+     * - Consumer-facing props remain boolean via `CvaProps`.
+     */
+    defaultVariants: {
+        variant: "solid",
+        size: "md",
+        intent: "neutral",
+        block: "false",
+        icon: "false",
+        disabled: "false",
+        loading: "false",
     },
 
-    size: {
-      xs: "btn-xs",
-      sm: "btn-sm",
-      md: "btn-md",
-      lg: "btn-lg",
-      xl: "btn-xl",
-    },
-
-    block: {
-      true: "btn-block",
-      false: "",
-    },
-
-    icon: {
-      true: "btn-icon",
-      false: "",
-    },
-
-    disabled: {
-      true: "btn-disabled",
-      false: "",
-    },
-
-    loading: {
-      true: "btn-loading",
-      false: "",
-    },
-  },
-
-  /**
-   * Default visual configuration.
-   *
-   * Note:
-   * - Defaults use literal keys ("true" | "false") to match variant maps.
-   * - Consumer-facing props remain boolean via `CvaProps`.
-   */
-  defaultVariants: {
-    variant: "solid",
-    size: "md",
-    intent: "neutral",
-    block: "false",
-    icon: "false",
-    disabled: "false",
-    loading: "false",
-  },
-
-  compoundVariants: [],
+    compoundVariants: [],
 } satisfies CvaConfig<ButtonVariants>;
 
 /**
