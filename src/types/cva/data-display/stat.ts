@@ -1,5 +1,5 @@
 import type { SemanticIntent } from "@/types/cva/common/intents";
-import type { ActionSize } from "@/types/cva/common/sizes";
+import type { SizeScale } from "@/types/cva/common/sizes";
 
 /**
  * Stat density scale.
@@ -8,7 +8,7 @@ import type { ActionSize } from "@/types/cva/common/sizes";
  * - padding
  * - title/value typography
  */
-export type StatSize = Extract<ActionSize, "sm" | "md" | "lg">;
+export type StatSize = Extract<SizeScale, "sm" | "md" | "lg">;
 
 /**
  * Stat intents define the accent color applied to the metric value.

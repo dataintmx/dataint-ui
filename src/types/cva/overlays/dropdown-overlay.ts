@@ -1,4 +1,4 @@
-import type { ActionSize } from "@/types/cva/common/sizes";
+import type { SizeScale } from "@/types/cva/common/sizes";
 
 /**
  * Overlay panel sizing scale.
@@ -6,7 +6,7 @@ import type { ActionSize } from "@/types/cva/common/sizes";
  * This controls the dropdown overlay surface (min-width + padding + typography)
  * and is intentionally separate from the dropdown trigger sizing.
  */
-export type OverlaySize = Extract<ActionSize, "sm" | "md" | "lg">;
+export type OverlaySize = Extract<SizeScale, "sm" | "md" | "lg">;
 
 /**
  * Internal shape of the overlay variants map.

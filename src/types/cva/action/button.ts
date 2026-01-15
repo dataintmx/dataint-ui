@@ -1,11 +1,11 @@
 import type { SemanticIntent } from "@/types/cva/common/intents";
-import type { ActionSize } from "@/types/cva/common/sizes";
+import type { SizeScale } from "@/types/cva/common/sizes";
 
 /**
  * Button-specific size scale.
  * Buttons support an additional "xl" size.
  */
-export type ButtonSize = ActionSize | "xl";
+export type ButtonSize = SizeScale | "xl";
 
 /**
  * Button visual variants.

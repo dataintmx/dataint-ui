@@ -1,13 +1,13 @@
-import type { ActionSize } from "@/types/cva/common/sizes";
+import type { SizeScale } from "@/types/cva/common/sizes";
 
 /**
  * Shared surface sizing scale.
  *
  * Note:
- * - This is intentionally different from ActionSize.
+ * - This is intentionally different from SizeScale.
  * - Surfaces tend to use fewer size steps (e.g., sm / md / lg) focused on padding.
  */
-export type SurfaceSize = Extract<ActionSize, "sm" | "md" | "lg">;
+export type SurfaceSize = Extract<SizeScale, "sm" | "md" | "lg">;
 
 /**
  * Common orientation scale for layout containers.
