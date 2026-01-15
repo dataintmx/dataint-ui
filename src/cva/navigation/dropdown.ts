@@ -25,14 +25,7 @@ export const dropdownTriggerConfig = {
             open: "is-open",
         },
         disabled: {
-            /**
-             * Disabled styling is selector-based:
-             *   .dropdown-trigger:disabled, .dropdown-trigger[aria-disabled="true"]
-             *
-             * Keep this variant for a consistent shared API. Consumers must set
-             * the actual disabled attribute / aria-disabled for behavior and styling.
-             */
-            true: "",
+            true: "dropdown-trigger-disabled",
             false: "",
         },
     },

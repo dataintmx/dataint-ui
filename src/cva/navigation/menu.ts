@@ -54,14 +54,7 @@ export const menuItemConfig = {
             active: "is-active",
         },
         disabled: {
-            /**
-             * There is no `.menu-item-disabled` utility; disabled styling is selector-based:
-             *   .menu-item:disabled, .menu-item[aria-disabled="true"]
-             *
-             * We still expose the variant for API consistency; consumers should also set
-             * the actual disabled attribute / aria-disabled.
-             */
-            true: "",
+            true: "menu-item-disabled",
             false: "",
         },
     },
