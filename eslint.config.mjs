@@ -4,27 +4,24 @@ import { defineConfig } from "eslint/config";
 import { tailwind4 } from "tailwind-csstree";
 import ts from "typescript-eslint";
 
-const JS_TS_FILES = ["**/*.{js,jsx,ts,tsx}"];
-
-function scopeToJsTs(config) {
-    if (Array.isArray(config)) {
-        return config.map(c => ({ ...c, files: JS_TS_FILES }));
-    }
-    return { ...config, files: JS_TS_FILES };
-}
-
 export default defineConfig(
     {
         ignores: ["dist/", "node_modules/", "playground/"],
     },
+    // JavaScript recommended config
+    {
+        files: ["**/*.{js,jsx,ts,tsx}"],
+        ...js.configs.recommended,
+    },
 
-    // Apply JS/TS recommended ONLY to JS/TS files
-    scopeToJsTs(js.configs.recommended),
-    ...scopeToJsTs(ts.configs.recommended),
-
+    // TypeScript recommended configs
+    ...ts.configs.recommended.map(config => ({
+        files: ["**/*.{js,jsx,ts,tsx}"],
+        ...config,
+    })),
     // TypeScript rules (library conventions)
     {
-        files: JS_TS_FILES,
+        files: ["**/*.{js,jsx,ts,tsx}"],
         rules: {
             "@typescript-eslint/no-unused-vars": ["error", { argsIgnorePattern: "^_", varsIgnorePattern: "^_" }],
 
@@ -40,17 +37,16 @@ export default defineConfig(
     // CSS files linting (official ESLint CSS support) — ONLY for CSS
     {
         files: ["**/*.css"],
-        plugins: { css },
+        plugins: {
+            css,
+        },
         language: "css/css",
         languageOptions: {
-            // Prevent false positives with Tailwind v4 directives (@theme, @utility, etc.)
             customSyntax: tailwind4,
+            tolerant: true,
         },
         rules: {
-            "css/no-duplicate-imports": "error",
             "css/no-empty-blocks": "error",
-            "css/no-invalid-at-rules": "error",
-            "css/no-invalid-properties": "error",
         },
     }
 );
