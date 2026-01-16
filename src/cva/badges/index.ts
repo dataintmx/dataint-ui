@@ -24,7 +24,7 @@ export const badgeConfig = {
          * Matches the shared feedback variant scale.
          */
         variant: {
-            subtle: "badge-subtle",
+            default: "",
             solid: "badge-solid",
             outline: "badge-outline",
         },
@@ -51,7 +51,7 @@ export const badgeConfig = {
      */
     defaultVariants: {
         intent: "neutral",
-        variant: "subtle",
+        variant: "default",
         size: "md",
         rounded: "md",
     },
