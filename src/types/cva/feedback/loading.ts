@@ -3,10 +3,10 @@ import type { FeedbackIntent, FeedbackSize, FeedbackVariant } from "@/types/cva/
 /**
  * Loading (spinner) visual weight.
  *
- * - subtle: lighter track
+ * - default: base track
  * - solid: stronger track + higher opacity
  */
-export type LoadingVariant = Extract<FeedbackVariant, "subtle" | "solid">;
+export type LoadingVariant = Extract<FeedbackVariant, "default" | "solid">;
 
 export type LoadingVariants = {
     intent: Record<FeedbackIntent, string>;

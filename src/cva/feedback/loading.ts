@@ -19,7 +19,7 @@ export const loadingConfig = {
             error: "loading-error",
         },
         variant: {
-            subtle: "loading-subtle",
+            default: "",
             solid: "loading-solid",
         },
         size: {
@@ -34,11 +34,11 @@ export const loadingConfig = {
      * Your base defines:
      * - intent: base-content (neutral)
      * - size: ~20px (md)
-     * - variant: subtle track (we map this explicitly as "subtle")
+     * - variant: default track (we map this explicitly as "default")
      */
     defaultVariants: {
         intent: "neutral",
-        variant: "subtle",
+        variant: "default",
         size: "md",
     },
 

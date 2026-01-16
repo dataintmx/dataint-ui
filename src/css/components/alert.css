@@ -13,13 +13,11 @@
     --alert-intent: var(--color-neutral);
     --alert-intent-content: var(--color-neutral-content);
 
-    /* Derived surfaces (default: subtle) */
-    --alert-bg: var(--color-base-200);
-    --alert-border: var(--color-border-subtle);
+    /* Derived surfaces (default) */
+    --alert-bg: color-mix(in oklab, var(--alert-intent) 12%, var(--color-base-100));
+    --alert-border: color-mix(in oklab, var(--alert-intent) 35%, var(--color-border-subtle));
     --alert-fg: var(--color-base-content);
     --alert-icon-color: var(--alert-intent);
-
-    /* Variant defaults */
     --alert-border-width: var(--border-width-base);
     --alert-shadow: none;
 
@@ -119,19 +117,9 @@
 
 /* ------------------------------
    Shared API — variant (visual weight)
-   - subtle: tinted surface + tinted border + colored icon
    - solid: full accent fill + accent-content text
    - outline: transparent surface + accent border + colored icon
    ------------------------------ */
-
-.alert-subtle {
-    --alert-bg: color-mix(in oklab, var(--alert-intent) 12%, var(--color-base-100));
-    --alert-border: color-mix(in oklab, var(--alert-intent) 35%, var(--color-border-subtle));
-    --alert-fg: var(--color-base-content);
-    --alert-icon-color: var(--alert-intent);
-    --alert-shadow: none;
-    --alert-border-width: var(--border-width-base);
-}
 
 .alert-solid {
     --alert-bg: var(--alert-intent);

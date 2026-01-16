@@ -59,13 +59,8 @@
 
 /* ------------------------------
    Shared API — variant
-   - subtle: lighter track
    - solid: stronger track + higher opacity
    ------------------------------ */
-.loading-subtle {
-    --loading-track: color-mix(in oklab, var(--loading-intent) 14%, transparent);
-    --loading-opacity: 0.85;
-}
 
 .loading-solid {
     --loading-track: color-mix(in oklab, var(--loading-intent) 28%, transparent);

@@ -105,13 +105,6 @@
    Shared API — variant
    ------------------------------ */
 
-.badge-subtle {
-    --badge-bg: color-mix(in oklab, var(--badge-intent) 14%, var(--color-base-100));
-    --badge-border: color-mix(in oklab, var(--badge-intent) 35%, var(--color-border-subtle));
-    --badge-fg: var(--color-base-content);
-    --badge-border-width: var(--border-width-base);
-}
-
 .badge-solid {
     --badge-bg: var(--badge-intent);
     --badge-fg: var(--badge-intent-content);

@@ -35,7 +35,6 @@ export const cardConfig = {
         variant: {
             default: "",
             subtle: "card-subtle",
-            ghost: "card-ghost",
         },
 
         /**
