@@ -28,11 +28,11 @@ export type FeedbackIntent = Extract<SemanticIntent, "neutral" | "info" | "succe
  * Feedback visual treatment.
  *
  * Meaning:
- * - subtle: lighter, quieter presence
+ * - default: base level emphasis / subtle background
  * - solid: stronger emphasis / higher contrast
  * - outline: transparent surface with accent border
  *
  * Not all components must implement all variants, but when they do,
  * they should reuse this scale.
  */
-export type FeedbackVariant = "subtle" | "solid" | "outline";
+export type FeedbackVariant = "default" | "solid" | "outline";
