@@ -47,10 +47,10 @@
 }
 
 /* Error state */
-input.input-error {
+@utility input-error {
     border-color: var(--color-error);
 }
 
-input.input-error:focus-visible {
+.input-error:focus-visible {
     outline-color: var(--color-error);
 }
