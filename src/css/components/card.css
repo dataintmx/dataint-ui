@@ -70,11 +70,6 @@
     --card-border-color: var(--color-base-300);
 }
 
-.card-ghost {
-    --card-border-width: 0px;
-    --card-shadow: none;
-}
-
 /* ------------------------------
    Shared API — level (elevation)
    ------------------------------ */

@@ -5,7 +5,7 @@ import type { Orientation, SurfaceSize } from "@/types/cva/common/surfaces";
  * Card variants describe surface treatment (border and shadow policy),
  * not semantic meaning (semantic meaning belongs to intents, usually).
  */
-export type CardVariant = "default" | "subtle" | "ghost";
+export type CardVariant = "default" | "subtle";
 
 /**
  * Internal shape of the Card CVA variants map.
