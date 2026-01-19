@@ -58,22 +58,35 @@
 }
 
 /* Sizes (density) */
-@utility table-sm {
+
+@utility table-xs {
     @apply text-xs;
+    --table-cell-py: 0.25rem;
+    --table-cell-px: 0.25rem;
+}
+
+@utility table-sm {
+    @apply text-sm;
     --table-cell-py: 0.375rem;
     --table-cell-px: 0.5rem;
 }
 
 @utility table-md {
-    @apply text-sm;
+    @apply text-base;
     --table-cell-py: 0.5rem;
     --table-cell-px: 0.75rem;
 }
 
 @utility table-lg {
-    @apply text-base;
+    @apply text-lg;
     --table-cell-py: 0.75rem;
     --table-cell-px: 1rem;
+}
+
+@utility table-xl {
+    @apply text-xl;
+    --table-cell-py: 1rem;
+    --table-cell-px: 1.5rem;
 }
 
 /* Striped rows */
