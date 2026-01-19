@@ -18,6 +18,8 @@
    ------------------------------ */
 
 @utility dropdown {
+    @apply relative inline-flex;
+
     /* Surface tokens */
     --overlay-bg: var(--color-base-100);
     --overlay-fg: var(--color-base-content);

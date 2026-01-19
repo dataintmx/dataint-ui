@@ -9,13 +9,6 @@
    ====================================================================== */
 
 /* ------------------------------
-   Dropdown container
-   ------------------------------ */
-@utility dropdown {
-    @apply relative inline-flex;
-}
-
-/* ------------------------------
    Dropdown trigger
    Recommended markup:
    <button class="dropdown-trigger" aria-expanded="false">
