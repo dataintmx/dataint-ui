@@ -122,6 +122,14 @@
    Shared API — size
    ------------------------------ */
 
+.badge-xs {
+    --badge-height: 1rem;
+    --badge-px: var(--space-2xs);
+    --badge-gap: var(--space-3xs);
+    --badge-font-size: 0.625rem;
+    --badge-line-height: 0.75rem;
+}
+
 .badge-sm {
     --badge-height: 1.25rem;
     --badge-px: var(--space-xs);
@@ -144,6 +152,14 @@
     --badge-gap: var(--space-xs);
     --badge-font-size: 0.875rem;
     --badge-line-height: 1.125rem;
+}
+
+.badge-xl {
+    --badge-height: 2rem;
+    --badge-px: var(--space-xl);
+    --badge-gap: var(--space-sm);
+    --badge-font-size: 1rem;
+    --badge-line-height: 1.25rem;
 }
 
 /* ------------------------------
