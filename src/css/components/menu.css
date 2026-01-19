@@ -23,6 +23,8 @@
     --menu-item-outline: var(--outline-1);
     --menu-item-outline-offset: var(--outline-offset-2);
 
+    --menu-item-height: var(--height-field-md);
+
     gap: var(--menu-gap);
     padding: var(--space-xs);
     border-radius: var(--radius-box);
@@ -44,6 +46,7 @@
     @apply select-none text-left;
     @apply transition-colors duration-150 ease-in-out;
 
+    height: var(--menu-item-height);
     padding: var(--menu-item-py) var(--menu-item-px);
     border-radius: var(--menu-item-radius);
     color: var(--menu-item-fg);
@@ -78,19 +81,78 @@
 }
 
 /* ------------------------------
-   Shared API — size (density)
+   Shared API — size (density + height)
    ------------------------------ */
-
-.menu-sm {
-    --menu-item-px: var(--space-sm);
+@utility menu-xs {
+    --menu-item-height: var(--height-field-xs);
+    --menu-item-px: var(--space-2xs);
     --menu-item-py: var(--space-2xs);
-    --menu-gap: var(--space-2xs);
+
+    .menu-item {
+        @apply text-xs;
+    }
+
+    .menu-title {
+        @apply text-xs;
+    }
+
+    .menu-icon {
+        @apply h-3.5 w-3.5;
+    }
 }
 
-.menu-lg {
+@utility menu-sm {
+    --menu-item-height: var(--height-field-sm);
+    --menu-item-px: var(--space-sm);
+    --menu-item-py: var(--space-2xs);
+
+    .menu-item {
+        @apply text-sm;
+    }
+
+    .menu-title {
+        @apply text-xs;
+    }
+
+    .menu-icon {
+        @apply h-4 w-4;
+    }
+}
+
+@utility menu-lg {
+    --menu-item-height: var(--height-field-lg);
     --menu-item-px: var(--space-lg);
     --menu-item-py: var(--space-sm);
-    --menu-gap: var(--space-xs);
+
+    .menu-item {
+        @apply text-base;
+    }
+
+    .menu-title {
+        @apply text-sm;
+    }
+
+    .menu-icon {
+        @apply h-5 w-5;
+    }
+}
+
+@utility menu-xl {
+    --menu-item-height: var(--height-field-xl);
+    --menu-item-px: var(--space-xl);
+    --menu-item-py: var(--space-lg);
+
+    .menu-item {
+        @apply text-lg;
+    }
+
+    .menu-title {
+        @apply text-base;
+    }
+
+    .menu-icon {
+        @apply h-6 w-6;
+    }
 }
 
 /* ------------------------------
@@ -121,7 +183,7 @@
    ------------------------------ */
 
 .menu-item .menu-icon {
-    @apply flex justify-center items-center shrink-0 h-4 w-4;
+    @apply flex justify-center items-center shrink-0;
 }
 
 .menu-item .menu-icon svg {

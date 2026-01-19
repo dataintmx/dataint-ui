@@ -32,6 +32,9 @@
     --dropdown-py: var(--space-xs);
     --dropdown-gap: var(--space-sm);
 
+    /* Size driver (default = md) */
+    --dropdown-height: var(--height-field-md);
+
     --dropdown-radius: var(--radius-field);
 
     --dropdown-fg: var(--color-base-content);
@@ -50,6 +53,9 @@
     --dropdown-outline: var(--outline-1);
     --dropdown-outline-offset: var(--outline-offset-2);
 
+    /* Apply sizing */
+    height: var(--dropdown-height);
+
     gap: var(--dropdown-gap);
     padding: var(--dropdown-py) var(--dropdown-px);
 
@@ -65,82 +71,39 @@
 }
 
 /* ------------------------------
-   Hover / focus
+   Shared API — size (trigger)
    ------------------------------ */
-.dropdown-trigger:hover {
-    background-color: var(--dropdown-bg-hover);
+@utility dropdown-trigger-xs {
+    --dropdown-height: var(--height-field-xs);
+    --dropdown-px: var(--space-sm);
+    --dropdown-py: var(--space-2xs);
+    --dropdown-gap: var(--space-2xs);
 }
 
-.dropdown-trigger:focus {
-    outline: var(--dropdown-outline);
-    outline-offset: var(--dropdown-outline-offset);
-    isolation: isolate;
-    z-index: 1;
-}
-
-/* ------------------------------
-   Open state (Headless-driven)
-   ------------------------------ */
-.dropdown-trigger[aria-expanded="true"],
-.dropdown-trigger[data-state="open"],
-.dropdown-trigger.is-open {
-    @apply font-semibold;
-    background-color: var(--dropdown-bg-open);
-}
-
-/* Hover must win over open */
-.dropdown-trigger[aria-expanded="true"]:hover,
-.dropdown-trigger[data-state="open"]:hover,
-.dropdown-trigger.is-open:hover {
-    background-color: var(--dropdown-bg-hover);
-}
-
-/* ------------------------------
-   Disabled
-   ------------------------------ */
-@utility dropdown-trigger-disabled {
-    @apply cursor-not-allowed opacity-50;
-    color: var(--dropdown-fg-muted);
-    box-shadow: none;
-}
-
-.dropdown-trigger:disabled,
-.dropdown-trigger[aria-disabled="true"] {
-    @apply dropdown-trigger-disabled;
-}
-
-/* ------------------------------
-   Shared API — size
-   ------------------------------ */
-.dropdown-sm {
+@utility dropdown-trigger-sm {
+    --dropdown-height: var(--height-field-sm);
     --dropdown-px: var(--space-sm);
     --dropdown-py: var(--space-2xs);
     --dropdown-gap: var(--space-xs);
 }
 
-.dropdown-lg {
+@utility dropdown-trigger-md {
+    --dropdown-height: var(--height-field-md);
+    --dropdown-px: var(--space-md);
+    --dropdown-py: var(--space-xs);
+    --dropdown-gap: var(--space-sm);
+}
+
+@utility dropdown-trigger-lg {
+    --dropdown-height: var(--height-field-lg);
     --dropdown-px: var(--space-lg);
     --dropdown-py: var(--space-sm);
     --dropdown-gap: var(--space-sm);
 }
 
-/* ------------------------------
-   Label & Chevron
-   ------------------------------ */
-.dropdown-trigger .dropdown-label {
-    @apply min-w-0 flex-1 truncate text-left;
-}
-
-.dropdown-trigger .dropdown-chevron {
-    @apply shrink-0 w-5 h-5;
-    @apply flex items-center justify-center;
-    @apply leading-none;
-    @apply transition-transform duration-150 ease-in-out;
-}
-
-/* Rotate chevron when open (visual only) */
-.dropdown-trigger[aria-expanded="true"] .dropdown-chevron,
-.dropdown-trigger[data-state="open"] .dropdown-chevron,
-.dropdown-trigger.is-open .dropdown-chevron {
-    @apply rotate-180;
+@utility dropdown-trigger-xl {
+    --dropdown-height: var(--height-field-xl);
+    --dropdown-px: var(--space-xl);
+    --dropdown-py: var(--space-lg);
+    --dropdown-gap: var(--space-lg);
 }
