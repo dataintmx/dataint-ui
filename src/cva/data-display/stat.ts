@@ -12,9 +12,11 @@ export const statBase = "stat";
 export const statConfig = {
     variants: {
         size: {
+            xs: "stat-xs",
             sm: "stat-sm",
             md: "stat-md",
             lg: "stat-lg",
+            xl: "stat-xl",
         },
         intent: {
             neutral: "stat-neutral",
