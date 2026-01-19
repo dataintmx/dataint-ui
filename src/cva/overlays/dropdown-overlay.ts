@@ -17,9 +17,11 @@ export const dropdownOverlayBase = "dropdown";
 export const dropdownOverlayConfig = {
     variants: {
         size: {
+            xs: "dropdown-panel-xs",
             sm: "dropdown-panel-sm",
             md: "dropdown-panel-md",
             lg: "dropdown-panel-lg",
+            xl: "dropdown-panel-xl",
         },
     },
 
