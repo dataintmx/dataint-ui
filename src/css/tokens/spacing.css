@@ -4,6 +4,7 @@
 
 @theme {
     /* Base spacing scale — mapped 1:1 to rem values for now */
+    --space-3xs: 0.125rem;
     --space-2xs: 0.25rem;
     --space-xs: 0.5rem;
     --space-sm: 0.75rem;
