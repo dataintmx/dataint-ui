@@ -142,6 +142,14 @@
    Shared API — size
    ------------------------------ */
 
+.alert-xs {
+    --alert-px: var(--space-xs);
+    --alert-py: var(--space-2xs);
+    --alert-gap: var(--space-2xs);
+    --alert-font-size: 0.6875rem;
+    --alert-line-height: 1.125rem;
+}
+
 .alert-sm {
     --alert-px: var(--space-sm);
     --alert-py: var(--space-xs);
@@ -164,4 +172,12 @@
     --alert-gap: var(--space-md);
     --alert-font-size: 1rem;
     --alert-line-height: 1.5rem;
+}
+
+.alert-xl {
+    --alert-px: var(--space-xl);
+    --alert-py: var(--space-lg);
+    --alert-gap: var(--space-lg);
+    --alert-font-size: 1.125rem;
+    --alert-line-height: 1.75rem;
 }
