@@ -13,7 +13,7 @@
     /* Visual */
     border-width: var(--border-width-base);
     border-style: var(--border-style-base);
-    border-radius: var(--border-radius-radio);
+    border-radius: var(--radius-pill);
     border-color: var(--radio-intent);
     background-color: var(--color-base-100);
     box-shadow: var(--elevation-1-default);

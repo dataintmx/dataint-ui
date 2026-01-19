@@ -24,7 +24,7 @@
     width: var(--loading-size);
     height: var(--loading-size);
 
-    border-radius: var(--border-radius-radio);
+    border-radius: var(--radius-pill);
     border-width: var(--loading-border);
     border-style: var(--border-style-base);
 

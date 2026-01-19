@@ -175,5 +175,5 @@
 }
 
 .badge-rounded-pill {
-    --badge-radius: var(--border-radius-radio);
+    --badge-radius: var(--radius-pill);
 }
