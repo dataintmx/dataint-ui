@@ -23,9 +23,11 @@ export const loadingConfig = {
             solid: "loading-solid",
         },
         size: {
+            xs: "loading-xs",
             sm: "loading-sm",
             md: "loading-md",
             lg: "loading-lg",
+            xl: "loading-xl",
         },
     },
 

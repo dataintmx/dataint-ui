@@ -5,7 +5,7 @@ import type { SizeScale } from "@/types/cva/common/sizes";
  * Button-specific size scale.
  * Buttons support an additional "xl" size.
  */
-export type ButtonSize = SizeScale | "xl";
+export type ButtonSize = SizeScale;
 
 /**
  * Button visual variants.

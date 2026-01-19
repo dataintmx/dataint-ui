@@ -8,7 +8,7 @@ import type { SizeScale } from "@/types/cva/common/sizes";
  * - padding
  * - title/value typography
  */
-export type StatSize = Extract<SizeScale, "sm" | "md" | "lg">;
+export type StatSize = SizeScale;
 
 /**
  * Stat intents define the accent color applied to the metric value.

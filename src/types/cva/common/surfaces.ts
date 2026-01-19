@@ -7,7 +7,7 @@ import type { SizeScale } from "@/types/cva/common/sizes";
  * - This is intentionally different from SizeScale.
  * - Surfaces tend to use fewer size steps (e.g., sm / md / lg) focused on padding.
  */
-export type SurfaceSize = Extract<SizeScale, "sm" | "md" | "lg">;
+export type SurfaceSize = SizeScale;
 
 /**
  * Common orientation scale for layout containers.

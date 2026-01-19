@@ -9,4 +9,4 @@ import type { SizeScale } from "@/types/cva/common/sizes";
  *
  * "md" is the default (maps to base utilities with no extra class).
  */
-export type NavigationSize = Extract<SizeScale, "sm" | "md" | "lg">;
+export type NavigationSize = SizeScale;

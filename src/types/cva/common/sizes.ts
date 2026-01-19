@@ -10,4 +10,4 @@
 /**
  * Default sizing scale for all components.
  */
-export type SizeScale = "xs" | "sm" | "md" | "lg";
+export type SizeScale = "xs" | "sm" | "md" | "lg" | "xl";
