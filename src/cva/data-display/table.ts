@@ -15,7 +15,7 @@ export const tableConfig = {
         size: {
             xs: "table-xs",
             sm: "table-sm",
-            md: "table-md",
+            md: "",
             lg: "table-lg",
             xl: "table-xl",
         },

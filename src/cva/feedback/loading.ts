@@ -25,7 +25,7 @@ export const loadingConfig = {
         size: {
             xs: "loading-xs",
             sm: "loading-sm",
-            md: "loading-md",
+            md: "",
             lg: "loading-lg",
             xl: "loading-xl",
         },

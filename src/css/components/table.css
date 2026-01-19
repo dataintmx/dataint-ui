@@ -71,12 +71,6 @@
     --table-cell-px: 0.5rem;
 }
 
-@utility table-md {
-    @apply text-base;
-    --table-cell-py: 0.5rem;
-    --table-cell-px: 0.75rem;
-}
-
 @utility table-lg {
     @apply text-lg;
     --table-cell-py: 0.75rem;

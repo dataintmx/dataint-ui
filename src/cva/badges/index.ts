@@ -32,7 +32,7 @@ export const badgeConfig = {
         size: {
             xs: "badge-xs",
             sm: "badge-sm",
-            md: "badge-md",
+            md: "",
             lg: "badge-lg",
             xl: "badge-xl",
         },

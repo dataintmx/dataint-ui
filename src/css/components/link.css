@@ -49,10 +49,6 @@
     @apply text-sm;
 }
 
-@utility link-md {
-    @apply text-base;
-}
-
 @utility link-lg {
     @apply text-lg;
 }

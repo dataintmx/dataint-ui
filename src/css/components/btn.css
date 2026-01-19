@@ -284,12 +284,6 @@
     height: var(--sizes-btn-sm);
 }
 
-@utility btn-md {
-    @apply text-base;
-    padding-inline: var(--space-md);
-    height: var(--sizes-btn-md);
-}
-
 @utility btn-lg {
     @apply text-lg;
     padding-inline: var(--space-lg);

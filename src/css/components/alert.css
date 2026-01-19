@@ -158,14 +158,6 @@
     --alert-line-height: 1.125rem;
 }
 
-.alert-md {
-    --alert-px: var(--space-md);
-    --alert-py: var(--space-sm);
-    --alert-gap: var(--space-sm);
-    --alert-font-size: 0.875rem;
-    --alert-line-height: 1.25rem;
-}
-
 .alert-lg {
     --alert-px: var(--space-lg);
     --alert-py: var(--space-md);

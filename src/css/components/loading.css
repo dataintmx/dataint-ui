@@ -81,11 +81,6 @@
     --loading-border: var(--border-width-strong);
 }
 
-.loading-md {
-    --loading-size: 1.25rem; /* 20px */
-    --loading-border: var(--border-width-strong);
-}
-
 .loading-lg {
     --loading-size: 1.75rem; /* 28px */
     --loading-border: var(--border-width-heavy);

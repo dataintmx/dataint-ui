@@ -14,7 +14,7 @@ export const statConfig = {
         size: {
             xs: "stat-xs",
             sm: "stat-sm",
-            md: "stat-md",
+            md: "",
             lg: "stat-lg",
             xl: "stat-xl",
         },

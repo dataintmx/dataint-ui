@@ -55,18 +55,6 @@
     }
 }
 
-@utility stat-md {
-    @apply p-4;
-
-    .stat-title {
-        @apply text-sm;
-    }
-
-    .stat-value {
-        @apply text-2xl;
-    }
-}
-
 @utility stat-lg {
     @apply p-5;
 

@@ -26,7 +26,7 @@ export const alertConfig = {
         size: {
             xs: "alert-xs",
             sm: "alert-sm",
-            md: "alert-md",
+            md: "",
             lg: "alert-lg",
             xl: "alert-xl",
         },

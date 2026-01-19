@@ -80,13 +80,6 @@
     --dropdown-gap: var(--space-xs);
 }
 
-@utility dropdown-trigger-md {
-    --dropdown-height: var(--height-field-md);
-    --dropdown-px: var(--space-md);
-    --dropdown-py: var(--space-xs);
-    --dropdown-gap: var(--space-sm);
-}
-
 @utility dropdown-trigger-lg {
     --dropdown-height: var(--height-field-lg);
     --dropdown-px: var(--space-lg);

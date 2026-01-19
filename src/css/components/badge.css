@@ -138,14 +138,6 @@
     --badge-line-height: 0.875rem;
 }
 
-.badge-md {
-    --badge-height: 1.5rem;
-    --badge-px: var(--space-sm);
-    --badge-gap: var(--space-2xs);
-    --badge-font-size: 0.75rem;
-    --badge-line-height: 1rem;
-}
-
 .badge-lg {
     --badge-height: 1.75rem;
     --badge-px: var(--space-md);
