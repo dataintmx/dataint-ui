@@ -42,7 +42,7 @@
    ============================================================ */
 
 @utility link-xs {
-    @apply text-sm;
+    @apply text-xs;
 }
 
 @utility link-sm {
@@ -55,6 +55,10 @@
 
 @utility link-lg {
     @apply text-lg;
+}
+
+@utility link-xl {
+    @apply text-xl;
 }
 
 /* ============================================================

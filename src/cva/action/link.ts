@@ -28,6 +28,7 @@ export const linkConfig = {
             sm: "link-sm",
             md: "link-md",
             lg: "link-lg",
+            xl: "link-xl",
         },
 
         block: {
