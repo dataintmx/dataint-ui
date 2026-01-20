@@ -30,27 +30,28 @@
 /* ------------------------------
    Sizes (density)
    ------------------------------ */
+
+@utility stat-xs {
+    @apply p-2;
+
+    .stat-title {
+        @apply text-xs;
+    }
+
+    .stat-value {
+        @apply text-lg;
+    }
+}
+
 @utility stat-sm {
     @apply p-3;
 
     .stat-title {
-        @apply text-xs;
+        @apply text-sm;
     }
 
     .stat-value {
         @apply text-xl;
-    }
-}
-
-@utility stat-md {
-    @apply p-4;
-
-    .stat-title {
-        @apply text-xs;
-    }
-
-    .stat-value {
-        @apply text-2xl;
     }
 }
 
@@ -63,6 +64,18 @@
 
     .stat-value {
         @apply text-3xl;
+    }
+}
+
+@utility stat-xl {
+    @apply p-6;
+
+    .stat-title {
+        @apply text-base;
+    }
+
+    .stat-value {
+        @apply text-4xl;
     }
 }
 

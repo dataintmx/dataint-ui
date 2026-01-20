@@ -24,7 +24,7 @@
     width: var(--loading-size);
     height: var(--loading-size);
 
-    border-radius: var(--border-radius-radio);
+    border-radius: var(--radius-pill);
     border-width: var(--loading-border);
     border-style: var(--border-style-base);
 
@@ -70,18 +70,24 @@
 /* ------------------------------
    Shared API — size
    ------------------------------ */
+
+.loading-xs {
+    --loading-size: 0.75rem; /* 12px */
+    --loading-border: var(--border-width-base);
+}
+
 .loading-sm {
     --loading-size: 1rem; /* 16px */
     --loading-border: var(--border-width-strong);
 }
 
-.loading-md {
-    --loading-size: 1.25rem; /* 20px */
-    --loading-border: var(--border-width-strong);
-}
-
 .loading-lg {
     --loading-size: 1.75rem; /* 28px */
+    --loading-border: var(--border-width-heavy);
+}
+
+.loading-xl {
+    --loading-size: 2.25rem; /* 36px */
     --loading-border: var(--border-width-heavy);
 }
 

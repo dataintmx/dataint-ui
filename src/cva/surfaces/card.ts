@@ -23,9 +23,11 @@ export const cardConfig = {
          * "md" is the base/default and maps to no extra class.
          */
         size: {
+            xs: "card-xs",
             sm: "card-sm",
             md: "",
             lg: "card-lg",
+            xl: "card-xl",
         },
 
         /**

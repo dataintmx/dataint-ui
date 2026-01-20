@@ -54,6 +54,11 @@
 /* ------------------------------
    Shared API — size
    ------------------------------ */
+
+.card-xs {
+    --card-px: var(--space-xs);
+    --card-py: var(--space-xs);
+}
 .card-sm {
     --card-px: var(--space-sm);
     --card-py: var(--space-sm);
@@ -61,6 +66,11 @@
 .card-lg {
     --card-px: var(--space-lg);
     --card-py: var(--space-lg);
+}
+
+.card-xl {
+    --card-px: var(--space-xl);
+    --card-py: var(--space-xl);
 }
 
 /* ------------------------------

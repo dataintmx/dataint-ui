@@ -13,7 +13,7 @@ import type { SizeScale } from "@/types/cva/common/sizes";
  * Feedback components typically use a compact size scale.
  * This size impacts padding/typography for alerts and diameter/border for spinners.
  */
-export type FeedbackSize = Extract<SizeScale, "sm" | "md" | "lg">;
+export type FeedbackSize = SizeScale;
 
 /**
  * Feedback intents supported by Alert and Loading.

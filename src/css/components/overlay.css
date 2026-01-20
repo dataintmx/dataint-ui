@@ -11,13 +11,15 @@
 /* ------------------------------
    Overlay surface (dropdown panel)
    Recommended markup (conceptual):
-   <div class="dropdown dropdown-panel-md">
+   <div class="dropdown dropdown-panel-sm">
      <button class="dropdown-trigger" aria-expanded="true|false">...</button>
      <div class="dropdown-content">...</div>
    </div>
    ------------------------------ */
 
 @utility dropdown {
+    @apply relative inline-flex;
+
     /* Surface tokens */
     --overlay-bg: var(--color-base-100);
     --overlay-fg: var(--color-base-content);
@@ -33,7 +35,7 @@
 
 /* The floating surface itself (positioning handled externally) */
 @utility dropdown-content {
-    @apply hidden;
+    @apply text-base p-3 hidden;
 
     z-index: var(--overlay-z);
     min-width: var(--overlay-min-w);
@@ -50,19 +52,26 @@
    Shared API — size (overlay panel)
    (Separate from trigger sizing)
    ------------------------------ */
-@utility dropdown-panel-sm {
-    --overlay-min-w: 12rem;
+
+@utility dropdown-panel-xs {
+    --overlay-min-w: 10rem;
 
     .dropdown-content {
         @apply text-xs p-2;
     }
+    .dropdown-title {
+        @apply text-xs;
+    }
 }
 
-@utility dropdown-panel-md {
-    --overlay-min-w: 14rem;
+@utility dropdown-panel-sm {
+    --overlay-min-w: 12rem;
 
     .dropdown-content {
-        @apply text-sm p-3;
+        @apply text-sm p-2;
+    }
+    .dropdown-title {
+        @apply text-xs;
     }
 }
 
@@ -70,7 +79,21 @@
     --overlay-min-w: 16rem;
 
     .dropdown-content {
-        @apply text-base p-4;
+        @apply text-lg p-4;
+    }
+    .dropdown-title {
+        @apply text-base;
+    }
+}
+
+@utility dropdown-panel-xl {
+    --overlay-min-w: 20rem;
+
+    .dropdown-content {
+        @apply text-xl p-4;
+    }
+    .dropdown-title {
+        @apply text-lg;
     }
 }
 

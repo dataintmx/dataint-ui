@@ -16,9 +16,11 @@ export const menuTitleBase = "menu-title";
 export const menuConfig = {
     variants: {
         size: {
+            xs: "menu-xs",
             sm: "menu-sm",
             md: "",
             lg: "menu-lg",
+            xl: "menu-xl",
         },
     },
     defaultVariants: {

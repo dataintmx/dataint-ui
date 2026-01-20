@@ -5,7 +5,7 @@ import type { FeedbackIntent, FeedbackVariant } from "@/types/cva/feedback";
  * Badge sizing is specific to this family (height + padding + typography),
  * so we define its scale locally as a type derived from SizeScale (types are the source of truth).
  */
-export type BadgeSize = Extract<SizeScale, "sm" | "md" | "lg">;
+export type BadgeSize = SizeScale;
 
 /**
  * Badge rounding controls the surface radius strategy.

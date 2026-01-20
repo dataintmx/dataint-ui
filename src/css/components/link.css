@@ -42,19 +42,19 @@
    ============================================================ */
 
 @utility link-xs {
-    @apply text-sm;
+    @apply text-xs;
 }
 
 @utility link-sm {
     @apply text-sm;
 }
 
-@utility link-md {
-    @apply text-base;
-}
-
 @utility link-lg {
     @apply text-lg;
+}
+
+@utility link-xl {
+    @apply text-xl;
 }
 
 /* ============================================================

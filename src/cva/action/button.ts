@@ -41,7 +41,7 @@ export const buttonConfig = {
         size: {
             xs: "btn-xs",
             sm: "btn-sm",
-            md: "btn-md",
+            md: "",
             lg: "btn-lg",
             xl: "btn-xl",
         },

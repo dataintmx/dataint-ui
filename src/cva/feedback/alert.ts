@@ -24,9 +24,11 @@ export const alertConfig = {
             outline: "alert-outline",
         },
         size: {
+            xs: "alert-xs",
             sm: "alert-sm",
-            md: "alert-md",
+            md: "",
             lg: "alert-lg",
+            xl: "alert-xl",
         },
     },
 

@@ -13,9 +13,11 @@ export const tableBase = "table";
 export const tableConfig = {
     variants: {
         size: {
+            xs: "table-xs",
             sm: "table-sm",
-            md: "table-md",
+            md: "",
             lg: "table-lg",
+            xl: "table-xl",
         },
         striped: {
             true: "table-striped",

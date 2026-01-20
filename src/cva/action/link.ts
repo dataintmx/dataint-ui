@@ -26,8 +26,9 @@ export const linkConfig = {
         size: {
             xs: "link-xs",
             sm: "link-sm",
-            md: "link-md",
+            md: "",
             lg: "link-lg",
+            xl: "link-xl",
         },
 
         block: {

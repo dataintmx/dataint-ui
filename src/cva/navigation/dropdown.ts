@@ -16,9 +16,11 @@ export const dropdownTriggerBase = "dropdown-trigger";
 export const dropdownTriggerConfig = {
     variants: {
         size: {
-            sm: "dropdown-sm",
+            xs: "dropdown-trigger-xs",
+            sm: "dropdown-trigger-sm",
             md: "",
-            lg: "dropdown-lg",
+            lg: "dropdown-trigger-lg",
+            xl: "dropdown-trigger-xl",
         },
         state: {
             closed: "",

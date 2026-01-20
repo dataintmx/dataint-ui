@@ -53,8 +53,9 @@
 /* Knob (el "switch" redondo) */
 .toggle::before {
     content: "";
-    @apply relative start-0 col-start-2 row-start-1 aspect-square h-full bg-current rounded-selector;
+    @apply relative start-0 col-start-2 row-start-1 aspect-square h-full bg-current;
     translate: 0;
+    border-radius: var(--radius-pill);
     @apply transition-[background-color,translate,inset-inline-start] duration-200;
     box-shadow: var(--elevation-1-shadow);
 }
