@@ -1,0 +1,101 @@
+/* ======================================================================
+   LINK — Action-like links (DataInt UI)
+   ====================================================================== */
+
+@utility link {
+    @apply inline-flex items-center;
+    @apply font-medium select-none no-underline cursor-pointer;
+
+    gap: var(--space-inline-gap);
+    font-family: var(--font-body);
+    line-height: 1.2;
+
+    transition:
+        color 150ms ease-out,
+        text-decoration-color 150ms ease-out,
+        background-color 150ms ease-out;
+}
+
+/* ============================================================
+   INTENTS
+   ============================================================ */
+
+@utility link-primary {
+    color: var(--color-primary);
+}
+.link-primary:hover {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+@utility link-secondary {
+    color: var(--color-base-content-muted);
+}
+.link-secondary:hover {
+    color: var(--color-base-content);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+/* ============================================================
+   SIZES
+   ============================================================ */
+
+@utility link-xs {
+    @apply text-xs;
+}
+
+@utility link-sm {
+    @apply text-sm;
+}
+
+@utility link-lg {
+    @apply text-lg;
+}
+
+@utility link-xl {
+    @apply text-xl;
+}
+
+/* ============================================================
+   WIDTH
+   ============================================================ */
+
+@utility link-block {
+    @apply w-full;
+}
+
+/* ============================================================
+   ICON RELATIONSHIP
+   ============================================================ */
+
+@utility link-icon-only {
+    width: auto;
+    max-width: max-content;
+    padding: 0;
+    gap: 0;
+    justify-content: center;
+}
+
+@utility link-icon-start {
+    flex-direction: row;
+}
+
+@utility link-icon-end {
+    flex-direction: row-reverse;
+}
+
+/* ============================================================
+   DISABLED
+   ============================================================ */
+
+@utility link-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.link[aria-disabled="true"],
+.link[disabled] {
+    @apply link-disabled;
+}

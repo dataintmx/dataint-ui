@@ -1,0 +1,107 @@
+/* ======================================================================
+   CARDS — Containers & Surfaces (DataInt UI)
+   Components: card, card-title, card-body, card-actions
+   Shared API: level, size, variant, orientation
+   ====================================================================== */
+
+/* ------------------------------
+   Base Card
+   ------------------------------ */
+@utility card {
+    @apply relative w-full overflow-hidden;
+
+    /* Shared API defaults */
+    --card-bg: var(--color-base-100);
+    --card-border-color: var(--color-border-strong);
+    --card-border-width: var(--border-width-base);
+    --card-shadow: var(--elevation-2-default);
+
+    /* size -> internal spacing */
+    --card-px: var(--space-md);
+    --card-py: var(--space-md);
+
+    /* variant -> border presence */
+    --card-border-style: var(--border-style-base);
+
+    background-color: var(--card-bg);
+    border-width: var(--card-border-width);
+    border-style: var(--card-border-style);
+    border-color: var(--card-border-color);
+    border-radius: var(--radius-field);
+    box-shadow: var(--card-shadow);
+    padding: var(--card-py) var(--card-px);
+}
+
+/* ------------------------------
+   Card sub-structures
+   ------------------------------ */
+
+/* Title: semantic typographic block */
+@utility card-title {
+    @apply font-semibold leading-tight;
+}
+
+/* Body: content region with normal text flow */
+@utility card-body {
+    @apply min-w-0;
+}
+
+/* Actions: layout container for buttons/links */
+@utility card-actions {
+    @apply flex items-center gap-2;
+}
+
+/* ------------------------------
+   Shared API — size
+   ------------------------------ */
+
+.card-xs {
+    --card-px: var(--space-xs);
+    --card-py: var(--space-xs);
+}
+.card-sm {
+    --card-px: var(--space-sm);
+    --card-py: var(--space-sm);
+}
+.card-lg {
+    --card-px: var(--space-lg);
+    --card-py: var(--space-lg);
+}
+
+.card-xl {
+    --card-px: var(--space-xl);
+    --card-py: var(--space-xl);
+}
+
+/* ------------------------------
+   Shared API — variant (border)
+   ------------------------------ */
+.card-subtle {
+    --card-border-color: var(--color-base-300);
+}
+
+/* ------------------------------
+   Shared API — level (elevation)
+   ------------------------------ */
+.card-level-1 {
+    --card-shadow: var(--elevation-1-default);
+}
+
+.card-level-2 {
+    --card-shadow: var(--elevation-2-default);
+}
+
+.card-level-3 {
+    --card-shadow: var(--elevation-3-default);
+}
+
+/* ------------------------------
+   Shared API — orientation (card-actions)
+   horizontal / vertical
+   ------------------------------ */
+.card-actions-horizontal {
+    @apply flex-row;
+}
+.card-actions-vertical {
+    @apply flex-col items-start;
+}

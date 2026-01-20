@@ -1,0 +1,37 @@
+/* ============================================
+   Size tokens (heights for controls + components)
+   ============================================ */
+
+@theme {
+    /* Semantic Sizes for Buttons */
+    --sizes-btn-xs: 24px;
+    --sizes-btn-sm: 32px;
+    --sizes-btn-md: 40px;
+    --sizes-btn-lg: 48px;
+    --sizes-btn-xl: 56px;
+
+    /* Control heights (buttons, inputs, selects, etc.) */
+    --control-height-xs: 1.5rem; /* ~24px */
+    --control-height-sm: 2rem; /* ~32px */
+    --control-height-md: 2.5rem; /* ~40px */
+    --control-height-lg: 3rem; /* ~48px */
+    --control-height-xl: 3.5rem; /* ~56px */
+
+    /* Semantic aliases */
+    --height-field-xs: var(--control-height-xs);
+    --height-field-sm: var(--control-height-sm);
+    --height-field-md: var(--control-height-md);
+    --height-field-lg: var(--control-height-lg);
+    --height-field-xl: var(--control-height-xl);
+
+    /* Heights for key components (v1 placeholders) */
+    --height-navbar: 3.5rem;
+    --height-toolbar: 3rem;
+
+    /* Arrow geometry */
+    --select-arrow-size: 0.25rem; /* 4px */
+    --select-arrow-gap: 0.25rem; /* space between the two triangles */
+
+    /* Inset from the edge: ties arrow to your spacing tokens */
+    --select-arrow-inset: var(--space-md);
+}

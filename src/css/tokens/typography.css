@@ -1,0 +1,21 @@
+/* ============================================
+   Typography tokens
+   ============================================ */
+
+@theme {
+    /* Font families — primitives */
+    --font-roboto: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+
+    --font-open-sans: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+
+    --font-roboto-mono:
+        "Roboto Mono", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+    --font-roboto-slab: "Roboto Slab", "Georgia", "Times New Roman", serif;
+
+    /* Semantic typography roles */
+    --font-body: var(--font-roboto);
+    --font-display: var(--font-open-sans);
+    --font-mono: var(--font-roboto-mono);
+    --font-serif: var(--font-roboto-slab);
+}

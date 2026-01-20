@@ -1,0 +1,2401 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+    <head>
+        <meta charset="utf-8" />
+        <title>dataint-ui playground</title>
+        <link rel="stylesheet" href="./css/output.css" />
+        <style>
+            /* Layout propio del playground (no del design system) */
+            body {
+                margin: 0;
+                background-color: var(--color-base-100, #0b1015);
+                color: var(--color-base-content, #f9fafb);
+                font-family: var(--font-body, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif);
+            }
+
+            .page {
+                padding: 1.5rem;
+                max-width: 1200px;
+                margin: 0 auto;
+                display: grid;
+                grid-template-columns: minmax(200px, 240px) 1fr;
+                gap: 2rem;
+            }
+
+            .sidebar {
+                position: sticky;
+                top: 1.5rem;
+                align-self: start;
+                border: var(--border-subtle, 1px solid rgba(255, 255, 255, 0.05));
+                border-radius: var(--radius-box, 1rem);
+                padding: 1rem;
+                background-color: var(--color-base-200, #0f1720);
+                box-shadow: var(--elevation-1-default, none);
+            }
+
+            .sidebar h1 {
+                font-family: var(--font-display, inherit);
+                font-size: 1.1rem;
+                margin: 0 0 0.75rem;
+            }
+
+            .sidebar p {
+                margin: 0 0 0.75rem;
+                font-size: 0.85rem;
+                color: var(--color-base-content-muted, rgba(248, 250, 252, 0.72));
+            }
+
+            .sidebar nav ul {
+                list-style: none;
+                padding: 0;
+                margin: 0.75rem 0 0;
+                display: grid;
+                gap: 0.25rem;
+                font-size: 0.85rem;
+            }
+
+            .sidebar nav a {
+                text-decoration: none;
+                color: inherit;
+                padding: 0.25rem 0.1rem;
+            }
+
+            .sidebar nav a:hover {
+                text-decoration: underline;
+            }
+
+            .content {
+                display: flex;
+                flex-direction: column;
+                gap: 2rem;
+                padding-bottom: 3rem;
+            }
+
+            .section {
+                border-bottom: var(--border-subtle, 1px solid rgba(255, 255, 255, 0.05));
+                padding-bottom: 1.5rem;
+            }
+
+            .section:last-of-type {
+                border-bottom: none;
+            }
+
+            .section-title {
+                font-family: var(--font-display, inherit);
+                font-size: 1.25rem;
+                margin: 0 0 0.25rem;
+            }
+
+            .section-subtitle {
+                font-size: 0.9rem;
+                margin: 0 0 1rem;
+                color: var(--color-base-content-muted, rgba(248, 250, 252, 0.72));
+            }
+
+            .token-group-title {
+                font-size: 0.95rem;
+                font-weight: 600;
+                margin: 0 0 0.5rem;
+            }
+
+            .token-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+                gap: 0.75rem;
+                margin-bottom: 1rem;
+            }
+
+            .token-swatch {
+                border: var(--border-subtle, 1px solid rgba(255, 255, 255, 0.05));
+                border-radius: var(--radius-box, 1rem);
+                padding: 0.75rem;
+                display: flex;
+                flex-direction: column;
+                gap: 0.4rem;
+                background-color: var(--color-base-100, #020617);
+                box-shadow: var(--elevation-1-default, none);
+            }
+
+            .token-swatch-sample {
+                height: 2.5rem;
+                border-radius: var(--radius-field, 1rem);
+                border: var(--border-subtle, 1px solid rgba(255, 255, 255, 0.05));
+            }
+
+            .token-swatch-label {
+                font-size: 0.75rem;
+                line-height: 1.3;
+            }
+
+            .token-swatch-label code {
+                font-family: var(
+                    --font-mono,
+                    ui-monospace,
+                    SFMono-Regular,
+                    Menlo,
+                    Monaco,
+                    Consolas,
+                    "Liberation Mono",
+                    "Courier New",
+                    monospace
+                );
+                font-size: 0.7rem;
+            }
+
+            .token-swatch-desc {
+                opacity: 0.75;
+            }
+
+            .component-grid {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.75rem;
+                align-items: center;
+            }
+
+            .component-column {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+                min-width: 220px;
+            }
+
+            .component-label {
+                font-size: 0.8rem;
+                opacity: 0.8;
+            }
+
+            .code-inline {
+                font-family: var(
+                    --font-mono,
+                    ui-monospace,
+                    SFMono-Regular,
+                    Menlo,
+                    Monaco,
+                    Consolas,
+                    "Liberation Mono",
+                    "Courier New",
+                    monospace
+                );
+                font-size: 0.75rem;
+                background-color: var(--color-base-200);
+                padding: 0.1rem 0.25rem;
+                border-radius: 0.25rem;
+            }
+
+            table.preview-table {
+                width: 100%;
+                border-collapse: collapse;
+                font-size: 0.85rem;
+            }
+
+            table.preview-table th,
+            table.preview-table td {
+                text-align: left;
+                padding: 0.5rem 0.5rem;
+                border-bottom: var(--border-subtle, 1px solid rgba(148, 163, 184, 0.3));
+            }
+
+            table.preview-table th {
+                font-weight: 600;
+                font-size: 0.8rem;
+                text-transform: uppercase;
+                letter-spacing: 0.03em;
+                color: var(--color-base-content-muted, rgba(148, 163, 184, 0.9));
+            }
+
+            .stats-row {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+        </style>
+    </head>
+    <body class="base">
+        <main class="page">
+            <!-- Sidebar / índice -->
+            <aside class="sidebar">
+                <h1>dataint-ui playground</h1>
+                <p>
+                    Hoja interna de muestras para validar tokens y componentes de
+                    <strong>dataint-ui</strong>. Cambiar el atributo <span class="code-inline">data-theme</span> en
+                    <span class="code-inline">&lt;html&gt;</span> para ver <span class="code-inline">light</span> /
+                    <span class="code-inline">dark</span>.
+                </p>
+
+                <nav>
+                    <ul>
+                        <li><strong>Tokens</strong></li>
+                        <li><a href="#tokens-color">Colores</a></li>
+                        <li><a href="#tokens-typography">Tipografía</a></li>
+                        <li><a href="#tokens-borders">Bordes</a></li>
+                        <li><a href="#tokens-radius">Radios</a></li>
+                        <li><a href="#tokens-elevation">Sombras</a></li>
+                    </ul>
+                    <ul style="margin-top: 1rem">
+                        <li><strong>Componentes</strong></li>
+                        <li><a href="#components-action">Acción</a></li>
+                        <li><a href="#components-forms">Formularios</a></li>
+                        <li><a href="#components-containers">Contenedores</a></li>
+                        <li><a href="#components-navigation">Navegación</a></li>
+                        <li><a href="#components-feedback">Feedback</a></li>
+                        <li><a href="#components-badges">Badges</a></li>
+                        <li><a href="#components-data">Datos</a></li>
+                        <li><a href="#components-overlays">Superposiciones</a></li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <!-- Contenido principal -->
+            <div class="content">
+                <!-- TOKENS: COLORES -->
+                <section id="tokens-color" class="section">
+                    <h2 class="section-title">Tokens de color</h2>
+                    <p class="section-subtitle">
+                        Muestra de tokens semánticos de color (superficies, contenido e intenciones:
+                        <span class="code-inline">primary</span>, <span class="code-inline">success</span>,
+                        <span class="code-inline">warning</span>, etc.).
+                    </p>
+
+                    <h3 class="token-group-title">Superficies base</h3>
+                    <div class="token-grid">
+                        <div class="token-swatch">
+                            <div class="token-swatch-sample" style="background-color: var(--color-base-100)"></div>
+                            <div class="token-swatch-label">
+                                <div><code>--color-base-100</code></div>
+                                <div class="token-swatch-desc">Superficie principal (background).</div>
+                            </div>
+                        </div>
+                        <div class="token-swatch">
+                            <div class="token-swatch-sample" style="background-color: var(--color-base-200)"></div>
+                            <div class="token-swatch-label">
+                                <div><code>--color-base-200</code></div>
+                                <div class="token-swatch-desc">Superficie secundaria (contenedores).</div>
+                            </div>
+                        </div>
+                        <div class="token-swatch">
+                            <div class="token-swatch-sample" style="background-color: var(--color-base-300)"></div>
+                            <div class="token-swatch-label">
+                                <div><code>--color-base-300</code></div>
+                                <div class="token-swatch-desc">Superficie elevada / paneles destacados.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 class="token-group-title">Contenido base</h3>
+                    <div class="token-grid">
+                        <div class="token-swatch">
+                            <div
+                                class="token-swatch-sample"
+                                style="
+                                    background: var(--color-base-100);
+                                    color: var(--color-base-content);
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    font-size: 0.85rem;
+                                "
+                            >
+                                Texto base
+                            </div>
+                            <div class="token-swatch-label">
+                                <div><code>--color-base-content</code></div>
+                                <div class="token-swatch-desc">Texto principal.</div>
+                            </div>
+                        </div>
+                        <div class="token-swatch">
+                            <div
+                                class="token-swatch-sample"
+                                style="
+                                    background: var(--color-base-100);
+                                    color: var(--color-base-content-muted);
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    font-size: 0.85rem;
+                                "
+                            >
+                                Texto muted
+                            </div>
+                            <div class="token-swatch-label">
+                                <div><code>--color-base-content-muted</code></div>
+                                <div class="token-swatch-desc">Texto de baja relevancia.</div>
+                            </div>
+                        </div>
+                        <div class="token-swatch">
+                            <div
+                                class="token-swatch-sample"
+                                style="
+                                    background: var(--color-base-100);
+                                    color: var(--color-base-content-subtle);
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    font-size: 0.85rem;
+                                "
+                            >
+                                Texto subtle
+                            </div>
+                            <div class="token-swatch-label">
+                                <div><code>--color-base-content-subtle</code></div>
+                                <div class="token-swatch-desc">Texto de muy baja jerarquía.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 class="token-group-title">Intenciones (brand & status)</h3>
+                    <div class="token-grid">
+                        <div class="token-swatch">
+                            <div class="token-swatch-sample" style="background-color: var(--color-primary)"></div>
+                            <div class="token-swatch-label">
+                                <div><code>--color-primary</code></div>
+                                <div class="token-swatch-desc">Acciones primarias / highlights de marca.</div>
+                            </div>
+                        </div>
+                        <div class="token-swatch">
+                            <div class="token-swatch-sample" style="background-color: var(--color-secondary)"></div>
+                            <div class="token-swatch-label">
+                                <div><code>--color-secondary</code></div>
+                                <div class="token-swatch-desc">Acciones secundarias / énfasis alterno.</div>
+                            </div>
+                        </div>
+                        <div class="token-swatch">
+                            <div class="token-swatch-sample" style="background-color: var(--color-accent)"></div>
+                            <div class="token-swatch-label">
+                                <div><code>--color-accent</code></div>
+                                <div class="token-swatch-desc">Detalles decorativos / acentos suaves.</div>
+                            </div>
+                        </div>
+                        <div class="token-swatch">
+                            <div class="token-swatch-sample" style="background-color: var(--color-neutral)"></div>
+                            <div class="token-swatch-label">
+                                <div><code>--color-neutral</code></div>
+                                <div class="token-swatch-desc">Backgrounds y contornos neutros.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="token-grid">
+                        <div class="token-swatch">
+                            <div class="token-swatch-sample" style="background-color: var(--color-info)"></div>
+                            <div class="token-swatch-label">
+                                <div><code>--color-info</code></div>
+                                <div class="token-swatch-desc">Mensajes informativos.</div>
+                            </div>
+                        </div>
+                        <div class="token-swatch">
+                            <div class="token-swatch-sample" style="background-color: var(--color-success)"></div>
+                            <div class="token-swatch-label">
+                                <div><code>--color-success</code></div>
+                                <div class="token-swatch-desc">Mensajes de éxito / confirmación.</div>
+                            </div>
+                        </div>
+                        <div class="token-swatch">
+                            <div class="token-swatch-sample" style="background-color: var(--color-warning)"></div>
+                            <div class="token-swatch-label">
+                                <div><code>--color-warning</code></div>
+                                <div class="token-swatch-desc">Advertencias / riesgos moderados.</div>
+                            </div>
+                        </div>
+                        <div class="token-swatch">
+                            <div class="token-swatch-sample" style="background-color: var(--color-error)"></div>
+                            <div class="token-swatch-label">
+                                <div><code>--color-error</code></div>
+                                <div class="token-swatch-desc">Errores / estados críticos.</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- TOKENS: TIPOGRAFÍA -->
+                <section id="tokens-typography" class="section">
+                    <h2 class="section-title">Tokens de tipografía</h2>
+                    <p class="section-subtitle">
+                        Familias semánticas de tipografía. Los tamaños se controlan con la escala nativa de Tailwind
+                        (por ejemplo,
+                        <span class="code-inline">text-sm</span>, <span class="code-inline">text-base</span>,
+                        <span class="code-inline">text-lg</span>).
+                    </p>
+
+                    <div class="token-grid">
+                        <div class="token-swatch" style="font-family: var(--font-body)">
+                            <div class="token-swatch-label">
+                                <div><code>--font-body</code></div>
+                                <div class="token-swatch-desc">Texto de interfaz, párrafos, labels.</div>
+                            </div>
+                            <p class="text-base">
+                                Ejemplo cuerpo <span class="code-inline">text-base</span> con
+                                <span class="code-inline">--font-body</span>.
+                            </p>
+                            <p class="text-sm" style="opacity: 0.8">
+                                Ejemplo cuerpo <span class="code-inline">text-sm</span>.
+                            </p>
+                        </div>
+
+                        <div class="token-swatch" style="font-family: var(--font-display)">
+                            <div class="token-swatch-label">
+                                <div><code>--font-display</code></div>
+                                <div class="token-swatch-desc">Títulos, headings y textos destacados.</div>
+                            </div>
+                            <p class="text-xl">Heading <span class="code-inline">text-xl</span> display.</p>
+                            <p class="text-base" style="opacity: 0.8">
+                                Subtítulo con <span class="code-inline">--font-display</span>.
+                            </p>
+                        </div>
+
+                        <div class="token-swatch" style="font-family: var(--font-mono)">
+                            <div class="token-swatch-label">
+                                <div><code>--font-mono</code></div>
+                                <div class="token-swatch-desc">Código, métricas, datos tabulares.</div>
+                            </div>
+                            <p class="text-sm">
+                                <span class="code-inline">const incidents = 128;</span>
+                            </p>
+                        </div>
+
+                        <div class="token-swatch" style="font-family: var(--font-serif)">
+                            <div class="token-swatch-label">
+                                <div><code>--font-serif</code></div>
+                                <div class="token-swatch-desc">Contenido editorial, énfasis especiales.</div>
+                            </div>
+                            <p class="text-base">Ejemplo de texto serif para resúmenes o descripciones largas.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- TOKENS: BORDES -->
+                <section id="tokens-borders" class="section">
+                    <h2 class="section-title">Tokens de bordes</h2>
+                    <p class="section-subtitle">
+                        Anchuras y estilos básicos de borde aplicados a superficies estándar.
+                    </p>
+
+                    <div class="token-grid">
+                        <div class="token-swatch">
+                            <div
+                                class="token-swatch-sample"
+                                style="border: var(--border-subtle); background: var(--color-base-100)"
+                            ></div>
+                            <div class="token-swatch-label">
+                                <div><code>--border-subtle</code></div>
+                                <div class="token-swatch-desc">
+                                    Borde estándar para cards, inputs y superficies neutras.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="token-swatch">
+                            <div
+                                class="token-swatch-sample"
+                                style="border: var(--border-base); background: var(--color-base-100)"
+                            ></div>
+                            <div class="token-swatch-label">
+                                <div><code>--border-base</code></div>
+                                <div class="token-swatch-desc">
+                                    Borde estructural más marcado (separadores fuertes).
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- TOKENS: RADIOS -->
+                <section id="tokens-radius" class="section">
+                    <h2 class="section-title">Tokens de redondeo de esquinas</h2>
+                    <p class="section-subtitle">
+                        Radios semánticos para selectores, campos y superficies (todos con base 1rem en v1).
+                    </p>
+
+                    <div class="token-grid">
+                        <div class="token-swatch">
+                            <div
+                                class="token-swatch-sample"
+                                style="border-radius: var(--radius-selector); background: var(--color-primary)"
+                            ></div>
+                            <div class="token-swatch-label">
+                                <div><code>--radius-selector</code></div>
+                                <div class="token-swatch-desc">
+                                    Elementos pequeños de selección (badges, chips, toggles).
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="token-swatch">
+                            <div
+                                class="token-swatch-sample"
+                                style="border-radius: var(--radius-field); background: var(--color-base-200)"
+                            ></div>
+                            <div class="token-swatch-label">
+                                <div><code>--radius-field</code></div>
+                                <div class="token-swatch-desc">Inputs, botones, selects, tabs.</div>
+                            </div>
+                        </div>
+
+                        <div class="token-swatch">
+                            <div
+                                class="token-swatch-sample"
+                                style="border-radius: var(--radius-box); background: var(--color-base-200)"
+                            ></div>
+                            <div class="token-swatch-label">
+                                <div><code>--radius-box</code></div>
+                                <div class="token-swatch-desc">Cards, paneles y contenedores estructurales.</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- TOKENS: ELEVACIÓN -->
+                <section id="tokens-elevation" class="section">
+                    <h2 class="section-title">Tokens de elevación (sombras)</h2>
+                    <p class="section-subtitle">
+                        Niveles de profundidad 1–4 usando sombras semánticas
+                        <span class="code-inline">--elevation-[n]-default</span>.
+                    </p>
+
+                    <div class="token-grid">
+                        <div class="token-swatch" style="box-shadow: var(--elevation-1-default)">
+                            <div class="token-swatch-label">
+                                <div><code>--elevation-1-default</code></div>
+                                <div class="token-swatch-desc">
+                                    Elevación sutil, útil para estados <em>hover</em> o tarjetas muy ligeras.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="token-swatch" style="box-shadow: var(--elevation-2-default)">
+                            <div class="token-swatch-label">
+                                <div><code>--elevation-2-default</code></div>
+                                <div class="token-swatch-desc">
+                                    Elevación estándar para cards y paneles principales.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="token-swatch" style="box-shadow: var(--elevation-3-default)">
+                            <div class="token-swatch-label">
+                                <div><code>--elevation-3-default</code></div>
+                                <div class="token-swatch-desc">
+                                    Superficies flotantes (menús, paneles superpuestos).
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="token-swatch" style="box-shadow: var(--elevation-4-default)">
+                            <div class="token-swatch-label">
+                                <div><code>--elevation-4-default</code></div>
+                                <div class="token-swatch-desc">Modales y overlays de máxima prioridad visual.</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- COMPONENTES: ACCIÓN -->
+                <section id="components-action" class="section">
+                    <h2 class="section-title">Componentes — Acción</h2>
+                    <p class="section-subtitle">
+                        Componentes que disparan operaciones concretas: botones y enlaces con apariencia de acción.
+                    </p>
+
+                    <!-- Intención × Variante (btn) -->
+                    <h3>Botones — intención × variante</h3>
+                    <div class="component-grid">
+                        <!-- Solid -->
+                        <div class="component-column">
+                            <span class="component-label"><code>.btn .btn-neutral</code> (neutral sólido)</span
+                            ><button class="btn btn-neutral">Neutral</button>
+                        </div>
+                        <div class="component-column">
+                            <span class="component-label"><code>.btn .btn-primary</code> (primario sólido)</span
+                            ><button class="btn btn-primary">Primary</button>
+                        </div>
+                        <div class="component-column">
+                            <span class="component-label"><code>.btn .btn-secondary</code> (secundario sólido)</span
+                            ><button class="btn btn-secondary">Secondary</button>
+                        </div>
+                        <div class="component-column">
+                            <span class="component-label"><code>.btn .btn-accent</code> (acento sólido)</span
+                            ><button class="btn btn-accent">Accent</button>
+                        </div>
+                        <div class="component-column">
+                            <span class="component-label"><code>.btn .btn-info</code> (info sólido)</span
+                            ><button class="btn btn-info">Info</button>
+                        </div>
+                        <div class="component-column">
+                            <span class="component-label"><code>.btn .btn-success</code> (success sólido)</span
+                            ><button class="btn btn-success">Success</button>
+                        </div>
+                        <div class="component-column">
+                            <span class="component-label"><code>.btn .btn-warning</code> (warning sólido)</span
+                            ><button class="btn btn-warning">Warning</button>
+                        </div>
+                        <div class="component-column">
+                            <span class="component-label"><code>.btn .btn-error</code> (error sólido)</span
+                            ><button class="btn btn-error">Error</button>
+                        </div>
+                        <!-- Outline -->
+                        <div class="component-column">
+                            <span class="component-label"
+                                ><code>.btn .btn-outline .btn-neutral</code> (outline neutral)</span
+                            ><button class="btn btn-outline btn-neutral">Outline Neutral</button>
+                        </div>
+                        <div class="component-column">
+                            <span class="component-label"
+                                ><code>.btn .btn-outline .btn-primary</code> (outline primario)</span
+                            ><button class="btn btn-outline btn-primary">Outline Primary</button>
+                        </div>
+                        <div class="component-column">
+                            <span class="component-label"
+                                ><code>.btn .btn-outline .btn-secondary</code> (outline secundario)</span
+                            ><button class="btn btn-outline btn-secondary">Outline Secondary</button>
+                        </div>
+                        <div class="component-column">
+                            <span class="component-label"
+                                ><code>.btn .btn-outline .btn-accent</code> (outline acento)</span
+                            ><button class="btn btn-outline btn-accent">Outline Accent</button>
+                        </div>
+                        <div class="component-column">
+                            <span class="component-label"><code>.btn .btn-outline .btn-info</code> (outline info)</span
+                            ><button class="btn btn-outline btn-info">Outline Info</button>
+                        </div>
+                        <div class="component-column">
+                            <span class="component-label"
+                                ><code>.btn .btn-outline .btn-success</code> (outline success)</span
+                            ><button class="btn btn-outline btn-success">Outline Success</button>
+                        </div>
+                        <div class="component-column">
+                            <span class="component-label"
+                                ><code>.btn .btn-outline .btn-warning</code> (outline warning)</span
+                            ><button class="btn btn-outline btn-warning">Outline Warning</button>
+                        </div>
+                        <div class="component-column">
+                            <span class="component-label"
+                                ><code>.btn .btn-outline .btn-error</code> (outline error)</span
+                            ><button class="btn btn-outline btn-error">Outline Error</button>
+                        </div>
+                        <!-- Ghost -->
+                        <div class="component-column">
+                            <span class="component-label"
+                                ><code>.btn .btn-ghost .btn-neutral</code> (ghost neutral)</span
+                            ><button class="btn btn-ghost btn-neutral">Ghost Neutral</button>
+                        </div>
+                        <div class="component-column">
+                            <span class="component-label"
+                                ><code>.btn .btn-ghost .btn-primary</code> (ghost primario)</span
+                            ><button class="btn btn-ghost btn-primary">Ghost Primary</button>
+                        </div>
+                        <div class="component-column">
+                            <span class="component-label"
+                                ><code>.btn .btn-ghost .btn-secondary</code> (ghost secundario)</span
+                            ><button class="btn btn-ghost btn-secondary">Ghost Secondary</button>
+                        </div>
+                        <div class="component-column">
+                            <span class="component-label"><code>.btn .btn-ghost .btn-accent</code> (ghost acento)</span
+                            ><button class="btn btn-ghost btn-accent">Ghost Accent</button>
+                        </div>
+                        <div class="component-column">
+                            <span class="component-label"><code>.btn .btn-ghost .btn-info</code> (ghost info)</span
+                            ><button class="btn btn-ghost btn-info">Ghost Info</button>
+                        </div>
+                        <div class="component-column">
+                            <span class="component-label"
+                                ><code>.btn .btn-ghost .btn-success</code> (ghost success)</span
+                            ><button class="btn btn-ghost btn-success">Ghost Success</button>
+                        </div>
+                        <div class="component-column">
+                            <span class="component-label"
+                                ><code>.btn .btn-ghost .btn-warning</code> (ghost warning)</span
+                            ><button class="btn btn-ghost btn-warning">Ghost Warning</button>
+                        </div>
+                        <div class="component-column">
+                            <span class="component-label"
+                                ><code>.btn .btn-ghost .btn-error</code> (ghost error)</span
+                            ><button class="btn btn-ghost btn-error">Ghost Error</button>
+                        </div>
+                        <!-- Neutro por defecto (sin intent) -->
+                        <div class="component-column">
+                            <span class="component-label"><code>.btn</code> (acción neutra por defecto)</span
+                            ><button class="btn">Default button</button>
+                        </div>
+                    </div>
+
+                    <!-- Tamaños y ancho -->
+                    <h3>Botones — tamaños y ancho</h3>
+                    <div class="component-grid">
+                        <div class="component-column">
+                            <span class="component-label">
+                                <code>.btn .btn-primary .btn-xs</code> (extra pequeño)
+                            </span>
+                            <button class="btn btn-primary btn-xs">XS button</button>
+                        </div>
+
+                        <div class="component-column">
+                            <span class="component-label"> <code>.btn .btn-primary .btn-sm</code> (pequeño) </span>
+                            <button class="btn btn-primary btn-sm">Small button</button>
+                        </div>
+
+                        <div class="component-column">
+                            <span class="component-label"> <code>.btn .btn-primary</code> (mediano) </span>
+                            <button class="btn btn-primary">Default (md) button</button>
+                        </div>
+
+                        <div class="component-column">
+                            <span class="component-label"> <code>.btn .btn-primary .btn-lg</code> (grande) </span>
+                            <button class="btn btn-primary btn-lg">Large button</button>
+                        </div>
+                        <div class="component-column">
+                            <span class="component-label"> <code>.btn .btn-primary .btn-xl</code> (extra grande) </span>
+                            <button class="btn btn-primary btn-xl">XL button</button>
+                        </div>
+                        <div class="component-column">
+                            <span class="component-label"> <code>.btn .btn-primary .btn-block</code> (fullWidth) </span>
+                            <button class="btn btn-primary btn-block">Full width action</button>
+                        </div>
+
+                        <div class="component-column">
+                            <span class="component-label">
+                                <code>.btn .btn-secondary .btn-block</code> (fullWidth secundario)
+                            </span>
+                            <button class="btn btn-secondary btn-block">Secondary full width</button>
+                        </div>
+                    </div>
+
+                    <!-- Iconos -->
+                    <h3>Botones — relación con iconos</h3>
+                    <div class="component-grid">
+                        <div class="component-column">
+                            <span class="component-label"> <code>.btn .btn-primary .btn-icon</code> (solo icono) </span>
+                            <button class="btn btn-primary btn-icon" aria-label="Settings">
+                                <span aria-hidden="true">⚙️</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Estados -->
+                    <h3>Botones — estados</h3>
+                    <div class="component-grid">
+                        <div class="component-column">
+                            <span class="component-label">
+                                <code>.btn .btn-primary .btn-disabled</code> (sólido deshabilitado)
+                            </span>
+                            <button class="btn btn-primary btn-disabled" disabled>Disabled primary</button>
+                        </div>
+
+                        <div class="component-column">
+                            <span class="component-label">
+                                <code>.btn .btn-outline .btn-primary .btn-disabled</code>
+                                (outline deshabilitado)
+                            </span>
+                            <button class="btn btn-outline btn-primary btn-disabled" disabled>
+                                Disabled outline
+                            </button>
+                        </div>
+
+                        <div class="component-column">
+                            <span class="component-label">
+                                <code>.btn .btn-ghost .btn-primary .btn-disabled</code> (ghost deshabilitado)
+                            </span>
+                            <button class="btn btn-ghost btn-primary btn-disabled" disabled>
+                                Disabled ghost
+                            </button>
+                        </div>
+
+                        <div class="component-column">
+                            <span class="component-label">
+                                <code>.btn .btn-secondary</code>
+                                <code>[aria-disabled="true"]</code>
+                            </span>
+                            <button class="btn btn-secondary" aria-disabled="true" type="button">
+                                ARIA disabled
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Enlaces de acción -->
+                    <h3>Enlaces de acción — intención</h3>
+                    <div class="component-grid">
+                        <div class="component-column">
+                            <span class="component-label"> <code>.link .link-primary</code> (enlace primario) </span>
+                            <a href="#" class="link link-primary">Primary action link</a>
+                        </div>
+
+                        <div class="component-column">
+                            <span class="component-label">
+                                <code>.link .link-secondary</code> (enlace secundario)
+                            </span>
+                            <a href="#" class="link link-secondary">Secondary action link</a>
+                        </div>
+                    </div>
+
+                    <h3>Enlaces de acción — tamaños, ancho e iconos</h3>
+                    <div class="component-grid">
+                        <div class="component-column">
+                            <span class="component-label">
+                                <code>.link .link-primary .link-xs</code> (texto pequeño)
+                            </span>
+                            <a href="#" class="link link-primary link-xs">XS link</a>
+                        </div>
+
+                        <div class="component-column">
+                            <span class="component-label">
+                                <code>.link .link-primary .link-sm</code> (texto base)
+                            </span>
+                            <a href="#" class="link link-primary link-sm">Small link</a>
+                        </div>
+
+                        <div class="component-column">
+                            <span class="component-label">
+                                <code>.link .link-primary</code> (texto default)
+                            </span>
+                            <a href="#" class="link link-primary">Default (md) link</a>
+                        </div>
+
+                        <div class="component-column">
+                            <span class="component-label">
+                                <code>.link .link-primary .link-lg</code> (texto más grande)
+                            </span>
+                            <a href="#" class="link link-primary link-lg">Large link</a>
+                        </div>
+
+                        <div class="component-column">
+                            <span class="component-label">
+                                <code>.link .link-primary .link-xl</code> (texto más grande)
+                            </span>
+                            <a href="#" class="link link-primary link-xl">Extra large link</a>
+                        </div>
+
+                        <div class="component-column">
+                            <span class="component-label">
+                                <code>.link .link-primary .link-block</code> (fullWidth)
+                            </span>
+                            <a href="#" class="link link-primary link-block"> Full width action link </a>
+                        </div>
+
+                        <div class="component-column">
+                            <span class="component-label">
+                                <code>.link .link-primary .link-icon-start</code> (icono a la izquierda)
+                            </span>
+                            <a href="#" class="link link-primary link-icon-start">
+                                <span aria-hidden="true">🔗</span>
+                                <span>Open details</span>
+                            </a>
+                        </div>
+
+                        <div class="component-column">
+                            <span class="component-label">
+                                <code>.link .link-primary .link-icon-only</code> (solo icono)
+                            </span>
+                            <a href="#" class="link link-primary link-icon-only link-fit" aria-label="More">
+                                <span aria-hidden="true">⋯</span>
+                            </a>
+                        </div>
+
+                        <div class="component-column">
+                            <span class="component-label">
+                                <code>.link .link-secondary .link-disabled</code> (enlace deshabilitado)
+                            </span>
+                            <a href="#" class="link link-secondary link-disabled" aria-disabled="true">
+                                Disabled link
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- COMPONENTES: FORMULARIOS -->
+                <section id="components-forms" class="section">
+                    <h2 class="section-title">Componentes — Formularios y entrada de datos</h2>
+                    <p class="section-subtitle">
+                        Campos para capturar información del usuario: inputs, selects y controles binarios.
+                    </p>
+
+                    <div class="component-grid">
+                        <!-- INPUT BASE -->
+                        <div class="component-column">
+                            <span class="component-label"><code>input.input</code> (default)</span>
+                            <input class="input" placeholder="Input placeholder" />
+                        </div>
+                        <!-- INPUT ERROR (class .input-error) -->
+                        <div class="component-column">
+                            <span class="component-label"><code>input.input-error</code></span>
+                            <input class="input input-error" placeholder="Input with error" />
+                        </div>
+
+                        <!-- DISABLED INPUT -->
+                        <div class="component-column">
+                            <span class="component-label"><code>input.input[disabled]</code></span>
+                            <input class="input" disabled placeholder="Disabled input" />
+                        </div>
+
+                        <div class="component-column">
+                            <span class="component-label"><code>select.select</code> (default)</span>
+                            <select class="select">
+                                <option>Option A</option>
+                                <option>Option B</option>
+                                <option>Option C</option>
+                            </select>
+                        </div>
+
+                        <div class="component-column">
+                            <span class="component-label"><code>select.select[disabled]</code></span>
+                            <select class="select" disabled>
+                                <option>Option A</option>
+                                <option>Option B</option>
+                                <option>Option C</option>
+                            </select>
+                        </div>
+                        <div class="component-column">
+                            <span class="component-label"><code>input.checkbox</code></span>
+                            <label style="display: inline-flex; align-items: center; gap: 0.4rem">
+                                <input type="checkbox" class="checkbox" />
+                                <span style="font-size: 0.85rem">Checkbox label</span>
+                            </label>
+                        </div>
+                        <div class="component-column">
+                            <span class="component-label"><code>input.checkbox[aria-checked="true"]</code></span>
+                            <label style="display: inline-flex; align-items: center; gap: 0.4rem">
+                                <input type="checkbox" class="checkbox" aria-checked="true" />
+                                <span style="font-size: 0.85rem">Aria checked</span>
+                            </label>
+                        </div>
+                        <div class="component-column">
+                            <span class="component-label"><code>input.checkbox:checked:disabled</code></span>
+                            <label style="display: inline-flex; align-items: center; gap: 0.4rem">
+                                <input type="checkbox" class="checkbox" checked disabled />
+                                <span style="font-size: 0.85rem">Checked Disabled</span>
+                            </label>
+                        </div>
+                        <div class="component-column">
+                            <span class="component-label">
+                                <code>input.checkbox[aria-checked="true"][disabled]</code>
+                            </span>
+                            <label style="display: inline-flex; align-items: center; gap: 0.4rem">
+                                <input type="checkbox" class="checkbox" aria-checked="true" disabled />
+                                <span style="font-size: 0.85rem">Aria checked Disabled</span>
+                            </label>
+                        </div>
+                        <div class="component-column">
+                            <span class="component-label"><code>input.checkbox:disabled</code></span>
+                            <label style="display: inline-flex; align-items: center; gap: 0.4rem">
+                                <input type="checkbox" class="checkbox" disabled />
+                                <span style="font-size: 0.85rem">Disabled</span>
+                            </label>
+                        </div>
+                        <div class="component-column">
+                            <span class="component-label"><code>.radio</code> (default)</span>
+                            <label style="display: inline-flex; align-items: center; gap: 0.4rem">
+                                <input type="radio" name="demo-radio-default" class="radio" />
+                                <span style="font-size: 0.85rem">Default</span>
+                            </label>
+                        </div>
+                        <div class="component-column">
+                            <span class="component-label"><code>.radio-primary</code></span>
+                            <label style="display: inline-flex; align-items: center; gap: 0.4rem">
+                                <input type="radio" name="demo-radio-intent" class="radio radio-primary" />
+                                <span style="font-size: 0.85rem">Primary</span>
+                            </label>
+                        </div>
+                        <div class="component-column">
+                            <span class="component-label"><code>.radio-secondary</code></span>
+                            <label style="display: inline-flex; align-items: center; gap: 0.4rem">
+                                <input type="radio" name="demo-radio-intent" class="radio radio-secondary" />
+                                <span style="font-size: 0.85rem">Secondary</span>
+                            </label>
+                        </div>
+                        <div class="component-column">
+                            <span class="component-label"><code>.radio-success</code></span>
+                            <label style="display: inline-flex; align-items: center; gap: 0.4rem">
+                                <input type="radio" name="demo-radio-intent" class="radio radio-success" />
+                                <span style="font-size: 0.85rem">Success</span>
+                            </label>
+                        </div>
+                        <div class="component-column">
+                            <span class="component-label"><code>.radio-warning</code></span>
+                            <label style="display: inline-flex; align-items: center; gap: 0.4rem">
+                                <input type="radio" name="demo-radio-intent" class="radio radio-warning" />
+                                <span style="font-size: 0.85rem">Warning</span>
+                            </label>
+                        </div>
+                        <div class="component-column">
+                            <span class="component-label"><code>.radio-error</code></span>
+                            <label style="display: inline-flex; align-items: center; gap: 0.4rem">
+                                <input type="radio" name="demo-radio-intent" class="radio radio-error" />
+                                <span style="font-size: 0.85rem">Error</span>
+                            </label>
+                        </div>
+                        <div class="component-column">
+                            <span class="component-label"><code>.radio-info</code></span>
+                            <label style="display: inline-flex; align-items: center; gap: 0.4rem">
+                                <input type="radio" name="demo-radio-intent" class="radio radio-info" />
+                                <span style="font-size: 0.85rem">Info</span>
+                            </label>
+                        </div>
+                        <div class="component-column">
+                            <span class="component-label"><code>.radio-neutral</code></span>
+                            <label style="display: inline-flex; align-items: center; gap: 0.4rem">
+                                <input type="radio" name="demo-radio-intent" class="radio radio-neutral" />
+                                <span style="font-size: 0.85rem">Neutral</span>
+                            </label>
+                        </div>
+                        <div class="component-column">
+                            <span class="component-label"><code>.radio-accent</code></span>
+                            <label style="display: inline-flex; align-items: center; gap: 0.4rem">
+                                <input type="radio" name="demo-radio-intent" class="radio radio-accent" />
+                                <span style="font-size: 0.85rem">Accent</span>
+                            </label>
+                        </div>
+                        <div class="component-column">
+                            <span class="component-label"><code>.radio[disabled]</code></span>
+                            <label style="display: inline-flex; align-items: center; gap: 0.4rem">
+                                <input type="radio" class="radio" disabled />
+                                <span style="font-size: 0.85rem">Disabled</span>
+                            </label>
+                        </div>
+                        <!-- TOGGLE BASE -->
+                        <div class="component-column">
+                            <span class="component-label"><code>input.toggle</code> (default)</span>
+                            <label style="display: inline-flex; align-items: center; gap: 0.4rem">
+                                <input type="checkbox" class="toggle" />
+                                <span style="font-size: 0.85rem">Toggle</span>
+                            </label>
+                        </div>
+                        <!-- TOGGLE DISABLED -->
+                        <div class="component-column">
+                            <span class="component-label"><code>input.toggle[disabled]</code></span>
+                            <label style="display: inline-flex; align-items: center; gap: 0.4rem">
+                                <input type="checkbox" class="toggle" disabled />
+                                <span style="font-size: 0.85rem">Disabled</span>
+                            </label>
+                        </div>
+                    </div>
+                </section>
+                <!-- COMPONENTES: CONTENEDORES Y SUPERFICIES -->
+                <section id="components-containers" class="section">
+                    <h2 class="section-title">Componentes — Contenedores y superficies</h2>
+                    <p class="section-subtitle">Cards, paneles y divisores que agrupan y jerarquizan contenido.</p>
+
+                    <div class="component-grid">
+                        <!-- Cards: Levels -->
+                        <div class="component-column" style="min-width: 320px">
+                            <span class="component-label">
+                                <code>.card</code> — levels (<code>card-level-*</code>)
+                            </span>
+
+                            <div class="card card-level-1" style="margin-bottom: 1rem">
+                                <h3 class="card-title">Level 1</h3>
+                                <p class="card-body" style="font-size: 0.9rem">
+                                    Neutral surface with minimal emphasis.
+                                </p>
+                                <div class="card-actions card-actions-horizontal" style="margin-top: 0.75rem">
+                                    <button class="btn btn-primary">Primary</button>
+                                    <button class="btn">Secondary</button>
+                                </div>
+                            </div>
+
+                            <div class="card card-level-2" style="margin-bottom: 1rem">
+                                <h3 class="card-title">Level 2</h3>
+                                <p class="card-body" style="font-size: 0.9rem">
+                                    Standard emphasis surface with elevation.
+                                </p>
+                                <div class="card-actions card-actions-horizontal" style="margin-top: 0.75rem">
+                                    <button class="btn btn-primary">Primary</button>
+                                    <button class="btn">Secondary</button>
+                                </div>
+                            </div>
+
+                            <div class="card card-level-3">
+                                <h3 class="card-title">Level 3</h3>
+                                <p class="card-body" style="font-size: 0.9rem">
+                                    Higher emphasis surface for highlighted content.
+                                </p>
+                                <div class="card-actions card-actions-horizontal" style="margin-top: 0.75rem">
+                                    <button class="btn btn-primary">Primary</button>
+                                    <button class="btn">Secondary</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Cards: Sizes -->
+                        <div class="component-column" style="min-width: 320px">
+                            <span class="component-label">
+                                <code>.card</code> — sizes (<code>card-sm</code>, <code>card-lg</code>)
+                            </span>
+
+                            <div class="card card-level-2 card-xs" style="margin-bottom: 1rem">
+                                <h3 class="card-title">Size xs</h3>
+                                <p class="card-body" style="font-size: 0.9rem">Extra compact padding for dense UIs.</p>
+                                <div class="card-actions card-actions-horizontal" style="margin-top: 0.75rem">
+                                    <button class="btn btn-primary">Action</button>
+                                    <button class="btn">More</button>
+                                </div>
+                            </div>
+
+                            <div class="card card-level-2 card-sm" style="margin-bottom: 1rem">
+                                <h3 class="card-title">Size sm</h3>
+                                <p class="card-body" style="font-size: 0.9rem">Compact padding for dense UIs.</p>
+                                <div class="card-actions card-actions-horizontal" style="margin-top: 0.75rem">
+                                    <button class="btn btn-primary">Action</button>
+                                    <button class="btn">More</button>
+                                </div>
+                            </div>
+
+                            <div class="card card-level-2" style="margin-bottom: 1rem">
+                                <h3 class="card-title">Size md (default)</h3>
+                                <p class="card-body" style="font-size: 0.9rem">Default spacing for most surfaces.</p>
+                                <div class="card-actions card-actions-horizontal" style="margin-top: 0.75rem">
+                                    <button class="btn btn-primary">Action</button>
+                                    <button class="btn">More</button>
+                                </div>
+                            </div>
+
+                            <div class="card card-level-2 card-lg">
+                                <h3 class="card-title">Size lg</h3>
+                                <p class="card-body" style="font-size: 0.9rem">
+                                    Spacious padding for prominent sections.
+                                </p>
+                                <div class="card-actions card-actions-horizontal" style="margin-top: 0.75rem">
+                                    <button class="btn btn-primary">Action</button>
+                                    <button class="btn">More</button>
+                                </div>
+                            </div>
+
+                            <div class="card card-level-2 card-xl">
+                                <h3 class="card-title">Size xl</h3>
+                                <p class="card-body" style="font-size: 0.9rem">
+                                    Extra spacious padding for highlight sections.
+                                </p>
+                                <div class="card-actions card-actions-horizontal" style="margin-top: 0.75rem">
+                                    <button class="btn btn-primary">Action</button>
+                                    <button class="btn">More</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Cards: Variants -->
+                        <div class="component-column" style="min-width: 320px">
+                            <span class="component-label">
+                                <code>.card</code> — variants (<code>card-subtle</code>, <code>card-ghost</code>)
+                            </span>
+
+                            <div class="card card-level-2" style="margin-bottom: 1rem">
+                                <h3 class="card-title">Default</h3>
+                                <p class="card-body" style="font-size: 0.9rem">Standard border and shadow.</p>
+                                <div class="card-actions card-actions-horizontal" style="margin-top: 0.75rem">
+                                    <button class="btn btn-primary">Action</button>
+                                    <button class="btn">More</button>
+                                </div>
+                            </div>
+
+                            <div class="card card-level-2 card-subtle" style="margin-bottom: 1rem">
+                                <h3 class="card-title">Subtle</h3>
+                                <p class="card-body" style="font-size: 0.9rem">
+                                    Softer border for low-friction grouping.
+                                </p>
+                                <div class="card-actions card-actions-horizontal" style="margin-top: 0.75rem">
+                                    <button class="btn btn-primary">Action</button>
+                                    <button class="btn">More</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card actions: Orientation -->
+                        <div class="component-column" style="min-width: 320px">
+                            <span class="component-label">
+                                <code>.card-actions</code> — orientation (<code>card-actions-*</code>)
+                            </span>
+
+                            <div class="card card-level-2" style="margin-bottom: 1rem">
+                                <h3 class="card-title">Actions horizontal</h3>
+                                <p class="card-body" style="font-size: 0.9rem">Inline actions for compact layouts.</p>
+                                <div class="card-actions card-actions-horizontal" style="margin-top: 0.75rem">
+                                    <button class="btn btn-primary">Primary</button>
+                                    <button class="btn">Secondary</button>
+                                    <button class="btn">Tertiary</button>
+                                </div>
+                            </div>
+
+                            <div class="card card-level-2">
+                                <h3 class="card-title">Actions vertical</h3>
+                                <p class="card-body" style="font-size: 0.9rem">
+                                    Stacked actions for narrow containers.
+                                </p>
+                                <div class="card-actions card-actions-vertical" style="margin-top: 0.75rem">
+                                    <button class="btn btn-primary">Primary</button>
+                                    <button class="btn">Secondary</button>
+                                    <button class="btn">Tertiary</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Divider -->
+                        <div class="component-column" style="min-width: 320px">
+                            <span class="component-label"><code>.divider</code></span>
+
+                            <div class="card card-level-1 card-subtle">
+                                <h3 class="card-title">Divider</h3>
+                                <p class="card-body" style="font-size: 0.9rem">
+                                    Horizontal separators used to group related content inside a surface.
+                                </p>
+
+                                <!-- Default divider -->
+                                <p class="card-body" style="font-size: 0.85rem; margin-top: 0.75rem">Default</p>
+                                <div class="divider" style="margin: 0.5rem 0"></div>
+
+                                <!-- Divider with label -->
+                                <p class="card-body" style="font-size: 0.85rem">With label</p>
+                                <div class="divider" style="margin: 0.5rem 0">Divider label</div>
+
+                                <!-- Muted divider -->
+                                <p class="card-body" style="font-size: 0.85rem">Muted</p>
+                                <div class="divider divider-muted" style="margin: 0.5rem 0">Muted divider</div>
+
+                                <!-- Strong divider -->
+                                <p class="card-body" style="font-size: 0.85rem">Strong</p>
+                                <div class="divider divider-strong" style="margin: 0.5rem 0">Strong divider</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- COMPONENTES: NAVEGACIÓN Y ESTRUCTURA -->
+                <section id="components-navigation" class="section">
+                    <h2 class="section-title">Componentes — Navegación y estructura</h2>
+                    <p class="section-subtitle">Menús y estructuras que ayudan a entender la jerarquía de vistas.</p>
+
+                    <div class="component-grid">
+                        <!-- ========================= -->
+                        <!-- Menu: Base -->
+                        <!-- ========================= -->
+                        <div class="component-column">
+                            <span class="component-label"><code>.menu</code></span>
+
+                            <nav class="menu" aria-label="Main navigation">
+                                <span class="menu-title">Main section</span>
+
+                                <a href="#" class="menu-item is-active" aria-current="page">
+                                    <span class="menu-icon" aria-hidden="true">🏠</span>
+                                    <span class="menu-label">Dashboard</span>
+                                </a>
+
+                                <a href="#" class="menu-item">
+                                    <span class="menu-icon" aria-hidden="true">⚠️</span>
+                                    <span class="menu-label">Incidents</span>
+                                </a>
+
+                                <a href="#" class="menu-item">
+                                    <span class="menu-icon" aria-hidden="true">🗺️</span>
+                                    <span class="menu-label">Assets</span>
+                                </a>
+
+                                <button type="button" class="menu-item" aria-disabled="true" tabindex="-1">
+                                    <span class="menu-icon" aria-hidden="true">⚙️</span>
+                                    <span class="menu-label">Settings (disabled)</span>
+                                </button>
+                            </nav>
+                        </div>
+
+                        <!-- ========================= -->
+                        <!-- Dropdown: Base -->
+                        <!-- ========================= -->
+                        <div class="component-column">
+                            <span class="component-label"><code>.dropdown</code></span>
+                            <div class="dropdown">
+                                <button type="button" class="dropdown-trigger" aria-expanded="false">
+                                    <span class="dropdown-label">Dropdown trigger</span>
+                                    <span class="dropdown-chevron" aria-hidden="true">▾</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- ========================= -->
+                        <!-- Dropdown: Open -->
+                        <!-- ========================= -->
+                        <div class="component-column">
+                            <span class="component-label"><code>.dropdown open</code></span>
+                            <div class="dropdown">
+                                <button type="button" class="dropdown-trigger" aria-expanded="true" data-state="open">
+                                    <span class="dropdown-label">Settings</span>
+                                    <span class="dropdown-chevron" aria-hidden="true">▾</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- ========================= -->
+                        <!-- Menu — Sizes -->
+                        <!-- ========================= -->
+                        <div class="component-column" style="min-width: 280px">
+                            <span class="component-label">Menu — Sizes</span>
+
+                            <div class="stack gap-4">
+                                <nav class="menu menu-xs" aria-label="Menu xs">
+                                    <span class="menu-title">XS</span>
+                                    <a class="menu-item is-active">Dashboard</a>
+                                    <a class="menu-item">Incidents</a>
+                                </nav>
+
+                                <nav class="menu menu-sm" aria-label="Menu sm">
+                                    <span class="menu-title">SM</span>
+                                    <a class="menu-item is-active">Dashboard</a>
+                                    <a class="menu-item">Incidents</a>
+                                </nav>
+
+                                <nav class="menu menu-md" aria-label="Menu md">
+                                    <span class="menu-title">MD</span>
+                                    <a class="menu-item is-active">Dashboard</a>
+                                    <a class="menu-item">Incidents</a>
+                                </nav>
+
+                                <nav class="menu menu-lg" aria-label="Menu lg">
+                                    <span class="menu-title">LG</span>
+                                    <a class="menu-item is-active">Dashboard</a>
+                                    <a class="menu-item">Incidents</a>
+                                </nav>
+
+                                <nav class="menu menu-xl" aria-label="Menu xl">
+                                    <span class="menu-title">XL</span>
+                                    <a class="menu-item is-active">Dashboard</a>
+                                    <a class="menu-item">Incidents</a>
+                                </nav>
+                            </div>
+                        </div>
+
+                        <!-- ========================= -->
+                        <!-- Dropdown — Sizes -->
+                        <!-- ========================= -->
+                        <div class="component-column" style="min-width: 280px">
+                            <span class="component-label">Dropdown — Sizes</span>
+
+                            <div class="stack gap-4">
+                                <div class="dropdown">
+                                    <button
+                                        type="button"
+                                        class="dropdown-trigger dropdown-trigger-xs"
+                                        aria-expanded="false"
+                                    >
+                                        <span class="dropdown-label">XS dropdown</span>
+                                        <span class="dropdown-chevron" aria-hidden="true">▾</span>
+                                    </button>
+                                </div>
+
+                                <div class="dropdown">
+                                    <button
+                                        type="button"
+                                        class="dropdown-trigger dropdown-trigger-sm"
+                                        aria-expanded="false"
+                                    >
+                                        <span class="dropdown-label">SM dropdown</span>
+                                        <span class="dropdown-chevron" aria-hidden="true">▾</span>
+                                    </button>
+                                </div>
+
+                                <div class="dropdown">
+                                    <button
+                                        type="button"
+                                        class="dropdown-trigger"
+                                        aria-expanded="false"
+                                    >
+                                        <span class="dropdown-label">Default (md) dropdown</span>
+                                        <span class="dropdown-chevron" aria-hidden="true">▾</span>
+                                    </button>
+                                </div>
+
+                                <div class="dropdown">
+                                    <button
+                                        type="button"
+                                        class="dropdown-trigger dropdown-trigger-lg"
+                                        aria-expanded="false"
+                                    >
+                                        <span class="dropdown-label">LG dropdown</span>
+                                        <span class="dropdown-chevron" aria-hidden="true">▾</span>
+                                    </button>
+                                </div>
+
+                                <div class="dropdown">
+                                    <button
+                                        type="button"
+                                        class="dropdown-trigger dropdown-trigger-xl"
+                                        aria-expanded="false"
+                                    >
+                                        <span class="dropdown-label">XL dropdown</span>
+                                        <span class="dropdown-chevron" aria-hidden="true">▾</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- COMPONENTES: FEEDBACK Y ESTADO DEL SISTEMA -->
+                <section id="components-feedback" class="section">
+                    <h2 class="section-title">Componentes — Feedback y estado del sistema</h2>
+                    <p class="section-subtitle">
+                        Mensajes y estados que comunican qué está ocurriendo en el sistema (alertas, loaders).
+                    </p>
+
+                    <div class="component-grid">
+                        <!-- ========================= -->
+                        <!-- Alerts -->
+                        <!-- ========================= -->
+                        <div class="component-column" style="min-width: 360px">
+                            <span class="component-label"><code>.alert</code></span>
+
+                            <div style="display: flex; flex-direction: column; gap: 1rem">
+                                <!-- INTENTS -->
+                                <div>
+                                    <p class="component-label" style="opacity: 0.8; margin-bottom: 0.5rem">
+                                        Intents (Default, md)
+                                    </p>
+
+                                    <div style="display: flex; flex-direction: column; gap: 0.5rem">
+                                        <div class="alert alert-neutral">
+                                            <div class="alert-content">
+                                                <strong class="alert-title">Neutral</strong>
+                                                <p class="alert-message">Neutral alert for generic system messages.</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="alert alert-info">
+                                            <span class="alert-icon">ℹ️</span>
+                                            <div class="alert-content">
+                                                <strong class="alert-title">Info</strong>
+                                                <p class="alert-message">
+                                                    Informational alert with contextual details.
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="alert alert-success">
+                                            <span class="alert-icon">✓</span>
+                                            <div class="alert-content">
+                                                <strong class="alert-title">Success</strong>
+                                                <p class="alert-message">Operation completed successfully.</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="alert alert-warning">
+                                            <span class="alert-icon">⚠️</span>
+                                            <div class="alert-content">
+                                                <strong class="alert-title">Warning</strong>
+                                                <p class="alert-message">This action may have side effects.</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="alert alert-error">
+                                            <span class="alert-icon">⛔</span>
+                                            <div class="alert-content">
+                                                <strong class="alert-title">Error</strong>
+                                                <p class="alert-message">Something went wrong while processing.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- VARIANTS -->
+                                <div>
+                                    <p class="component-label" style="opacity: 0.8; margin-bottom: 0.5rem">Variants</p>
+
+                                    <div style="display: flex; flex-direction: column; gap: 0.5rem">
+                                        <div class="alert alert-info alert-solid">
+                                            <span class="alert-icon">ℹ️</span>
+                                            <div class="alert-content">
+                                                <strong class="alert-title">Solid</strong>
+                                                <p class="alert-message">Higher visual emphasis for critical flows.</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="alert alert-warning alert-outline">
+                                            <span class="alert-icon">⚠️</span>
+                                            <div class="alert-content">
+                                                <strong class="alert-title">Outline</strong>
+                                                <p class="alert-message">Low-fill, border-driven feedback.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- SIZES -->
+                                <div>
+                                    <p class="component-label" style="opacity: 0.8; margin-bottom: 0.5rem">Sizes</p>
+
+                                    <div style="display: flex; flex-direction: column; gap: 0.5rem">
+                                        <div class="alert alert-success alert-xs alert-subtle">
+                                            <span class="alert-icon">✓</span>
+                                            <div class="alert-content">
+                                                <p class="alert-message">XS size alert for ultra-compact layouts.</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="alert alert-success alert-sm alert-subtle">
+                                            <span class="alert-icon">✓</span>
+                                            <div class="alert-content">
+                                                <p class="alert-message">Small size alert for dense layouts.</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="alert alert-success alert-lg alert-subtle">
+                                            <span class="alert-icon">✓</span>
+                                            <div class="alert-content">
+                                                <strong class="alert-title">Large</strong>
+                                                <p class="alert-message">
+                                                    Larger alert for high-importance system messages.
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="alert alert-success alert-xl alert-subtle">
+                                            <span class="alert-icon">✓</span>
+                                            <div class="alert-content">
+                                                <strong class="alert-title">XL</strong>
+                                                <p class="alert-message">XL alert for maximum prominence.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- DISMISSIBLE + NO ICON -->
+                                <div>
+                                    <p class="component-label" style="opacity: 0.8; margin-bottom: 0.5rem">
+                                        Icon + dismissible
+                                    </p>
+
+                                    <div style="display: flex; flex-direction: column; gap: 0.5rem">
+                                        <div class="alert alert-info alert-subtle">
+                                            <span class="alert-icon">ℹ️</span>
+                                            <div class="alert-content">
+                                                <strong class="alert-title">Dismissible</strong>
+                                                <p class="alert-message">This alert can be dismissed by the user.</p>
+                                            </div>
+                                            <button class="alert-dismiss" aria-label="Dismiss alert">✕</button>
+                                        </div>
+
+                                        <div class="alert alert-neutral alert-subtle">
+                                            <div class="alert-content">
+                                                <p class="alert-message">Alert without icon using.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ========================= -->
+                        <!-- Loading -->
+                        <!-- ========================= -->
+                        <div class="component-column" style="min-width: 320px">
+                            <span class="component-label"><code>.loading</code></span>
+
+                            <div style="display: flex; flex-direction: column; gap: 1rem">
+                                <!-- SIZES -->
+                                <div>
+                                    <p class="component-label" style="opacity: 0.8; margin-bottom: 0.5rem">Sizes</p>
+                                    <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap">
+                                        <span class="loading loading-xs"></span>
+                                        <span class="loading loading-sm"></span>
+                                        <span class="loading"></span>
+                                        <span class="loading loading-lg"></span>
+                                        <span class="loading loading-xl"></span>
+                                    </div>
+                                </div>
+
+                                <!-- INTENTS -->
+                                <div>
+                                    <p class="component-label" style="opacity: 0.8; margin-bottom: 0.5rem">Intents</p>
+                                    <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap">
+                                        <span class="loading loading-neutral"></span>
+                                        <span class="loading loading-info"></span>
+                                        <span class="loading loading-success"></span>
+                                        <span class="loading loading-warning"></span>
+                                        <span class="loading loading-error"></span>
+                                    </div>
+                                </div>
+                                <!-- WITH LABEL -->
+                                <div>
+                                    <p class="component-label" style="opacity: 0.8; margin-bottom: 0.5rem">
+                                        With label
+                                    </p>
+                                    <div class="loading-group">
+                                        <span class="loading loading-info"></span>
+                                        <span class="loading-text">Loading data…</span>
+                                    </div>
+                                </div>
+
+                                <!-- INSIDE BUTTON -->
+                                <div>
+                                    <p class="component-label" style="opacity: 0.8; margin-bottom: 0.5rem">
+                                        Inside button
+                                    </p>
+                                    <button class="btn btn-primary" disabled>
+                                        <span class="loading loading-sm"></span>
+                                        <span style="margin-left: 0.5rem">Processing</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- COMPONENTES: ETIQUETAS, CHIPS Y BADGES -->
+                <section id="components-badges" class="section">
+                    <h2 class="section-title">Componentes — Etiquetas, chips y badges</h2>
+                    <p class="section-subtitle">
+                        Indicadores compactos de estado o categoría que complementan otros elementos.
+                    </p>
+
+                    <div class="component-grid">
+                        <div class="component-column" style="min-width: 420px">
+                            <span class="component-label"><code>.badge</code></span>
+
+                            <div style="display: flex; flex-direction: column; gap: 1.25rem">
+                                <!-- INTENTS × VARIANTS -->
+                                <div>
+                                    <p class="component-label" style="opacity: 0.8; margin-bottom: 0.75rem">
+                                        Intents × variants
+                                    </p>
+
+                                    <div style="display: grid; gap: 0.75rem">
+                                        <!-- Neutral -->
+                                        <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap">
+                                            <span class="badge badge-neutral">Neutral · Default</span>
+                                            <span class="badge badge-neutral badge-solid">Neutral · Solid</span>
+                                            <span class="badge badge-neutral badge-outline">Neutral · Outline</span>
+                                        </div>
+
+                                        <!-- Info -->
+                                        <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap">
+                                            <span class="badge badge-info">Info · Default</span>
+                                            <span class="badge badge-info badge-solid">Info · Solid</span>
+                                            <span class="badge badge-info badge-outline">Info · Outline</span>
+                                        </div>
+
+                                        <!-- Success -->
+                                        <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap">
+                                            <span class="badge badge-success">Success · Default</span>
+                                            <span class="badge badge-success badge-solid">Success · Solid</span>
+                                            <span class="badge badge-success badge-outline">Success · Outline</span>
+                                        </div>
+
+                                        <!-- Warning -->
+                                        <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap">
+                                            <span class="badge badge-warning">Warning · Default</span>
+                                            <span class="badge badge-warning badge-solid">Warning · Solid</span>
+                                            <span class="badge badge-warning badge-outline">Warning · Outline</span>
+                                        </div>
+
+                                        <!-- Error -->
+                                        <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap">
+                                            <span class="badge badge-error">Error · Default</span>
+                                            <span class="badge badge-error badge-solid">Error · Solid</span>
+                                            <span class="badge badge-error badge-outline">Error · Outline</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- SIZES -->
+                                <div>
+                                    <p class="component-label" style="opacity: 0.8; margin-bottom: 0.5rem">Sizes</p>
+                                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem">
+                                        <span class="badge badge-info badge-xs">XS</span>
+                                        <span class="badge badge-info badge-sm">Small</span>
+                                        <span class="badge badge-info">Default (md)</span>
+                                        <span class="badge badge-info badge-lg">Large</span>
+                                        <span class="badge badge-info badge-xl">XL</span>
+                                    </div>
+                                </div>
+
+                                <!-- ROUNDED -->
+                                <div>
+                                    <p class="component-label" style="opacity: 0.8; margin-bottom: 0.5rem">Rounded</p>
+                                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem">
+                                        <span class="badge badge-neutral badge-rounded-sm">Rounded sm</span>
+                                        <span class="badge badge-neutral badge-rounded-md">Rounded md</span>
+                                        <span class="badge badge-neutral badge-rounded-pill">Pill</span>
+                                    </div>
+                                </div>
+
+                                <!-- ICON -->
+                                <div>
+                                    <p class="component-label" style="opacity: 0.8; margin-bottom: 0.5rem">With icon</p>
+                                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem">
+                                        <span class="badge badge-info">
+                                            <span class="badge-icon">ℹ️</span>
+                                            <span class="badge-label">Info</span>
+                                        </span>
+                                        <span class="badge badge-success">
+                                            <span class="badge-icon">✓</span>
+                                            <span class="badge-label">Success</span>
+                                        </span>
+                                        <span class="badge badge-warning">
+                                            <span class="badge-icon">⚠️</span>
+                                            <span class="badge-label">Warning</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- COMPONENTES: TABLAS -->
+                <section id="components-data" class="section">
+                    <h2 class="section-title">Componentes — Tablas y despliegue de datos</h2>
+                    <p class="section-subtitle">
+                        Tablas para presentar información estructurada con densidad, filas alternadas y resaltado por
+                        fila.
+                    </p>
+
+                    <h3 class="section-subtitle" style="margin-top: 16px">Table</h3>
+
+                    <div class="component-grid">
+                        <!-- ========================= -->
+                        <!-- Base (md) -->
+                        <!-- ========================= -->
+                        <div class="component-column" style="min-width: 360px">
+                            <span class="component-label"> Base (<code>.table</code>) </span>
+
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Location</th>
+                                        <th>Type</th>
+                                        <th>Severity</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>#1234</td>
+                                        <td>CDMX / Cuauhtémoc</td>
+                                        <td>Theft</td>
+                                        <td>
+                                            <span class="badge badge-warning badge-sm">Medium</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#1235</td>
+                                        <td>CDMX / Benito Juárez</td>
+                                        <td>Robbery</td>
+                                        <td>
+                                            <span class="badge badge-error badge-sm">High</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#1236</td>
+                                        <td>CDMX / Iztapalapa</td>
+                                        <td>Fraud</td>
+                                        <td>
+                                            <span class="badge badge-success badge-sm">Low</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- ========================= -->
+                        <!-- Sizes (sm / md / lg) -->
+                        <!-- ========================= -->
+                        <div class="component-column" style="min-width: 360px">
+                            <span class="component-label">
+                                Sizes (<code>.table-xs</code> / <code>.table-sm</code> / <code>Default (md)</code> /
+                                <code>.table-lg</code> / <code>.table-xl</code>)
+                            </span>
+
+                            <div style="display: flex; flex-direction: column; gap: 1rem">
+                                <div>
+                                    <p class="component-label" style="opacity: 0.8; margin-bottom: 0.5rem">
+                                        <code>.table-xs</code>
+                                    </p>
+                                    <table class="table table-xs">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Location</th>
+                                                <th>Type</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>#2200</td>
+                                                <td>NL / Monterrey</td>
+                                                <td>Assault</td>
+                                            </tr>
+                                            <tr>
+                                                <td>#2201</td>
+                                                <td>NL / San Pedro</td>
+                                                <td>Burglary</td>
+                                            </tr>
+                                            <tr>
+                                                <td>#2202</td>
+                                                <td>NL / Apodaca</td>
+                                                <td>Robbery</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div>
+                                    <p class="component-label" style="opacity: 0.8; margin-bottom: 0.5rem">
+                                        <code>.table-sm</code>
+                                    </p>
+                                    <table class="table table-sm">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Location</th>
+                                                <th>Type</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>#2210</td>
+                                                <td>NL / Monterrey</td>
+                                                <td>Assault</td>
+                                            </tr>
+                                            <tr>
+                                                <td>#2211</td>
+                                                <td>NL / San Pedro</td>
+                                                <td>Burglary</td>
+                                            </tr>
+                                            <tr>
+                                                <td>#2212</td>
+                                                <td>NL / Apodaca</td>
+                                                <td>Robbery</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div>
+                                    <p class="component-label" style="opacity: 0.8; margin-bottom: 0.5rem">
+                                        <code>Default (md)</code>
+                                    </p>
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Location</th>
+                                                <th>Type</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>#2213</td>
+                                                <td>JAL / Guadalajara</td>
+                                                <td>Theft</td>
+                                            </tr>
+                                            <tr>
+                                                <td>#2214</td>
+                                                <td>JAL / Zapopan</td>
+                                                <td>Robbery</td>
+                                            </tr>
+                                            <tr>
+                                                <td>#2215</td>
+                                                <td>JAL / Tlaquepaque</td>
+                                                <td>Fraud</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div>
+                                    <p class="component-label" style="opacity: 0.8; margin-bottom: 0.5rem">
+                                        <code>.table-lg</code>
+                                    </p>
+                                    <table class="table table-lg">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Location</th>
+                                                <th>Type</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>#2216</td>
+                                                <td>CDMX / Coyoacán</td>
+                                                <td>Fraud</td>
+                                            </tr>
+                                            <tr>
+                                                <td>#2217</td>
+                                                <td>CDMX / Tlalpan</td>
+                                                <td>Vandalism</td>
+                                            </tr>
+                                            <tr>
+                                                <td>#2218</td>
+                                                <td>CDMX / Gustavo A. Madero</td>
+                                                <td>Theft</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div>
+                                    <p class="component-label" style="opacity: 0.8; margin-bottom: 0.5rem">
+                                        <code>.table-xl</code>
+                                    </p>
+                                    <table class="table table-xl">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Location</th>
+                                                <th>Type</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>#2220</td>
+                                                <td>CDMX / Centro</td>
+                                                <td>Fraud</td>
+                                            </tr>
+                                            <tr>
+                                                <td>#2221</td>
+                                                <td>CDMX / Polanco</td>
+                                                <td>Vandalism</td>
+                                            </tr>
+                                            <tr>
+                                                <td>#2222</td>
+                                                <td>CDMX / Roma</td>
+                                                <td>Theft</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ========================= -->
+                        <!-- Striped only -->
+                        <!-- ========================= -->
+                        <div class="component-column" style="min-width: 360px">
+                            <span class="component-label"> Striped (<code>.table-striped</code>) </span>
+
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Location</th>
+                                        <th>Type</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>#3301</td>
+                                        <td>QRO / Querétaro</td>
+                                        <td>Road block</td>
+                                        <td>Open</td>
+                                    </tr>
+                                    <tr>
+                                        <td>#3302</td>
+                                        <td>GTO / León</td>
+                                        <td>Robbery</td>
+                                        <td>Open</td>
+                                    </tr>
+                                    <tr>
+                                        <td>#3303</td>
+                                        <td>PUE / Puebla</td>
+                                        <td>Assault</td>
+                                        <td>Open</td>
+                                    </tr>
+                                    <tr>
+                                        <td>#3304</td>
+                                        <td>MEX / Naucalpan</td>
+                                        <td>Theft</td>
+                                        <td>Open</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Row highlight only -->
+                        <div class="component-column" style="min-width: 360px">
+                            <span class="component-label"> Row highlight (<code>.table-row-highlight</code>) </span>
+
+                            <table class="table table-row-highlight">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Location</th>
+                                        <th>Type</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>#3401</td>
+                                        <td>BCN / Tijuana</td>
+                                        <td>Theft</td>
+                                        <td>Open</td>
+                                    </tr>
+                                    <tr>
+                                        <td>#3402</td>
+                                        <td>BCN / Mexicali</td>
+                                        <td>Robbery</td>
+                                        <td>Open</td>
+                                    </tr>
+                                    <tr>
+                                        <td>#3403</td>
+                                        <td>BCN / Ensenada</td>
+                                        <td>Fraud</td>
+                                        <td>Open</td>
+                                    </tr>
+                                    <tr>
+                                        <td>#3404</td>
+                                        <td>BCN / Rosarito</td>
+                                        <td>Assault</td>
+                                        <td>Open</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Striped + Row highlight -->
+                        <div class="component-column" style="min-width: 360px">
+                            <span class="component-label">
+                                Striped + Row highlight (<code>.table-striped</code> +
+                                <code>.table-row-highlight</code>)
+                            </span>
+
+                            <table class="table table-striped table-row-highlight">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Location</th>
+                                        <th>Type</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>#3501</td>
+                                        <td>SON / Hermosillo</td>
+                                        <td>Road block</td>
+                                        <td>Open</td>
+                                    </tr>
+                                    <tr>
+                                        <td>#3502</td>
+                                        <td>SON / Nogales</td>
+                                        <td>Robbery</td>
+                                        <td>Open</td>
+                                    </tr>
+                                    <tr>
+                                        <td>#3503</td>
+                                        <td>SON / Guaymas</td>
+                                        <td>Theft</td>
+                                        <td>Open</td>
+                                    </tr>
+                                    <tr>
+                                        <td>#3504</td>
+                                        <td>SON / Cajeme</td>
+                                        <td>Assault</td>
+                                        <td>Open</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ===== COMPONENTES: STATS ===== -->
+                <section id="components-stats" class="section">
+                    <h2 class="section-title">Componentes — Stats</h2>
+                    <p class="section-subtitle">
+                        Bloques de métricas para resumir información clave y destacar valores relevantes.
+                    </p>
+
+                    <div class="component-grid">
+                        <!-- ========================= -->
+                        <!-- Stats: Base (individual / standalone) -->
+                        <!-- ========================= -->
+                        <div class="component-column" style="min-width: 320px">
+                            <span class="component-label">Base (<code>.stat</code>)</span>
+
+                            <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: flex-start">
+                                <div class="stat">
+                                    <div class="stat-title">Incidents (24h)</div>
+                                    <div class="stat-value">128</div>
+                                </div>
+
+                                <div class="stat">
+                                    <div class="stat-title">Avg. risk score</div>
+                                    <div class="stat-value">3.7</div>
+                                </div>
+
+                                <div class="stat">
+                                    <div class="stat-title">Resolved</div>
+                                    <div class="stat-value">62%</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ========================= -->
+                        <!-- Stats: Intents -->
+                        <!-- ========================= -->
+                        <div class="component-column" style="min-width: 320px">
+                            <span class="component-label">Intents (<code>.stat-*</code>)</span>
+
+                            <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: flex-start">
+                                <div class="stat stat-neutral">
+                                    <div class="stat-title">Neutral</div>
+                                    <div class="stat-value">10.4</div>
+                                </div>
+
+                                <div class="stat stat-primary">
+                                    <div class="stat-title">Primary</div>
+                                    <div class="stat-value">128</div>
+                                </div>
+
+                                <div class="stat stat-warning">
+                                    <div class="stat-title">Warning</div>
+                                    <div class="stat-value">3.7</div>
+                                </div>
+
+                                <div class="stat stat-success">
+                                    <div class="stat-title">Success</div>
+                                    <div class="stat-value">62%</div>
+                                </div>
+
+                                <div class="stat stat-error">
+                                    <div class="stat-title">Error</div>
+                                    <div class="stat-value">0%</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ========================= -->
+                        <!-- Stats: Sizes -->
+                        <!-- ========================= -->
+                        <div class="component-column" style="min-width: 320px">
+                            <span class="component-label">
+                                Sizes (<code>.stat-xs</code> / <code>.stat-sm</code> / <code>Default (md)</code> /
+                                <code>.stat-lg</code> / <code>.stat-xl</code>)
+                            </span>
+
+                            <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: flex-start">
+                                <div class="stat stat-xs">
+                                    <div class="stat-title">XS</div>
+                                    <div class="stat-value">7</div>
+                                </div>
+
+                                <div class="stat stat-sm">
+                                    <div class="stat-title">Small</div>
+                                    <div class="stat-value">12</div>
+                                </div>
+
+                                <div class="stat stat-intent-primary">
+                                    <div class="stat-title">Medium</div>
+                                    <div class="stat-value">48</div>
+                                </div>
+
+                                <div class="stat stat-lg stat-intent-danger">
+                                    <div class="stat-title">Large</div>
+                                    <div class="stat-value">93</div>
+                                </div>
+
+                                <div class="stat stat-xl">
+                                    <div class="stat-title">XL</div>
+                                    <div class="stat-value">120</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- COMPONENTES: SUPERPOSICIONES (OVERLAYS) -->
+                <section id="components-overlays" class="section">
+                    <h2 class="section-title">Componentes — Superposiciones</h2>
+                    <p class="section-subtitle">
+                        Contenedores flotantes (overlays) para mostrar contenido contextual. En este playground se
+                        mantienen abiertos con <code>.dropdown-open</code> para validar estilos. El
+                        posicionamiento/offset lo controla Headless UI en producto.
+                    </p>
+
+                    <h3 class="section-subtitle" style="margin-top: 16px">Overlays</h3>
+
+                    <div class="component-grid">
+                        <!-- ========================= -->
+                        <!-- Overlay: Base (panel md) -->
+                        <!-- ========================= -->
+                        <div class="component-column" style="min-width: 380px; margin-bottom: 5rem">
+                            <span class="component-label">
+                                Base (<code>.dropdown</code> + <code>.dropdown-open</code> +
+                                <code>.dropdown-content</code>)
+                            </span>
+
+                            <div class="dropdown dropdown-open" style="position: relative">
+                                <button class="dropdown-trigger" aria-expanded="true">
+                                    <span class="dropdown-label">Overlay base</span>
+                                    <span class="dropdown-chevron">▾</span>
+                                </button>
+
+                                <!-- Playground-only positioning (Headless UI in real app) -->
+                                <div
+                                    class="dropdown-content"
+                                    style="position: absolute; top: calc(100% + 8px); left: 0; display: block"
+                                >
+                                    <span class="dropdown-title">Información</span>
+                                    <p style="margin: 0; opacity: 0.8">Contenido contextual del overlay.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ========================= -->
+                        <!-- Overlay: Sizes -->
+                        <!-- ========================= -->
+                        <div class="component-column" style="min-width: 380px">
+                            <span class="component-label">
+                                Sizes (<code>.dropdown-panel-xs</code> / <code>.dropdown-panel-sm</code> /
+                                <code>Default (md)</code> / <code>.dropdown-panel-lg</code> /
+                                <code>.dropdown-panel-xl</code>)
+                            </span>
+
+                            <div style="display: flex; flex-direction: column; gap: 1.25rem">
+                                <!-- Panel xs -->
+                                <div class="dropdown dropdown-open dropdown-panel-xs" style="position: relative">
+                                    <button class="dropdown-trigger" aria-expanded="true">
+                                        <span class="dropdown-label">Panel xs</span>
+                                        <span class="dropdown-chevron">▾</span>
+                                    </button>
+
+                                    <div
+                                        class="dropdown-content"
+                                        style="position: absolute; top: calc(100% + 8px); left: 0; display: block"
+                                    >
+                                        <span class="dropdown-title">XS overlay</span>
+                                        <div class="dropdown-menu">
+                                            <button class="dropdown-item" type="button">Option A</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div style="height: 120px"></div>
+
+                                <!-- Panel sm -->
+                                <div class="dropdown dropdown-open dropdown-panel-sm" style="position: relative">
+                                    <button class="dropdown-trigger" aria-expanded="true">
+                                        <span class="dropdown-label">Panel sm</span>
+                                        <span class="dropdown-chevron">▾</span>
+                                    </button>
+
+                                    <div
+                                        class="dropdown-content"
+                                        style="position: absolute; top: calc(100% + 8px); left: 0; display: block"
+                                    >
+                                        <span class="dropdown-title">Small overlay</span>
+                                        <div class="dropdown-menu">
+                                            <button class="dropdown-item" type="button">Option A</button>
+                                            <button class="dropdown-item" type="button">Option B</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div style="height: 170px"></div>
+
+                                <!-- Panel md -->
+                                <div class="dropdown dropdown-open" style="position: relative">
+                                    <button class="dropdown-trigger" aria-expanded="true">
+                                        <span class="dropdown-label">Default (md)</span>
+                                        <span class="dropdown-chevron">▾</span>
+                                    </button>
+
+                                    <div
+                                        class="dropdown-content"
+                                        style="position: absolute; top: calc(100% + 8px); left: 0; display: block"
+                                    >
+                                        <span class="dropdown-title">Medium overlay</span>
+                                        <div class="dropdown-menu">
+                                            <button class="dropdown-item" type="button">Option A</button>
+                                            <button class="dropdown-item" type="button">Option B</button>
+                                            <button class="dropdown-item" type="button">Option C</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div style="height: 190px"></div>
+
+                                <!-- Panel lg -->
+                                <div class="dropdown dropdown-open dropdown-panel-lg" style="position: relative">
+                                    <button class="dropdown-trigger" aria-expanded="true">
+                                        <span class="dropdown-label">Panel lg</span>
+                                        <span class="dropdown-chevron">▾</span>
+                                    </button>
+
+                                    <div
+                                        class="dropdown-content"
+                                        style="position: absolute; top: calc(100% + 8px); left: 0; display: block"
+                                    >
+                                        <span class="dropdown-title">Large overlay</span>
+                                        <div class="dropdown-menu">
+                                            <button class="dropdown-item" type="button">Option A</button>
+                                            <button class="dropdown-item" type="button">Option B</button>
+                                            <button class="dropdown-item" type="button">Option C</button>
+                                            <button class="dropdown-item" type="button">Option D</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div style="height: 220px"></div>
+
+                                <!-- Panel xl -->
+                                <div class="dropdown dropdown-open dropdown-panel-xl" style="position: relative">
+                                    <button class="dropdown-trigger" aria-expanded="true">
+                                        <span class="dropdown-label">Panel xl</span>
+                                        <span class="dropdown-chevron">▾</span>
+                                    </button>
+
+                                    <div
+                                        class="dropdown-content"
+                                        style="position: absolute; top: calc(100% + 8px); left: 0; display: block"
+                                    >
+                                        <span class="dropdown-title">XL overlay</span>
+                                        <div class="dropdown-menu">
+                                            <button class="dropdown-item" type="button">Option A</button>
+                                            <button class="dropdown-item" type="button">Option B</button>
+                                            <button class="dropdown-item" type="button">Option C</button>
+                                            <button class="dropdown-item" type="button">Option D</button>
+                                            <button class="dropdown-item" type="button">Option E</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div style="height: 250px"></div>
+                            </div>
+                        </div>
+
+                        <!-- ========================= -->
+                        <!-- Overlay: Menu items (states) -->
+                        <!-- ========================= -->
+                        <div class="component-column" style="min-width: 380px">
+                            <span class="component-label">
+                                Menu & items (<code>.dropdown-menu</code> + <code>.dropdown-item</code> +
+                                <code>:hover</code>/<code>:focus</code>)
+                            </span>
+
+                            <div class="dropdown dropdown-open" style="position: relative">
+                                <button class="dropdown-trigger" aria-expanded="true">
+                                    <span class="dropdown-label">Items states</span>
+                                    <span class="dropdown-chevron">▾</span>
+                                </button>
+
+                                <div
+                                    class="dropdown-content"
+                                    style="position: absolute; top: calc(100% + 8px); left: 0; display: block"
+                                >
+                                    <span class="dropdown-title">Actions</span>
+
+                                    <div class="dropdown-menu">
+                                        <button class="dropdown-item" type="button">Hover me</button>
+                                        <button class="dropdown-item" type="button">Tab to focus</button>
+                                        <button class="dropdown-item" type="button">Another option</button>
+                                    </div>
+
+                                    <p style="margin: 0.75rem 0 0; opacity: 0.7; font-size: 0.75rem">
+                                        Tip: usa <kbd>Tab</kbd> para ver el estado <code>:focus</code>.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div style="height: 200px"></div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </body>
+</html>

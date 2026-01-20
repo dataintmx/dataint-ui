@@ -1,0 +1,12 @@
+# Node modules
+node_modules/
+
+# Output / build files
+dist/
+
+# Playground build artefacts
+playground/css/output.css
+
+# Editor settings
+.idea/
+.vscode/
