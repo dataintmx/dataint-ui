@@ -12,7 +12,7 @@ export type ButtonSize = SizeScale;
  *
  * These variants describe structural presentation, not semantic meaning.
  */
-export type ButtonVariant = "solid" | "outline" | "ghost";
+export type ButtonVariant = "solid" | "outline" | "ghost" | "soft";
 
 /**
  * Internal shape of the Button CVA variants map.
