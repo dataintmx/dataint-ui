@@ -27,6 +27,7 @@ export const badgeConfig = {
             default: "",
             solid: "badge-solid",
             outline: "badge-outline",
+            soft: "badge-soft",
         },
 
         size: {
