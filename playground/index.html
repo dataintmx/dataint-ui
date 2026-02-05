@@ -632,6 +632,41 @@
                             <span class="component-label"><code>.btn .btn-error</code> (error sólido)</span
                             ><button class="btn btn-error">Error</button>
                         </div>
+                        <!-- Soft -->
+                        <div class="component-column">
+                            <span class="component-label"><code>.btn .btn-soft .btn-neutral</code> (soft neutral)</span>
+                            <button class="btn btn-soft btn-neutral">Soft Neutral</button>
+                        </div>
+                        <div class="component-column">
+                            <span class="component-label"><code>.btn .btn-soft .btn-primary</code> (soft primary)</span>
+                            <button class="btn btn-soft btn-primary">Soft Primary</button>
+                        </div>
+                        <div class="component-column">
+                            <span class="component-label"
+                                ><code>.btn .btn-soft .btn-secondary</code> (soft secondary)</span
+                            >
+                            <button class="btn btn-soft btn-secondary">Soft Secondary</button>
+                        </div>
+                        <div class="component-column">
+                            <span class="component-label"><code>.btn .btn-soft .btn-accent</code> (soft accent)</span>
+                            <button class="btn btn-soft btn-accent">Soft Accent</button>
+                        </div>
+                        <div class="component-column">
+                            <span class="component-label"><code>.btn .btn-soft .btn-info</code> (soft info)</span>
+                            <button class="btn btn-soft btn-info">Soft Info</button>
+                        </div>
+                        <div class="component-column">
+                            <span class="component-label"><code>.btn .btn-soft .btn-success</code> (soft success)</span>
+                            <button class="btn btn-soft btn-success">Soft Success</button>
+                        </div>
+                        <div class="component-column">
+                            <span class="component-label"><code>.btn .btn-soft .btn-warning</code> (soft warning)</span>
+                            <button class="btn btn-soft btn-warning">Soft Warning</button>
+                        </div>
+                        <div class="component-column">
+                            <span class="component-label"><code>.btn .btn-soft .btn-error</code> (soft error)</span>
+                            <button class="btn btn-soft btn-error">Soft Error</button>
+                        </div>
                         <!-- Outline -->
                         <div class="component-column">
                             <span class="component-label"
@@ -707,8 +742,7 @@
                             ><button class="btn btn-ghost btn-warning">Ghost Warning</button>
                         </div>
                         <div class="component-column">
-                            <span class="component-label"
-                                ><code>.btn .btn-ghost .btn-error</code> (ghost error)</span
+                            <span class="component-label"><code>.btn .btn-ghost .btn-error</code> (ghost error)</span
                             ><button class="btn btn-ghost btn-error">Ghost Error</button>
                         </div>
                         <!-- Neutro por defecto (sin intent) -->
@@ -785,18 +819,14 @@
                                 <code>.btn .btn-outline .btn-primary .btn-disabled</code>
                                 (outline deshabilitado)
                             </span>
-                            <button class="btn btn-outline btn-primary btn-disabled" disabled>
-                                Disabled outline
-                            </button>
+                            <button class="btn btn-outline btn-primary btn-disabled" disabled>Disabled outline</button>
                         </div>
 
                         <div class="component-column">
                             <span class="component-label">
                                 <code>.btn .btn-ghost .btn-primary .btn-disabled</code> (ghost deshabilitado)
                             </span>
-                            <button class="btn btn-ghost btn-primary btn-disabled" disabled>
-                                Disabled ghost
-                            </button>
+                            <button class="btn btn-ghost btn-primary btn-disabled" disabled>Disabled ghost</button>
                         </div>
 
                         <div class="component-column">
@@ -804,9 +834,7 @@
                                 <code>.btn .btn-secondary</code>
                                 <code>[aria-disabled="true"]</code>
                             </span>
-                            <button class="btn btn-secondary" aria-disabled="true" type="button">
-                                ARIA disabled
-                            </button>
+                            <button class="btn btn-secondary" aria-disabled="true" type="button">ARIA disabled</button>
                         </div>
                     </div>
 
@@ -843,9 +871,7 @@
                         </div>
 
                         <div class="component-column">
-                            <span class="component-label">
-                                <code>.link .link-primary</code> (texto default)
-                            </span>
+                            <span class="component-label"> <code>.link .link-primary</code> (texto default) </span>
                             <a href="#" class="link link-primary">Default (md) link</a>
                         </div>
 
@@ -1386,11 +1412,7 @@
                                 </div>
 
                                 <div class="dropdown">
-                                    <button
-                                        type="button"
-                                        class="dropdown-trigger"
-                                        aria-expanded="false"
-                                    >
+                                    <button type="button" class="dropdown-trigger" aria-expanded="false">
                                         <span class="dropdown-label">Default (md) dropdown</span>
                                         <span class="dropdown-chevron" aria-hidden="true">▾</span>
                                     </button>
@@ -1655,6 +1677,7 @@
                                             <span class="badge badge-neutral">Neutral · Default</span>
                                             <span class="badge badge-neutral badge-solid">Neutral · Solid</span>
                                             <span class="badge badge-neutral badge-outline">Neutral · Outline</span>
+                                            <span class="badge badge-neutral badge-soft">Neutral · Soft</span>
                                         </div>
 
                                         <!-- Info -->
@@ -1662,6 +1685,7 @@
                                             <span class="badge badge-info">Info · Default</span>
                                             <span class="badge badge-info badge-solid">Info · Solid</span>
                                             <span class="badge badge-info badge-outline">Info · Outline</span>
+                                            <span class="badge badge-info badge-soft">Info · Soft</span>
                                         </div>
 
                                         <!-- Success -->
@@ -1669,6 +1693,7 @@
                                             <span class="badge badge-success">Success · Default</span>
                                             <span class="badge badge-success badge-solid">Success · Solid</span>
                                             <span class="badge badge-success badge-outline">Success · Outline</span>
+                                            <span class="badge badge-success badge-soft">Success · Soft</span>
                                         </div>
 
                                         <!-- Warning -->
@@ -1676,6 +1701,7 @@
                                             <span class="badge badge-warning">Warning · Default</span>
                                             <span class="badge badge-warning badge-solid">Warning · Solid</span>
                                             <span class="badge badge-warning badge-outline">Warning · Outline</span>
+                                            <span class="badge badge-warning badge-soft">Warning · Soft</span>
                                         </div>
 
                                         <!-- Error -->
@@ -1683,6 +1709,7 @@
                                             <span class="badge badge-error">Error · Default</span>
                                             <span class="badge badge-error badge-solid">Error · Solid</span>
                                             <span class="badge badge-error badge-outline">Error · Outline</span>
+                                            <span class="badge badge-error badge-soft">Error · Soft</span>
                                         </div>
                                     </div>
                                 </div>
