@@ -41,9 +41,10 @@
     @apply font-semibold leading-tight;
 }
 
-/* Body: content region with normal text flow */
+/* Body: content region with normal vertical flow */
 @utility card-body {
-    @apply min-w-0;
+    @apply min-w-0 flex flex-col;
+    gap: var(--space-xs);
 }
 
 /* Actions: layout container for buttons/links */
