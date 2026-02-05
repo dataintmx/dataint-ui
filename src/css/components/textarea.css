@@ -1,0 +1,67 @@
+/* ======================================================================
+   TEXTAREA — Multiline text input
+   Shared API (conceptual): size, state (default/error/disabled), resize
+   ====================================================================== */
+
+/* Base textarea field */
+@utility textarea {
+    /* Layout & box model */
+    @apply text-sm block w-full p-2;
+    gap: var(--space-inline-gap);
+    cursor: text;
+
+    /* Height behavior (multiline) */
+    min-height: var(--height-field-md);
+    line-height: 1.4;
+
+    /* Typography */
+    font-family: var(--font-body);
+
+    /* Visuals: background, border, radius, shadow */
+    background-color: var(--color-base-100);
+    border-width: var(--border-width-base);
+    border-style: var(--border-style-base);
+    border-radius: var(--radius-field);
+    border-color: var(--color-border-strong);
+    box-shadow: var(--elevation-1-default);
+
+    /* Behavior */
+    resize: vertical;
+
+    /* Focus state */
+    &:focus {
+        box-shadow: var(--elevation-1-default);
+        outline: var(--outline-1);
+        outline-offset: var(--outline-offset-4);
+        isolation: isolate;
+        z-index: 1;
+    }
+
+    /* Placeholder */
+    &::placeholder {
+        color: var(--color-base-content-muted);
+    }
+}
+
+/* Disabled */
+@utility textarea-disabled {
+    @apply cursor-not-allowed opacity-50 pointer-events-none shadow-none;
+    color: var(--color-base-content-muted);
+    border-color: var(--color-base-300);
+    background-color: var(--color-base-200);
+}
+
+/* HTML attribute based disabled state */
+.textarea[disabled],
+.textarea[aria-disabled="true"] {
+    @apply textarea-disabled;
+}
+
+/* Error state */
+@utility textarea-error {
+    border-color: var(--color-error);
+}
+
+.textarea-error:focus-visible {
+    outline-color: var(--color-error);
+}
