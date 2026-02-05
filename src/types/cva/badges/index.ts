@@ -14,7 +14,7 @@ export type BadgeRounded = "sm" | "md" | "pill";
 
 export type BadgeIntent = FeedbackIntent;
 
-export type BadgeVariant = FeedbackVariant;
+export type BadgeVariant = FeedbackVariant | "soft";
 
 /**
  * Internal shape of the Badge CVA variants map.
