@@ -118,6 +118,26 @@
     --badge-border-width: var(--border-width-base);
 }
 
+/* Soft: low-emphasis, subtle background and border, intent-aware */
+.badge-soft {
+    --badge-bg: color-mix(in oklab, var(--badge-intent) 10%, var(--color-base-100));
+    --badge-border: color-mix(in oklab, var(--badge-intent) 30%, var(--color-border-subtle));
+    --badge-fg: var(--badge-intent);
+    --badge-border-width: var(--border-width-base);
+}
+
+/* Soft hover/active/focus states (optional, for interactive badges) */
+.badge-soft:hover {
+    --badge-bg: color-mix(in oklab, var(--badge-intent) 16%, var(--color-base-100));
+}
+.badge-soft:active {
+    --badge-bg: color-mix(in oklab, var(--badge-intent) 22%, var(--color-base-100));
+}
+.badge-soft:focus-visible {
+    outline: 2px solid var(--badge-intent);
+    outline-offset: 2px;
+}
+
 /* ------------------------------
    Shared API — size
    ------------------------------ */
