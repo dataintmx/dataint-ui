@@ -118,10 +118,10 @@
     --badge-border-width: var(--border-width-base);
 }
 
-/* Soft: low-emphasis, subtle background and border, intent-aware */
+/* Soft: medium-emphasis, subtle background with visible border, intent-colored text */
 .badge-soft {
-    --badge-bg: color-mix(in oklab, var(--badge-intent) 10%, var(--color-base-100));
-    --badge-border: color-mix(in oklab, var(--badge-intent) 30%, var(--color-border-subtle));
+    --badge-bg: color-mix(in oklab, var(--badge-intent) 20%, var(--color-base-100));
+    --badge-border: color-mix(in oklab, var(--badge-intent) 50%, var(--color-border-subtle));
     --badge-fg: var(--badge-intent);
     --badge-border-width: var(--border-width-base);
 }
