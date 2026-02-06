@@ -119,6 +119,7 @@
    Shared API — variant (visual weight)
    - solid: full accent fill + accent-content text
    - outline: transparent surface + accent border + colored icon
+   - soft: medium-emphasis, subtle background with visible border, intent-colored text
    ------------------------------ */
 
 .alert-solid {
@@ -133,6 +134,15 @@
     --alert-bg: transparent;
     --alert-border-width: var(--border-width-base);
     --alert-border: color-mix(in oklab, var(--alert-intent) 55%, var(--color-border-subtle));
+    --alert-fg: var(--color-base-content);
+    --alert-icon-color: var(--alert-intent);
+    --alert-shadow: none;
+}
+
+.alert-soft {
+    --alert-bg: color-mix(in oklab, var(--alert-intent) 20%, var(--color-base-100));
+    --alert-border-width: var(--border-width-base);
+    --alert-border: color-mix(in oklab, var(--alert-intent) 50%, var(--color-border-subtle));
     --alert-fg: var(--color-base-content);
     --alert-icon-color: var(--alert-intent);
     --alert-shadow: none;
