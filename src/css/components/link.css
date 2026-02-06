@@ -23,18 +23,19 @@
 @utility link-primary {
     color: var(--color-primary);
 }
+
 .link-primary:hover {
-    text-decoration: underline;
-    text-underline-offset: 2px;
+    color: color-mix(in oklab, var(--color-primary) 85%, var(--color-base-content));
+    @apply underline underline-offset-2;
 }
 
 @utility link-secondary {
     color: var(--color-base-content-muted);
 }
+
 .link-secondary:hover {
-    color: var(--color-base-content);
-    text-decoration: underline;
-    text-underline-offset: 2px;
+    color: color-mix(in oklab, var(--color-base-content-muted) 70%, var(--color-base-content));
+    @apply underline underline-offset-2;
 }
 
 /* ============================================================
