@@ -27,6 +27,7 @@ export const badgeConfig = {
             default: "",
             solid: "badge-solid",
             outline: "badge-outline",
+            soft: "badge-soft",
         },
 
         size: {
@@ -47,7 +48,7 @@ export const badgeConfig = {
     /**
      * Defaults align with base `.badge` variables:
      * - intent: neutral
-     * - variant: subtle
+     * - variant: solid (default)
      * - size: md
      * - rounded: md
      */

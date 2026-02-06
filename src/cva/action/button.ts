@@ -25,6 +25,7 @@ export const buttonConfig = {
             solid: "",
             outline: "btn-outline",
             ghost: "btn-ghost",
+            soft: "btn-soft",
         },
 
         intent: {

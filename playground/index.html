@@ -632,6 +632,41 @@
                             <span class="component-label"><code>.btn .btn-error</code> (error sólido)</span
                             ><button class="btn btn-error">Error</button>
                         </div>
+                        <!-- Soft -->
+                        <div class="component-column">
+                            <span class="component-label"><code>.btn .btn-soft .btn-neutral</code> (soft neutral)</span>
+                            <button class="btn btn-soft btn-neutral">Soft Neutral</button>
+                        </div>
+                        <div class="component-column">
+                            <span class="component-label"><code>.btn .btn-soft .btn-primary</code> (soft primary)</span>
+                            <button class="btn btn-soft btn-primary">Soft Primary</button>
+                        </div>
+                        <div class="component-column">
+                            <span class="component-label"
+                                ><code>.btn .btn-soft .btn-secondary</code> (soft secondary)</span
+                            >
+                            <button class="btn btn-soft btn-secondary">Soft Secondary</button>
+                        </div>
+                        <div class="component-column">
+                            <span class="component-label"><code>.btn .btn-soft .btn-accent</code> (soft accent)</span>
+                            <button class="btn btn-soft btn-accent">Soft Accent</button>
+                        </div>
+                        <div class="component-column">
+                            <span class="component-label"><code>.btn .btn-soft .btn-info</code> (soft info)</span>
+                            <button class="btn btn-soft btn-info">Soft Info</button>
+                        </div>
+                        <div class="component-column">
+                            <span class="component-label"><code>.btn .btn-soft .btn-success</code> (soft success)</span>
+                            <button class="btn btn-soft btn-success">Soft Success</button>
+                        </div>
+                        <div class="component-column">
+                            <span class="component-label"><code>.btn .btn-soft .btn-warning</code> (soft warning)</span>
+                            <button class="btn btn-soft btn-warning">Soft Warning</button>
+                        </div>
+                        <div class="component-column">
+                            <span class="component-label"><code>.btn .btn-soft .btn-error</code> (soft error)</span>
+                            <button class="btn btn-soft btn-error">Soft Error</button>
+                        </div>
                         <!-- Outline -->
                         <div class="component-column">
                             <span class="component-label"
@@ -707,8 +742,7 @@
                             ><button class="btn btn-ghost btn-warning">Ghost Warning</button>
                         </div>
                         <div class="component-column">
-                            <span class="component-label"
-                                ><code>.btn .btn-ghost .btn-error</code> (ghost error)</span
+                            <span class="component-label"><code>.btn .btn-ghost .btn-error</code> (ghost error)</span
                             ><button class="btn btn-ghost btn-error">Ghost Error</button>
                         </div>
                         <!-- Neutro por defecto (sin intent) -->
@@ -785,18 +819,14 @@
                                 <code>.btn .btn-outline .btn-primary .btn-disabled</code>
                                 (outline deshabilitado)
                             </span>
-                            <button class="btn btn-outline btn-primary btn-disabled" disabled>
-                                Disabled outline
-                            </button>
+                            <button class="btn btn-outline btn-primary btn-disabled" disabled>Disabled outline</button>
                         </div>
 
                         <div class="component-column">
                             <span class="component-label">
                                 <code>.btn .btn-ghost .btn-primary .btn-disabled</code> (ghost deshabilitado)
                             </span>
-                            <button class="btn btn-ghost btn-primary btn-disabled" disabled>
-                                Disabled ghost
-                            </button>
+                            <button class="btn btn-ghost btn-primary btn-disabled" disabled>Disabled ghost</button>
                         </div>
 
                         <div class="component-column">
@@ -804,9 +834,7 @@
                                 <code>.btn .btn-secondary</code>
                                 <code>[aria-disabled="true"]</code>
                             </span>
-                            <button class="btn btn-secondary" aria-disabled="true" type="button">
-                                ARIA disabled
-                            </button>
+                            <button class="btn btn-secondary" aria-disabled="true" type="button">ARIA disabled</button>
                         </div>
                     </div>
 
@@ -843,9 +871,7 @@
                         </div>
 
                         <div class="component-column">
-                            <span class="component-label">
-                                <code>.link .link-primary</code> (texto default)
-                            </span>
+                            <span class="component-label"> <code>.link .link-primary</code> (texto default) </span>
                             <a href="#" class="link link-primary">Default (md) link</a>
                         </div>
 
@@ -1386,11 +1412,7 @@
                                 </div>
 
                                 <div class="dropdown">
-                                    <button
-                                        type="button"
-                                        class="dropdown-trigger"
-                                        aria-expanded="false"
-                                    >
+                                    <button type="button" class="dropdown-trigger" aria-expanded="false">
                                         <span class="dropdown-label">Default (md) dropdown</span>
                                         <span class="dropdown-chevron" aria-hidden="true">▾</span>
                                     </button>
@@ -1492,11 +1514,19 @@
                                     <p class="component-label" style="opacity: 0.8; margin-bottom: 0.5rem">Variants</p>
 
                                     <div style="display: flex; flex-direction: column; gap: 0.5rem">
-                                        <div class="alert alert-info alert-solid">
+                                        <div class="alert alert-info">
                                             <span class="alert-icon">ℹ️</span>
                                             <div class="alert-content">
-                                                <strong class="alert-title">Solid</strong>
+                                                <strong class="alert-title">Default (Solid)</strong>
                                                 <p class="alert-message">Higher visual emphasis for critical flows.</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="alert alert-success alert-soft">
+                                            <span class="alert-icon">✓</span>
+                                            <div class="alert-content">
+                                                <strong class="alert-title">Soft</strong>
+                                                <p class="alert-message">Medium emphasis with tinted background and border.</p>
                                             </div>
                                         </div>
 
@@ -1515,21 +1545,21 @@
                                     <p class="component-label" style="opacity: 0.8; margin-bottom: 0.5rem">Sizes</p>
 
                                     <div style="display: flex; flex-direction: column; gap: 0.5rem">
-                                        <div class="alert alert-success alert-xs alert-subtle">
+                                        <div class="alert alert-success alert-xs alert-outline">
                                             <span class="alert-icon">✓</span>
                                             <div class="alert-content">
                                                 <p class="alert-message">XS size alert for ultra-compact layouts.</p>
                                             </div>
                                         </div>
 
-                                        <div class="alert alert-success alert-sm alert-subtle">
+                                        <div class="alert alert-success alert-sm alert-outline">
                                             <span class="alert-icon">✓</span>
                                             <div class="alert-content">
                                                 <p class="alert-message">Small size alert for dense layouts.</p>
                                             </div>
                                         </div>
 
-                                        <div class="alert alert-success alert-lg alert-subtle">
+                                        <div class="alert alert-success alert-lg alert-outline">
                                             <span class="alert-icon">✓</span>
                                             <div class="alert-content">
                                                 <strong class="alert-title">Large</strong>
@@ -1539,7 +1569,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="alert alert-success alert-xl alert-subtle">
+                                        <div class="alert alert-success alert-xl alert-outline">
                                             <span class="alert-icon">✓</span>
                                             <div class="alert-content">
                                                 <strong class="alert-title">XL</strong>
@@ -1556,7 +1586,7 @@
                                     </p>
 
                                     <div style="display: flex; flex-direction: column; gap: 0.5rem">
-                                        <div class="alert alert-info alert-subtle">
+                                        <div class="alert alert-info alert-outline">
                                             <span class="alert-icon">ℹ️</span>
                                             <div class="alert-content">
                                                 <strong class="alert-title">Dismissible</strong>
@@ -1565,7 +1595,7 @@
                                             <button class="alert-dismiss" aria-label="Dismiss alert">✕</button>
                                         </div>
 
-                                        <div class="alert alert-neutral alert-subtle">
+                                        <div class="alert alert-neutral alert-outline">
                                             <div class="alert-content">
                                                 <p class="alert-message">Alert without icon using.</p>
                                             </div>
@@ -1653,36 +1683,36 @@
                                         <!-- Neutral -->
                                         <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap">
                                             <span class="badge badge-neutral">Neutral · Default</span>
-                                            <span class="badge badge-neutral badge-solid">Neutral · Solid</span>
                                             <span class="badge badge-neutral badge-outline">Neutral · Outline</span>
+                                            <span class="badge badge-neutral badge-soft">Neutral · Soft</span>
                                         </div>
 
                                         <!-- Info -->
                                         <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap">
                                             <span class="badge badge-info">Info · Default</span>
-                                            <span class="badge badge-info badge-solid">Info · Solid</span>
                                             <span class="badge badge-info badge-outline">Info · Outline</span>
+                                            <span class="badge badge-info badge-soft">Info · Soft</span>
                                         </div>
 
                                         <!-- Success -->
                                         <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap">
                                             <span class="badge badge-success">Success · Default</span>
-                                            <span class="badge badge-success badge-solid">Success · Solid</span>
                                             <span class="badge badge-success badge-outline">Success · Outline</span>
+                                            <span class="badge badge-success badge-soft">Success · Soft</span>
                                         </div>
 
                                         <!-- Warning -->
                                         <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap">
                                             <span class="badge badge-warning">Warning · Default</span>
-                                            <span class="badge badge-warning badge-solid">Warning · Solid</span>
                                             <span class="badge badge-warning badge-outline">Warning · Outline</span>
+                                            <span class="badge badge-warning badge-soft">Warning · Soft</span>
                                         </div>
 
                                         <!-- Error -->
                                         <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap">
                                             <span class="badge badge-error">Error · Default</span>
-                                            <span class="badge badge-error badge-solid">Error · Solid</span>
                                             <span class="badge badge-error badge-outline">Error · Outline</span>
+                                            <span class="badge badge-error badge-soft">Error · Soft</span>
                                         </div>
                                     </div>
                                 </div>
