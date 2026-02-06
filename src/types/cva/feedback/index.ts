@@ -35,4 +35,4 @@ export type FeedbackIntent = Extract<SemanticIntent, "neutral" | "info" | "succe
  * Not all components must implement all variants, but when they do,
  * they should reuse this scale.
  */
-export type FeedbackVariant = "default" | "solid" | "outline";
+export type FeedbackVariant = "default" | "solid" | "outline" | "soft";
