@@ -16,12 +16,12 @@
     --badge-intent: var(--color-neutral);
     --badge-intent-content: var(--color-neutral-content);
 
-    /* Default variant (subtle) */
-    --badge-bg: color-mix(in oklab, var(--badge-intent) 14%, var(--color-base-100));
-    --badge-border: color-mix(in oklab, var(--badge-intent) 35%, var(--color-border-subtle));
-    --badge-fg: var(--color-base-content);
+    /* Default variant (solid) */
+    --badge-bg: var(--badge-intent);
+    --badge-border: transparent;
+    --badge-fg: var(--badge-intent-content);
 
-    --badge-border-width: var(--border-width-base);
+    --badge-border-width: 0px;
     --badge-shadow: none;
 
     /* Size defaults */
