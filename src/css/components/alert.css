@@ -13,13 +13,13 @@
     --alert-intent: var(--color-neutral);
     --alert-intent-content: var(--color-neutral-content);
 
-    /* Derived surfaces (default) */
-    --alert-bg: color-mix(in oklab, var(--alert-intent) 12%, var(--color-base-100));
-    --alert-border: color-mix(in oklab, var(--alert-intent) 35%, var(--color-border-subtle));
-    --alert-fg: var(--color-base-content);
-    --alert-icon-color: var(--alert-intent);
-    --alert-border-width: var(--border-width-base);
-    --alert-shadow: none;
+    /* Default variant (solid) */
+    --alert-bg: var(--alert-intent);
+    --alert-border: transparent;
+    --alert-fg: var(--alert-intent-content);
+    --alert-icon-color: currentColor;
+    --alert-border-width: 0px;
+    --alert-shadow: var(--elevation-1-default);
 
     /* Size defaults */
     --alert-px: var(--space-md);
