@@ -39,6 +39,15 @@
 }
 
 /* ============================================================
+   PLAIN (no intent)
+   ============================================================ */
+
+.link:not(.link-primary):not(.link-secondary):hover {
+    color: color-mix(in oklab, currentColor 85%, var(--color-base-content));
+    @apply underline underline-offset-2;
+}
+
+/* ============================================================
    SIZES
    ============================================================ */
 
