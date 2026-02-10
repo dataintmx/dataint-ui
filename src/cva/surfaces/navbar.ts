@@ -1,5 +1,5 @@
 import type { CvaConfig, CvaProps } from "@/types/cva";
-import type { NavbarVariants } from "@/types/cva/navigation/navbar";
+import type { NavbarVariants } from "@/types/cva/surfaces/navbar";
 
 /**
  * Base CSS utility for Navbar.
