@@ -1,0 +1,27 @@
+/* ======================================================================
+   NAVBAR — Navigation & Structure (DataInt UI)
+   Component: navbar
+   Goal: Using ONLY `.navbar` yields a complete toolbar-like navbar style.
+   ====================================================================== */
+
+@utility navbar {
+    @apply sticky z-5 backdrop-blur-lg top-0 w-full flex items-center;
+
+    --navbar-bg: var(--color-base-100);
+
+    --navbar-border-color: var(--color-border-subtle);
+    --navbar-border-width: var(--border-width-base);
+    --navbar-border-style: var(--border-style-base);
+
+    --navbar-shadow: var(--elevation-1-default);
+
+    --navbar-px: var(--space-xs);
+    --navbar-py: var(--space-md);
+
+    background-color: var(--navbar-bg);
+    border-bottom-width: var(--navbar-border-width);
+    border-bottom-style: var(--navbar-border-style);
+    border-bottom-color: var(--navbar-border-color);
+    box-shadow: var(--navbar-shadow);
+    padding: var(--navbar-py) var(--navbar-px);
+}
