@@ -29,7 +29,7 @@
     ],
     "scripts": {
         "build:css": "postcss src/index.css -o dist/styles.css",
-        "build:ts": "tsc -p tsconfig.build.json",
+        "build:ts": "tsc -p tsconfig.build.json && tsc-alias -p tsconfig.build.json",
         "build": "npm run build:css && npm run build:ts",
         "typecheck": "tsc -p tsconfig.json",
         "lint": "eslint \"src/**/*.{ts,tsx,css}\"",
@@ -53,6 +53,7 @@
         "prettier": "^3.7.4",
         "tailwind-csstree": "^0.1.4",
         "tailwindcss": "^4.1.17",
+        "tsc-alias": "^1.8.16",
         "typescript": "^5.9.3",
         "typescript-eslint": "^8.52.0"
     },
