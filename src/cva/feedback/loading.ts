@@ -17,6 +17,9 @@ export const loadingConfig = {
             success: "loading-success",
             warning: "loading-warning",
             error: "loading-error",
+            primary: "loading-primary",
+            secondary: "loading-secondary",
+            accent: "loading-accent",
         },
         variant: {
             default: "",

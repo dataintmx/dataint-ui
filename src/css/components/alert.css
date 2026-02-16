@@ -115,6 +115,21 @@
     --alert-intent-content: var(--color-error-content);
 }
 
+.alert-primary {
+    --alert-intent: var(--color-primary);
+    --alert-intent-content: var(--color-primary-content);
+}
+
+.alert-secondary {
+    --alert-intent: var(--color-secondary);
+    --alert-intent-content: var(--color-secondary-content);
+}
+
+.alert-accent {
+    --alert-intent: var(--color-accent);
+    --alert-intent-content: var(--color-accent-content);
+}
+
 /* ------------------------------
    Shared API — variant (visual weight)
    - solid: full accent fill + accent-content text
