@@ -101,6 +101,21 @@
     --badge-intent-content: var(--color-error-content);
 }
 
+.badge-primary {
+    --badge-intent: var(--color-primary);
+    --badge-intent-content: var(--color-primary-content);
+}
+
+.badge-secondary {
+    --badge-intent: var(--color-secondary);
+    --badge-intent-content: var(--color-secondary-content);
+}
+
+.badge-accent {
+    --badge-intent: var(--color-accent);
+    --badge-intent-content: var(--color-accent-content);
+}
+
 /* ------------------------------
    Shared API — variant
    ------------------------------ */
@@ -111,7 +126,7 @@
     --badge-border-width: 0px;
 }
 
-.badge-outline {
+.badge-outlined {
     --badge-bg: transparent;
     --badge-border: color-mix(in oklab, var(--badge-intent) 55%, var(--color-border-subtle));
     --badge-fg: var(--color-base-content);

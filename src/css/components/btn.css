@@ -22,13 +22,13 @@
     box-shadow: var(--elevation-1-shadow);
     text-shadow: oklch(1 0 0 / 0.15) 0px 0.5px 0px;
     transition-property: color, background-color, border-color, box-shadow;
-    outline-offset: 2px;
+    outline-offset: var(--outline-offset-2) ;
 }
 
 /* Default hover: darken with subtle gray unless overridden by intent/variant */
 .btn:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]):not(.btn-primary):not(.btn-secondary):not(
         .btn-neutral
-    ):not(.btn-accent):not(.btn-info):not(.btn-success):not(.btn-warning):not(.btn-error):not(.btn-outline):not(
+    ):not(.btn-accent):not(.btn-info):not(.btn-success):not(.btn-warning):not(.btn-error):not(.btn-outlined):not(
         .btn-ghost
     ) {
     background-color: var(--color-base-300);
@@ -39,12 +39,12 @@
     transform: translateY(1px);
 }
 
-/* Focus-visible outline */
+/* Focus-visible outlined */
 .btn:focus-visible,
 .btn:has(:focus-visible) {
-    outline-width: 2px;
-    outline-style: solid;
-    outline-color: currentColor;
+    outlined-width: 2px;
+    outlined-style: solid;
+    outlined-color: currentColor;
 }
 
 /* ======================================================================
@@ -127,11 +127,11 @@
 }
 
 /* ======================================================================
-   VARIANTS — OUTLINE & GHOST (Daisy-like)
+   VARIANTS — outlined & GHOST (Daisy-like)
    ====================================================================== */
 
-/* Outline: sin relleno, borde y texto con color de intención */
-@utility btn-outline {
+/* outlined: sin relleno, borde y texto con color de intención */
+@utility btn-outlined {
     @apply border-solid;
     color: var(--color-base-content);
     border-color: var(--color-border-strong);
@@ -202,51 +202,51 @@
     outline-offset: 2px;
 }
 
-/* Outline + intent colors */
-/* Outline intents */
-.btn-outline.btn-neutral {
+/* outlined + intent colors */
+/* outlined intents */
+.btn-outlined.btn-neutral {
     background-color: transparent;
     color: var(--color-neutral);
     border-color: var(--color-neutral);
 }
-.btn-outline.btn-primary {
+.btn-outlined.btn-primary {
     background-color: transparent;
     color: var(--color-primary);
     border-color: var(--color-primary);
 }
-.btn-outline.btn-secondary {
+.btn-outlined.btn-secondary {
     background-color: transparent;
     color: var(--color-secondary);
     border-color: var(--color-secondary);
 }
-.btn-outline.btn-accent {
+.btn-outlined.btn-accent {
     background-color: transparent;
     color: var(--color-accent);
     border-color: var(--color-accent);
 }
-.btn-outline.btn-info {
+.btn-outlined.btn-info {
     background-color: transparent;
     color: var(--color-info);
     border-color: var(--color-info);
 }
-.btn-outline.btn-success {
+.btn-outlined.btn-success {
     background-color: transparent;
     color: var(--color-success);
     border-color: var(--color-success);
 }
-.btn-outline.btn-warning {
+.btn-outlined.btn-warning {
     background-color: transparent;
     color: var(--color-warning);
     border-color: var(--color-warning);
 }
-.btn-outline.btn-error {
+.btn-outlined.btn-error {
     background-color: transparent;
     color: var(--color-error);
     border-color: var(--color-error);
 }
 
-/* Hover outline: leve relleno tintado para mejorar legibilidad */
-.btn-outline:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+/* Hover outlined: leve relleno tintado para mejorar legibilidad */
+.btn-outlined:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
     background-color: var(--color-base-300);
 }
 
