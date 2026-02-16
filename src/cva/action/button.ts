@@ -23,7 +23,7 @@ export const buttonConfig = {
     variants: {
         variant: {
             solid: "",
-            outline: "btn-outline",
+            outlined: "btn-outlined",
             ghost: "btn-ghost",
             soft: "btn-soft",
         },

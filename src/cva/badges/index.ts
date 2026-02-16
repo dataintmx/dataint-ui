@@ -26,7 +26,7 @@ export const badgeConfig = {
         variant: {
             default: "",
             solid: "badge-solid",
-            outline: "badge-outline",
+            outlined: "badge-outlined",
             soft: "badge-soft",
         },
 

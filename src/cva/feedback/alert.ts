@@ -21,7 +21,7 @@ export const alertConfig = {
         variant: {
             default: "",
             solid: "alert-solid",
-            outline: "alert-outline",
+            outlined: "alert-outlined",
             soft: "alert-soft",
         },
         size: {

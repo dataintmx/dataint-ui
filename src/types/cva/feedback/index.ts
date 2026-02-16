@@ -30,9 +30,9 @@ export type FeedbackIntent = Extract<SemanticIntent, "neutral" | "info" | "succe
  * Meaning:
  * - default: base level emphasis / subtle background
  * - solid: stronger emphasis / higher contrast
- * - outline: transparent surface with accent border
+ * - outlined: transparent surface with accent border
  *
  * Not all components must implement all variants, but when they do,
  * they should reuse this scale.
  */
-export type FeedbackVariant = "default" | "solid" | "outline" | "soft";
+export type FeedbackVariant = "default" | "solid" | "outlined" | "soft";
