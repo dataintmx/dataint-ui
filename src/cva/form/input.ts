@@ -29,8 +29,8 @@ export const inputConfig = {
     },
 
     defaultVariants: {
-        disabled: "false",
-        error: "false",
+        disabled: false,
+        error: false,
     },
 
     compoundVariants: [],

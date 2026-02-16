@@ -55,9 +55,9 @@ export const linkConfig = {
     defaultVariants: {
         intent: "primary",
         size: "md",
-        block: "false",
+        block: false,
         icon: "none",
-        disabled: "false",
+        disabled: false,
     },
 
     compoundVariants: [],

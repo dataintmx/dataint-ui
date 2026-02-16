@@ -29,8 +29,8 @@ export const textareaConfig = {
     },
 
     defaultVariants: {
-        disabled: "false",
-        error: "false",
+        disabled: false,
+        error: false,
     },
 
     compoundVariants: [],
