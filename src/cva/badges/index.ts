@@ -17,6 +17,9 @@ export const badgeConfig = {
             success: "badge-success",
             warning: "badge-warning",
             error: "badge-error",
+            primary: "badge-primary",
+            secondary: "badge-secondary",
+            accent: "badge-accent",
         },
 
         /**

@@ -22,7 +22,7 @@ export type FeedbackSize = SizeScale;
  * - This is intentionally a subset of SemanticIntent.
  * - Alert/Loading do not support primary/secondary/accent.
  */
-export type FeedbackIntent = Extract<SemanticIntent, "neutral" | "info" | "success" | "warning" | "error">;
+export type FeedbackIntent = SemanticIntent;
 
 /**
  * Feedback visual treatment.
