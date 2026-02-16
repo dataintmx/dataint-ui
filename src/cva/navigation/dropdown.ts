@@ -34,7 +34,7 @@ export const dropdownTriggerConfig = {
     defaultVariants: {
         size: "md",
         state: "closed",
-        disabled: "false",
+        disabled: false,
     },
     compoundVariants: [],
 } satisfies CvaConfig<DropdownTriggerVariants>;

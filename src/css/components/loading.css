@@ -57,6 +57,18 @@
     --loading-intent: var(--color-error);
 }
 
+.loading-primary {
+    --loading-intent: var(--color-primary);
+}
+
+.loading-secondary {
+    --loading-intent: var(--color-secondary);
+}
+
+.loading-accent {
+    --loading-intent: var(--color-accent);
+}
+
 /* ------------------------------
    Shared API — variant
    - solid: stronger track + higher opacity

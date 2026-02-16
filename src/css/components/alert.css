@@ -115,10 +115,25 @@
     --alert-intent-content: var(--color-error-content);
 }
 
+.alert-primary {
+    --alert-intent: var(--color-primary);
+    --alert-intent-content: var(--color-primary-content);
+}
+
+.alert-secondary {
+    --alert-intent: var(--color-secondary);
+    --alert-intent-content: var(--color-secondary-content);
+}
+
+.alert-accent {
+    --alert-intent: var(--color-accent);
+    --alert-intent-content: var(--color-accent-content);
+}
+
 /* ------------------------------
    Shared API — variant (visual weight)
    - solid: full accent fill + accent-content text
-   - outline: transparent surface + accent border + colored icon
+   - outlined: transparent surface + accent border + colored icon
    - soft: medium-emphasis, subtle background with visible border, intent-colored text
    ------------------------------ */
 
@@ -130,7 +145,7 @@
     --alert-shadow: var(--elevation-1-default);
 }
 
-.alert-outline {
+.alert-outlined {
     --alert-bg: transparent;
     --alert-border-width: var(--border-width-base);
     --alert-border: color-mix(in oklab, var(--alert-intent) 55%, var(--color-border-subtle));

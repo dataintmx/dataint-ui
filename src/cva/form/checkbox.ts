@@ -27,7 +27,7 @@ export const checkboxConfig = {
     },
 
     defaultVariants: {
-        disabled: "false",
+        disabled: false,
     },
 
     compoundVariants: [],

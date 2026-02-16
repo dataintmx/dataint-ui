@@ -3,7 +3,7 @@ import type { FeedbackIntent, FeedbackSize, FeedbackVariant } from "@/types/cva/
 /**
  * Alert visual weight and surface treatment.
  */
-export type AlertVariant = Extract<FeedbackVariant, "default" | "solid" | "outline" | "soft">;
+export type AlertVariant = FeedbackVariant;
 
 export type AlertVariants = {
     intent: Record<FeedbackIntent, string>;

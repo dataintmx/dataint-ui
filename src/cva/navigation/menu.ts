@@ -62,7 +62,7 @@ export const menuItemConfig = {
     },
     defaultVariants: {
         state: "default",
-        disabled: "false",
+        disabled: false,
     },
     compoundVariants: [],
 } satisfies CvaConfig<MenuItemVariants>;

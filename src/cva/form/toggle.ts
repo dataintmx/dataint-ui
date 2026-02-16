@@ -26,7 +26,7 @@ export const toggleConfig = {
     },
 
     defaultVariants: {
-        disabled: "false",
+        disabled: false,
     },
 
     compoundVariants: [],

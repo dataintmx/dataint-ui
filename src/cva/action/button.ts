@@ -23,7 +23,7 @@ export const buttonConfig = {
     variants: {
         variant: {
             solid: "",
-            outline: "btn-outline",
+            outlined: "btn-outlined",
             ghost: "btn-ghost",
             soft: "btn-soft",
         },
@@ -79,10 +79,10 @@ export const buttonConfig = {
         variant: "solid",
         size: "md",
         intent: "neutral",
-        block: "false",
-        icon: "false",
-        disabled: "false",
-        loading: "false",
+        block: false,
+        icon: false,
+        disabled: false,
+        loading: false,
     },
 
     compoundVariants: [],

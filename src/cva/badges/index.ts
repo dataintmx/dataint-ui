@@ -17,6 +17,9 @@ export const badgeConfig = {
             success: "badge-success",
             warning: "badge-warning",
             error: "badge-error",
+            primary: "badge-primary",
+            secondary: "badge-secondary",
+            accent: "badge-accent",
         },
 
         /**
@@ -26,7 +29,7 @@ export const badgeConfig = {
         variant: {
             default: "",
             solid: "badge-solid",
-            outline: "badge-outline",
+            outlined: "badge-outlined",
             soft: "badge-soft",
         },
 

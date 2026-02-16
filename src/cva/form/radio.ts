@@ -39,7 +39,7 @@ export const radioConfig = {
 
     defaultVariants: {
         intent: "neutral",
-        disabled: "false",
+        disabled: false,
     },
 
     compoundVariants: [],
