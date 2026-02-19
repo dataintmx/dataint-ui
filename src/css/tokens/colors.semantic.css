@@ -57,8 +57,8 @@
     --color-outline: var(--neutral-900);
 
     /* Borders */
-    --color-border-subtle: var(--neutral-100);
-    --color-border-strong: var(--neutral-200);
+    --color-border-subtle: var(--neutral-200);
+    --color-border-strong: var(--neutral-300);
     --color-border-muted: var(--neutral-100);
 
     /* Chart data colors (para Tailwind, mismos defaults que light) */
@@ -140,8 +140,8 @@
     --color-outline: var(--neutral-100);
 
     /* Borders */
-    --color-border-subtle: var(--neutral-800);
-    --color-border-strong: var(--neutral-700);
+    --color-border-subtle: var(--neutral-700);
+    --color-border-strong: var(--neutral-600);
     --color-border-muted: var(--neutral-800);
 
     /* Chart data colors for dark theme */
