@@ -6,16 +6,16 @@
 
 @theme {
     /* Base surfaces */
-    --color-base-100: var(--neutral-000);
-    --color-base-200: var(--neutral-050);
-    --color-base-300: var(--neutral-100);
+    --color-base-100: var(--neutral-050);
+    --color-base-200: var(--neutral-100);
+    --color-base-300: var(--neutral-300);
 
     /* Base content */
-    --color-base-content: var(--neutral-body);
+    --color-base-content: var(--neutral-900);
 
     /* Muted text */
-    --color-base-content-muted: color-mix(in srgb, var(--neutral-body) 72%, transparent);
-    --color-base-content-subtle: color-mix(in srgb, var(--neutral-body) 56%, transparent);
+    --color-base-content-muted: color-mix(in srgb, var(--neutral-900) 72%, transparent);
+    --color-base-content-subtle: color-mix(in srgb, var(--neutral-900) 56%, transparent);
 
     /* Neutral */
     --color-neutral: var(--neutral-850);
