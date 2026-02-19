@@ -71,7 +71,7 @@
    ------------------------------ */
 
 @utility menu-item-disabled {
-    @apply cursor-not-allowed opacity-40;
+    @apply cursor-not-allowed pointer-events-none;
     color: var(--menu-item-fg-muted);
 }
 
