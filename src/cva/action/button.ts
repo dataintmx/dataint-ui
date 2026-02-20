@@ -61,11 +61,6 @@ export const buttonConfig = {
             true: "btn-disabled",
             false: "",
         },
-
-        loading: {
-            true: "btn-loading",
-            false: "",
-        },
     },
 
     /**
@@ -82,7 +77,6 @@ export const buttonConfig = {
         block: false,
         icon: false,
         disabled: false,
-        loading: false,
     },
 
     compoundVariants: [],
