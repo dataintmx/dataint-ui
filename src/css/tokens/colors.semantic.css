@@ -6,43 +6,43 @@
 
 @theme {
     /* Base surfaces */
-    --color-base-100: var(--neutral-000);
-    --color-base-200: var(--neutral-050);
-    --color-base-300: var(--neutral-100);
+    --color-base-100: var(--neutral-050);
+    --color-base-200: var(--neutral-100);
+    --color-base-300: var(--neutral-300);
 
     /* Base content */
-    --color-base-content: var(--neutral-body);
+    --color-base-content: var(--neutral-900);
 
     /* Muted text */
-    --color-base-content-muted: color-mix(in srgb, var(--neutral-body) 72%, transparent);
-    --color-base-content-subtle: color-mix(in srgb, var(--neutral-body) 56%, transparent);
+    --color-base-content-muted: var(--neutral-700);
+    --color-base-content-subtle: var(--neutral-600);
 
     /* Neutral */
-    --color-neutral: var(--neutral-850);
-    --color-neutral-content: var(--neutral-000);
-    --color-neutral-hover: var(--neutral-500);
-    --color-neutral-content-hover: var(--neutral-900);
+    --color-neutral: var(--neutral-800);
+    --color-neutral-content: var(--neutral-050);
+    --color-neutral-hover: var(--neutral-700);
+    --color-neutral-content-hover: var(--neutral-050);
 
     /* Brand */
     --color-primary: var(--keppel-green);
-    --color-primary-content: var(--neutral-000);
+    --color-primary-content: var(--neutral-050);
     --color-primary-hover: color-mix(in srgb, var(--color-primary) 85%, #fff 15%);
 
     --color-secondary: var(--indigo-blue);
-    --color-secondary-content: var(--neutral-000);
+    --color-secondary-content: var(--neutral-050);
     --color-secondary-hover: var(--yonder-blue);
 
     --color-accent: var(--lavender-gray);
-    --color-accent-content: var(--neutral-000);
+    --color-accent-content: var(--neutral-050);
     --color-accent-hover: color-mix(in srgb, var(--color-accent) 85%, #fff 15%);
 
     /* Status */
     --color-info: var(--azure-blue-500);
-    --color-info-content: var(--neutral-000);
+    --color-info-content: var(--neutral-050);
     --color-info-hover: var(--azure-blue-700);
 
     --color-success: var(--lime-green-500);
-    --color-success-content: var(--neutral-000);
+    --color-success-content: var(--neutral-050);
     --color-success-hover: var(--lime-green-800);
 
     --color-warning: var(--sunglow-yellow-500);
@@ -50,16 +50,16 @@
     --color-warning-hover: var(--sunglow-yellow-300);
 
     --color-error: var(--light-red-500);
-    --color-error-content: var(--neutral-000);
+    --color-error-content: var(--neutral-050);
     --color-error-hover: var(--light-red-300);
 
     /* Outlines */
     --color-outline: var(--neutral-900);
 
     /* Borders */
-    --color-border-subtle: var(--neutral-100);
-    --color-border-strong: var(--neutral-200);
-    --color-border-muted: color-mix(in srgb, var(--neutral-200) 70%, transparent);
+    --color-border-subtle: var(--neutral-200);
+    --color-border-strong: var(--neutral-300);
+    --color-border-muted: var(--neutral-100);
 
     /* Chart data colors (para Tailwind, mismos defaults que light) */
     --color-data-1: #2e435f;
@@ -93,13 +93,13 @@
 :root[data-theme="dark"] {
     /* Base surfaces */
     --color-base-100: var(--neutral-900);
-    --color-base-200: var(--neutral-850);
+    --color-base-200: var(--neutral-800);
     --color-base-300: var(--neutral-800);
 
     /* Base content */
-    --color-base-content: var(--neutral-000);
-    --color-base-content-muted: color-mix(in srgb, var(--neutral-000) 72%, transparent);
-    --color-base-content-subtle: color-mix(in srgb, var(--neutral-000) 56%, transparent);
+    --color-base-content: var(--neutral-050);
+    --color-base-content-muted: var(--neutral-300);
+    --color-base-content-subtle: var(--neutral-400);
 
     /* Neutral */
     --color-neutral: var(--neutral-050);
@@ -112,7 +112,7 @@
     --color-primary-hover: color-mix(in srgb, var(--color-primary) 85%, #fff 15%);
 
     --color-secondary: var(--indigo-blue);
-    --color-secondary-content: var(--neutral-000);
+    --color-secondary-content: var(--neutral-050);
     --color-secondary-hover: var(--oxford-blue);
 
     --color-accent: var(--lavender-gray);
@@ -140,9 +140,9 @@
     --color-outline: var(--neutral-100);
 
     /* Borders */
-    --color-border-subtle: var(--neutral-800);
-    --color-border-strong: var(--neutral-850);
-    --color-border-muted: color-mix(in srgb, var(--neutral-800) 70%, transparent);
+    --color-border-subtle: var(--neutral-700);
+    --color-border-strong: var(--neutral-600);
+    --color-border-muted: var(--neutral-800);
 
     /* Chart data colors for dark theme */
     --color-data-1: #59bba1;

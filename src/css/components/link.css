@@ -34,7 +34,7 @@
 }
 
 .link-secondary:hover {
-    color: color-mix(in oklab, var(--color-base-content-muted) 70%, var(--color-base-content));
+    color: var(--color-base-content);
     @apply underline underline-offset-2;
 }
 
@@ -100,7 +100,7 @@
    ============================================================ */
 
 @utility link-disabled {
-    opacity: 0.5;
+    color: var(--color-base-content-subtle);
     cursor: not-allowed;
     pointer-events: none;
 }

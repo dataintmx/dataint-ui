@@ -54,15 +54,14 @@
     --light-red-900: #7a0c27;
 
     /* Neutrals */
-    --neutral-000: #f3f8f7;
-    --neutral-050: #eff6f4;
-    --neutral-100: #dfe6e4;
-    --neutral-200: #d0d6d4;
-    --neutral-500: #49504e; /* Slightly darker, better balance for mid neutral */
-    --neutral-800: #121917;
-    --neutral-850: #1c2321;
-    --neutral-900: #09100e;
-
-    /* Canonical body text neutral */
-    --neutral-body: #0f1a17;
+    --neutral-050: #f9fafb;
+    --neutral-100: #f3f4f6;
+    --neutral-200: #e2e8f0;
+    --neutral-300: #cbd5e1;
+    --neutral-400: #94a3b8;
+    --neutral-500: #64748b;
+    --neutral-600: #475569;
+    --neutral-700: #334155;
+    --neutral-800: #1e293b;
+    --neutral-900: #0f1a17;
 }

@@ -24,7 +24,7 @@
     --table-cell-bg: var(--table-bg);
 
     /* Row highlight */
-    --table-row-hover-bg: color-mix(in oklab, var(--color-base-content) 6%, var(--table-bg));
+    --table-row-hover-bg: color-mix(in oklab, var(--color-base-content) 10%, var(--table-bg));
 
     color: var(--table-fg);
     background-color: var(--table-bg);
