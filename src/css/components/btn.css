@@ -245,9 +245,86 @@
     border-color: var(--color-error);
 }
 
-/* Hover outlined: leve relleno tintado para mejorar legibilidad */
-.btn-outlined:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
-    background-color: var(--color-base-300);
+/* Outlined interactive states: align with solid intent semantics */
+.btn-outlined:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]),
+.btn-outlined:active:not(.btn-disabled, [disabled], [aria-disabled="true"]),
+.btn-outlined:focus-visible:not(.btn-disabled, [disabled], [aria-disabled="true"]),
+.btn-outlined:has(:focus-visible):not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+    background-color: var(--color-neutral);
+    color: var(--color-neutral-content);
+    border-color: var(--color-neutral);
+}
+
+.btn-outlined.btn-neutral:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]),
+.btn-outlined.btn-neutral:active:not(.btn-disabled, [disabled], [aria-disabled="true"]),
+.btn-outlined.btn-neutral:focus-visible:not(.btn-disabled, [disabled], [aria-disabled="true"]),
+.btn-outlined.btn-neutral:has(:focus-visible):not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+    background-color: var(--color-neutral);
+    color: var(--color-neutral-content);
+    border-color: var(--color-neutral);
+}
+
+.btn-outlined.btn-primary:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]),
+.btn-outlined.btn-primary:active:not(.btn-disabled, [disabled], [aria-disabled="true"]),
+.btn-outlined.btn-primary:focus-visible:not(.btn-disabled, [disabled], [aria-disabled="true"]),
+.btn-outlined.btn-primary:has(:focus-visible):not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+    background-color: var(--color-primary);
+    color: var(--color-primary-content);
+    border-color: var(--color-primary);
+}
+
+.btn-outlined.btn-secondary:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]),
+.btn-outlined.btn-secondary:active:not(.btn-disabled, [disabled], [aria-disabled="true"]),
+.btn-outlined.btn-secondary:focus-visible:not(.btn-disabled, [disabled], [aria-disabled="true"]),
+.btn-outlined.btn-secondary:has(:focus-visible):not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+    background-color: var(--color-secondary);
+    color: var(--color-secondary-content);
+    border-color: var(--color-secondary);
+}
+
+.btn-outlined.btn-accent:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]),
+.btn-outlined.btn-accent:active:not(.btn-disabled, [disabled], [aria-disabled="true"]),
+.btn-outlined.btn-accent:focus-visible:not(.btn-disabled, [disabled], [aria-disabled="true"]),
+.btn-outlined.btn-accent:has(:focus-visible):not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+    background-color: var(--color-accent);
+    color: var(--color-accent-content);
+    border-color: var(--color-accent);
+}
+
+.btn-outlined.btn-info:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]),
+.btn-outlined.btn-info:active:not(.btn-disabled, [disabled], [aria-disabled="true"]),
+.btn-outlined.btn-info:focus-visible:not(.btn-disabled, [disabled], [aria-disabled="true"]),
+.btn-outlined.btn-info:has(:focus-visible):not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+    background-color: var(--color-info);
+    color: var(--color-info-content);
+    border-color: var(--color-info);
+}
+
+.btn-outlined.btn-success:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]),
+.btn-outlined.btn-success:active:not(.btn-disabled, [disabled], [aria-disabled="true"]),
+.btn-outlined.btn-success:focus-visible:not(.btn-disabled, [disabled], [aria-disabled="true"]),
+.btn-outlined.btn-success:has(:focus-visible):not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+    background-color: var(--color-success);
+    color: var(--color-success-content);
+    border-color: var(--color-success);
+}
+
+.btn-outlined.btn-warning:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]),
+.btn-outlined.btn-warning:active:not(.btn-disabled, [disabled], [aria-disabled="true"]),
+.btn-outlined.btn-warning:focus-visible:not(.btn-disabled, [disabled], [aria-disabled="true"]),
+.btn-outlined.btn-warning:has(:focus-visible):not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+    background-color: var(--color-warning);
+    color: var(--color-warning-content);
+    border-color: var(--color-warning);
+}
+
+.btn-outlined.btn-error:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]),
+.btn-outlined.btn-error:active:not(.btn-disabled, [disabled], [aria-disabled="true"]),
+.btn-outlined.btn-error:focus-visible:not(.btn-disabled, [disabled], [aria-disabled="true"]),
+.btn-outlined.btn-error:has(:focus-visible):not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+    background-color: var(--color-error);
+    color: var(--color-error-content);
+    border-color: var(--color-error);
 }
 
 /* Ghost: sin borde ni fondo, sólo texto con color de intención */
