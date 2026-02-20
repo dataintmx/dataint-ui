@@ -42,9 +42,9 @@
 /* Focus-visible outlined */
 .btn:focus-visible,
 .btn:has(:focus-visible) {
-    outlined-width: 2px;
-    outlined-style: solid;
-    outlined-color: currentColor;
+    outline-width: 2px;
+    outline-style: solid;
+    outline-color: currentColor;
 }
 
 /* ======================================================================
