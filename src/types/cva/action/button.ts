@@ -30,5 +30,4 @@ export type ButtonVariants = {
     block: BooleanVariantMap;
     icon: BooleanVariantMap;
     disabled: BooleanVariantMap;
-    loading: BooleanVariantMap;
 };
