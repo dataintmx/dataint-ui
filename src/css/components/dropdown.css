@@ -94,4 +94,63 @@
         --dropdown-py: var(--space-lg);
         --dropdown-gap: var(--space-lg);
     }
+
+    /* ------------------------------
+   Interactive states
+   ------------------------------ */
+
+    .dropdown-trigger:not(:disabled):not([aria-disabled="true"]):not(.dropdown-trigger-disabled):hover {
+        background-color: var(--dropdown-bg-hover);
+    }
+
+    .dropdown-trigger.is-open:not(:disabled):not([aria-disabled="true"]):not(.dropdown-trigger-disabled),
+    .dropdown-trigger[aria-expanded="true"]:not(:disabled):not([aria-disabled="true"]):not(.dropdown-trigger-disabled),
+    .dropdown-trigger[data-state="open"]:not(:disabled):not([aria-disabled="true"]):not(.dropdown-trigger-disabled) {
+        background-color: var(--dropdown-bg-open);
+    }
+
+    .dropdown-trigger:not(:disabled):not([aria-disabled="true"]):not(.dropdown-trigger-disabled):focus,
+    .dropdown-trigger:not(:disabled):not([aria-disabled="true"]):not(.dropdown-trigger-disabled):focus-visible {
+        outline: var(--dropdown-outline);
+        outline-offset: var(--dropdown-outline-offset);
+    }
+
+    /* ------------------------------
+   Disabled
+   ------------------------------ */
+
+    .dropdown-trigger-disabled,
+    .dropdown-trigger:disabled,
+    .dropdown-trigger[aria-disabled="true"] {
+        cursor: not-allowed;
+        color: var(--color-disabled-fg);
+        background-color: var(--color-disabled-bg);
+        border-color: var(--color-disabled-border);
+        box-shadow: none;
+        text-shadow: none;
+        transform: none;
+        filter: none;
+        opacity: var(--opacity-disabled);
+    }
+
+    .dropdown-trigger-disabled:hover,
+    .dropdown-trigger-disabled:active,
+    .dropdown-trigger-disabled:focus,
+    .dropdown-trigger-disabled:focus-visible,
+    .dropdown-trigger:disabled:hover,
+    .dropdown-trigger:disabled:active,
+    .dropdown-trigger:disabled:focus,
+    .dropdown-trigger:disabled:focus-visible,
+    .dropdown-trigger[aria-disabled="true"]:hover,
+    .dropdown-trigger[aria-disabled="true"]:active,
+    .dropdown-trigger[aria-disabled="true"]:focus,
+    .dropdown-trigger[aria-disabled="true"]:focus-visible {
+        color: var(--color-disabled-fg);
+        background-color: var(--color-disabled-bg);
+        border-color: var(--color-disabled-border);
+        box-shadow: none;
+        outline: none;
+        transform: none;
+        filter: none;
+    }
 }

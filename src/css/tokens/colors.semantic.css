@@ -61,6 +61,13 @@
     --color-border-strong: var(--neutral-300);
     --color-border-muted: var(--neutral-100);
 
+    /* Disabled */
+    --color-disabled-bg: color-mix(in oklab, var(--color-base-content) 10%, var(--color-base-100));
+    --color-disabled-fg: var(--color-base-content-muted);
+    --color-disabled-border: color-mix(in oklab, var(--color-base-content) 20%, transparent);
+    --color-disabled-border-strong: color-mix(in oklab, var(--color-base-content) 24%, transparent);
+    --opacity-disabled: 0.72;
+
     /* Chart data colors (para Tailwind, mismos defaults que light) */
     --color-data-1: #2e435f;
     --color-data-2: #688ae8;
@@ -143,6 +150,13 @@
     --color-border-subtle: var(--neutral-700);
     --color-border-strong: var(--neutral-600);
     --color-border-muted: var(--neutral-800);
+
+    /* Disabled */
+    --color-disabled-bg: color-mix(in oklab, var(--color-base-content) 10%, var(--color-base-100));
+    --color-disabled-fg: var(--color-base-content-muted);
+    --color-disabled-border: color-mix(in oklab, var(--color-base-content) 20%, transparent);
+    --color-disabled-border-strong: color-mix(in oklab, var(--color-base-content) 24%, transparent);
+    --opacity-disabled: 0.72;
 
     /* Chart data colors for dark theme */
     --color-data-1: #59bba1;

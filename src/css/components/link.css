@@ -101,15 +101,31 @@
    ============================================================ */
 
     .link-disabled {
-        color: var(--color-base-content-subtle);
+        color: var(--color-disabled-fg);
         cursor: not-allowed;
         pointer-events: none;
+        opacity: var(--opacity-disabled);
+        text-decoration: none;
     }
 
-    .link[aria-disabled="true"],
-    .link[disabled] {
-        color: var(--color-base-content-subtle);
+    .link[aria-disabled="true"] {
+        color: var(--color-disabled-fg);
         cursor: not-allowed;
         pointer-events: none;
+        opacity: var(--opacity-disabled);
+        text-decoration: none;
+    }
+
+    .link-disabled:hover,
+    .link-disabled:active,
+    .link-disabled:focus,
+    .link-disabled:focus-visible,
+    .link[aria-disabled="true"]:hover,
+    .link[aria-disabled="true"]:active,
+    .link[aria-disabled="true"]:focus,
+    .link[aria-disabled="true"]:focus-visible {
+        color: var(--color-disabled-fg);
+        text-decoration: none;
+        outline: none;
     }
 }

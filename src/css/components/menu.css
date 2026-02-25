@@ -72,14 +72,38 @@
    ------------------------------ */
 
     .menu-item-disabled {
-        @apply cursor-not-allowed pointer-events-none;
-        color: var(--menu-item-fg-muted);
+        @apply cursor-not-allowed;
+        color: var(--color-disabled-fg);
+        background-color: var(--color-disabled-bg);
+        box-shadow: none;
+        opacity: var(--opacity-disabled);
     }
 
     .menu-item:disabled,
     .menu-item[aria-disabled="true"] {
-        @apply cursor-not-allowed pointer-events-none;
-        color: var(--menu-item-fg-muted);
+        @apply cursor-not-allowed;
+        color: var(--color-disabled-fg);
+        background-color: var(--color-disabled-bg);
+        box-shadow: none;
+        opacity: var(--opacity-disabled);
+    }
+
+    .menu-item-disabled:hover,
+    .menu-item-disabled:active,
+    .menu-item-disabled:focus,
+    .menu-item-disabled:focus-visible,
+    .menu-item:disabled:hover,
+    .menu-item:disabled:active,
+    .menu-item:disabled:focus,
+    .menu-item:disabled:focus-visible,
+    .menu-item[aria-disabled="true"]:hover,
+    .menu-item[aria-disabled="true"]:active,
+    .menu-item[aria-disabled="true"]:focus,
+    .menu-item[aria-disabled="true"]:focus-visible {
+        color: var(--color-disabled-fg);
+        background-color: var(--color-disabled-bg);
+        box-shadow: none;
+        outline: none;
     }
 
     /* ------------------------------

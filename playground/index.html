@@ -972,6 +972,14 @@
                             </select>
                         </div>
                         <div class="component-column">
+                            <span class="component-label"><code>textarea.textarea</code></span>
+                            <textarea class="textarea" placeholder="Textarea placeholder"></textarea>
+                        </div>
+                        <div class="component-column">
+                            <span class="component-label"><code>textarea.textarea[disabled]</code></span>
+                            <textarea class="textarea" disabled placeholder="Disabled textarea"></textarea>
+                        </div>
+                        <div class="component-column">
                             <span class="component-label"><code>input.checkbox</code></span>
                             <label style="display: inline-flex; align-items: center; gap: 0.4rem">
                                 <input type="checkbox" class="checkbox" />
@@ -1341,6 +1349,21 @@
                             <div class="dropdown">
                                 <button type="button" class="dropdown-trigger" aria-expanded="true" data-state="open">
                                     <span class="dropdown-label">Settings</span>
+                                    <span class="dropdown-chevron" aria-hidden="true">▾</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="component-column">
+                            <span class="component-label"><code>.dropdown-trigger.dropdown-trigger-disabled</code></span>
+                            <div class="dropdown">
+                                <button
+                                    type="button"
+                                    class="dropdown-trigger dropdown-trigger-disabled"
+                                    aria-disabled="true"
+                                    tabindex="-1"
+                                >
+                                    <span class="dropdown-label">Disabled trigger</span>
                                     <span class="dropdown-chevron" aria-hidden="true">▾</span>
                                 </button>
                             </div>
@@ -2418,6 +2441,12 @@
                                         <button class="dropdown-item" type="button">Hover me</button>
                                         <button class="dropdown-item" type="button">Tab to focus</button>
                                         <button class="dropdown-item" type="button">Another option</button>
+                                        <button class="dropdown-item dropdown-item-disabled" type="button" aria-disabled="true">
+                                            Disabled item (class)
+                                        </button>
+                                        <button class="dropdown-item" type="button" aria-disabled="true">
+                                            Disabled item (aria)
+                                        </button>
                                     </div>
 
                                     <p style="margin: 0.75rem 0 0; opacity: 0.7; font-size: 0.75rem">

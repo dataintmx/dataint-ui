@@ -129,4 +129,30 @@
         outline: var(--outline-1);
         outline-offset: var(--outline-offset-2);
     }
+
+    .dropdown-item-disabled,
+    .dropdown-item:disabled,
+    .dropdown-item[aria-disabled="true"] {
+        cursor: not-allowed;
+        color: var(--color-disabled-fg);
+        background-color: var(--color-disabled-bg);
+        opacity: var(--opacity-disabled);
+    }
+
+    .dropdown-item-disabled:hover,
+    .dropdown-item-disabled:active,
+    .dropdown-item-disabled:focus,
+    .dropdown-item-disabled:focus-visible,
+    .dropdown-item:disabled:hover,
+    .dropdown-item:disabled:active,
+    .dropdown-item:disabled:focus,
+    .dropdown-item:disabled:focus-visible,
+    .dropdown-item[aria-disabled="true"]:hover,
+    .dropdown-item[aria-disabled="true"]:active,
+    .dropdown-item[aria-disabled="true"]:focus,
+    .dropdown-item[aria-disabled="true"]:focus-visible {
+        color: var(--color-disabled-fg);
+        background-color: var(--color-disabled-bg);
+        outline: none;
+    }
 }

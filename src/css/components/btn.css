@@ -474,14 +474,14 @@
     .btn[aria-disabled="true"] {
         cursor: not-allowed;
         pointer-events: none;
-        background-color: color-mix(in oklab, var(--color-base-content) 10%, var(--color-base-100));
-        color: var(--color-base-content-muted);
-        border-color: color-mix(in oklab, var(--color-base-content) 20%, transparent);
+        background-color: var(--color-disabled-bg);
+        color: var(--color-disabled-fg);
+        border-color: var(--color-disabled-border);
         box-shadow: none;
         text-shadow: none;
         transform: none;
         filter: none;
-        opacity: 0.72;
+        opacity: var(--opacity-disabled);
     }
 
     .btn.btn-outlined.btn-disabled,
@@ -489,7 +489,7 @@
     .btn.btn-outlined[aria-disabled="true"] {
         background-color: transparent;
         border-style: solid;
-        border-color: color-mix(in oklab, var(--color-base-content) 24%, transparent);
+        border-color: var(--color-disabled-border-strong);
     }
 
     .btn.btn-disabled:hover,
@@ -504,9 +504,9 @@
     .btn[aria-disabled="true"]:active,
     .btn[aria-disabled="true"]:focus-visible,
     .btn[aria-disabled="true"]:has(:focus-visible) {
-        background-color: color-mix(in oklab, var(--color-base-content) 10%, var(--color-base-100));
-        color: var(--color-base-content-muted);
-        border-color: color-mix(in oklab, var(--color-base-content) 20%, transparent);
+        background-color: var(--color-disabled-bg);
+        color: var(--color-disabled-fg);
+        border-color: var(--color-disabled-border);
         box-shadow: none;
         text-shadow: none;
         outline: none;
@@ -527,6 +527,6 @@
     .btn.btn-outlined[aria-disabled="true"]:focus-visible,
     .btn.btn-outlined[aria-disabled="true"]:has(:focus-visible) {
         background-color: transparent;
-        border-color: color-mix(in oklab, var(--color-base-content) 24%, transparent);
+        border-color: var(--color-disabled-border-strong);
     }
 }
