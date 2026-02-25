@@ -1,200 +1,202 @@
-/* ======================================================================
+@layer components {
+    /* ======================================================================
    ALERT — Feedback & System State (DataInt UI)
    Shared API: intent, variant, size, icon, dismissible
    ====================================================================== */
 
-/* ------------------------------
+    /* ------------------------------
    Base alert
    ------------------------------ */
-@utility alert {
-    @apply relative w-full flex items-start;
+    .alert {
+        @apply relative w-full flex items-start;
 
-    /* Intent defaults (neutral) */
-    --alert-intent: var(--color-neutral);
-    --alert-intent-content: var(--color-neutral-content);
+        /* Intent defaults (neutral) */
+        --alert-intent: var(--color-neutral);
+        --alert-intent-content: var(--color-neutral-content);
 
-    /* Default variant (solid) */
-    --alert-bg: var(--alert-intent);
-    --alert-border: transparent;
-    --alert-fg: var(--alert-intent-content);
-    --alert-icon-color: currentColor;
-    --alert-border-width: 0px;
-    --alert-shadow: var(--elevation-1-default);
+        /* Default variant (solid) */
+        --alert-bg: var(--alert-intent);
+        --alert-border: transparent;
+        --alert-fg: var(--alert-intent-content);
+        --alert-icon-color: currentColor;
+        --alert-border-width: 0px;
+        --alert-shadow: var(--elevation-1-default);
 
-    /* Size defaults */
-    --alert-px: var(--space-md);
-    --alert-py: var(--space-sm);
-    --alert-radius: var(--radius-field);
-    --alert-gap: var(--space-sm);
-    --alert-font-size: 0.875rem;
-    --alert-line-height: 1.25rem;
+        /* Size defaults */
+        --alert-px: var(--space-md);
+        --alert-py: var(--space-sm);
+        --alert-radius: var(--radius-field);
+        --alert-gap: var(--space-sm);
+        --alert-font-size: 0.875rem;
+        --alert-line-height: 1.25rem;
 
-    @apply gap-3;
-    gap: var(--alert-gap);
-    padding: var(--alert-py) var(--alert-px);
+        @apply gap-3;
+        gap: var(--alert-gap);
+        padding: var(--alert-py) var(--alert-px);
 
-    background-color: var(--alert-bg);
-    border-width: var(--alert-border-width);
-    border-style: var(--border-style-base);
-    border-color: var(--alert-border);
-    border-radius: var(--alert-radius);
+        background-color: var(--alert-bg);
+        border-width: var(--alert-border-width);
+        border-style: var(--border-style-base);
+        border-color: var(--alert-border);
+        border-radius: var(--alert-radius);
 
-    color: var(--alert-fg);
-    box-shadow: var(--alert-shadow);
+        color: var(--alert-fg);
+        box-shadow: var(--alert-shadow);
 
-    font-size: var(--alert-font-size);
-    line-height: var(--alert-line-height);
-}
+        font-size: var(--alert-font-size);
+        line-height: var(--alert-line-height);
+    }
 
-/* ------------------------------
+    /* ------------------------------
    Slots
    ------------------------------ */
 
-@utility alert-icon {
-    @apply shrink-0 w-5 h-5 opacity-90;
-    color: var(--alert-icon-color);
-}
+    .alert-icon {
+        @apply shrink-0 w-5 h-5 opacity-90;
+        color: var(--alert-icon-color);
+    }
 
-@utility alert-content {
-    @apply min-w-0 flex-1;
-}
+    .alert-content {
+        @apply min-w-0 flex-1;
+    }
 
-@utility alert-title {
-    @apply font-semibold;
-}
+    .alert-title {
+        @apply font-semibold;
+    }
 
-@utility alert-message {
-    @apply text-pretty;
-}
+    .alert-message {
+        @apply text-pretty;
+    }
 
-@utility alert-dismiss {
-    @apply shrink-0 inline-flex items-center justify-center;
-    @apply w-8 h-8 rounded-md opacity-90;
-    @apply transition-colors duration-150 ease-in-out;
+    .alert-dismiss {
+        @apply shrink-0 inline-flex items-center justify-center;
+        @apply w-8 h-8 rounded-md opacity-90;
+        @apply transition-colors duration-150 ease-in-out;
 
-    color: currentColor;
-}
+        color: currentColor;
+    }
 
-.alert-dismiss:hover {
-    @apply cursor-pointer;
-    background-color: var(--color-base-300);
-}
+    .alert-dismiss:hover {
+        @apply cursor-pointer;
+        background-color: var(--color-base-300);
+    }
 
-.alert-dismiss:focus-visible {
-    outline: var(--outline-1);
-    outline-offset: var(--outline-offset-2);
-}
+    .alert-dismiss:focus-visible {
+        outline: var(--outline-1);
+        outline-offset: var(--outline-offset-2);
+    }
 
-/* ------------------------------
+    /* ------------------------------
    Shared API — intent
    Sets accent + content. Subtle variant derives bg/border from it.
    ------------------------------ */
 
-.alert-neutral {
-    --alert-intent: var(--color-neutral);
-    --alert-intent-content: var(--color-neutral-content);
-}
+    .alert-neutral {
+        --alert-intent: var(--color-neutral);
+        --alert-intent-content: var(--color-neutral-content);
+    }
 
-.alert-info {
-    --alert-intent: var(--color-info);
-    --alert-intent-content: var(--color-info-content);
-}
+    .alert-info {
+        --alert-intent: var(--color-info);
+        --alert-intent-content: var(--color-info-content);
+    }
 
-.alert-success {
-    --alert-intent: var(--color-success);
-    --alert-intent-content: var(--color-success-content);
-}
+    .alert-success {
+        --alert-intent: var(--color-success);
+        --alert-intent-content: var(--color-success-content);
+    }
 
-.alert-warning {
-    --alert-intent: var(--color-warning);
-    --alert-intent-content: var(--color-warning-content);
-}
+    .alert-warning {
+        --alert-intent: var(--color-warning);
+        --alert-intent-content: var(--color-warning-content);
+    }
 
-.alert-error {
-    --alert-intent: var(--color-error);
-    --alert-intent-content: var(--color-error-content);
-}
+    .alert-error {
+        --alert-intent: var(--color-error);
+        --alert-intent-content: var(--color-error-content);
+    }
 
-.alert-primary {
-    --alert-intent: var(--color-primary);
-    --alert-intent-content: var(--color-primary-content);
-}
+    .alert-primary {
+        --alert-intent: var(--color-primary);
+        --alert-intent-content: var(--color-primary-content);
+    }
 
-.alert-secondary {
-    --alert-intent: var(--color-secondary);
-    --alert-intent-content: var(--color-secondary-content);
-}
+    .alert-secondary {
+        --alert-intent: var(--color-secondary);
+        --alert-intent-content: var(--color-secondary-content);
+    }
 
-.alert-accent {
-    --alert-intent: var(--color-accent);
-    --alert-intent-content: var(--color-accent-content);
-}
+    .alert-accent {
+        --alert-intent: var(--color-accent);
+        --alert-intent-content: var(--color-accent-content);
+    }
 
-/* ------------------------------
+    /* ------------------------------
    Shared API — variant (visual weight)
    - solid: full accent fill + accent-content text
    - outlined: transparent surface + accent border + colored icon
    - soft: medium-emphasis, subtle background with visible border, intent-colored text
    ------------------------------ */
 
-.alert-solid {
-    --alert-bg: var(--alert-intent);
-    --alert-border-width: 0px;
-    --alert-fg: var(--alert-intent-content);
-    --alert-icon-color: currentColor;
-    --alert-shadow: var(--elevation-1-default);
-}
+    .alert-solid {
+        --alert-bg: var(--alert-intent);
+        --alert-border-width: 0px;
+        --alert-fg: var(--alert-intent-content);
+        --alert-icon-color: currentColor;
+        --alert-shadow: var(--elevation-1-default);
+    }
 
-.alert-outlined {
-    --alert-bg: transparent;
-    --alert-border-width: var(--border-width-base);
-    --alert-border: color-mix(in oklab, var(--alert-intent) 55%, var(--color-border-subtle));
-    --alert-fg: var(--color-base-content);
-    --alert-icon-color: var(--alert-intent);
-    --alert-shadow: none;
-}
+    .alert-outlined {
+        --alert-bg: transparent;
+        --alert-border-width: var(--border-width-base);
+        --alert-border: color-mix(in oklab, var(--alert-intent) 55%, var(--color-border-subtle));
+        --alert-fg: var(--color-base-content);
+        --alert-icon-color: var(--alert-intent);
+        --alert-shadow: none;
+    }
 
-.alert-soft {
-    --alert-bg: color-mix(in oklab, var(--alert-intent) 20%, var(--color-base-100));
-    --alert-border-width: var(--border-width-base);
-    --alert-border: color-mix(in oklab, var(--alert-intent) 50%, var(--color-border-subtle));
-    --alert-fg: var(--color-base-content);
-    --alert-icon-color: var(--alert-intent);
-    --alert-shadow: none;
-}
+    .alert-soft {
+        --alert-bg: color-mix(in oklab, var(--alert-intent) 20%, var(--color-base-100));
+        --alert-border-width: var(--border-width-base);
+        --alert-border: color-mix(in oklab, var(--alert-intent) 50%, var(--color-border-subtle));
+        --alert-fg: var(--color-base-content);
+        --alert-icon-color: var(--alert-intent);
+        --alert-shadow: none;
+    }
 
-/* ------------------------------
+    /* ------------------------------
    Shared API — size
    ------------------------------ */
 
-.alert-xs {
-    --alert-px: var(--space-xs);
-    --alert-py: var(--space-2xs);
-    --alert-gap: var(--space-2xs);
-    --alert-font-size: 0.6875rem;
-    --alert-line-height: 1.125rem;
-}
+    .alert-xs {
+        --alert-px: var(--space-xs);
+        --alert-py: var(--space-2xs);
+        --alert-gap: var(--space-2xs);
+        --alert-font-size: 0.6875rem;
+        --alert-line-height: 1.125rem;
+    }
 
-.alert-sm {
-    --alert-px: var(--space-sm);
-    --alert-py: var(--space-xs);
-    --alert-gap: var(--space-xs);
-    --alert-font-size: 0.8125rem;
-    --alert-line-height: 1.125rem;
-}
+    .alert-sm {
+        --alert-px: var(--space-sm);
+        --alert-py: var(--space-xs);
+        --alert-gap: var(--space-xs);
+        --alert-font-size: 0.8125rem;
+        --alert-line-height: 1.125rem;
+    }
 
-.alert-lg {
-    --alert-px: var(--space-lg);
-    --alert-py: var(--space-md);
-    --alert-gap: var(--space-md);
-    --alert-font-size: 1rem;
-    --alert-line-height: 1.5rem;
-}
+    .alert-lg {
+        --alert-px: var(--space-lg);
+        --alert-py: var(--space-md);
+        --alert-gap: var(--space-md);
+        --alert-font-size: 1rem;
+        --alert-line-height: 1.5rem;
+    }
 
-.alert-xl {
-    --alert-px: var(--space-xl);
-    --alert-py: var(--space-lg);
-    --alert-gap: var(--space-lg);
-    --alert-font-size: 1.125rem;
-    --alert-line-height: 1.75rem;
+    .alert-xl {
+        --alert-px: var(--space-xl);
+        --alert-py: var(--space-lg);
+        --alert-gap: var(--space-lg);
+        --alert-font-size: 1.125rem;
+        --alert-line-height: 1.75rem;
+    }
 }
