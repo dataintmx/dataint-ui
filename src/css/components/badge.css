@@ -16,6 +16,9 @@
         /* Shared API defaults */
         --badge-intent: var(--color-neutral);
         --badge-intent-content: var(--color-neutral-content);
+        --badge-intent-soft: var(--color-neutral-soft);
+        --badge-intent-soft-border: var(--color-neutral-soft-border);
+        --badge-intent-outline-border: var(--color-neutral-outline-border);
 
         /* Default variant (solid) */
         --badge-bg: var(--badge-intent);
@@ -80,41 +83,65 @@
     .badge-neutral {
         --badge-intent: var(--color-neutral);
         --badge-intent-content: var(--color-neutral-content);
+        --badge-intent-soft: var(--color-neutral-soft);
+        --badge-intent-soft-border: var(--color-neutral-soft-border);
+        --badge-intent-outline-border: var(--color-neutral-outline-border);
     }
 
     .badge-info {
         --badge-intent: var(--color-info);
         --badge-intent-content: var(--color-info-content);
+        --badge-intent-soft: var(--color-info-soft);
+        --badge-intent-soft-border: var(--color-info-soft-border);
+        --badge-intent-outline-border: var(--color-info-outline-border);
     }
 
     .badge-success {
         --badge-intent: var(--color-success);
         --badge-intent-content: var(--color-success-content);
+        --badge-intent-soft: var(--color-success-soft);
+        --badge-intent-soft-border: var(--color-success-soft-border);
+        --badge-intent-outline-border: var(--color-success-outline-border);
     }
 
     .badge-warning {
         --badge-intent: var(--color-warning);
         --badge-intent-content: var(--color-warning-content);
+        --badge-intent-soft: var(--color-warning-soft);
+        --badge-intent-soft-border: var(--color-warning-soft-border);
+        --badge-intent-outline-border: var(--color-warning-outline-border);
     }
 
     .badge-error {
         --badge-intent: var(--color-error);
         --badge-intent-content: var(--color-error-content);
+        --badge-intent-soft: var(--color-error-soft);
+        --badge-intent-soft-border: var(--color-error-soft-border);
+        --badge-intent-outline-border: var(--color-error-outline-border);
     }
 
     .badge-primary {
         --badge-intent: var(--color-primary);
         --badge-intent-content: var(--color-primary-content);
+        --badge-intent-soft: var(--color-primary-soft);
+        --badge-intent-soft-border: var(--color-primary-soft-border);
+        --badge-intent-outline-border: var(--color-primary-outline-border);
     }
 
     .badge-secondary {
         --badge-intent: var(--color-secondary);
         --badge-intent-content: var(--color-secondary-content);
+        --badge-intent-soft: var(--color-secondary-soft);
+        --badge-intent-soft-border: var(--color-secondary-soft-border);
+        --badge-intent-outline-border: var(--color-secondary-outline-border);
     }
 
     .badge-accent {
         --badge-intent: var(--color-accent);
         --badge-intent-content: var(--color-accent-content);
+        --badge-intent-soft: var(--color-accent-soft);
+        --badge-intent-soft-border: var(--color-accent-soft-border);
+        --badge-intent-outline-border: var(--color-accent-outline-border);
     }
 
     /* ------------------------------
@@ -129,15 +156,15 @@
 
     .badge-outlined {
         --badge-bg: transparent;
-        --badge-border: color-mix(in oklab, var(--badge-intent) 55%, var(--color-border-subtle));
+        --badge-border: var(--badge-intent-outline-border);
         --badge-fg: var(--color-base-content);
         --badge-border-width: var(--border-width-base);
     }
 
     /* Soft: medium-emphasis, subtle background with visible border, intent-colored text */
     .badge-soft {
-        --badge-bg: color-mix(in oklab, var(--badge-intent) 20%, var(--color-base-100));
-        --badge-border: color-mix(in oklab, var(--badge-intent) 50%, var(--color-border-subtle));
+        --badge-bg: var(--badge-intent-soft);
+        --badge-border: var(--badge-intent-soft-border);
         --badge-fg: var(--badge-intent);
         --badge-border-width: var(--border-width-base);
     }

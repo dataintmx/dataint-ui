@@ -122,7 +122,24 @@
    ------------------------------ */
 
     .dropdown-item:hover {
+        background-color: var(--color-base-300);
+    }
+
+    .dropdown-item.is-active,
+    .dropdown-item[aria-current="page"],
+    .dropdown-item[aria-current="true"],
+    .dropdown-item[data-state="active"] {
+        @apply font-semibold;
         background-color: var(--color-base-200);
+        box-shadow: var(--elevation-1-default);
+    }
+
+    .dropdown-item.is-active:hover,
+    .dropdown-item[aria-current="page"]:hover,
+    .dropdown-item[aria-current="true"]:hover,
+    .dropdown-item[data-state="active"]:hover {
+        background-color: var(--color-base-300);
+        box-shadow: var(--elevation-1-default);
     }
 
     .dropdown-item:focus {
