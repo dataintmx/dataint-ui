@@ -22,7 +22,7 @@
         background-color: var(--color-base-200);
         color: var(--color-base-content);
         box-shadow: var(--elevation-1-shadow);
-        text-shadow: oklch(1 0 0 / 0.15) 0px 0.5px 0px;
+        text-shadow: none;
         transition-property: color, background-color, border-color, box-shadow;
         outline-offset: var(--outline-offset-2);
     }
@@ -151,57 +151,89 @@
 
     /* Soft intents */
     .btn-soft.btn-neutral {
-        background-color: var(--color-base-200);
+        background-color: var(--color-neutral-soft);
         color: var(--color-base-content);
-        border-color: var(--color-border-strong);
+        border-color: var(--color-neutral-soft-border);
     }
     .btn-soft.btn-primary {
-        background-color: color-mix(in oklab, var(--color-primary) 10%, var(--color-base-100));
+        background-color: var(--color-primary-soft);
         color: var(--color-primary);
-        border-color: color-mix(in oklab, var(--color-primary) 30%, var(--color-border-subtle));
+        border-color: var(--color-primary-soft-border);
     }
     .btn-soft.btn-secondary {
-        background-color: color-mix(in oklab, var(--color-secondary) 10%, var(--color-base-100));
+        background-color: var(--color-secondary-soft);
         color: var(--color-secondary);
-        border-color: color-mix(in oklab, var(--color-secondary) 30%, var(--color-border-subtle));
+        border-color: var(--color-secondary-soft-border);
     }
     .btn-soft.btn-accent {
-        background-color: color-mix(in oklab, var(--color-accent) 10%, var(--color-base-100));
+        background-color: var(--color-accent-soft);
         color: var(--color-accent);
-        border-color: color-mix(in oklab, var(--color-accent) 30%, var(--color-border-subtle));
+        border-color: var(--color-accent-soft-border);
     }
     .btn-soft.btn-info {
-        background-color: color-mix(in oklab, var(--color-info) 10%, var(--color-base-100));
+        background-color: var(--color-info-soft);
         color: var(--color-info);
-        border-color: color-mix(in oklab, var(--color-info) 30%, var(--color-border-subtle));
+        border-color: var(--color-info-soft-border);
     }
     .btn-soft.btn-success {
-        background-color: color-mix(in oklab, var(--color-success) 10%, var(--color-base-100));
+        background-color: var(--color-success-soft);
         color: var(--color-success);
-        border-color: color-mix(in oklab, var(--color-success) 30%, var(--color-border-subtle));
+        border-color: var(--color-success-soft-border);
     }
     .btn-soft.btn-warning {
-        background-color: color-mix(in oklab, var(--color-warning) 10%, var(--color-base-100));
+        background-color: var(--color-warning-soft);
         color: var(--color-warning);
-        border-color: color-mix(in oklab, var(--color-warning) 30%, var(--color-border-subtle));
+        border-color: var(--color-warning-soft-border);
     }
     .btn-soft.btn-error {
-        background-color: color-mix(in oklab, var(--color-error) 10%, var(--color-base-100));
+        background-color: var(--color-error-soft);
         color: var(--color-error);
-        border-color: color-mix(in oklab, var(--color-error) 30%, var(--color-border-subtle));
+        border-color: var(--color-error-soft-border);
     }
 
     /* Soft hover/active/focus states */
     .btn-soft:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
-        background-color: var(--color-base-200);
-        filter: brightness(0.98);
+        background-color: var(--color-base-300);
     }
-    .btn-soft:active:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
-        filter: brightness(0.95);
+    .btn-soft.btn-neutral:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+        background-color: var(--color-neutral-hover);
+        border-color: var(--color-neutral-hover);
+        color: var(--color-neutral-content);
     }
-    .btn-soft:focus-visible:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
-        outline: 2px solid currentColor;
-        outline-offset: 2px;
+    .btn-soft.btn-primary:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+        background-color: var(--color-primary-hover);
+        border-color: var(--color-primary-hover);
+        color: var(--color-primary-content);
+    }
+    .btn-soft.btn-secondary:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+        background-color: var(--color-secondary-hover);
+        border-color: var(--color-secondary-hover);
+        color: var(--color-secondary-content);
+    }
+    .btn-soft.btn-accent:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+        background-color: var(--color-accent-hover);
+        border-color: var(--color-accent-hover);
+        color: var(--color-accent-content);
+    }
+    .btn-soft.btn-info:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+        background-color: var(--color-info-hover);
+        border-color: var(--color-info-hover);
+        color: var(--color-info-content);
+    }
+    .btn-soft.btn-success:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+        background-color: var(--color-success-hover);
+        border-color: var(--color-success-hover);
+        color: var(--color-success-content);
+    }
+    .btn-soft.btn-warning:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+        background-color: var(--color-warning-hover);
+        border-color: var(--color-warning-hover);
+        color: var(--color-warning-content);
+    }
+    .btn-soft.btn-error:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+        background-color: var(--color-error-hover);
+        border-color: var(--color-error-hover);
+        color: var(--color-error-content);
     }
 
     /* outlined + intent colors */
@@ -252,81 +284,81 @@
     .btn-outlined:active:not(.btn-disabled, [disabled], [aria-disabled="true"]),
     .btn-outlined:focus-visible:not(.btn-disabled, [disabled], [aria-disabled="true"]),
     .btn-outlined:has(:focus-visible):not(.btn-disabled, [disabled], [aria-disabled="true"]) {
-        background-color: var(--color-neutral);
-        color: var(--color-neutral-content);
-        border-color: var(--color-neutral);
+        background-color: var(--color-base-300);
+        color: var(--color-base-content);
+        border-color: var(--color-border-strong);
     }
 
     .btn-outlined.btn-neutral:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]),
     .btn-outlined.btn-neutral:active:not(.btn-disabled, [disabled], [aria-disabled="true"]),
     .btn-outlined.btn-neutral:focus-visible:not(.btn-disabled, [disabled], [aria-disabled="true"]),
     .btn-outlined.btn-neutral:has(:focus-visible):not(.btn-disabled, [disabled], [aria-disabled="true"]) {
-        background-color: var(--color-neutral);
+        background-color: var(--color-neutral-hover);
         color: var(--color-neutral-content);
-        border-color: var(--color-neutral);
+        border-color: var(--color-neutral-hover);
     }
 
     .btn-outlined.btn-primary:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]),
     .btn-outlined.btn-primary:active:not(.btn-disabled, [disabled], [aria-disabled="true"]),
     .btn-outlined.btn-primary:focus-visible:not(.btn-disabled, [disabled], [aria-disabled="true"]),
     .btn-outlined.btn-primary:has(:focus-visible):not(.btn-disabled, [disabled], [aria-disabled="true"]) {
-        background-color: var(--color-primary);
+        background-color: var(--color-primary-hover);
         color: var(--color-primary-content);
-        border-color: var(--color-primary);
+        border-color: var(--color-primary-hover);
     }
 
     .btn-outlined.btn-secondary:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]),
     .btn-outlined.btn-secondary:active:not(.btn-disabled, [disabled], [aria-disabled="true"]),
     .btn-outlined.btn-secondary:focus-visible:not(.btn-disabled, [disabled], [aria-disabled="true"]),
     .btn-outlined.btn-secondary:has(:focus-visible):not(.btn-disabled, [disabled], [aria-disabled="true"]) {
-        background-color: var(--color-secondary);
+        background-color: var(--color-secondary-hover);
         color: var(--color-secondary-content);
-        border-color: var(--color-secondary);
+        border-color: var(--color-secondary-hover);
     }
 
     .btn-outlined.btn-accent:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]),
     .btn-outlined.btn-accent:active:not(.btn-disabled, [disabled], [aria-disabled="true"]),
     .btn-outlined.btn-accent:focus-visible:not(.btn-disabled, [disabled], [aria-disabled="true"]),
     .btn-outlined.btn-accent:has(:focus-visible):not(.btn-disabled, [disabled], [aria-disabled="true"]) {
-        background-color: var(--color-accent);
+        background-color: var(--color-accent-hover);
         color: var(--color-accent-content);
-        border-color: var(--color-accent);
+        border-color: var(--color-accent-hover);
     }
 
     .btn-outlined.btn-info:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]),
     .btn-outlined.btn-info:active:not(.btn-disabled, [disabled], [aria-disabled="true"]),
     .btn-outlined.btn-info:focus-visible:not(.btn-disabled, [disabled], [aria-disabled="true"]),
     .btn-outlined.btn-info:has(:focus-visible):not(.btn-disabled, [disabled], [aria-disabled="true"]) {
-        background-color: var(--color-info);
+        background-color: var(--color-info-hover);
         color: var(--color-info-content);
-        border-color: var(--color-info);
+        border-color: var(--color-info-hover);
     }
 
     .btn-outlined.btn-success:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]),
     .btn-outlined.btn-success:active:not(.btn-disabled, [disabled], [aria-disabled="true"]),
     .btn-outlined.btn-success:focus-visible:not(.btn-disabled, [disabled], [aria-disabled="true"]),
     .btn-outlined.btn-success:has(:focus-visible):not(.btn-disabled, [disabled], [aria-disabled="true"]) {
-        background-color: var(--color-success);
+        background-color: var(--color-success-hover);
         color: var(--color-success-content);
-        border-color: var(--color-success);
+        border-color: var(--color-success-hover);
     }
 
     .btn-outlined.btn-warning:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]),
     .btn-outlined.btn-warning:active:not(.btn-disabled, [disabled], [aria-disabled="true"]),
     .btn-outlined.btn-warning:focus-visible:not(.btn-disabled, [disabled], [aria-disabled="true"]),
     .btn-outlined.btn-warning:has(:focus-visible):not(.btn-disabled, [disabled], [aria-disabled="true"]) {
-        background-color: var(--color-warning);
+        background-color: var(--color-warning-hover);
         color: var(--color-warning-content);
-        border-color: var(--color-warning);
+        border-color: var(--color-warning-hover);
     }
 
     .btn-outlined.btn-error:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]),
     .btn-outlined.btn-error:active:not(.btn-disabled, [disabled], [aria-disabled="true"]),
     .btn-outlined.btn-error:focus-visible:not(.btn-disabled, [disabled], [aria-disabled="true"]),
     .btn-outlined.btn-error:has(:focus-visible):not(.btn-disabled, [disabled], [aria-disabled="true"]) {
-        background-color: var(--color-error);
+        background-color: var(--color-error-hover);
         color: var(--color-error-content);
-        border-color: var(--color-error);
+        border-color: var(--color-error-hover);
     }
 
     /* Ghost: sin borde ni fondo, sólo texto con color de intención */
@@ -383,33 +415,47 @@
     /* Hover ghost: superficie sutil para evitar parecer igual al solid */
     .btn-ghost:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
         background-color: var(--color-base-300);
-        border-width: 1px;
-        border-style: solid;
     }
     /* Ghost hover por intent: color de borde igual al color de texto */
     .btn-ghost.btn-neutral:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
-        border-color: var(--color-neutral);
+        background-color: var(--color-neutral-hover);
+        color: var(--color-neutral-content);
+        border-color: var(--color-neutral-hover);
     }
     .btn-ghost.btn-primary:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
-        border-color: var(--color-primary);
+        background-color: var(--color-primary-hover);
+        color: var(--color-primary-content);
+        border-color: var(--color-primary-hover);
     }
     .btn-ghost.btn-secondary:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
-        border-color: var(--color-secondary);
+        background-color: var(--color-secondary-hover);
+        color: var(--color-secondary-content);
+        border-color: var(--color-secondary-hover);
     }
     .btn-ghost.btn-accent:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
-        border-color: var(--color-accent);
+        background-color: var(--color-accent-hover);
+        color: var(--color-accent-content);
+        border-color: var(--color-accent-hover);
     }
     .btn-ghost.btn-info:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
-        border-color: var(--color-info);
+        background-color: var(--color-info-hover);
+        color: var(--color-info-content);
+        border-color: var(--color-info-hover);
     }
     .btn-ghost.btn-success:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
-        border-color: var(--color-success);
+        background-color: var(--color-success-hover);
+        color: var(--color-success-content);
+        border-color: var(--color-success-hover);
     }
     .btn-ghost.btn-warning:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
-        border-color: var(--color-warning);
+        background-color: var(--color-warning-hover);
+        color: var(--color-warning-content);
+        border-color: var(--color-warning-hover);
     }
     .btn-ghost.btn-error:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
-        border-color: var(--color-error);
+        background-color: var(--color-error-hover);
+        color: var(--color-error-content);
+        border-color: var(--color-error-hover);
     }
 
     /* ======================================================================

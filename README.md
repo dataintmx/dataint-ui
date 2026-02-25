@@ -39,11 +39,17 @@ This package only provides CSS — no JS, no build-time Tailwind config.
 dataint-ui/
 ├─ src/
 │  ├─ css/
-│  │  ├─ tokens.css
 │  │  ├─ base.css
-│  │  ├─ components.css
-│  │  ├─ overlays.css
-│  │  └─ utilities.css
+│  │  ├─ tokens/
+│  │  │  ├─ colors.primitives.css
+│  │  │  └─ colors.semantic.css
+│  │  └─ components/
+│  │     ├─ btn.css
+│  │     ├─ link.css
+│  │     ├─ menu.css
+│  │     ├─ overlay.css
+│  │     ├─ alert.css
+│  │     └─ badge.css
 │  └─ index.css
 ├─ dist/
 │  └─ styles.css
@@ -51,11 +57,20 @@ dataint-ui/
 │  └─ index.html
 ```
 
-- **tokens.css** → `@theme` design tokens (colors, radii, spacing…)
+- **tokens/colors.primitives.css** → primitive scales (raw palettes)
+- **tokens/colors.semantic.css** → semantic/system tokens (base, intents, interaction states)
 - **base.css** → global resets & typography under `@layer base`
-- **components.css** → UI components under `@layer components`
-- **utilities.css** → small helpers under `@layer utilities`
+- **components/** → component styles under `@layer components`
 - **playground/** → manual visual testing
+
+---
+
+## 🎨 Color Token Strategy
+
+- Use **base/structural tokens** (`--color-base-*`, border and outline tokens) for layout hierarchy and neutral surfaces.
+- Use **semantic intent tokens** (`--color-primary|success|warning|error|...`) only when a component expresses semantic meaning.
+- Use semantic **interaction tokens** (`--color-*-hover`, `--color-*-soft`, `--color-*-outline-border`) for consistent hover/soft/outlined behavior across components.
+- Avoid introducing one-off component color formulas when an equivalent semantic token already exists.
 
 ---
 

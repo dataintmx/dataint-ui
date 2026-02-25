@@ -13,6 +13,9 @@
         /* Intent defaults (neutral) */
         --alert-intent: var(--color-neutral);
         --alert-intent-content: var(--color-neutral-content);
+        --alert-intent-soft: var(--color-neutral-soft);
+        --alert-intent-soft-border: var(--color-neutral-soft-border);
+        --alert-intent-outline-border: var(--color-neutral-outline-border);
 
         /* Default variant (solid) */
         --alert-bg: var(--alert-intent);
@@ -94,41 +97,65 @@
     .alert-neutral {
         --alert-intent: var(--color-neutral);
         --alert-intent-content: var(--color-neutral-content);
+        --alert-intent-soft: var(--color-neutral-soft);
+        --alert-intent-soft-border: var(--color-neutral-soft-border);
+        --alert-intent-outline-border: var(--color-neutral-outline-border);
     }
 
     .alert-info {
         --alert-intent: var(--color-info);
         --alert-intent-content: var(--color-info-content);
+        --alert-intent-soft: var(--color-info-soft);
+        --alert-intent-soft-border: var(--color-info-soft-border);
+        --alert-intent-outline-border: var(--color-info-outline-border);
     }
 
     .alert-success {
         --alert-intent: var(--color-success);
         --alert-intent-content: var(--color-success-content);
+        --alert-intent-soft: var(--color-success-soft);
+        --alert-intent-soft-border: var(--color-success-soft-border);
+        --alert-intent-outline-border: var(--color-success-outline-border);
     }
 
     .alert-warning {
         --alert-intent: var(--color-warning);
         --alert-intent-content: var(--color-warning-content);
+        --alert-intent-soft: var(--color-warning-soft);
+        --alert-intent-soft-border: var(--color-warning-soft-border);
+        --alert-intent-outline-border: var(--color-warning-outline-border);
     }
 
     .alert-error {
         --alert-intent: var(--color-error);
         --alert-intent-content: var(--color-error-content);
+        --alert-intent-soft: var(--color-error-soft);
+        --alert-intent-soft-border: var(--color-error-soft-border);
+        --alert-intent-outline-border: var(--color-error-outline-border);
     }
 
     .alert-primary {
         --alert-intent: var(--color-primary);
         --alert-intent-content: var(--color-primary-content);
+        --alert-intent-soft: var(--color-primary-soft);
+        --alert-intent-soft-border: var(--color-primary-soft-border);
+        --alert-intent-outline-border: var(--color-primary-outline-border);
     }
 
     .alert-secondary {
         --alert-intent: var(--color-secondary);
         --alert-intent-content: var(--color-secondary-content);
+        --alert-intent-soft: var(--color-secondary-soft);
+        --alert-intent-soft-border: var(--color-secondary-soft-border);
+        --alert-intent-outline-border: var(--color-secondary-outline-border);
     }
 
     .alert-accent {
         --alert-intent: var(--color-accent);
         --alert-intent-content: var(--color-accent-content);
+        --alert-intent-soft: var(--color-accent-soft);
+        --alert-intent-soft-border: var(--color-accent-soft-border);
+        --alert-intent-outline-border: var(--color-accent-outline-border);
     }
 
     /* ------------------------------
@@ -149,16 +176,16 @@
     .alert-outlined {
         --alert-bg: transparent;
         --alert-border-width: var(--border-width-base);
-        --alert-border: color-mix(in oklab, var(--alert-intent) 55%, var(--color-border-subtle));
+        --alert-border: var(--alert-intent-outline-border);
         --alert-fg: var(--color-base-content);
         --alert-icon-color: var(--alert-intent);
         --alert-shadow: none;
     }
 
     .alert-soft {
-        --alert-bg: color-mix(in oklab, var(--alert-intent) 20%, var(--color-base-100));
+        --alert-bg: var(--alert-intent-soft);
         --alert-border-width: var(--border-width-base);
-        --alert-border: color-mix(in oklab, var(--alert-intent) 50%, var(--color-border-subtle));
+        --alert-border: var(--alert-intent-soft-border);
         --alert-fg: var(--color-base-content);
         --alert-icon-color: var(--alert-intent);
         --alert-shadow: none;
