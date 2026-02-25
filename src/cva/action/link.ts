@@ -19,8 +19,14 @@ export const linkBase = "link";
 export const linkConfig = {
     variants: {
         intent: {
+            neutral: "link-neutral",
             primary: "link-primary",
             secondary: "link-secondary",
+            accent: "link-accent",
+            info: "link-info",
+            success: "link-success",
+            warning: "link-warning",
+            error: "link-error",
         },
 
         size: {

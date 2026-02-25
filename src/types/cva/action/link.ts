@@ -1,4 +1,5 @@
 import type { SizeScale } from "@/types/cva/common/sizes";
+import type { SemanticIntent } from "@/types/cva/common/intents";
 
 /**
  * Link semantic intents.
@@ -6,7 +7,7 @@ import type { SizeScale } from "@/types/cva/common/sizes";
  * These represent meaning (primary vs secondary), not structural variants.
  * Structural presentation is handled by other variants (e.g., icon relationship).
  */
-export type LinkIntent = "primary" | "secondary";
+export type LinkIntent = SemanticIntent;
 
 /**
  * Defines how an icon relates to the link label.
