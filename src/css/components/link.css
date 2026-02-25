@@ -1,111 +1,115 @@
-/* ======================================================================
+@layer components {
+    /* ======================================================================
    LINK — Action-like links (DataInt UI)
    ====================================================================== */
 
-@utility link {
-    @apply inline-flex items-center;
-    @apply font-medium select-none no-underline cursor-pointer;
+    .link {
+        @apply inline-flex items-center;
+        @apply font-medium select-none no-underline cursor-pointer;
 
-    gap: var(--space-inline-gap);
-    font-family: var(--font-body);
-    line-height: 1.2;
+        gap: var(--space-inline-gap);
+        font-family: var(--font-body);
+        line-height: 1.2;
 
-    transition:
-        color 150ms ease-out,
-        text-decoration-color 150ms ease-out,
-        background-color 150ms ease-out;
-}
+        transition:
+            color 150ms ease-out,
+            text-decoration-color 150ms ease-out,
+            background-color 150ms ease-out;
+    }
 
-/* ============================================================
+    /* ============================================================
    INTENTS
    ============================================================ */
 
-@utility link-primary {
-    color: var(--color-primary);
-}
+    .link-primary {
+        color: var(--color-primary);
+    }
 
-.link-primary:hover {
-    color: color-mix(in oklab, var(--color-primary) 85%, var(--color-base-content));
-    @apply underline underline-offset-2;
-}
+    .link-primary:hover {
+        color: color-mix(in oklab, var(--color-primary) 85%, var(--color-base-content));
+        @apply underline underline-offset-2;
+    }
 
-@utility link-secondary {
-    color: var(--color-base-content-muted);
-}
+    .link-secondary {
+        color: var(--color-base-content-muted);
+    }
 
-.link-secondary:hover {
-    color: var(--color-base-content);
-    @apply underline underline-offset-2;
-}
+    .link-secondary:hover {
+        color: var(--color-base-content);
+        @apply underline underline-offset-2;
+    }
 
-/* ============================================================
+    /* ============================================================
    PLAIN (no intent)
    ============================================================ */
 
-.link:not(.link-primary):not(.link-secondary):hover {
-    color: color-mix(in oklab, currentColor 85%, var(--color-base-content));
-    @apply underline underline-offset-2;
-}
+    .link:not(.link-primary):not(.link-secondary):hover {
+        color: color-mix(in oklab, currentColor 85%, var(--color-base-content));
+        @apply underline underline-offset-2;
+    }
 
-/* ============================================================
+    /* ============================================================
    SIZES
    ============================================================ */
 
-@utility link-xs {
-    @apply text-xs;
-}
+    .link-xs {
+        @apply text-xs;
+    }
 
-@utility link-sm {
-    @apply text-sm;
-}
+    .link-sm {
+        @apply text-sm;
+    }
 
-@utility link-lg {
-    @apply text-lg;
-}
+    .link-lg {
+        @apply text-lg;
+    }
 
-@utility link-xl {
-    @apply text-xl;
-}
+    .link-xl {
+        @apply text-xl;
+    }
 
-/* ============================================================
+    /* ============================================================
    WIDTH
    ============================================================ */
 
-@utility link-block {
-    @apply w-full;
-}
+    .link-block {
+        @apply w-full;
+    }
 
-/* ============================================================
+    /* ============================================================
    ICON RELATIONSHIP
    ============================================================ */
 
-@utility link-icon-only {
-    width: auto;
-    max-width: max-content;
-    padding: 0;
-    gap: 0;
-    justify-content: center;
-}
+    .link-icon-only {
+        width: auto;
+        max-width: max-content;
+        padding: 0;
+        gap: 0;
+        justify-content: center;
+    }
 
-@utility link-icon-start {
-    flex-direction: row;
-}
+    .link-icon-start {
+        flex-direction: row;
+    }
 
-@utility link-icon-end {
-    flex-direction: row-reverse;
-}
+    .link-icon-end {
+        flex-direction: row-reverse;
+    }
 
-/* ============================================================
+    /* ============================================================
    DISABLED
    ============================================================ */
 
-@utility link-disabled {
-    color: var(--color-base-content-subtle);
-    cursor: not-allowed;
-    pointer-events: none;
-}
+    .link-disabled {
+        color: var(--color-base-content-subtle);
+        cursor: not-allowed;
+        pointer-events: none;
+    }
 
-.link[aria-disabled="true"],
-.link[disabled] {
-    @apply link-disabled;
+    .link[aria-disabled="true"],
+    .link[disabled] {
+        color: var(--color-base-content-subtle);
+        cursor: not-allowed;
+        pointer-events: none;
+    }
 }
