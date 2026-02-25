@@ -71,13 +71,13 @@
     .alert-dismiss {
         @apply shrink-0 inline-flex items-center justify-center;
         @apply w-8 h-8 rounded-md opacity-90;
+        @apply cursor-pointer;
         @apply transition-colors duration-150 ease-in-out;
 
         color: currentColor;
     }
 
     .alert-dismiss:hover {
-        @apply cursor-pointer;
         background-color: var(--color-base-300);
     }
 

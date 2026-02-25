@@ -45,6 +45,7 @@
     .menu-item {
         @apply flex w-full items-center gap-2;
         @apply select-none text-left;
+        @apply cursor-pointer;
         @apply transition-colors duration-150 ease-in-out;
 
         height: var(--menu-item-height);
