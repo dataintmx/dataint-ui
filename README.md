@@ -1,5 +1,7 @@
 # dataint-ui
 
+**Version:** 1.1.0 · **License:** GPL-3.0
+
 A lightweight CSS-based design system for DataInt applications.  
 This package provides tokens, base styles, components, and utilities built on top of Tailwind CSS v4 using `@theme` and `@layer`.  
 It is designed to inject a consistent visual language into DataInt products without shipping React components or running Tailwind inside the library.
@@ -42,17 +44,42 @@ dataint-ui/
 │  │  ├─ base.css
 │  │  ├─ tokens/
 │  │  │  ├─ colors.primitives.css
-│  │  │  └─ colors.semantic.css
+│  │  │  ├─ colors.semantic.css
+│  │  │  ├─ borders.css
+│  │  │  ├─ elevation.css
+│  │  │  ├─ outline.css
+│  │  │  ├─ radius.css
+│  │  │  ├─ sizes.css
+│  │  │  ├─ spacing.css
+│  │  │  └─ typography.css
 │  │  └─ components/
-│  │     ├─ btn.css
-│  │     ├─ link.css
-│  │     ├─ menu.css
-│  │     ├─ overlay.css
 │  │     ├─ alert.css
-│  │     └─ badge.css
+│  │     ├─ badge.css
+│  │     ├─ btn.css
+│  │     ├─ card.css
+│  │     ├─ checkbox.css
+│  │     ├─ divider.css
+│  │     ├─ dropdown.css
+│  │     ├─ input.css
+│  │     ├─ link.css
+│  │     ├─ loading.css
+│  │     ├─ menu.css
+│  │     ├─ navbar.css
+│  │     ├─ overlay.css
+│  │     ├─ radio.css
+│  │     ├─ select.css
+│  │     ├─ skeleton.css
+│  │     ├─ stats.css
+│  │     ├─ table.css
+│  │     ├─ textarea.css
+│  │     └─ toggle.css
+│  ├─ cva/          ← class-variance-authority config objects
+│  ├─ types/        ← TypeScript type definitions
 │  └─ index.css
 ├─ dist/
-│  └─ styles.css
+│  ├─ styles.css
+│  ├─ index.js / index.d.ts
+│  └─ cva/
 ├─ playground/
 │  └─ index.html
 ```
@@ -114,5 +141,6 @@ playground/index.html
 
 ## 📜 License
 
-MIT License  
-© DataInt
+GNU General Public License v3.0  
+© 2026 DataInt  
+See [LICENSE](./LICENSE) for details.
