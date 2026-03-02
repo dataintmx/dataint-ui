@@ -3,7 +3,7 @@
     "version": "0.1.0",
     "type": "module",
     "description": "A lightweight CSS-based design system for DataInt applications.",
-    "license": "MIT",
+    "license": "GPL-3.0-or-later",
     "author": "DataInt",
     "repository": {
         "type": "git",
