@@ -14,3 +14,10 @@ export type OverlaySize = SizeScale;
 export type DropdownOverlayVariants = {
     size: Record<OverlaySize, string>;
 };
+
+export type DropdownItemState = "default" | "active";
+
+export type DropdownItemVariants = {
+    state: Record<DropdownItemState, string>;
+    disabled: Record<"true" | "false", string>;
+};

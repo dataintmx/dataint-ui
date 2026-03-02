@@ -1,5 +1,5 @@
 import type { CvaConfig, CvaProps } from "@/types/cva";
-import type { DropdownOverlayVariants } from "@/types/cva/overlays/dropdown-overlay";
+import type { DropdownItemVariants, DropdownOverlayVariants } from "@/types/cva/overlays/dropdown-overlay";
 
 /**
  * The dropdown overlay CSS extends `.dropdown` with overlay tokens and styles
@@ -48,3 +48,23 @@ export const dropdownContentBase = "dropdown-content";
 export const dropdownMenuBase = "dropdown-menu";
 export const dropdownItemBase = "dropdown-item";
 export const dropdownTitleBase = "dropdown-title";
+
+export const dropdownItemConfig = {
+    variants: {
+        state: {
+            default: "",
+            active: "is-active",
+        },
+        disabled: {
+            true: "dropdown-item-disabled",
+            false: "",
+        },
+    },
+    defaultVariants: {
+        state: "default",
+        disabled: false,
+    },
+    compoundVariants: [],
+} satisfies CvaConfig<DropdownItemVariants>;
+
+export type DropdownItemProps = CvaProps<typeof dropdownItemConfig>;

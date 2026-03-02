@@ -1,5 +1,7 @@
 # dataint-ui
 
+**Version:** 1.1.0 · **License:** GPL-3.0
+
 A lightweight CSS-based design system for DataInt applications.  
 This package provides tokens, base styles, components, and utilities built on top of Tailwind CSS v4 using `@theme` and `@layer`.  
 It is designed to inject a consistent visual language into DataInt products without shipping React components or running Tailwind inside the library.
@@ -39,23 +41,63 @@ This package only provides CSS — no JS, no build-time Tailwind config.
 dataint-ui/
 ├─ src/
 │  ├─ css/
-│  │  ├─ tokens.css
 │  │  ├─ base.css
-│  │  ├─ components.css
-│  │  ├─ overlays.css
-│  │  └─ utilities.css
+│  │  ├─ tokens/
+│  │  │  ├─ colors.primitives.css
+│  │  │  ├─ colors.semantic.css
+│  │  │  ├─ borders.css
+│  │  │  ├─ elevation.css
+│  │  │  ├─ outline.css
+│  │  │  ├─ radius.css
+│  │  │  ├─ sizes.css
+│  │  │  ├─ spacing.css
+│  │  │  └─ typography.css
+│  │  └─ components/
+│  │     ├─ alert.css
+│  │     ├─ badge.css
+│  │     ├─ btn.css
+│  │     ├─ card.css
+│  │     ├─ checkbox.css
+│  │     ├─ divider.css
+│  │     ├─ dropdown.css
+│  │     ├─ input.css
+│  │     ├─ link.css
+│  │     ├─ loading.css
+│  │     ├─ menu.css
+│  │     ├─ navbar.css
+│  │     ├─ overlay.css
+│  │     ├─ radio.css
+│  │     ├─ select.css
+│  │     ├─ skeleton.css
+│  │     ├─ stats.css
+│  │     ├─ table.css
+│  │     ├─ textarea.css
+│  │     └─ toggle.css
+│  ├─ cva/          ← class-variance-authority config objects
+│  ├─ types/        ← TypeScript type definitions
 │  └─ index.css
 ├─ dist/
-│  └─ styles.css
+│  ├─ styles.css
+│  ├─ index.js / index.d.ts
+│  └─ cva/
 ├─ playground/
 │  └─ index.html
 ```
 
-- **tokens.css** → `@theme` design tokens (colors, radii, spacing…)
+- **tokens/colors.primitives.css** → primitive scales (raw palettes)
+- **tokens/colors.semantic.css** → semantic/system tokens (base, intents, interaction states)
 - **base.css** → global resets & typography under `@layer base`
-- **components.css** → UI components under `@layer components`
-- **utilities.css** → small helpers under `@layer utilities`
+- **components/** → component styles under `@layer components`
 - **playground/** → manual visual testing
+
+---
+
+## 🎨 Color Token Strategy
+
+- Use **base/structural tokens** (`--color-base-*`, border and outline tokens) for layout hierarchy and neutral surfaces.
+- Use **semantic intent tokens** (`--color-primary|success|warning|error|...`) only when a component expresses semantic meaning.
+- Use semantic **interaction tokens** (`--color-*-hover`, `--color-*-soft`, `--color-*-outline-border`) for consistent hover/soft/outlined behavior across components.
+- Avoid introducing one-off component color formulas when an equivalent semantic token already exists.
 
 ---
 
@@ -99,5 +141,6 @@ playground/index.html
 
 ## 📜 License
 
-MIT License  
-© DataInt
+GNU General Public License v3.0  
+© 2026 DataInt  
+See [LICENSE](./LICENSE) for details.

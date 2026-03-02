@@ -1,171 +1,223 @@
-/* ======================================================================
+@layer components {
+    /* ======================================================================
    BADGE — Labels, Chips and Badges (DataInt UI)
    Shared API: intent, variant, size, rounded, icon
    ====================================================================== */
 
-/* ------------------------------
+    /* ------------------------------
    Base badge
    ------------------------------ */
-@utility badge {
-    @apply inline-flex items-center justify-center align-middle;
-    @apply select-none whitespace-nowrap;
-    @apply font-medium;
-    @apply transition-colors duration-150 ease-in-out;
+    .badge {
+        @apply inline-flex items-center justify-center align-middle;
+        @apply select-none whitespace-nowrap;
+        @apply font-medium;
+        @apply transition-colors duration-150 ease-in-out;
 
-    /* Shared API defaults */
-    --badge-intent: var(--color-neutral);
-    --badge-intent-content: var(--color-neutral-content);
+        /* Shared API defaults */
+        --badge-intent: var(--color-neutral);
+        --badge-intent-content: var(--color-neutral-content);
+        --badge-intent-soft: var(--color-neutral-soft);
+        --badge-intent-soft-border: var(--color-neutral-soft-border);
+        --badge-intent-outline-border: var(--color-neutral-outline-border);
 
-    /* Default variant (subtle) */
-    --badge-bg: color-mix(in oklab, var(--badge-intent) 14%, var(--color-base-100));
-    --badge-border: color-mix(in oklab, var(--badge-intent) 35%, var(--color-border-subtle));
-    --badge-fg: var(--color-base-content);
+        /* Default variant (solid) */
+        --badge-bg: var(--badge-intent);
+        --badge-border: transparent;
+        --badge-fg: var(--badge-intent-content);
 
-    --badge-border-width: var(--border-width-base);
-    --badge-shadow: none;
+        --badge-border-width: 0px;
+        --badge-shadow: none;
 
-    /* Size defaults */
-    --badge-height: 1.5rem;
-    --badge-px: var(--space-sm);
-    --badge-gap: var(--space-2xs);
-    --badge-font-size: 0.75rem;
-    --badge-line-height: 1rem;
+        /* Size defaults */
+        --badge-height: 1.5rem;
+        --badge-px: var(--space-sm);
+        --badge-gap: var(--space-2xs);
+        --badge-font-size: 0.75rem;
+        --badge-line-height: 1rem;
 
-    /* Rounded defaults */
-    --badge-radius: var(--radius-field);
+        /* Rounded defaults */
+        --badge-radius: var(--radius-field);
 
-    height: var(--badge-height);
-    padding-inline: var(--badge-px);
-    gap: var(--badge-gap);
+        height: var(--badge-height);
+        padding-inline: var(--badge-px);
+        gap: var(--badge-gap);
 
-    font-size: var(--badge-font-size);
-    line-height: var(--badge-line-height);
+        font-size: var(--badge-font-size);
+        line-height: var(--badge-line-height);
 
-    background-color: var(--badge-bg);
-    color: var(--badge-fg);
+        background-color: var(--badge-bg);
+        color: var(--badge-fg);
 
-    border-width: var(--badge-border-width);
-    border-style: var(--border-style-base);
-    border-color: var(--badge-border);
-    border-radius: var(--badge-radius);
+        border-width: var(--badge-border-width);
+        border-style: var(--border-style-base);
+        border-color: var(--badge-border);
+        border-radius: var(--badge-radius);
 
-    box-shadow: var(--badge-shadow);
-}
+        box-shadow: var(--badge-shadow);
+    }
 
-/* ------------------------------
+    /* ------------------------------
    Slots
    ------------------------------ */
 
-/* Icon slot */
-@utility badge-icon {
-    @apply inline-flex items-center justify-center shrink-0;
-    @apply w-3.5 h-3.5 opacity-90;
+    /* Icon slot */
+    .badge-icon {
+        @apply inline-flex items-center justify-center shrink-0;
+        @apply w-3.5 h-3.5 opacity-90;
 
-    line-height: 1;
-    align-self: center;
+        line-height: 1;
+        align-self: center;
 
-    color: currentColor;
-}
+        color: currentColor;
+    }
 
-@utility badge-label {
-    @apply truncate;
-    max-width: 100%;
-}
+    .badge-label {
+        @apply truncate;
+        max-width: 100%;
+    }
 
-/* ------------------------------
+    /* ------------------------------
    Shared API — intent
    ------------------------------ */
 
-.badge-neutral {
-    --badge-intent: var(--color-neutral);
-    --badge-intent-content: var(--color-neutral-content);
-}
+    .badge-neutral {
+        --badge-intent: var(--color-neutral);
+        --badge-intent-content: var(--color-neutral-content);
+        --badge-intent-soft: var(--color-neutral-soft);
+        --badge-intent-soft-border: var(--color-neutral-soft-border);
+        --badge-intent-outline-border: var(--color-neutral-outline-border);
+    }
 
-.badge-info {
-    --badge-intent: var(--color-info);
-    --badge-intent-content: var(--color-info-content);
-}
+    .badge-info {
+        --badge-intent: var(--color-info);
+        --badge-intent-content: var(--color-info-content);
+        --badge-intent-soft: var(--color-info-soft);
+        --badge-intent-soft-border: var(--color-info-soft-border);
+        --badge-intent-outline-border: var(--color-info-outline-border);
+    }
 
-.badge-success {
-    --badge-intent: var(--color-success);
-    --badge-intent-content: var(--color-success-content);
-}
+    .badge-success {
+        --badge-intent: var(--color-success);
+        --badge-intent-content: var(--color-success-content);
+        --badge-intent-soft: var(--color-success-soft);
+        --badge-intent-soft-border: var(--color-success-soft-border);
+        --badge-intent-outline-border: var(--color-success-outline-border);
+    }
 
-.badge-warning {
-    --badge-intent: var(--color-warning);
-    --badge-intent-content: var(--color-warning-content);
-}
+    .badge-warning {
+        --badge-intent: var(--color-warning);
+        --badge-intent-content: var(--color-warning-content);
+        --badge-intent-soft: var(--color-warning-soft);
+        --badge-intent-soft-border: var(--color-warning-soft-border);
+        --badge-intent-outline-border: var(--color-warning-outline-border);
+    }
 
-.badge-error {
-    --badge-intent: var(--color-error);
-    --badge-intent-content: var(--color-error-content);
-}
+    .badge-error {
+        --badge-intent: var(--color-error);
+        --badge-intent-content: var(--color-error-content);
+        --badge-intent-soft: var(--color-error-soft);
+        --badge-intent-soft-border: var(--color-error-soft-border);
+        --badge-intent-outline-border: var(--color-error-outline-border);
+    }
 
-/* ------------------------------
+    .badge-primary {
+        --badge-intent: var(--color-primary);
+        --badge-intent-content: var(--color-primary-content);
+        --badge-intent-soft: var(--color-primary-soft);
+        --badge-intent-soft-border: var(--color-primary-soft-border);
+        --badge-intent-outline-border: var(--color-primary-outline-border);
+    }
+
+    .badge-secondary {
+        --badge-intent: var(--color-secondary);
+        --badge-intent-content: var(--color-secondary-content);
+        --badge-intent-soft: var(--color-secondary-soft);
+        --badge-intent-soft-border: var(--color-secondary-soft-border);
+        --badge-intent-outline-border: var(--color-secondary-outline-border);
+    }
+
+    .badge-accent {
+        --badge-intent: var(--color-accent);
+        --badge-intent-content: var(--color-accent-content);
+        --badge-intent-soft: var(--color-accent-soft);
+        --badge-intent-soft-border: var(--color-accent-soft-border);
+        --badge-intent-outline-border: var(--color-accent-outline-border);
+    }
+
+    /* ------------------------------
    Shared API — variant
    ------------------------------ */
 
-.badge-solid {
-    --badge-bg: var(--badge-intent);
-    --badge-fg: var(--badge-intent-content);
-    --badge-border-width: 0px;
-}
+    .badge-solid {
+        --badge-bg: var(--badge-intent);
+        --badge-fg: var(--badge-intent-content);
+        --badge-border-width: 0px;
+    }
 
-.badge-outline {
-    --badge-bg: transparent;
-    --badge-border: color-mix(in oklab, var(--badge-intent) 55%, var(--color-border-subtle));
-    --badge-fg: var(--color-base-content);
-    --badge-border-width: var(--border-width-base);
-}
+    .badge-outlined {
+        --badge-bg: transparent;
+        --badge-border: var(--badge-intent-outline-border);
+        --badge-fg: var(--color-base-content);
+        --badge-border-width: var(--border-width-base);
+    }
 
-/* ------------------------------
+    /* Soft: medium-emphasis, subtle background with visible border, intent-colored text */
+    .badge-soft {
+        --badge-bg: var(--badge-intent-soft);
+        --badge-border: var(--badge-intent-soft-border);
+        --badge-fg: var(--badge-intent);
+        --badge-border-width: var(--border-width-base);
+    }
+
+    /* ------------------------------
    Shared API — size
    ------------------------------ */
 
-.badge-xs {
-    --badge-height: 1rem;
-    --badge-px: var(--space-2xs);
-    --badge-gap: var(--space-3xs);
-    --badge-font-size: 0.625rem;
-    --badge-line-height: 0.75rem;
-}
+    .badge-xs {
+        --badge-height: 1rem;
+        --badge-px: var(--space-2xs);
+        --badge-gap: var(--space-3xs);
+        --badge-font-size: 0.625rem;
+        --badge-line-height: 0.75rem;
+    }
 
-.badge-sm {
-    --badge-height: 1.25rem;
-    --badge-px: var(--space-xs);
-    --badge-gap: var(--space-2xs);
-    --badge-font-size: 0.6875rem;
-    --badge-line-height: 0.875rem;
-}
+    .badge-sm {
+        --badge-height: 1.25rem;
+        --badge-px: var(--space-xs);
+        --badge-gap: var(--space-2xs);
+        --badge-font-size: 0.6875rem;
+        --badge-line-height: 0.875rem;
+    }
 
-.badge-lg {
-    --badge-height: 1.75rem;
-    --badge-px: var(--space-md);
-    --badge-gap: var(--space-xs);
-    --badge-font-size: 0.875rem;
-    --badge-line-height: 1.125rem;
-}
+    .badge-lg {
+        --badge-height: 1.75rem;
+        --badge-px: var(--space-md);
+        --badge-gap: var(--space-xs);
+        --badge-font-size: 0.875rem;
+        --badge-line-height: 1.125rem;
+    }
 
-.badge-xl {
-    --badge-height: 2rem;
-    --badge-px: var(--space-xl);
-    --badge-gap: var(--space-sm);
-    --badge-font-size: 1rem;
-    --badge-line-height: 1.25rem;
-}
+    .badge-xl {
+        --badge-height: 2rem;
+        --badge-px: var(--space-xl);
+        --badge-gap: var(--space-sm);
+        --badge-font-size: 1rem;
+        --badge-line-height: 1.25rem;
+    }
 
-/* ------------------------------
+    /* ------------------------------
    Shared API — rounded
    ------------------------------ */
 
-.badge-rounded-sm {
-    --badge-radius: 0.375rem;
-}
+    .badge-rounded-sm {
+        --badge-radius: 0.375rem;
+    }
 
-.badge-rounded-md {
-    --badge-radius: var(--radius-field);
-}
+    .badge-rounded-md {
+        --badge-radius: var(--radius-field);
+    }
 
-.badge-rounded-pill {
-    --badge-radius: var(--radius-pill);
+    .badge-rounded-pill {
+        --badge-radius: var(--radius-pill);
+    }
 }

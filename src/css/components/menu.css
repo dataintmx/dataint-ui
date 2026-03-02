@@ -1,195 +1,223 @@
-/* ======================================================================
+@layer components {
+    /* ======================================================================
    MENU — Navigation & Structure (DataInt UI)
    Components: menu, menu-title, menu-item
    Shared API: size, state, icon
    ====================================================================== */
 
-@utility menu {
-    @apply w-full flex flex-col;
+    .menu {
+        @apply w-full flex flex-col;
 
-    /* Defaults (API fallbacks) */
-    --menu-gap: var(--space-2xs);
-    --menu-item-px: var(--space-md);
-    --menu-item-py: var(--space-xs);
-    --menu-item-radius: var(--radius-field);
+        /* Defaults (API fallbacks) */
+        --menu-gap: var(--space-2xs);
+        --menu-item-px: var(--space-md);
+        --menu-item-py: var(--space-xs);
+        --menu-item-radius: var(--radius-field);
 
-    --menu-item-fg: var(--color-base-content);
-    --menu-item-fg-muted: var(--color-base-content-muted);
-    --menu-item-bg: transparent;
+        --menu-item-fg: var(--color-base-content);
+        --menu-item-fg-muted: var(--color-base-content-muted);
+        --menu-item-bg: transparent;
 
-    --menu-item-bg-hover: var(--color-base-300);
-    --menu-item-bg-active: var(--color-base-200);
+        --menu-item-bg-hover: var(--color-base-300);
+        --menu-item-bg-active: var(--color-base-200);
 
-    --menu-item-outline: var(--outline-1);
-    --menu-item-outline-offset: var(--outline-offset-2);
+        --menu-item-outline: var(--outline-1);
+        --menu-item-outline-offset: var(--outline-offset-2);
 
-    --menu-item-height: var(--height-field-md);
+        --menu-item-height: var(--height-field-md);
 
-    gap: var(--menu-gap);
-    padding: var(--space-xs);
-    border-radius: var(--radius-box);
-}
+        gap: var(--menu-gap);
+        padding: var(--space-xs);
+        border-radius: var(--radius-box);
+    }
 
-/* Optional section title inside menus */
-@utility menu-title {
-    @apply text-xs block font-semibold uppercase tracking-wide;
-    color: var(--menu-item-fg-muted);
-    padding: var(--space-xs) var(--menu-item-px);
-}
+    /* Optional section title inside menus */
+    .menu-title {
+        @apply text-xs block font-semibold uppercase tracking-wide;
+        color: var(--menu-item-fg-muted);
+        padding: var(--space-xs) var(--menu-item-px);
+    }
 
-/* ------------------------------
+    /* ------------------------------
    Menu item base
    ------------------------------ */
 
-@utility menu-item {
-    @apply flex w-full items-center gap-2;
-    @apply select-none text-left;
-    @apply transition-colors duration-150 ease-in-out;
+    .menu-item {
+        @apply flex w-full items-center gap-2;
+        @apply select-none text-left;
+        @apply cursor-pointer;
+        @apply transition-colors duration-150 ease-in-out;
 
-    height: var(--menu-item-height);
-    padding: var(--menu-item-py) var(--menu-item-px);
-    border-radius: var(--menu-item-radius);
-    color: var(--menu-item-fg);
-    background-color: var(--menu-item-bg);
-}
+        height: var(--menu-item-height);
+        padding: var(--menu-item-py) var(--menu-item-px);
+        border-radius: var(--menu-item-radius);
+        color: var(--menu-item-fg);
+        background-color: var(--menu-item-bg);
+    }
 
-/* ------------------------------
+    /* ------------------------------
    Hover / focus
    ------------------------------ */
 
-.menu-item:not(:disabled):not([aria-disabled="true"]):hover {
-    background-color: var(--menu-item-bg-hover);
-}
+    .menu-item:not(:disabled):not([aria-disabled="true"]):hover {
+        background-color: var(--menu-item-bg-hover);
+    }
 
-.menu-item:not(:disabled):not([aria-disabled="true"]):focus {
-    outline: var(--menu-item-outline);
-    outline-offset: var(--menu-item-outline-offset);
-}
+    .menu-item:not(:disabled):not([aria-disabled="true"]):focus {
+        outline: var(--menu-item-outline);
+        outline-offset: var(--menu-item-outline-offset);
+    }
 
-/* ------------------------------
+    /* ------------------------------
    Disabled
    ------------------------------ */
 
-@utility menu-item-disabled {
-    @apply cursor-not-allowed opacity-40;
-    color: var(--menu-item-fg-muted);
-}
+    .menu-item-disabled {
+        @apply cursor-not-allowed;
+        color: var(--color-disabled-fg);
+        background-color: var(--color-disabled-bg);
+        box-shadow: none;
+        opacity: var(--opacity-disabled);
+    }
 
-.menu-item:disabled,
-.menu-item[aria-disabled="true"] {
-    @apply menu-item-disabled;
-}
+    .menu-item:disabled,
+    .menu-item[aria-disabled="true"] {
+        @apply cursor-not-allowed;
+        color: var(--color-disabled-fg);
+        background-color: var(--color-disabled-bg);
+        box-shadow: none;
+        opacity: var(--opacity-disabled);
+    }
 
-/* ------------------------------
+    .menu-item-disabled:hover,
+    .menu-item-disabled:active,
+    .menu-item-disabled:focus,
+    .menu-item-disabled:focus-visible,
+    .menu-item:disabled:hover,
+    .menu-item:disabled:active,
+    .menu-item:disabled:focus,
+    .menu-item:disabled:focus-visible,
+    .menu-item[aria-disabled="true"]:hover,
+    .menu-item[aria-disabled="true"]:active,
+    .menu-item[aria-disabled="true"]:focus,
+    .menu-item[aria-disabled="true"]:focus-visible {
+        color: var(--color-disabled-fg);
+        background-color: var(--color-disabled-bg);
+        box-shadow: none;
+        outline: none;
+    }
+
+    /* ------------------------------
    Shared API — size (density + height)
    ------------------------------ */
-@utility menu-xs {
-    --menu-item-height: var(--height-field-xs);
-    --menu-item-px: var(--space-2xs);
-    --menu-item-py: var(--space-2xs);
+    .menu-xs {
+        --menu-item-height: var(--height-field-xs);
+        --menu-item-px: var(--space-2xs);
+        --menu-item-py: var(--space-2xs);
 
-    .menu-item {
-        @apply text-xs;
+        .menu-item {
+            @apply text-xs;
+        }
+
+        .menu-title {
+            @apply text-xs;
+        }
+
+        .menu-icon {
+            @apply h-3.5 w-3.5;
+        }
     }
 
-    .menu-title {
-        @apply text-xs;
+    .menu-sm {
+        --menu-item-height: var(--height-field-sm);
+        --menu-item-px: var(--space-sm);
+        --menu-item-py: var(--space-2xs);
+
+        .menu-item {
+            @apply text-sm;
+        }
+
+        .menu-title {
+            @apply text-xs;
+        }
+
+        .menu-icon {
+            @apply h-4 w-4;
+        }
     }
 
-    .menu-icon {
-        @apply h-3.5 w-3.5;
-    }
-}
+    .menu-lg {
+        --menu-item-height: var(--height-field-lg);
+        --menu-item-px: var(--space-lg);
+        --menu-item-py: var(--space-sm);
 
-@utility menu-sm {
-    --menu-item-height: var(--height-field-sm);
-    --menu-item-px: var(--space-sm);
-    --menu-item-py: var(--space-2xs);
+        .menu-item {
+            @apply text-base;
+        }
 
-    .menu-item {
-        @apply text-sm;
-    }
+        .menu-title {
+            @apply text-sm;
+        }
 
-    .menu-title {
-        @apply text-xs;
-    }
-
-    .menu-icon {
-        @apply h-4 w-4;
-    }
-}
-
-@utility menu-lg {
-    --menu-item-height: var(--height-field-lg);
-    --menu-item-px: var(--space-lg);
-    --menu-item-py: var(--space-sm);
-
-    .menu-item {
-        @apply text-base;
+        .menu-icon {
+            @apply h-5 w-5;
+        }
     }
 
-    .menu-title {
-        @apply text-sm;
+    .menu-xl {
+        --menu-item-height: var(--height-field-xl);
+        --menu-item-px: var(--space-xl);
+        --menu-item-py: var(--space-lg);
+
+        .menu-item {
+            @apply text-lg;
+        }
+
+        .menu-title {
+            @apply text-base;
+        }
+
+        .menu-icon {
+            @apply h-6 w-6;
+        }
     }
 
-    .menu-icon {
-        @apply h-5 w-5;
-    }
-}
-
-@utility menu-xl {
-    --menu-item-height: var(--height-field-xl);
-    --menu-item-px: var(--space-xl);
-    --menu-item-py: var(--space-lg);
-
-    .menu-item {
-        @apply text-lg;
-    }
-
-    .menu-title {
-        @apply text-base;
-    }
-
-    .menu-icon {
-        @apply h-6 w-6;
-    }
-}
-
-/* ------------------------------
+    /* ------------------------------
    Shared API — state (active)
    ------------------------------ */
 
-.menu-item.is-active,
-.menu-item[aria-current="page"],
-.menu-item[aria-current="true"],
-.menu-item[data-state="active"] {
-    @apply font-semibold;
-    background-color: var(--menu-item-bg-active);
-    box-shadow: var(--elevation-1-default);
-}
+    .menu-item.is-active,
+    .menu-item[aria-current="page"],
+    .menu-item[aria-current="true"],
+    .menu-item[data-state="active"] {
+        @apply font-semibold;
+        background-color: var(--menu-item-bg-active);
+        box-shadow: var(--elevation-1-default);
+    }
 
-/* Active + hover MUST win over active with box shadow
+    /* Active + hover MUST win over active with box shadow
 */
-.menu-item.is-active:not(:disabled):not([aria-disabled="true"]):hover,
-.menu-item[aria-current="page"]:not(:disabled):not([aria-disabled="true"]):hover,
-.menu-item[aria-current="true"]:not(:disabled):not([aria-disabled="true"]):hover,
-.menu-item[data-state="active"]:not(:disabled):not([aria-disabled="true"]):hover {
-    background-color: var(--menu-item-bg-hover);
-    box-shadow: var(--elevation-1-default);
-}
+    .menu-item.is-active:not(:disabled):not([aria-disabled="true"]):hover,
+    .menu-item[aria-current="page"]:not(:disabled):not([aria-disabled="true"]):hover,
+    .menu-item[aria-current="true"]:not(:disabled):not([aria-disabled="true"]):hover,
+    .menu-item[data-state="active"]:not(:disabled):not([aria-disabled="true"]):hover {
+        background-color: var(--menu-item-bg-hover);
+        box-shadow: var(--elevation-1-default);
+    }
 
-/* ------------------------------
+    /* ------------------------------
    Shared API — icon presence
    ------------------------------ */
 
-.menu-item .menu-icon {
-    @apply flex justify-center items-center shrink-0;
-}
+    .menu-item .menu-icon {
+        @apply flex justify-center items-center shrink-0;
+    }
 
-.menu-item .menu-icon svg {
-    @apply block align-middle;
-}
+    .menu-item .menu-icon svg {
+        @apply block align-middle;
+    }
 
-.menu-item .menu-label {
-    @apply min-w-0 flex-1 truncate;
+    .menu-item .menu-label {
+        @apply min-w-0 flex-1 truncate;
+    }
 }

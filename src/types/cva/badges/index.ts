@@ -21,7 +21,7 @@ export type BadgeVariant = FeedbackVariant;
  *
  * We use:
  * - BadgeIntent: neutral | info | success | warning | error
- * - BadgeVariant: default | solid | outline
+ * - BadgeVariant: default (solid) | solid | outlined | soft
  */
 export type BadgeVariants = {
     intent: Record<BadgeIntent, string>;

@@ -17,11 +17,15 @@ export const alertConfig = {
             success: "alert-success",
             warning: "alert-warning",
             error: "alert-error",
+            primary: "alert-primary",
+            secondary: "alert-secondary",
+            accent: "alert-accent",
         },
         variant: {
             default: "",
             solid: "alert-solid",
-            outline: "alert-outline",
+            outlined: "alert-outlined",
+            soft: "alert-soft",
         },
         size: {
             xs: "alert-xs",
@@ -35,7 +39,7 @@ export const alertConfig = {
     /**
      * Defaults should match the base `.alert` design:
      * - intent: neutral
-     * - variant: default (base derives subtle surfaces)
+     * - variant: default (solid)
      * - size: md
      */
     defaultVariants: {

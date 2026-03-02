@@ -37,8 +37,8 @@ export const tableConfig = {
      */
     defaultVariants: {
         size: "md",
-        striped: "false",
-        rowHighlight: "false",
+        striped: false,
+        rowHighlight: false,
     },
 
     compoundVariants: [],

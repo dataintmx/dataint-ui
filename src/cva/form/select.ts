@@ -26,7 +26,7 @@ export const selectConfig = {
     },
 
     defaultVariants: {
-        disabled: "false",
+        disabled: false,
     },
 
     compoundVariants: [],

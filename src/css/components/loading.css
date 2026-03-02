@@ -1,102 +1,116 @@
-/* ======================================================================
+@layer components {
+    /* ======================================================================
    LOADING — Feedback & System State (DataInt UI)
    Shared API alignment: intent, variant, size
    ====================================================================== */
 
-/* ------------------------------
+    /* ------------------------------
    Base loading (spinner)
    ------------------------------ */
-@utility loading {
-    @apply inline-block align-middle;
-    @apply animate-spin;
+    .loading {
+        @apply inline-block align-middle;
+        @apply animate-spin;
 
-    /* Shared API defaults */
-    --loading-intent: var(--color-base-content);
-    --loading-track: color-mix(in oklab, var(--loading-intent) 18%, transparent);
+        /* Shared API defaults */
+        --loading-intent: var(--color-base-content);
+        --loading-track: color-mix(in oklab, var(--loading-intent) 18%, transparent);
 
-    /* Size defaults */
-    --loading-size: 1.25rem; /* ~20px */
-    --loading-border: var(--border-width-strong);
+        /* Size defaults */
+        --loading-size: 1.25rem; /* ~20px */
+        --loading-border: var(--border-width-strong);
 
-    /* Variant defaults */
-    --loading-opacity: 0.9;
+        /* Variant defaults */
+        --loading-opacity: 0.9;
 
-    width: var(--loading-size);
-    height: var(--loading-size);
+        width: var(--loading-size);
+        height: var(--loading-size);
 
-    border-radius: var(--radius-pill);
-    border-width: var(--loading-border);
-    border-style: var(--border-style-base);
+        border-radius: var(--radius-pill);
+        border-width: var(--loading-border);
+        border-style: var(--border-style-base);
 
-    border-color: var(--loading-track);
-    border-top-color: var(--loading-intent);
+        border-color: var(--loading-track);
+        border-top-color: var(--loading-intent);
 
-    opacity: var(--loading-opacity);
-}
+        opacity: var(--loading-opacity);
+    }
 
-/* ------------------------------
+    /* ------------------------------
    Shared API — intent
    ------------------------------ */
-.loading-neutral {
-    --loading-intent: var(--color-base-content);
-}
+    .loading-neutral {
+        --loading-intent: var(--color-base-content);
+    }
 
-.loading-info {
-    --loading-intent: var(--color-info);
-}
+    .loading-info {
+        --loading-intent: var(--color-info);
+    }
 
-.loading-success {
-    --loading-intent: var(--color-success);
-}
+    .loading-success {
+        --loading-intent: var(--color-success);
+    }
 
-.loading-warning {
-    --loading-intent: var(--color-warning);
-}
+    .loading-warning {
+        --loading-intent: var(--color-warning);
+    }
 
-.loading-error {
-    --loading-intent: var(--color-error);
-}
+    .loading-error {
+        --loading-intent: var(--color-error);
+    }
 
-/* ------------------------------
+    .loading-primary {
+        --loading-intent: var(--color-primary);
+    }
+
+    .loading-secondary {
+        --loading-intent: var(--color-secondary);
+    }
+
+    .loading-accent {
+        --loading-intent: var(--color-accent);
+    }
+
+    /* ------------------------------
    Shared API — variant
    - solid: stronger track + higher opacity
    ------------------------------ */
 
-.loading-solid {
-    --loading-track: color-mix(in oklab, var(--loading-intent) 28%, transparent);
-    --loading-opacity: 1;
-}
+    .loading-solid {
+        --loading-track: color-mix(in oklab, var(--loading-intent) 28%, transparent);
+        --loading-opacity: 1;
+    }
 
-/* ------------------------------
+    /* ------------------------------
    Shared API — size
    ------------------------------ */
 
-.loading-xs {
-    --loading-size: 0.75rem; /* 12px */
-    --loading-border: var(--border-width-base);
-}
+    .loading-xs {
+        --loading-size: 0.75rem; /* 12px */
+        --loading-border: var(--border-width-base);
+    }
 
-.loading-sm {
-    --loading-size: 1rem; /* 16px */
-    --loading-border: var(--border-width-strong);
-}
+    .loading-sm {
+        --loading-size: 1rem; /* 16px */
+        --loading-border: var(--border-width-strong);
+    }
 
-.loading-lg {
-    --loading-size: 1.75rem; /* 28px */
-    --loading-border: var(--border-width-heavy);
-}
+    .loading-lg {
+        --loading-size: 1.75rem; /* 28px */
+        --loading-border: var(--border-width-heavy);
+    }
 
-.loading-xl {
-    --loading-size: 2.25rem; /* 36px */
-    --loading-border: var(--border-width-heavy);
-}
+    .loading-xl {
+        --loading-size: 2.25rem; /* 36px */
+        --loading-border: var(--border-width-heavy);
+    }
 
-@utility loading-group {
-    @apply inline-flex items-center gap-2;
-    --loading-intent: var(--color-base-content);
-}
+    .loading-group {
+        @apply inline-flex items-center gap-2;
+        --loading-intent: var(--color-base-content);
+    }
 
-.loading-group .loading-text {
-    @apply text-sm;
-    color: var(--color-base-content);
+    .loading-group .loading-text {
+        @apply text-sm;
+        color: var(--color-base-content);
+    }
 }
