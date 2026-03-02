@@ -239,6 +239,7 @@
                         <li><a href="#components-containers">Contenedores</a></li>
                         <li><a href="#components-navigation">Navegación</a></li>
                         <li><a href="#components-feedback">Feedback</a></li>
+                        <li><a href="#components-skeleton">Skeleton</a></li>
                         <li><a href="#components-badges">Badges</a></li>
                         <li><a href="#components-data">Datos</a></li>
                         <li><a href="#components-overlays">Superposiciones</a></li>
@@ -2459,6 +2460,71 @@
                         </div>
                     </div>
                 </section>
+
+                <!-- ======================================================== -->
+                <!-- SKELETON                                                   -->
+                <!-- ======================================================== -->
+                <section id="components-skeleton" class="section">
+                    <h2 class="section-title">Componentes — Skeleton</h2>
+                    <p class="section-subtitle">
+                        Placeholder de carga animado (shimmer). Siempre rectangular con bordes redondeados.
+                        Usa solo <code>.skeleton</code> y controla el tamaño vía <code>width</code> / <code>height</code>.
+                    </p>
+
+                    <div class="component-grid">
+
+                        <!-- Card skeleton -->
+                        <div class="component-column" style="min-width: 280px">
+                            <span class="component-label">Ejemplo — Card skeleton</span>
+                            <div class="card" style="display: flex; flex-direction: column; gap: var(--space-sm); padding: var(--space-md)">
+                                <div class="skeleton" style="height: 10rem"></div>
+                                <div class="skeleton" style="height: var(--space-md); width: 60%"></div>
+                                <div class="skeleton" style="height: var(--space-md)"></div>
+                                <div class="skeleton" style="height: var(--space-md); width: 80%"></div>
+                                <div style="display: flex; gap: var(--space-xs); margin-top: var(--space-2xs)">
+                                    <div class="skeleton" style="width: 5rem; height: var(--control-height-sm)"></div>
+                                    <div class="skeleton" style="width: 5rem; height: var(--control-height-sm)"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Table row skeleton -->
+                        <div class="component-column" style="min-width: 360px">
+                            <span class="component-label">Ejemplo — Filas de tabla</span>
+                            <div style="display: flex; flex-direction: column; gap: var(--space-xs)">
+                                <!-- Header row -->
+                                <div style="display: grid; grid-template-columns: 2.5rem 1fr 1fr 5rem; gap: var(--space-sm); padding: var(--space-2xs) 0">
+                                    <div class="skeleton" style="height: var(--space-sm); width: 2rem"></div>
+                                    <div class="skeleton" style="height: var(--space-sm)"></div>
+                                    <div class="skeleton" style="height: var(--space-sm)"></div>
+                                    <div class="skeleton" style="height: var(--space-sm); width: 4rem"></div>
+                                </div>
+                                <!-- Data rows -->
+                                <div style="display: grid; grid-template-columns: 2.5rem 1fr 1fr 5rem; gap: var(--space-sm); padding: var(--space-2xs) 0; align-items: center">
+                                    <div class="skeleton" style="width: var(--control-height-sm); height: var(--control-height-sm)"></div>
+                                    <div class="skeleton" style="height: var(--space-md)"></div>
+                                    <div class="skeleton" style="height: var(--space-md); width: 80%"></div>
+                                    <div class="skeleton" style="height: var(--space-md); width: 3.5rem"></div>
+                                </div>
+                                <div style="display: grid; grid-template-columns: 2.5rem 1fr 1fr 5rem; gap: var(--space-sm); padding: var(--space-2xs) 0; align-items: center">
+                                    <div class="skeleton" style="width: var(--control-height-sm); height: var(--control-height-sm)"></div>
+                                    <div class="skeleton" style="height: var(--space-md); width: 90%"></div>
+                                    <div class="skeleton" style="height: var(--space-md); width: 60%"></div>
+                                    <div class="skeleton" style="height: var(--space-md); width: 3.5rem"></div>
+                                </div>
+                                <div style="display: grid; grid-template-columns: 2.5rem 1fr 1fr 5rem; gap: var(--space-sm); padding: var(--space-2xs) 0; align-items: center">
+                                    <div class="skeleton" style="width: var(--control-height-sm); height: var(--control-height-sm)"></div>
+                                    <div class="skeleton" style="height: var(--space-md); width: 75%"></div>
+                                    <div class="skeleton" style="height: var(--space-md); width: 70%"></div>
+                                    <div class="skeleton" style="height: var(--space-md); width: 3.5rem"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <div style="height: 200px"></div>
             </div>
         </main>
     </body>
