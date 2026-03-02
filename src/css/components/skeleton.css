@@ -1,0 +1,51 @@
+/* Keyframe lives outside @layer so it is always registered globally */
+@keyframes skeleton-shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+@layer components {
+    /* ======================================================================
+   SKELETON — Loading State Primitive (DataInt UI)
+   Always rectangular with rounded corners, shimmer animation.
+   Sizing is controlled by consumers via width/height utilities or styles.
+   ====================================================================== */
+
+    .skeleton {
+        display: block;
+        overflow: hidden;
+
+        /*
+         * Colors: base-300 as the fill, a mix toward base-100 as the shine.
+         * Both tokens are semantic and flip correctly between light and dark.
+         */
+        --skeleton-color-base: var(--color-base-300);
+        --skeleton-color-shine: color-mix(in oklab, var(--color-base-100) 35%, var(--color-base-300));
+
+        background: linear-gradient(
+            90deg,
+            var(--skeleton-color-base) 25%,
+            var(--skeleton-color-shine) 50%,
+            var(--skeleton-color-base) 75%
+        );
+        background-size: 200% 100%;
+        border-radius: var(--radius-field);
+        animation: skeleton-shimmer 1.5s ease-in-out infinite;
+
+        /* Sensible block default — consumers override with utility classes */
+        width: 100%;
+        height: var(--space-md);
+    }
+
+    /* Respect reduced-motion preference */
+    @media (prefers-reduced-motion: reduce) {
+        .skeleton {
+            animation: none;
+            background: var(--skeleton-color-base);
+        }
+    }
+}
