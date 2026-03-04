@@ -1,0 +1,1 @@
+{"version":3,"file":"input.d.ts","sourceRoot":"","sources":["../../../../src/types/cva/form/input.ts"],"names":[],"mappings":"AAAA;;;;;;;;;;GAUG;AACH,MAAM,MAAM,aAAa,GAAG;IACxB,QAAQ,EAAE,MAAM,CAAC,MAAM,GAAG,OAAO,EAAE,MAAM,CAAC,CAAC;IAC3C,KAAK,EAAE,MAAM,CAAC,MAAM,GAAG,OAAO,EAAE,MAAM,CAAC,CAAC;CAC3C,CAAC"}
