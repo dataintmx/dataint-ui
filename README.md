@@ -1,6 +1,6 @@
 # dataint-ui
 
-**Version:** 1.1.0 · **License:** GPL-3.0
+**Version:** 1.1.2 · **License:** GPL-3.0
 
 A lightweight CSS-based design system for DataInt applications.  
 This package provides tokens, base styles, components, and utilities built on top of Tailwind CSS v4 using `@theme` and `@layer`.  
@@ -68,6 +68,7 @@ dataint-ui/
 │  │     ├─ overlay.css
 │  │     ├─ radio.css
 │  │     ├─ select.css
+│  │     ├─ progress.css
 │  │     ├─ skeleton.css
 │  │     ├─ stats.css
 │  │     ├─ table.css
