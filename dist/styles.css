@@ -1,0 +1,3616 @@
+/* 1) Tokens primitivos */
+/* Brand + scales + neutrals used by semantic tokens */
+@theme {
+    /* Brand colors */
+    --keppel-green: #59bba1; /* oklch(0.7255 0.1008 173.63) */
+    --indigo-blue: #2e435f; /* oklch(0.3784 0.0551 255.88) */
+    --oxford-blue: #10253f; /* oklch(0.262 0.0561 254.86) */
+    --yonder-blue: #5e738e; /* oklch(0.549 0.0492 254.89) */
+    --silver-gray: #ebebeb; /* oklch(0.9401 0 0) */
+    --lavender-gray: #9297c4; /* oklch(0.6886 0.0663 279.56) */
+
+    /* Success green */
+    --lime-green-100: #f4fbd4;
+    --lime-green-200: #e8f8ab;
+    --lime-green-300: #d1ea7e;
+    --lime-green-400: #b5d65a;
+    --lime-green-500: #91bc2b;
+    --lime-green-600: #77a11f;
+    --lime-green-700: #5e8715;
+    --lime-green-800: #486d0d;
+    --lime-green-900: #375a08;
+
+    /* Info blue */
+    --azure-blue-100: #d8edfe;
+    --azure-blue-200: #b1d9fe;
+    --azure-blue-300: #89c1fe;
+    --azure-blue-400: #6cacfd;
+    --azure-blue-500: #3c89fc;
+    --azure-blue-600: #2b6ad8;
+    --azure-blue-700: #1e4eb5;
+    --azure-blue-800: #133692;
+    --azure-blue-900: #0b2578;
+
+    /* Warning yellow */
+    --sunglow-yellow-100: #fff9d3;
+    --sunglow-yellow-200: #fff2a8;
+    --sunglow-yellow-300: #ffea7c;
+    --sunglow-yellow-400: #ffe15c;
+    --sunglow-yellow-500: #ffd326;
+    --sunglow-yellow-600: #dbb01b;
+    --sunglow-yellow-700: #b78f13;
+    --sunglow-yellow-800: #936f0c;
+    --sunglow-yellow-900: #7a5907;
+
+    /* Danger red */
+    --light-red-100: #ffe8d8;
+    --light-red-200: #ffcbb2;
+    --light-red-300: #ffa88b;
+    --light-red-400: #ff866f;
+    --light-red-500: #ff4f3f;
+    --light-red-600: #db2e2e;
+    --light-red-700: #b71f2b;
+    --light-red-800: #931428;
+    --light-red-900: #7a0c27;
+
+    /* Neutrals */
+    --neutral-050: #f9fafb;
+    --neutral-100: #f3f4f6;
+    --neutral-200: #e2e8f0;
+    --neutral-300: #cbd5e1;
+    --neutral-400: #94a3b8;
+    --neutral-500: #64748b;
+    --neutral-600: #475569;
+    --neutral-700: #334155;
+    --neutral-800: #1e293b;
+    --neutral-900: #0f1a17;
+}
+/* ============================================
+   Typography tokens
+   ============================================ */
+@theme {
+    /* Font families — primitives */
+    --font-roboto: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+
+    --font-open-sans: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+
+    --font-roboto-mono:
+        "Roboto Mono", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+    --font-roboto-slab: "Roboto Slab", "Georgia", "Times New Roman", serif;
+
+    /* Semantic typography roles */
+    --font-body: var(--font-roboto);
+    --font-display: var(--font-open-sans);
+    --font-mono: var(--font-roboto-mono);
+    --font-serif: var(--font-roboto-slab);
+}
+/* ============================================
+   Border tokens
+   ============================================ */
+@theme {
+    /* Primitive border tokens */
+    --border-width-base: 1px;
+    --border-width-strong: 2px;
+    --border-width-heavy: 3px;
+    --border-style-base: solid;
+
+    /* Semantic border shorthands (como tokens de theme) */
+    --border-subtle: var(--border-width-base) var(--border-style-base) var(--color-border-subtle);
+    --border-base: var(--border-width-base) var(--border-style-base) var(--color-border-strong);
+}
+/* ============================================
+   Radius tokens (border-radius)
+   v1: todos los radios = 1rem
+   ============================================ */
+/* Para Tailwind */
+@theme {
+    --radius-selector: 1rem; /* badges, chips, toggles */
+    --radius-field: 1rem; /* inputs, buttons, selects, tabs */
+    --radius-box: 1rem; /* cards, panels, containers */
+    --radius-pill: 9999px; /* fully rounded for pills */
+}
+/* ============================================
+   Elevation tokens (shadows 1–4)
+   ============================================ */
+/* Para Tailwind (@theme) */
+@theme {
+    /* ELEVATION 1 — subtle */
+    --elevation-1-offset-x-base: 0px;
+    --elevation-1-offset-y-base: 2px;
+    --elevation-1-blur-base: 4px;
+    --elevation-1-spread-base: 0px;
+    --elevation-1-color-base: rgba(0, 0, 0, 0.06);
+
+    --elevation-1-offset-x: var(--elevation-1-offset-x-base);
+    --elevation-1-offset-y: var(--elevation-1-offset-y-base);
+    --elevation-1-blur: var(--elevation-1-blur-base);
+    --elevation-1-spread: var(--elevation-1-spread-base);
+    --elevation-1-color: var(--elevation-1-color-base);
+
+    --elevation-1-shadow: var(--elevation-1-offset-x) var(--elevation-1-offset-y) var(--elevation-1-blur)
+        var(--elevation-1-spread) var(--elevation-1-color);
+
+    --elevation-1-default: var(--elevation-1-shadow);
+    --elevation-1-top: var(--elevation-1-offset-x-base) calc(-1 * var(--elevation-1-offset-y-base))
+        var(--elevation-1-blur-base) var(--elevation-1-spread-base) var(--elevation-1-color-base);
+    --elevation-1-right: var(--elevation-1-offset-y-base) 0px var(--elevation-1-blur-base)
+        var(--elevation-1-spread-base) var(--elevation-1-color-base);
+    --elevation-1-bottom: var(--elevation-1-offset-x-base) var(--elevation-1-offset-y-base) var(--elevation-1-blur-base)
+        var(--elevation-1-spread-base) var(--elevation-1-color-base);
+    --elevation-1-left: calc(-1 * var(--elevation-1-offset-y-base)) 0px var(--elevation-1-blur-base)
+        var(--elevation-1-spread-base) var(--elevation-1-color-base);
+
+    /* ELEVATION 2 — cards */
+    --elevation-2-offset-x-base: 0px;
+    --elevation-2-offset-y-base: 4px;
+    --elevation-2-blur-base: 8px;
+    --elevation-2-spread-base: 0px;
+    --elevation-2-color-base: rgba(0, 0, 0, 0.08);
+
+    --elevation-2-offset-x: var(--elevation-2-offset-x-base);
+    --elevation-2-offset-y: var(--elevation-2-offset-y-base);
+    --elevation-2-blur: var(--elevation-2-blur-base);
+    --elevation-2-spread: var(--elevation-2-spread-base);
+    --elevation-2-color: var(--elevation-2-color-base);
+
+    --elevation-2-shadow: var(--elevation-2-offset-x) var(--elevation-2-offset-y) var(--elevation-2-blur)
+        var(--elevation-2-spread) var(--elevation-2-color);
+
+    --elevation-2-default: var(--elevation-2-shadow);
+    --elevation-2-top: var(--elevation-2-offset-x-base) calc(-1 * var(--elevation-2-offset-y-base))
+        var(--elevation-2-blur-base) var(--elevation-2-spread-base) var(--elevation-2-color-base);
+    --elevation-2-right: var(--elevation-2-offset-y-base) 0px var(--elevation-2-blur-base)
+        var(--elevation-2-spread-base) var(--elevation-2-color-base);
+    --elevation-2-bottom: var(--elevation-2-offset-x-base) var(--elevation-2-offset-y-base) var(--elevation-2-blur-base)
+        var(--elevation-2-spread-base) var(--elevation-2-color-base);
+    --elevation-2-left: calc(-1 * var(--elevation-2-offset-y-base)) 0px var(--elevation-2-blur-base)
+        var(--elevation-2-spread-base) var(--elevation-2-color-base);
+
+    /* ELEVATION 3 — floating */
+    --elevation-3-offset-x-base: 0px;
+    --elevation-3-offset-y-base: 8px;
+    --elevation-3-blur-base: 16px;
+    --elevation-3-spread-base: 0px;
+    --elevation-3-color-base: rgba(0, 0, 0, 0.1);
+
+    --elevation-3-offset-x: var(--elevation-3-offset-x-base);
+    --elevation-3-offset-y: var(--elevation-3-offset-y-base);
+    --elevation-3-blur: var(--elevation-3-blur-base);
+    --elevation-3-spread: var(--elevation-3-spread-base);
+    --elevation-3-color: var(--elevation-3-color-base);
+
+    --elevation-3-shadow: var(--elevation-3-offset-x) var(--elevation-3-offset-y) var(--elevation-3-blur)
+        var(--elevation-3-spread) var(--elevation-3-color);
+
+    --elevation-3-default: var(--elevation-3-shadow);
+    --elevation-3-top: var(--elevation-3-offset-x-base) calc(-1 * var(--elevation-3-offset-y-base))
+        var(--elevation-3-blur-base) var(--elevation-3-spread-base) var(--elevation-3-color-base);
+    --elevation-3-right: var(--elevation-3-offset-y-base) 0px var(--elevation-3-blur-base)
+        var(--elevation-3-spread-base) var(--elevation-3-color-base);
+    --elevation-3-bottom: var(--elevation-3-offset-x-base) var(--elevation-3-offset-y-base) var(--elevation-3-blur-base)
+        var(--elevation-3-spread-base) var(--elevation-3-color-base);
+    --elevation-3-left: calc(-1 * var(--elevation-3-offset-y-base)) 0px var(--elevation-3-blur-base)
+        var(--elevation-3-spread-base) var(--elevation-3-color-base);
+
+    /* ELEVATION 4 — modals */
+    --elevation-4-offset-x-base: 0px;
+    --elevation-4-offset-y-base: 12px;
+    --elevation-4-blur-base: 24px;
+    --elevation-4-spread-base: 0px;
+    --elevation-4-color-base: rgba(0, 0, 0, 0.14);
+
+    --elevation-4-offset-x: var(--elevation-4-offset-x-base);
+    --elevation-4-offset-y: var(--elevation-4-offset-y-base);
+    --elevation-4-blur: var(--elevation-4-blur-base);
+    --elevation-4-spread: var(--elevation-4-spread-base);
+    --elevation-4-color: var(--elevation-4-color-base);
+
+    --elevation-4-shadow: var(--elevation-4-offset-x) var(--elevation-4-offset-y) var(--elevation-4-blur)
+        var(--elevation-4-spread) var(--elevation-4-color);
+
+    --elevation-4-default: var(--elevation-4-shadow);
+    --elevation-4-top: var(--elevation-4-offset-x-base) calc(-1 * var(--elevation-4-offset-y-base))
+        var(--elevation-4-blur-base) var(--elevation-4-spread-base) var(--elevation-4-color-base);
+    --elevation-4-right: var(--elevation-4-offset-y-base) 0px var(--elevation-4-blur-base)
+        var(--elevation-4-spread-base) var(--elevation-4-color-base);
+    --elevation-4-bottom: var(--elevation-4-offset-x-base) var(--elevation-4-offset-y-base) var(--elevation-4-blur-base)
+        var(--elevation-4-spread-base) var(--elevation-4-color-base);
+    --elevation-4-left: calc(-1 * var(--elevation-4-offset-y-base)) 0px var(--elevation-4-blur-base)
+        var(--elevation-4-spread-base) var(--elevation-4-color-base);
+}
+/* ============================================
+   Spacing tokens (primitives + semantic aliases)
+   ============================================ */
+@theme {
+    /* Base spacing scale — mapped 1:1 to rem values for now */
+    --space-3xs: 0.125rem;
+    --space-2xs: 0.25rem;
+    --space-xs: 0.5rem;
+    --space-sm: 0.75rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+
+    /* Semantic aliases */
+    --space-section: var(--space-xl); /* padding exterior de secciones */
+    --space-card: var(--space-md); /* padding interno de cards */
+    --space-form-row: var(--space-sm); /* separación vertical entre campos */
+    --space-inline-gap: var(--space-sm); /* gaps horizontales por defecto */
+}
+/* ============================================
+   Size tokens (heights for controls + components)
+   ============================================ */
+@theme {
+    /* Semantic Sizes for Buttons */
+    --sizes-btn-xs: 24px;
+    --sizes-btn-sm: 32px;
+    --sizes-btn-md: 40px;
+    --sizes-btn-lg: 48px;
+    --sizes-btn-xl: 56px;
+
+    /* Control heights (buttons, inputs, selects, etc.) */
+    --control-height-xs: 1.5rem; /* ~24px */
+    --control-height-sm: 2rem; /* ~32px */
+    --control-height-md: 2.5rem; /* ~40px */
+    --control-height-lg: 3rem; /* ~48px */
+    --control-height-xl: 3.5rem; /* ~56px */
+
+    /* Semantic aliases */
+    --height-field-xs: var(--control-height-xs);
+    --height-field-sm: var(--control-height-sm);
+    --height-field-md: var(--control-height-md);
+    --height-field-lg: var(--control-height-lg);
+    --height-field-xl: var(--control-height-xl);
+
+    /* Heights for key components (v1 placeholders) */
+    --height-navbar: 3.5rem;
+    --height-toolbar: 3rem;
+
+    /* Arrow geometry */
+    --select-arrow-size: 0.25rem; /* 4px */
+    --select-arrow-gap: 0.25rem; /* space between the two triangles */
+
+    /* Inset from the edge: ties arrow to your spacing tokens */
+    --select-arrow-inset: var(--space-md);
+}
+/* ======================================================================
+   OUTLINE TOKENS — DataInt UI
+   Outline width, style, offset y color
+   ====================================================================== */
+@theme {
+    --outline-width-1: 1px;
+    --outline-width-2: 2px;
+    --outline-style: solid;
+    --outline-color: var(--color-outline);
+    --outline-offset-1: 1px;
+    --outline-offset-2: 2px;
+    --outline-offset-4: 4px;
+    --outline-1: var(--outline-width-1) var(--outline-style) var(--outline-color);
+    --outline-2: var(--outline-width-2) var(--outline-style) var(--outline-color);
+}
+/* 2) Tokens semánticos que dependen de los primitivos */
+/* ================================================
+   Semantic color tokens for dataint-ui
+   - @theme para Tailwind
+   - Overrides por tema (light / dark)
+   ================================================ */
+@theme {
+    /* Base surfaces */
+    --color-base-100: var(--neutral-050);
+    --color-base-200: var(--neutral-100);
+    --color-base-300: var(--neutral-300);
+
+    /* Base content */
+    --color-base-content: var(--neutral-900);
+
+    /* Muted text */
+    --color-base-content-muted: var(--neutral-700);
+    --color-base-content-subtle: var(--neutral-600);
+
+    /* Neutral */
+    --color-neutral: var(--neutral-800);
+    --color-neutral-content: var(--neutral-050);
+    --color-neutral-hover: var(--neutral-700);
+    --color-neutral-content-hover: var(--neutral-050);
+
+    /* Brand */
+    --color-primary: var(--keppel-green);
+    --color-primary-content: var(--neutral-050);
+    --color-primary-hover: color-mix(in srgb, var(--color-primary) 85%, #000 15%);
+
+    --color-secondary: var(--indigo-blue);
+    --color-secondary-content: var(--neutral-050);
+    --color-secondary-hover: var(--yonder-blue);
+
+    --color-accent: var(--lavender-gray);
+    --color-accent-content: var(--neutral-050);
+    --color-accent-hover: color-mix(in srgb, var(--color-accent) 85%, #000 15%);
+
+    /* Status */
+    --color-info: var(--azure-blue-500);
+    --color-info-content: var(--neutral-050);
+    --color-info-hover: var(--azure-blue-700);
+
+    --color-success: var(--lime-green-500);
+    --color-success-content: var(--neutral-050);
+    --color-success-hover: var(--lime-green-800);
+
+    --color-warning: var(--sunglow-yellow-500);
+    --color-warning-content: var(--neutral-900);
+    --color-warning-hover: var(--sunglow-yellow-700);
+
+    --color-error: var(--light-red-500);
+    --color-error-content: var(--neutral-050);
+    --color-error-hover: var(--light-red-700);
+
+    /* Semantic subtle and outlined helpers */
+    --color-neutral-soft: var(--color-base-200);
+    --color-neutral-soft-border: var(--color-border-strong);
+    --color-neutral-outline-border: color-mix(in oklab, var(--color-neutral) 55%, var(--color-border-subtle));
+
+    --color-primary-soft: color-mix(in oklab, var(--color-primary) 20%, var(--color-base-100));
+    --color-primary-soft-border: color-mix(in oklab, var(--color-primary) 50%, var(--color-border-subtle));
+    --color-primary-outline-border: color-mix(in oklab, var(--color-primary) 55%, var(--color-border-subtle));
+
+    --color-secondary-soft: color-mix(in oklab, var(--color-secondary) 20%, var(--color-base-100));
+    --color-secondary-soft-border: color-mix(in oklab, var(--color-secondary) 50%, var(--color-border-subtle));
+    --color-secondary-outline-border: color-mix(in oklab, var(--color-secondary) 55%, var(--color-border-subtle));
+
+    --color-accent-soft: color-mix(in oklab, var(--color-accent) 20%, var(--color-base-100));
+    --color-accent-soft-border: color-mix(in oklab, var(--color-accent) 50%, var(--color-border-subtle));
+    --color-accent-outline-border: color-mix(in oklab, var(--color-accent) 55%, var(--color-border-subtle));
+
+    --color-info-soft: color-mix(in oklab, var(--color-info) 20%, var(--color-base-100));
+    --color-info-soft-border: color-mix(in oklab, var(--color-info) 50%, var(--color-border-subtle));
+    --color-info-outline-border: color-mix(in oklab, var(--color-info) 55%, var(--color-border-subtle));
+
+    --color-success-soft: color-mix(in oklab, var(--color-success) 20%, var(--color-base-100));
+    --color-success-soft-border: color-mix(in oklab, var(--color-success) 50%, var(--color-border-subtle));
+    --color-success-outline-border: color-mix(in oklab, var(--color-success) 55%, var(--color-border-subtle));
+
+    --color-warning-soft: color-mix(in oklab, var(--color-warning) 20%, var(--color-base-100));
+    --color-warning-soft-border: color-mix(in oklab, var(--color-warning) 50%, var(--color-border-subtle));
+    --color-warning-outline-border: color-mix(in oklab, var(--color-warning) 55%, var(--color-border-subtle));
+
+    --color-error-soft: color-mix(in oklab, var(--color-error) 20%, var(--color-base-100));
+    --color-error-soft-border: color-mix(in oklab, var(--color-error) 50%, var(--color-border-subtle));
+    --color-error-outline-border: color-mix(in oklab, var(--color-error) 55%, var(--color-border-subtle));
+
+    /* Outlines */
+    --color-outline: var(--neutral-900);
+
+    /* Borders */
+    --color-border-subtle: var(--neutral-200);
+    --color-border-strong: var(--neutral-300);
+    --color-border-muted: var(--neutral-100);
+
+    /* Disabled */
+    --color-disabled-bg: color-mix(in oklab, var(--color-base-content) 10%, var(--color-base-100));
+    --color-disabled-fg: var(--color-base-content-muted);
+    --color-disabled-border: color-mix(in oklab, var(--color-base-content) 20%, transparent);
+    --color-disabled-border-strong: color-mix(in oklab, var(--color-base-content) 24%, transparent);
+    --opacity-disabled: 0.72;
+
+    /* Chart data colors (para Tailwind, mismos defaults que light) */
+    --color-data-1: #2e435f;
+    --color-data-2: #688ae8;
+    --color-data-3: #c33d69;
+    --color-data-4: #2ea597;
+    --color-data-5: #8456ce;
+    --color-data-6: #e07941;
+    --color-data-7: #3759ce;
+    --color-data-8: #962249;
+    --color-data-9: #096f64;
+    --color-data-10: #6237a7;
+    --color-data-11: #a84401;
+    --color-data-12: #273ea5;
+    --color-data-13: #780d35;
+    --color-data-14: #03524a;
+    --color-data-15: #4a238b;
+    --color-data-16: #7e3103;
+    --color-data-17: #1b2b88;
+    --color-data-18: #ce567c;
+    --color-data-19: #003e38;
+    --color-data-20: #9469d6;
+    --color-data-21: #602400;
+    --color-data-22: #4066df;
+    --color-data-23: #a32952;
+    --color-data-24: #0d7d70;
+}
+/*  Dark theme semantic tokens
+*/
+:root[data-theme="dark"] {
+    /* Base surfaces */
+    --color-base-100: var(--neutral-900);
+    --color-base-200: var(--neutral-800);
+    --color-base-300: var(--neutral-800);
+
+    /* Base content */
+    --color-base-content: var(--neutral-050);
+    --color-base-content-muted: var(--neutral-300);
+    --color-base-content-subtle: var(--neutral-400);
+
+    /* Neutral */
+    --color-neutral: var(--neutral-050);
+    --color-neutral-content: var(--neutral-900);
+    --color-neutral-hover: var(--neutral-200);
+
+    /* Brand */
+    --color-primary: var(--keppel-green);
+    --color-primary-content: var(--neutral-900);
+    --color-primary-hover: color-mix(in srgb, var(--color-primary) 85%, #000 15%);
+
+    --color-secondary: var(--indigo-blue);
+    --color-secondary-content: var(--neutral-050);
+    --color-secondary-hover: var(--oxford-blue);
+
+    --color-accent: var(--lavender-gray);
+    --color-accent-content: var(--neutral-900);
+    --color-accent-hover: var(--yonder-blue);
+
+    /* Status */
+    --color-info: var(--azure-blue-400);
+    --color-info-content: var(--neutral-900);
+    --color-info-hover: var(--azure-blue-700);
+
+    --color-success: var(--lime-green-400);
+    --color-success-content: var(--neutral-900);
+    --color-success-hover: var(--lime-green-700);
+
+    --color-warning: var(--sunglow-yellow-400);
+    --color-warning-content: var(--neutral-900);
+    --color-warning-hover: var(--sunglow-yellow-700);
+
+    --color-error: var(--light-red-400);
+    --color-error-content: var(--neutral-900);
+    --color-error-hover: var(--light-red-700);
+
+    /* Outlines */
+    --color-outline: var(--neutral-100);
+
+    /* Borders */
+    --color-border-subtle: var(--neutral-700);
+    --color-border-strong: var(--neutral-600);
+    --color-border-muted: var(--neutral-800);
+
+    /* Disabled */
+    --color-disabled-bg: color-mix(in oklab, var(--color-base-content) 10%, var(--color-base-100));
+    --color-disabled-fg: var(--color-base-content-muted);
+    --color-disabled-border: color-mix(in oklab, var(--color-base-content) 20%, transparent);
+    --color-disabled-border-strong: color-mix(in oklab, var(--color-base-content) 24%, transparent);
+    --opacity-disabled: 0.72;
+
+    /* Chart data colors for dark theme */
+    --color-data-1: #59bba1;
+    --color-data-2: #486de8;
+    --color-data-3: #e07f9d;
+    --color-data-4: #018977;
+    --color-data-5: #b088f5;
+    --color-data-6: #c55305;
+    --color-data-7: #8ea9ff;
+    --color-data-8: #ffb0c8;
+    --color-data-9: #40bfa9;
+    --color-data-10: #d6baff;
+    --color-data-11: #f89256;
+    --color-data-12: #c3d1ff;
+    --color-data-13: #ffdfe8;
+    --color-data-14: #94e0d0;
+    --color-data-15: #efe2ff;
+    --color-data-16: #ffc6a4;
+    --color-data-17: #ecf0ff;
+    --color-data-18: #d56889;
+    --color-data-19: #d7f7f0;
+    --color-data-20: #a173ea;
+    --color-data-21: #ffede2;
+    --color-data-22: #7698fe;
+    --color-data-23: #f5a2bb;
+    --color-data-24: #00b09b;
+}
+body {
+    margin: 0;
+    font-family: var(--font-body);
+    background-color: var(--color-base-100);
+    color: var(--color-base-content);
+}
+@layer components {
+    /* ======================================================================
+   BTN — Action components (DataInt UI) — Daisy-like
+   ====================================================================== */
+
+    /* Base button utility */
+    .btn {
+        @apply inline-flex items-center justify-center flex-shrink-0 flex-nowrap;
+        @apply select-none cursor-pointer align-middle text-center whitespace-nowrap no-underline;
+        @apply font-sans font-semibold text-base;
+        @apply px-4 py-0 border-solid transition-colors duration-200 ease-[cubic-bezier(0,0,0.2,1)];
+        gap: var(--space-inline-gap);
+        height: var(--sizes-btn-md);
+        width: auto;
+        max-width: -moz-max-content;
+        max-width: max-content;
+        -webkit-appearance: button;
+           -moz-appearance: button;
+                appearance: button;
+        box-sizing: border-box;
+        touch-action: manipulation;
+        border-width: var(--border-width-base);
+        border-radius: var(--radius-field);
+        border-color: var(--color-border-strong);
+        background-color: var(--color-base-200);
+        color: var(--color-base-content);
+        box-shadow: var(--elevation-1-shadow);
+        text-shadow: none;
+        transition-property: color, background-color, border-color, box-shadow;
+        outline-offset: var(--outline-offset-2);
+    }
+
+    /* Default hover: darken with subtle gray unless overridden by intent/variant */
+    .btn:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]):not(.btn-primary):not(.btn-secondary):not(
+            .btn-neutral
+        ):not(.btn-accent):not(.btn-info):not(.btn-success):not(.btn-warning):not(.btn-error):not(.btn-outlined):not(
+            .btn-ghost
+        ) {
+        background-color: var(--color-base-300);
+    }
+
+    /* Active / press feedback */
+    .btn:active:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+        transform: translateY(1px);
+    }
+
+    /* Focus-visible outlined */
+    .btn:focus-visible:not(.btn-disabled, [disabled], [aria-disabled="true"]),
+    .btn:has(:focus-visible):not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+        outline-width: 2px;
+        outline-style: solid;
+        outline-color: currentColor;
+    }
+
+    /* ======================================================================
+   INTENTS (solid)
+   ====================================================================== */
+
+    /* Solid intents */
+    .btn-neutral {
+        background-color: var(--color-neutral);
+        color: var(--color-neutral-content);
+        border-color: var(--color-neutral);
+    }
+    .btn-primary {
+        background-color: var(--color-primary);
+        color: var(--color-primary-content);
+        border-color: var(--color-primary);
+    }
+    .btn-secondary {
+        background-color: var(--color-secondary);
+        color: var(--color-secondary-content);
+        border-color: var(--color-secondary);
+    }
+    .btn-accent {
+        background-color: var(--color-accent);
+        color: var(--color-accent-content);
+        border-color: var(--color-accent);
+    }
+    .btn-info {
+        background-color: var(--color-info);
+        color: var(--color-info-content);
+        border-color: var(--color-info);
+    }
+    .btn-success {
+        background-color: var(--color-success);
+        color: var(--color-success-content);
+        border-color: var(--color-success);
+    }
+    .btn-warning {
+        background-color: var(--color-warning);
+        color: var(--color-warning-content);
+        border-color: var(--color-warning);
+    }
+    .btn-error {
+        background-color: var(--color-error);
+        color: var(--color-error-content);
+        border-color: var(--color-error);
+    }
+
+    .btn-neutral:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+        background-color: var(--color-neutral-hover);
+        border-color: var(--color-neutral-hover);
+    }
+    .btn-primary:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+        background-color: var(--color-primary-hover);
+        border-color: var(--color-primary-hover);
+    }
+    .btn-secondary:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+        background-color: var(--color-secondary-hover);
+        border-color: var(--color-secondary-hover);
+    }
+    .btn-accent:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+        background-color: var(--color-accent-hover);
+        border-color: var(--color-accent-hover);
+    }
+    .btn-info:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+        background-color: var(--color-info-hover);
+        border-color: var(--color-info-hover);
+    }
+    .btn-success:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+        background-color: var(--color-success-hover);
+        border-color: var(--color-success-hover);
+    }
+    .btn-warning:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+        background-color: var(--color-warning-hover);
+        border-color: var(--color-warning-hover);
+    }
+    .btn-error:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+        background-color: var(--color-error-hover);
+        border-color: var(--color-error-hover);
+    }
+
+    /* ======================================================================
+   VARIANTS — outlined & GHOST (Daisy-like)
+   ====================================================================== */
+
+    /* outlined: sin relleno, borde y texto con color de intención */
+    .btn-outlined {
+        @apply border-solid;
+        color: var(--color-base-content);
+        border-color: var(--color-border-strong);
+    }
+
+    /* Soft: low-emphasis, subtle background and border, intent-aware */
+    .btn-soft {
+        background-color: var(--color-base-100);
+        color: var(--color-base-content);
+        border-width: var(--border-width-base);
+        border-style: solid;
+        border-color: var(--color-border-subtle);
+        box-shadow: none;
+    }
+
+    /* Soft intents */
+    .btn-soft.btn-neutral {
+        background-color: var(--color-neutral-soft);
+        color: var(--color-base-content);
+        border-color: var(--color-neutral-soft-border);
+    }
+    .btn-soft.btn-primary {
+        background-color: var(--color-primary-soft);
+        color: var(--color-primary);
+        border-color: var(--color-primary-soft-border);
+    }
+    .btn-soft.btn-secondary {
+        background-color: var(--color-secondary-soft);
+        color: var(--color-secondary);
+        border-color: var(--color-secondary-soft-border);
+    }
+    .btn-soft.btn-accent {
+        background-color: var(--color-accent-soft);
+        color: var(--color-accent);
+        border-color: var(--color-accent-soft-border);
+    }
+    .btn-soft.btn-info {
+        background-color: var(--color-info-soft);
+        color: var(--color-info);
+        border-color: var(--color-info-soft-border);
+    }
+    .btn-soft.btn-success {
+        background-color: var(--color-success-soft);
+        color: var(--color-success);
+        border-color: var(--color-success-soft-border);
+    }
+    .btn-soft.btn-warning {
+        background-color: var(--color-warning-soft);
+        color: var(--color-warning);
+        border-color: var(--color-warning-soft-border);
+    }
+    .btn-soft.btn-error {
+        background-color: var(--color-error-soft);
+        color: var(--color-error);
+        border-color: var(--color-error-soft-border);
+    }
+
+    /* Soft hover/active/focus states */
+    .btn-soft:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+        background-color: var(--color-base-300);
+    }
+    .btn-soft.btn-neutral:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+        background-color: var(--color-neutral-hover);
+        border-color: var(--color-neutral-hover);
+        color: var(--color-neutral-content);
+    }
+    .btn-soft.btn-primary:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+        background-color: var(--color-primary-hover);
+        border-color: var(--color-primary-hover);
+        color: var(--color-primary-content);
+    }
+    .btn-soft.btn-secondary:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+        background-color: var(--color-secondary-hover);
+        border-color: var(--color-secondary-hover);
+        color: var(--color-secondary-content);
+    }
+    .btn-soft.btn-accent:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+        background-color: var(--color-accent-hover);
+        border-color: var(--color-accent-hover);
+        color: var(--color-accent-content);
+    }
+    .btn-soft.btn-info:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+        background-color: var(--color-info-hover);
+        border-color: var(--color-info-hover);
+        color: var(--color-info-content);
+    }
+    .btn-soft.btn-success:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+        background-color: var(--color-success-hover);
+        border-color: var(--color-success-hover);
+        color: var(--color-success-content);
+    }
+    .btn-soft.btn-warning:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+        background-color: var(--color-warning-hover);
+        border-color: var(--color-warning-hover);
+        color: var(--color-warning-content);
+    }
+    .btn-soft.btn-error:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+        background-color: var(--color-error-hover);
+        border-color: var(--color-error-hover);
+        color: var(--color-error-content);
+    }
+
+    /* outlined + intent colors */
+    /* outlined intents */
+    .btn-outlined.btn-neutral {
+        background-color: transparent;
+        color: var(--color-neutral);
+        border-color: var(--color-neutral);
+    }
+    .btn-outlined.btn-primary {
+        background-color: transparent;
+        color: var(--color-primary);
+        border-color: var(--color-primary);
+    }
+    .btn-outlined.btn-secondary {
+        background-color: transparent;
+        color: var(--color-secondary);
+        border-color: var(--color-secondary);
+    }
+    .btn-outlined.btn-accent {
+        background-color: transparent;
+        color: var(--color-accent);
+        border-color: var(--color-accent);
+    }
+    .btn-outlined.btn-info {
+        background-color: transparent;
+        color: var(--color-info);
+        border-color: var(--color-info);
+    }
+    .btn-outlined.btn-success {
+        background-color: transparent;
+        color: var(--color-success);
+        border-color: var(--color-success);
+    }
+    .btn-outlined.btn-warning {
+        background-color: transparent;
+        color: var(--color-warning);
+        border-color: var(--color-warning);
+    }
+    .btn-outlined.btn-error {
+        background-color: transparent;
+        color: var(--color-error);
+        border-color: var(--color-error);
+    }
+
+    /* Outlined interactive states: align with solid intent semantics */
+    .btn-outlined:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]),
+    .btn-outlined:active:not(.btn-disabled, [disabled], [aria-disabled="true"]),
+    .btn-outlined:focus-visible:not(.btn-disabled, [disabled], [aria-disabled="true"]),
+    .btn-outlined:has(:focus-visible):not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+        background-color: var(--color-base-300);
+        color: var(--color-base-content);
+        border-color: var(--color-border-strong);
+    }
+
+    .btn-outlined.btn-neutral:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]),
+    .btn-outlined.btn-neutral:active:not(.btn-disabled, [disabled], [aria-disabled="true"]),
+    .btn-outlined.btn-neutral:focus-visible:not(.btn-disabled, [disabled], [aria-disabled="true"]),
+    .btn-outlined.btn-neutral:has(:focus-visible):not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+        background-color: var(--color-neutral-hover);
+        color: var(--color-neutral-content);
+        border-color: var(--color-neutral-hover);
+    }
+
+    .btn-outlined.btn-primary:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]),
+    .btn-outlined.btn-primary:active:not(.btn-disabled, [disabled], [aria-disabled="true"]),
+    .btn-outlined.btn-primary:focus-visible:not(.btn-disabled, [disabled], [aria-disabled="true"]),
+    .btn-outlined.btn-primary:has(:focus-visible):not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+        background-color: var(--color-primary-hover);
+        color: var(--color-primary-content);
+        border-color: var(--color-primary-hover);
+    }
+
+    .btn-outlined.btn-secondary:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]),
+    .btn-outlined.btn-secondary:active:not(.btn-disabled, [disabled], [aria-disabled="true"]),
+    .btn-outlined.btn-secondary:focus-visible:not(.btn-disabled, [disabled], [aria-disabled="true"]),
+    .btn-outlined.btn-secondary:has(:focus-visible):not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+        background-color: var(--color-secondary-hover);
+        color: var(--color-secondary-content);
+        border-color: var(--color-secondary-hover);
+    }
+
+    .btn-outlined.btn-accent:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]),
+    .btn-outlined.btn-accent:active:not(.btn-disabled, [disabled], [aria-disabled="true"]),
+    .btn-outlined.btn-accent:focus-visible:not(.btn-disabled, [disabled], [aria-disabled="true"]),
+    .btn-outlined.btn-accent:has(:focus-visible):not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+        background-color: var(--color-accent-hover);
+        color: var(--color-accent-content);
+        border-color: var(--color-accent-hover);
+    }
+
+    .btn-outlined.btn-info:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]),
+    .btn-outlined.btn-info:active:not(.btn-disabled, [disabled], [aria-disabled="true"]),
+    .btn-outlined.btn-info:focus-visible:not(.btn-disabled, [disabled], [aria-disabled="true"]),
+    .btn-outlined.btn-info:has(:focus-visible):not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+        background-color: var(--color-info-hover);
+        color: var(--color-info-content);
+        border-color: var(--color-info-hover);
+    }
+
+    .btn-outlined.btn-success:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]),
+    .btn-outlined.btn-success:active:not(.btn-disabled, [disabled], [aria-disabled="true"]),
+    .btn-outlined.btn-success:focus-visible:not(.btn-disabled, [disabled], [aria-disabled="true"]),
+    .btn-outlined.btn-success:has(:focus-visible):not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+        background-color: var(--color-success-hover);
+        color: var(--color-success-content);
+        border-color: var(--color-success-hover);
+    }
+
+    .btn-outlined.btn-warning:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]),
+    .btn-outlined.btn-warning:active:not(.btn-disabled, [disabled], [aria-disabled="true"]),
+    .btn-outlined.btn-warning:focus-visible:not(.btn-disabled, [disabled], [aria-disabled="true"]),
+    .btn-outlined.btn-warning:has(:focus-visible):not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+        background-color: var(--color-warning-hover);
+        color: var(--color-warning-content);
+        border-color: var(--color-warning-hover);
+    }
+
+    .btn-outlined.btn-error:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]),
+    .btn-outlined.btn-error:active:not(.btn-disabled, [disabled], [aria-disabled="true"]),
+    .btn-outlined.btn-error:focus-visible:not(.btn-disabled, [disabled], [aria-disabled="true"]),
+    .btn-outlined.btn-error:has(:focus-visible):not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+        background-color: var(--color-error-hover);
+        color: var(--color-error-content);
+        border-color: var(--color-error-hover);
+    }
+
+    /* Ghost: sin borde ni fondo, sólo texto con color de intención */
+    .btn-ghost {
+        @apply bg-transparent border-solid;
+        border-width: 1px;
+        border-color: transparent;
+        box-shadow: none;
+    }
+
+    /* Ghost + intent (solo color de texto) */
+    /* Ghost intents */
+    .btn-ghost.btn-neutral {
+        color: var(--color-neutral);
+        background-color: transparent;
+        border-color: transparent;
+    }
+    .btn-ghost.btn-primary {
+        color: var(--color-primary);
+        background-color: transparent;
+        border-color: transparent;
+    }
+    .btn-ghost.btn-secondary {
+        color: var(--color-secondary);
+        background-color: transparent;
+        border-color: transparent;
+    }
+    .btn-ghost.btn-accent {
+        color: var(--color-accent);
+        background-color: transparent;
+        border-color: transparent;
+    }
+    .btn-ghost.btn-info {
+        color: var(--color-info);
+        background-color: transparent;
+        border-color: transparent;
+    }
+    .btn-ghost.btn-success {
+        color: var(--color-success);
+        background-color: transparent;
+        border-color: transparent;
+    }
+    .btn-ghost.btn-warning {
+        color: var(--color-warning);
+        background-color: transparent;
+        border-color: transparent;
+    }
+    .btn-ghost.btn-error {
+        color: var(--color-error);
+        background-color: transparent;
+        border-color: transparent;
+    }
+
+    /* Hover ghost: superficie sutil para evitar parecer igual al solid */
+    .btn-ghost:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+        background-color: var(--color-base-300);
+    }
+    /* Ghost hover por intent: color de borde igual al color de texto */
+    .btn-ghost.btn-neutral:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+        background-color: var(--color-neutral-hover);
+        color: var(--color-neutral-content);
+        border-color: var(--color-neutral-hover);
+    }
+    .btn-ghost.btn-primary:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+        background-color: var(--color-primary-hover);
+        color: var(--color-primary-content);
+        border-color: var(--color-primary-hover);
+    }
+    .btn-ghost.btn-secondary:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+        background-color: var(--color-secondary-hover);
+        color: var(--color-secondary-content);
+        border-color: var(--color-secondary-hover);
+    }
+    .btn-ghost.btn-accent:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+        background-color: var(--color-accent-hover);
+        color: var(--color-accent-content);
+        border-color: var(--color-accent-hover);
+    }
+    .btn-ghost.btn-info:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+        background-color: var(--color-info-hover);
+        color: var(--color-info-content);
+        border-color: var(--color-info-hover);
+    }
+    .btn-ghost.btn-success:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+        background-color: var(--color-success-hover);
+        color: var(--color-success-content);
+        border-color: var(--color-success-hover);
+    }
+    .btn-ghost.btn-warning:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+        background-color: var(--color-warning-hover);
+        color: var(--color-warning-content);
+        border-color: var(--color-warning-hover);
+    }
+    .btn-ghost.btn-error:hover:not(.btn-disabled, [disabled], [aria-disabled="true"]) {
+        background-color: var(--color-error-hover);
+        color: var(--color-error-content);
+        border-color: var(--color-error-hover);
+    }
+
+    /* ======================================================================
+   SIZES
+   ====================================================================== */
+
+    .btn-xs {
+        @apply text-xs;
+        padding-inline: var(--space-xs);
+        height: var(--sizes-btn-xs);
+    }
+
+    .btn-sm {
+        @apply text-sm;
+        padding-inline: var(--space-sm);
+        height: var(--sizes-btn-sm);
+    }
+
+    .btn-lg {
+        @apply text-lg;
+        padding-inline: var(--space-lg);
+        height: var(--sizes-btn-lg);
+    }
+
+    .btn-xl {
+        @apply text-xl;
+        padding-inline: var(--space-xl);
+        height: var(--sizes-btn-xl);
+    }
+
+    /* ======================================================================
+   WIDTH BEHAVIOR
+   ====================================================================== */
+
+    .btn-block {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    /* ======================================================================
+   ICON-ONLY & SHAPES (Daisy-like)
+   ====================================================================== */
+
+    /* Icon-only square button */
+    .btn-icon {
+        @apply h-10 w-10;
+        gap: 0;
+        border-radius: var(--radius-field);
+    }
+
+    /* ======================================================================
+   DISABLED
+   ====================================================================== */
+
+    .btn-disabled {
+        @apply cursor-not-allowed;
+    }
+
+    /* Terminal disabled override for class and attribute usage */
+    .btn.btn-disabled,
+    .btn[disabled],
+    .btn[aria-disabled="true"] {
+        cursor: not-allowed;
+        background-color: var(--color-disabled-bg);
+        color: var(--color-disabled-fg);
+        border-color: var(--color-disabled-border);
+        box-shadow: none;
+        text-shadow: none;
+        transform: none;
+        filter: none;
+        opacity: var(--opacity-disabled);
+    }
+
+    .btn.btn-outlined.btn-disabled,
+    .btn.btn-outlined[disabled],
+    .btn.btn-outlined[aria-disabled="true"] {
+        background-color: transparent;
+        border-style: solid;
+        border-color: var(--color-disabled-border-strong);
+    }
+
+    .btn.btn-disabled:hover,
+    .btn.btn-disabled:active,
+    .btn.btn-disabled:focus-visible,
+    .btn.btn-disabled:has(:focus-visible),
+    .btn[disabled]:hover,
+    .btn[disabled]:active,
+    .btn[disabled]:focus-visible,
+    .btn[disabled]:has(:focus-visible),
+    .btn[aria-disabled="true"]:hover,
+    .btn[aria-disabled="true"]:active,
+    .btn[aria-disabled="true"]:focus-visible,
+    .btn[aria-disabled="true"]:has(:focus-visible) {
+        background-color: var(--color-disabled-bg);
+        color: var(--color-disabled-fg);
+        border-color: var(--color-disabled-border);
+        box-shadow: none;
+        text-shadow: none;
+        outline: none;
+        transform: none;
+        filter: none;
+    }
+
+    .btn.btn-outlined.btn-disabled:hover,
+    .btn.btn-outlined.btn-disabled:active,
+    .btn.btn-outlined.btn-disabled:focus-visible,
+    .btn.btn-outlined.btn-disabled:has(:focus-visible),
+    .btn.btn-outlined[disabled]:hover,
+    .btn.btn-outlined[disabled]:active,
+    .btn.btn-outlined[disabled]:focus-visible,
+    .btn.btn-outlined[disabled]:has(:focus-visible),
+    .btn.btn-outlined[aria-disabled="true"]:hover,
+    .btn.btn-outlined[aria-disabled="true"]:active,
+    .btn.btn-outlined[aria-disabled="true"]:focus-visible,
+    .btn.btn-outlined[aria-disabled="true"]:has(:focus-visible) {
+        background-color: transparent;
+        border-color: var(--color-disabled-border-strong);
+    }
+}
+@layer components {
+    /* ======================================================================
+   LINK — Action-like links (DataInt UI)
+   ====================================================================== */
+
+    .link {
+        @apply inline-flex items-center;
+        @apply font-medium select-none no-underline cursor-pointer;
+
+        gap: var(--space-inline-gap);
+        font-family: var(--font-body);
+        line-height: 1.2;
+
+        transition:
+            color 150ms ease-out,
+            text-decoration-color 150ms ease-out,
+            background-color 150ms ease-out;
+    }
+
+    /* ============================================================
+   INTENTS
+   ============================================================ */
+
+    .link-neutral {
+        color: var(--color-neutral);
+    }
+
+    .link-neutral:hover {
+        color: var(--color-neutral-hover);
+        @apply underline underline-offset-2;
+    }
+
+    .link-primary {
+        color: var(--color-primary);
+    }
+
+    .link-primary:hover {
+        color: var(--color-primary-hover);
+        @apply underline underline-offset-2;
+    }
+
+    .link-secondary {
+        color: var(--color-secondary);
+    }
+
+    .link-secondary:hover {
+        color: var(--color-secondary-hover);
+        @apply underline underline-offset-2;
+    }
+
+    .link-accent {
+        color: var(--color-accent);
+    }
+
+    .link-accent:hover {
+        color: var(--color-accent-hover);
+        @apply underline underline-offset-2;
+    }
+
+    .link-info {
+        color: var(--color-info);
+    }
+
+    .link-info:hover {
+        color: var(--color-info-hover);
+        @apply underline underline-offset-2;
+    }
+
+    .link-success {
+        color: var(--color-success);
+    }
+
+    .link-success:hover {
+        color: var(--color-success-hover);
+        @apply underline underline-offset-2;
+    }
+
+    .link-warning {
+        color: var(--color-warning);
+    }
+
+    .link-warning:hover {
+        color: var(--color-warning-hover);
+        @apply underline underline-offset-2;
+    }
+
+    .link-error {
+        color: var(--color-error);
+    }
+
+    .link-error:hover {
+        color: var(--color-error-hover);
+        @apply underline underline-offset-2;
+    }
+
+    /* ============================================================
+   PLAIN (no intent)
+   ============================================================ */
+
+    .link:not(.link-neutral):not(.link-primary):not(.link-secondary):not(.link-accent):not(.link-info):not(.link-success):not(
+            .link-warning
+        ):not(.link-error):hover {
+        color: color-mix(in oklab, currentColor 85%, var(--color-base-content));
+        @apply underline underline-offset-2;
+    }
+
+    /* ============================================================
+   SIZES
+   ============================================================ */
+
+    .link-xs {
+        @apply text-xs;
+    }
+
+    .link-sm {
+        @apply text-sm;
+    }
+
+    .link-lg {
+        @apply text-lg;
+    }
+
+    .link-xl {
+        @apply text-xl;
+    }
+
+    /* ============================================================
+   WIDTH
+   ============================================================ */
+
+    .link-block {
+        @apply w-full;
+    }
+
+    /* ============================================================
+   ICON RELATIONSHIP
+   ============================================================ */
+
+    .link-icon-only {
+        width: auto;
+        max-width: -moz-max-content;
+        max-width: max-content;
+        padding: 0;
+        gap: 0;
+        justify-content: center;
+    }
+
+    .link-icon-start {
+        flex-direction: row;
+    }
+
+    .link-icon-end {
+        flex-direction: row-reverse;
+    }
+
+    /* ============================================================
+   DISABLED
+   ============================================================ */
+
+    .link-disabled {
+        color: var(--color-disabled-fg);
+        cursor: not-allowed;
+        pointer-events: none;
+        opacity: var(--opacity-disabled);
+        text-decoration: none;
+    }
+
+    .link[aria-disabled="true"] {
+        color: var(--color-disabled-fg);
+        cursor: not-allowed;
+        pointer-events: none;
+        opacity: var(--opacity-disabled);
+        text-decoration: none;
+    }
+
+    .link-disabled:hover,
+    .link-disabled:active,
+    .link-disabled:focus,
+    .link-disabled:focus-visible,
+    .link[aria-disabled="true"]:hover,
+    .link[aria-disabled="true"]:active,
+    .link[aria-disabled="true"]:focus,
+    .link[aria-disabled="true"]:focus-visible {
+        color: var(--color-disabled-fg);
+        text-decoration: none;
+        outline: none;
+    }
+}
+@layer components {
+    /* Base input field */
+    .input {
+        /* Layout & box model */
+        @apply text-sm inline-flex items-center align-middle whitespace-nowrap w-full pl-2;
+        gap: var(--space-inline-gap);
+        cursor: text;
+        height: var(--height-field-md);
+
+        /* Typography */
+        font-family: var(--font-body);
+
+        /* Visuals: background, border, radius, shadow */
+        background-color: var(--color-base-100);
+        border-width: var(--border-width-base);
+        border-style: var(--border-style-base);
+        border-radius: var(--radius-field);
+        border-color: var(--color-border-strong);
+        box-shadow: var(--elevation-1-default);
+
+        /* Focus state */
+        &:focus {
+            box-shadow: var(--elevation-1-default);
+            outline: var(--outline-1);
+            outline-offset: var(--outline-offset-4);
+            isolation: isolate;
+            z-index: 1;
+        }
+
+        /* Placeholder */
+        &::-moz-placeholder {
+            color: var(--color-base-content-muted);
+        }
+        &::placeholder {
+            color: var(--color-base-content-muted);
+        }
+    }
+
+    /* Disabled */
+    .input-disabled {
+        @apply cursor-not-allowed shadow-none;
+        color: var(--color-disabled-fg);
+        border-color: var(--color-disabled-border);
+        background-color: var(--color-disabled-bg);
+        opacity: var(--opacity-disabled);
+    }
+
+    /* HTML attribute based disabled state */
+    .input[disabled],
+    .input[aria-disabled="true"] {
+        @apply cursor-not-allowed shadow-none;
+        color: var(--color-disabled-fg);
+        border-color: var(--color-disabled-border);
+        background-color: var(--color-disabled-bg);
+        opacity: var(--opacity-disabled);
+    }
+
+    .input-disabled:focus,
+    .input-disabled:focus-visible,
+    .input[disabled]:focus,
+    .input[disabled]:focus-visible,
+    .input[aria-disabled="true"]:focus,
+    .input[aria-disabled="true"]:focus-visible {
+        box-shadow: none;
+        outline: none;
+        isolation: auto;
+        z-index: auto;
+    }
+
+    /* Error state */
+    .input-error {
+        border-color: var(--color-error);
+    }
+
+    .input-error:focus-visible {
+        outline-color: var(--color-error);
+    }
+}
+@layer components {
+    /* ======================================================================
+   CHECKBOX — Input checkbox (DataInt UI)
+   ====================================================================== */
+
+    .checkbox {
+        /* Layout + reset */
+        @apply relative inline-block shrink-0 cursor-pointer h-5 w-5 appearance-none align-middle bg-transparent;
+
+        /* Visual */
+        border-width: var(--border-width-base);
+        border-style: var(--border-style-base);
+        border-radius: var(--radius-selector, var(--radius-field));
+        border-color: var(--color-base-content);
+        background-color: var(--color-base-100);
+        box-shadow: var(--elevation-1-default);
+
+        /* Motion */
+        @apply transition-[background-color,box-shadow,border-color] duration-200;
+    }
+
+    .checkbox:focus-visible {
+        outline: var(--outline-1);
+        outline-offset: var(--outline-offset-2);
+    }
+
+    .checkbox:checked,
+    .checkbox[aria-checked="true"] {
+        background-color: var(--color-base-content);
+        border-color: var(--color-base-content);
+    }
+
+    .checkbox:checked::before,
+    .checkbox[aria-checked="true"]::before {
+        content: "";
+        @apply absolute block box-border;
+        @apply left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2;
+        @apply rotate-[-45deg];
+        @apply w-[0.55rem] h-[0.3rem];
+
+        border-left: 2px solid var(--color-base-100);
+        border-bottom: 2px solid var(--color-base-100);
+    }
+
+    .checkbox-disabled {
+        @apply cursor-not-allowed;
+        background-color: var(--color-disabled-bg);
+        border-color: var(--color-disabled-border);
+        color: var(--color-disabled-fg);
+        box-shadow: none;
+        opacity: var(--opacity-disabled);
+    }
+
+    .checkbox:disabled,
+    .checkbox[disabled],
+    .checkbox[aria-disabled="true"] {
+        @apply cursor-not-allowed;
+        background-color: var(--color-disabled-bg);
+        border-color: var(--color-disabled-border);
+        color: var(--color-disabled-fg);
+        box-shadow: none;
+        opacity: var(--opacity-disabled);
+    }
+
+    .checkbox:checked:disabled,
+    .checkbox[aria-checked="true"]:disabled,
+    .checkbox:checked[disabled],
+    .checkbox[aria-checked="true"][disabled],
+    .checkbox:checked[aria-disabled="true"],
+    .checkbox[aria-checked="true"][aria-disabled="true"] {
+        @apply cursor-not-allowed;
+        box-shadow: none;
+        background-color: var(--color-disabled-bg);
+        border-color: var(--color-disabled-border);
+        color: var(--color-disabled-fg);
+    }
+
+    .checkbox-disabled:focus,
+    .checkbox-disabled:focus-visible,
+    .checkbox:disabled:focus,
+    .checkbox:disabled:focus-visible,
+    .checkbox[disabled]:focus,
+    .checkbox[disabled]:focus-visible,
+    .checkbox[aria-disabled="true"]:focus,
+    .checkbox[aria-disabled="true"]:focus-visible {
+        outline: none;
+    }
+}
+@layer components {
+    /* ======================================================================
+   SELECT — Native select (DataInt UI)
+   - Arrow aligned using spacing tokens (no hardcoded px)
+   - LTR/RTL mirrored with consistent logic
+   - Prepared for size variants by deriving from padding + arrow tokens
+   ====================================================================== */
+
+    .select {
+        @apply text-sm inline-flex items-center align-middle whitespace-nowrap w-full cursor-pointer;
+        @apply transition-all duration-150 ease-in-out;
+        @apply overflow-hidden text-ellipsis;
+
+        /* More robust native reset */
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+
+        gap: var(--space-inline-gap);
+        height: var(--height-field-md);
+        font-family: var(--font-body);
+
+        background-color: var(--color-base-100);
+        border-width: var(--border-width-base);
+        border-style: var(--border-style-base);
+        border-radius: var(--radius-field);
+        border-color: var(--color-border-strong);
+        box-shadow: var(--elevation-1-default);
+
+        /* Padding: reserve room for arrow + inset so it never overlaps text */
+        padding-left: var(--space-md);
+        padding-right: calc(var(--space-md) + var(--select-arrow-gap) + (var(--select-arrow-size) * 2));
+        padding-top: var(--space-xs);
+        padding-bottom: var(--space-xs);
+
+        /* Arrow (LTR) */
+        background-image:
+            linear-gradient(45deg, transparent 50%, currentColor 50%),
+            linear-gradient(135deg, currentColor 50%, transparent 50%);
+        background-repeat: no-repeat;
+        background-size:
+            var(--select-arrow-size) var(--select-arrow-size),
+            var(--select-arrow-size) var(--select-arrow-size);
+
+        /* Use right-inset positioning (avoids brittle calc(100% - Xpx)) */
+        background-position:
+            right var(--select-arrow-inset) center,
+            right calc(var(--select-arrow-inset) - var(--select-arrow-gap)) center;
+    }
+
+    .select:focus {
+        box-shadow: var(--elevation-1-default);
+        outline: var(--outline-1);
+        outline-offset: var(--outline-offset-4);
+        isolation: isolate;
+        z-index: 1;
+    }
+
+    /* RTL: mirror positions and gradients using the same tokens */
+    [dir="rtl"] select.select {
+        background-image:
+            linear-gradient(-45deg, transparent 50%, currentColor 50%),
+            linear-gradient(-135deg, currentColor 50%, transparent 50%);
+        background-position:
+            left var(--select-arrow-inset) center,
+            left calc(var(--select-arrow-inset) - var(--select-arrow-gap)) center;
+
+        /* Mirror padding so text doesn't collide with arrow */
+        padding-right: var(--space-md);
+        padding-left: calc(var(--space-md) + var(--select-arrow-gap) + (var(--select-arrow-size) * 2));
+    }
+
+    /* Disabled state */
+
+    .select-disabled {
+        @apply cursor-not-allowed shadow-none;
+        color: var(--color-disabled-fg);
+        border-color: var(--color-disabled-border);
+        background-color: var(--color-disabled-bg);
+        opacity: var(--opacity-disabled);
+    }
+
+    .select:disabled,
+    .select[aria-disabled="true"] {
+        @apply cursor-not-allowed shadow-none;
+        color: var(--color-disabled-fg);
+        border-color: var(--color-disabled-border);
+        background-color: var(--color-disabled-bg);
+        opacity: var(--opacity-disabled);
+    }
+
+    .select-disabled:focus,
+    .select-disabled:focus-visible,
+    .select:disabled:focus,
+    .select:disabled:focus-visible,
+    .select[aria-disabled="true"]:focus,
+    .select[aria-disabled="true"]:focus-visible {
+        box-shadow: none;
+        outline: none;
+        isolation: auto;
+        z-index: auto;
+    }
+}
+@layer components {
+    /* ======================================================================
+   RADIO — Input radio (DataInt UI)
+   ====================================================================== */
+
+    .radio {
+        /* Layout + reset */
+        @apply relative inline-block shrink-0 h-5 w-5 cursor-pointer appearance-none align-middle bg-transparent;
+
+        /* Defaults (intent fallback) */
+        --radio-intent: var(--color-base-content);
+        --radio-intent-content: var(--color-base-100);
+
+        /* Visual */
+        border-width: var(--border-width-base);
+        border-style: var(--border-style-base);
+        border-radius: var(--radius-pill);
+        border-color: var(--radio-intent);
+        background-color: var(--color-base-100);
+        box-shadow: var(--elevation-1-default);
+
+        /* Motion */
+        @apply transition-[background-color,box-shadow,border-color] duration-200;
+    }
+
+    .radio:focus {
+        outline: var(--outline-1);
+        outline-offset: var(--outline-offset-2);
+    }
+
+    /* Checked: single source of truth */
+    .radio:checked {
+        background-color: var(--radio-intent);
+        border-color: var(--radio-intent);
+    }
+
+    .radio:checked::before {
+        content: "";
+        @apply absolute block rounded-full left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-3 w-3;
+        background-color: var(--radio-intent-content);
+    }
+
+    /* Disabled */
+
+    .radio-disabled {
+        @apply cursor-not-allowed;
+        color: var(--color-disabled-fg);
+        background-color: var(--color-disabled-bg);
+        border-color: var(--color-disabled-border);
+        box-shadow: none;
+        opacity: var(--opacity-disabled);
+    }
+
+    .radio:disabled,
+    .radio[aria-disabled="true"] {
+        @apply cursor-not-allowed;
+        color: var(--color-disabled-fg);
+        background-color: var(--color-disabled-bg);
+        border-color: var(--color-disabled-border);
+        box-shadow: none;
+        opacity: var(--opacity-disabled);
+    }
+
+    .radio-disabled:focus,
+    .radio-disabled:focus-visible,
+    .radio:disabled:focus,
+    .radio:disabled:focus-visible,
+    .radio[aria-disabled="true"]:focus,
+    .radio[aria-disabled="true"]:focus-visible {
+        outline: none;
+    }
+
+    /* ================= INTENTS =================
+   Only set variables (no repeated checked/::before rules)
+*/
+    .radio-primary {
+        --radio-intent: var(--color-primary);
+        --radio-intent-content: var(--color-primary-content);
+    }
+
+    .radio-secondary {
+        --radio-intent: var(--color-secondary);
+        --radio-intent-content: var(--color-secondary-content);
+    }
+
+    .radio-success {
+        --radio-intent: var(--color-success);
+        --radio-intent-content: var(--color-success-content);
+    }
+
+    .radio-warning {
+        --radio-intent: var(--color-warning);
+        --radio-intent-content: var(--color-warning-content);
+    }
+
+    .radio-error {
+        --radio-intent: var(--color-error);
+        --radio-intent-content: var(--color-error-content);
+    }
+
+    .radio-info {
+        --radio-intent: var(--color-info);
+        --radio-intent-content: var(--color-info-content);
+    }
+
+    .radio-neutral {
+        --radio-intent: var(--color-neutral);
+        --radio-intent-content: var(--color-neutral-content);
+    }
+
+    .radio-accent {
+        --radio-intent: var(--color-accent);
+        --radio-intent-content: var(--color-accent-content);
+    }
+}
+@layer components {
+    /* ======================================================================
+   TOGGLE — Switch/Toggle (DataInt UI)
+   ====================================================================== */
+
+    .toggle {
+        /* Layout + reset */
+        @apply relative inline-grid shrink-0 cursor-pointer w-8 h-5 appearance-none place-content-center align-middle select-none;
+
+        /* Border + color (token-driven) */
+        border-width: var(--border-width-base);
+        border-style: var(--border-style-base);
+        border-color: var(--color-base-content);
+        color: var(--color-base-content);
+
+        /* Track behavior */
+        grid-template-columns: 0fr 1fr 1fr;
+
+        /* Shape + spacing */
+        border-radius: calc(
+            var(--radius-selector) + min(2px, calc(var(--radius-selector) * 3)) +
+                min(var(--border-width-base), calc(var(--radius-selector) * 3))
+        );
+        padding: 2px;
+
+        /* Visual + motion */
+        box-shadow: var(--elevation-1-shadow);
+        @apply transition-[color,grid-template-columns] duration-200;
+    }
+
+    /* Inner item */
+    .toggle > * {
+        @apply z-10 col-span-1 col-start-2 row-start-1 h-full cursor-pointer appearance-none bg-transparent p-0.5 border-0;
+        @apply transition-[opacity,rotate] duration-200;
+    }
+    .toggle > :nth-child(2) {
+        color: var(--color-base-100);
+        rotate: 0deg;
+    }
+    .toggle > :nth-child(3) {
+        color: var(--color-base-100);
+        opacity: 0;
+        rotate: -15deg;
+    }
+    .toggle:has(:checked) > :nth-child(2) {
+        opacity: 0;
+        rotate: 15deg;
+    }
+    .toggle:has(:checked) > :nth-child(3) {
+        opacity: 1;
+        rotate: 0deg;
+    }
+
+    /* Knob (el "switch" redondo) */
+    .toggle::before {
+        content: "";
+        @apply relative start-0 col-start-2 row-start-1 aspect-square h-full bg-current;
+        translate: 0;
+        border-radius: var(--radius-pill);
+        @apply transition-[background-color,translate,inset-inline-start] duration-200;
+        box-shadow: var(--elevation-1-shadow);
+    }
+
+    /* Focus */
+    .toggle:focus {
+        outline: var(--outline-1);
+        outline-offset: var(--outline-offset-2);
+    }
+
+    /* Checked state (supports: .toggle itself, aria-checked, or nested input) */
+    .toggle:checked,
+    .toggle[aria-checked="true"] {
+        grid-template-columns: 1fr 1fr 0fr;
+        background-color: var(--color-base-100);
+    }
+
+    .toggle:checked::before,
+    .toggle[aria-checked="true"]::before {
+        background-color: currentColor;
+    }
+
+    /* Disabled */
+    .toggle-disabled {
+        @apply cursor-not-allowed;
+        color: var(--color-disabled-fg);
+        border-color: var(--color-disabled-border);
+        background-color: var(--color-disabled-bg);
+        box-shadow: none;
+        opacity: var(--opacity-disabled);
+    }
+
+    .toggle:disabled,
+    .toggle[aria-disabled="true"] {
+        @apply cursor-not-allowed;
+        color: var(--color-disabled-fg);
+        border-color: var(--color-disabled-border);
+        background-color: var(--color-disabled-bg);
+        box-shadow: none;
+        opacity: var(--opacity-disabled);
+    }
+
+    .toggle-disabled:focus,
+    .toggle-disabled:focus-visible,
+    .toggle:disabled:focus,
+    .toggle:disabled:focus-visible,
+    .toggle[aria-disabled="true"]:focus,
+    .toggle[aria-disabled="true"]:focus-visible {
+        outline: none;
+    }
+}
+@layer components {
+    /* ======================================================================
+   MENU — Navigation & Structure (DataInt UI)
+   Components: menu, menu-title, menu-item
+   Shared API: size, state, icon
+   ====================================================================== */
+
+    .menu {
+        @apply w-full flex flex-col;
+
+        /* Defaults (API fallbacks) */
+        --menu-gap: var(--space-2xs);
+        --menu-item-px: var(--space-md);
+        --menu-item-py: var(--space-xs);
+        --menu-item-radius: var(--radius-field);
+
+        --menu-item-fg: var(--color-base-content);
+        --menu-item-fg-muted: var(--color-base-content-muted);
+        --menu-item-bg: transparent;
+
+        --menu-item-bg-hover: var(--color-base-300);
+        --menu-item-bg-active: var(--color-base-200);
+
+        --menu-item-outline: var(--outline-1);
+        --menu-item-outline-offset: var(--outline-offset-2);
+
+        --menu-item-height: var(--height-field-md);
+
+        gap: var(--menu-gap);
+        padding: var(--space-xs);
+        border-radius: var(--radius-box);
+    }
+
+    /* Optional section title inside menus */
+    .menu-title {
+        @apply text-xs block font-semibold uppercase tracking-wide;
+        color: var(--menu-item-fg-muted);
+        padding: var(--space-xs) var(--menu-item-px);
+    }
+
+    /* ------------------------------
+   Menu item base
+   ------------------------------ */
+
+    .menu-item {
+        @apply flex w-full items-center gap-2;
+        @apply select-none text-left;
+        @apply cursor-pointer;
+        @apply transition-colors duration-150 ease-in-out;
+
+        height: var(--menu-item-height);
+        padding: var(--menu-item-py) var(--menu-item-px);
+        border-radius: var(--menu-item-radius);
+        color: var(--menu-item-fg);
+        background-color: var(--menu-item-bg);
+    }
+
+    /* ------------------------------
+   Hover / focus
+   ------------------------------ */
+
+    .menu-item:not(:disabled):not([aria-disabled="true"]):hover {
+        background-color: var(--menu-item-bg-hover);
+    }
+
+    .menu-item:not(:disabled):not([aria-disabled="true"]):focus {
+        outline: var(--menu-item-outline);
+        outline-offset: var(--menu-item-outline-offset);
+    }
+
+    /* ------------------------------
+   Disabled
+   ------------------------------ */
+
+    .menu-item-disabled {
+        @apply cursor-not-allowed;
+        color: var(--color-disabled-fg);
+        background-color: var(--color-disabled-bg);
+        box-shadow: none;
+        opacity: var(--opacity-disabled);
+    }
+
+    .menu-item:disabled,
+    .menu-item[aria-disabled="true"] {
+        @apply cursor-not-allowed;
+        color: var(--color-disabled-fg);
+        background-color: var(--color-disabled-bg);
+        box-shadow: none;
+        opacity: var(--opacity-disabled);
+    }
+
+    .menu-item-disabled:hover,
+    .menu-item-disabled:active,
+    .menu-item-disabled:focus,
+    .menu-item-disabled:focus-visible,
+    .menu-item:disabled:hover,
+    .menu-item:disabled:active,
+    .menu-item:disabled:focus,
+    .menu-item:disabled:focus-visible,
+    .menu-item[aria-disabled="true"]:hover,
+    .menu-item[aria-disabled="true"]:active,
+    .menu-item[aria-disabled="true"]:focus,
+    .menu-item[aria-disabled="true"]:focus-visible {
+        color: var(--color-disabled-fg);
+        background-color: var(--color-disabled-bg);
+        box-shadow: none;
+        outline: none;
+    }
+
+    /* ------------------------------
+   Shared API — size (density + height)
+   ------------------------------ */
+    .menu-xs {
+        --menu-item-height: var(--height-field-xs);
+        --menu-item-px: var(--space-2xs);
+        --menu-item-py: var(--space-2xs);
+
+        .menu-item {
+            @apply text-xs;
+        }
+
+        .menu-title {
+            @apply text-xs;
+        }
+
+        .menu-icon {
+            @apply h-3.5 w-3.5;
+        }
+    }
+
+    .menu-sm {
+        --menu-item-height: var(--height-field-sm);
+        --menu-item-px: var(--space-sm);
+        --menu-item-py: var(--space-2xs);
+
+        .menu-item {
+            @apply text-sm;
+        }
+
+        .menu-title {
+            @apply text-xs;
+        }
+
+        .menu-icon {
+            @apply h-4 w-4;
+        }
+    }
+
+    .menu-lg {
+        --menu-item-height: var(--height-field-lg);
+        --menu-item-px: var(--space-lg);
+        --menu-item-py: var(--space-sm);
+
+        .menu-item {
+            @apply text-base;
+        }
+
+        .menu-title {
+            @apply text-sm;
+        }
+
+        .menu-icon {
+            @apply h-5 w-5;
+        }
+    }
+
+    .menu-xl {
+        --menu-item-height: var(--height-field-xl);
+        --menu-item-px: var(--space-xl);
+        --menu-item-py: var(--space-lg);
+
+        .menu-item {
+            @apply text-lg;
+        }
+
+        .menu-title {
+            @apply text-base;
+        }
+
+        .menu-icon {
+            @apply h-6 w-6;
+        }
+    }
+
+    /* ------------------------------
+   Shared API — state (active)
+   ------------------------------ */
+
+    .menu-item.is-active,
+    .menu-item[aria-current="page"],
+    .menu-item[aria-current="true"],
+    .menu-item[data-state="active"] {
+        @apply font-semibold;
+        background-color: var(--menu-item-bg-active);
+        box-shadow: var(--elevation-1-default);
+    }
+
+    /* Active + hover MUST win over active with box shadow
+*/
+    .menu-item.is-active:not(:disabled):not([aria-disabled="true"]):hover,
+    .menu-item[aria-current="page"]:not(:disabled):not([aria-disabled="true"]):hover,
+    .menu-item[aria-current="true"]:not(:disabled):not([aria-disabled="true"]):hover,
+    .menu-item[data-state="active"]:not(:disabled):not([aria-disabled="true"]):hover {
+        background-color: var(--menu-item-bg-hover);
+        box-shadow: var(--elevation-1-default);
+    }
+
+    /* ------------------------------
+   Shared API — icon presence
+   ------------------------------ */
+
+    .menu-item .menu-icon {
+        @apply flex justify-center items-center shrink-0;
+    }
+
+    .menu-item .menu-icon svg {
+        @apply block align-middle;
+    }
+
+    .menu-item .menu-label {
+        @apply min-w-0 flex-1 truncate;
+    }
+}
+@layer components {
+    /* ======================================================================
+   DROPDOWN — Navigation & Structure (DataInt UI)
+   Purpose:
+   - Styles for the dropdown trigger/button that opens a navigation menu
+   - No behavioral CSS (Headless handles open/close, aria, etc.)
+   Notes:
+   - Dropdown never includes leading icons
+   - Chevron is purely visual
+   ====================================================================== */
+
+    /* ------------------------------
+   Dropdown trigger
+   Recommended markup:
+   <button class="dropdown-trigger" aria-expanded="false">
+     <span class="dropdown-label">Label</span>
+     <span class="dropdown-chevron">▾</span>
+   </button>
+   ------------------------------ */
+    .dropdown-trigger {
+        @apply inline-flex items-center justify-between w-full select-none;
+        @apply cursor-pointer transition-colors duration-150 ease-in-out;
+
+        /* Defaults (API fallbacks) */
+        --dropdown-px: var(--space-md);
+        --dropdown-py: var(--space-xs);
+        --dropdown-gap: var(--space-sm);
+
+        /* Size driver (default = md) */
+        --dropdown-height: var(--height-field-md);
+
+        --dropdown-radius: var(--radius-field);
+
+        --dropdown-fg: var(--color-base-content);
+        --dropdown-fg-muted: var(--color-base-content-muted);
+
+        --dropdown-bg: var(--color-base-100);
+        --dropdown-bg-hover: var(--color-base-300);
+        --dropdown-bg-open: var(--color-base-200);
+
+        --dropdown-border-color: var(--color-border-strong);
+        --dropdown-border-width: var(--border-width-base);
+        --dropdown-border-style: var(--border-style-base);
+
+        --dropdown-shadow: var(--elevation-1-default);
+
+        --dropdown-outline: var(--outline-1);
+        --dropdown-outline-offset: var(--outline-offset-2);
+
+        /* Apply sizing */
+        height: var(--dropdown-height);
+
+        gap: var(--dropdown-gap);
+        padding: var(--dropdown-py) var(--dropdown-px);
+
+        color: var(--dropdown-fg);
+        background-color: var(--dropdown-bg);
+
+        border-width: var(--dropdown-border-width);
+        border-style: var(--dropdown-border-style);
+        border-color: var(--dropdown-border-color);
+        border-radius: var(--dropdown-radius);
+
+        box-shadow: var(--dropdown-shadow);
+    }
+
+    /* ------------------------------
+   Shared API — size (trigger)
+   ------------------------------ */
+    .dropdown-trigger-xs {
+        --dropdown-height: var(--height-field-xs);
+        --dropdown-px: var(--space-sm);
+        --dropdown-py: var(--space-2xs);
+        --dropdown-gap: var(--space-2xs);
+    }
+
+    .dropdown-trigger-sm {
+        --dropdown-height: var(--height-field-sm);
+        --dropdown-px: var(--space-sm);
+        --dropdown-py: var(--space-2xs);
+        --dropdown-gap: var(--space-xs);
+    }
+
+    .dropdown-trigger-lg {
+        --dropdown-height: var(--height-field-lg);
+        --dropdown-px: var(--space-lg);
+        --dropdown-py: var(--space-sm);
+        --dropdown-gap: var(--space-sm);
+    }
+
+    .dropdown-trigger-xl {
+        --dropdown-height: var(--height-field-xl);
+        --dropdown-px: var(--space-xl);
+        --dropdown-py: var(--space-lg);
+        --dropdown-gap: var(--space-lg);
+    }
+
+    /* ------------------------------
+   Interactive states
+   ------------------------------ */
+
+    .dropdown-trigger:not(:disabled):not([aria-disabled="true"]):not(.dropdown-trigger-disabled):hover {
+        background-color: var(--dropdown-bg-hover);
+    }
+
+    .dropdown-trigger.is-open:not(:disabled):not([aria-disabled="true"]):not(.dropdown-trigger-disabled),
+    .dropdown-trigger[aria-expanded="true"]:not(:disabled):not([aria-disabled="true"]):not(.dropdown-trigger-disabled),
+    .dropdown-trigger[data-state="open"]:not(:disabled):not([aria-disabled="true"]):not(.dropdown-trigger-disabled) {
+        background-color: var(--dropdown-bg-open);
+    }
+
+    .dropdown-trigger:not(:disabled):not([aria-disabled="true"]):not(.dropdown-trigger-disabled):focus,
+    .dropdown-trigger:not(:disabled):not([aria-disabled="true"]):not(.dropdown-trigger-disabled):focus-visible {
+        outline: var(--dropdown-outline);
+        outline-offset: var(--dropdown-outline-offset);
+    }
+
+    /* ------------------------------
+   Disabled
+   ------------------------------ */
+
+    .dropdown-trigger-disabled,
+    .dropdown-trigger:disabled,
+    .dropdown-trigger[aria-disabled="true"] {
+        cursor: not-allowed;
+        color: var(--color-disabled-fg);
+        background-color: var(--color-disabled-bg);
+        border-color: var(--color-disabled-border);
+        box-shadow: none;
+        text-shadow: none;
+        transform: none;
+        filter: none;
+        opacity: var(--opacity-disabled);
+    }
+
+    .dropdown-trigger-disabled:hover,
+    .dropdown-trigger-disabled:active,
+    .dropdown-trigger-disabled:focus,
+    .dropdown-trigger-disabled:focus-visible,
+    .dropdown-trigger:disabled:hover,
+    .dropdown-trigger:disabled:active,
+    .dropdown-trigger:disabled:focus,
+    .dropdown-trigger:disabled:focus-visible,
+    .dropdown-trigger[aria-disabled="true"]:hover,
+    .dropdown-trigger[aria-disabled="true"]:active,
+    .dropdown-trigger[aria-disabled="true"]:focus,
+    .dropdown-trigger[aria-disabled="true"]:focus-visible {
+        color: var(--color-disabled-fg);
+        background-color: var(--color-disabled-bg);
+        border-color: var(--color-disabled-border);
+        box-shadow: none;
+        outline: none;
+        transform: none;
+        filter: none;
+    }
+}
+@layer components {
+    /* ======================================================================
+   CARDS — Containers & Surfaces (DataInt UI)
+   Components: card, card-title, card-body, card-actions
+   Shared API: level, size, variant, orientation
+   ====================================================================== */
+
+    /* ------------------------------
+   Base Card
+   ------------------------------ */
+    .card {
+        @apply relative w-full overflow-hidden;
+
+        /* Shared API defaults */
+        --card-bg: var(--color-base-100);
+        --card-border-color: var(--color-border-strong);
+        --card-border-width: var(--border-width-base);
+        --card-shadow: var(--elevation-2-default);
+
+        /* size -> internal spacing */
+        --card-px: var(--space-md);
+        --card-py: var(--space-md);
+
+        /* variant -> border presence */
+        --card-border-style: var(--border-style-base);
+
+        background-color: var(--card-bg);
+        border-width: var(--card-border-width);
+        border-style: var(--card-border-style);
+        border-color: var(--card-border-color);
+        border-radius: var(--radius-field);
+        box-shadow: var(--card-shadow);
+        padding: var(--card-py) var(--card-px);
+    }
+
+    /* ------------------------------
+   Card sub-structures
+   ------------------------------ */
+
+    /* Title: semantic typographic block */
+    .card-title {
+        @apply font-semibold leading-tight;
+    }
+
+    /* Body: content region with normal vertical flow */
+    .card-body {
+        @apply min-w-0 flex flex-col;
+        gap: var(--space-xs);
+    }
+
+    /* Actions: layout container for buttons/links */
+    .card-actions {
+        @apply flex items-center gap-2;
+    }
+
+    /* ------------------------------
+   Shared API — size
+   ------------------------------ */
+
+    .card-xs {
+        --card-px: var(--space-xs);
+        --card-py: var(--space-xs);
+    }
+    .card-sm {
+        --card-px: var(--space-sm);
+        --card-py: var(--space-sm);
+    }
+    .card-lg {
+        --card-px: var(--space-lg);
+        --card-py: var(--space-lg);
+    }
+
+    .card-xl {
+        --card-px: var(--space-xl);
+        --card-py: var(--space-xl);
+    }
+
+    /* ------------------------------
+   Shared API — variant (border)
+   ------------------------------ */
+    .card-subtle {
+        --card-border-color: var(--color-base-300);
+    }
+
+    /* ------------------------------
+   Shared API — level (elevation)
+   ------------------------------ */
+    .card-level-1 {
+        --card-shadow: var(--elevation-1-default);
+    }
+
+    .card-level-2 {
+        --card-shadow: var(--elevation-2-default);
+    }
+
+    .card-level-3 {
+        --card-shadow: var(--elevation-3-default);
+    }
+
+    /* ------------------------------
+   Shared API — orientation (card-actions)
+   horizontal / vertical
+   ------------------------------ */
+    .card-actions-horizontal {
+        @apply flex-row;
+    }
+    .card-actions-vertical {
+        @apply flex-col items-start;
+    }
+}
+@layer components {
+    /* ======================================================================
+   DIVIDER — Containers & Surfaces (DataInt UI)
+   ====================================================================== */
+
+    .divider {
+        @apply relative flex items-center w-full;
+
+        /* Tokens / defaults */
+        --divider-color: var(--color-border-strong);
+        --divider-width: 1px;
+        --divider-gap: var(--space-sm);
+
+        color: var(--color-base-content);
+    }
+
+    /* Line */
+    .divider::before,
+    .divider::after {
+        content: "";
+        @apply flex-1;
+
+        height: var(--divider-width);
+        background-color: var(--divider-color);
+    }
+
+    /* Label (optional text inside divider) */
+    .divider:not(:empty)::before {
+        margin-right: var(--divider-gap);
+    }
+
+    .divider:not(:empty)::after {
+        margin-left: var(--divider-gap);
+    }
+
+    /* ------------------------------
+   Variants (optional, future-safe)
+   ------------------------------ */
+
+    /* Subtle divider (default) */
+    .divider-muted {
+        --divider-color: var(--color-border-muted);
+    }
+
+    /* Strong divider */
+    .divider-strong {
+        --divider-color: var(--color-border-strong);
+    }
+}
+@layer components {
+    /* ======================================================================
+   BADGE — Labels, Chips and Badges (DataInt UI)
+   Shared API: intent, variant, size, rounded, icon
+   ====================================================================== */
+
+    /* ------------------------------
+   Base badge
+   ------------------------------ */
+    .badge {
+        @apply inline-flex items-center justify-center align-middle;
+        @apply select-none whitespace-nowrap;
+        @apply font-medium;
+        @apply transition-colors duration-150 ease-in-out;
+
+        /* Shared API defaults */
+        --badge-intent: var(--color-neutral);
+        --badge-intent-content: var(--color-neutral-content);
+        --badge-intent-soft: var(--color-neutral-soft);
+        --badge-intent-soft-border: var(--color-neutral-soft-border);
+        --badge-intent-outline-border: var(--color-neutral-outline-border);
+
+        /* Default variant (solid) */
+        --badge-bg: var(--badge-intent);
+        --badge-border: transparent;
+        --badge-fg: var(--badge-intent-content);
+
+        --badge-border-width: 0px;
+        --badge-shadow: none;
+
+        /* Size defaults */
+        --badge-height: 1.5rem;
+        --badge-px: var(--space-sm);
+        --badge-gap: var(--space-2xs);
+        --badge-font-size: 0.75rem;
+        --badge-line-height: 1rem;
+
+        /* Rounded defaults */
+        --badge-radius: var(--radius-field);
+
+        height: var(--badge-height);
+        padding-inline: var(--badge-px);
+        gap: var(--badge-gap);
+
+        font-size: var(--badge-font-size);
+        line-height: var(--badge-line-height);
+
+        background-color: var(--badge-bg);
+        color: var(--badge-fg);
+
+        border-width: var(--badge-border-width);
+        border-style: var(--border-style-base);
+        border-color: var(--badge-border);
+        border-radius: var(--badge-radius);
+
+        box-shadow: var(--badge-shadow);
+    }
+
+    /* ------------------------------
+   Slots
+   ------------------------------ */
+
+    /* Icon slot */
+    .badge-icon {
+        @apply inline-flex items-center justify-center shrink-0;
+        @apply w-3.5 h-3.5 opacity-90;
+
+        line-height: 1;
+        align-self: center;
+
+        color: currentColor;
+    }
+
+    .badge-label {
+        @apply truncate;
+        max-width: 100%;
+    }
+
+    /* ------------------------------
+   Shared API — intent
+   ------------------------------ */
+
+    .badge-neutral {
+        --badge-intent: var(--color-neutral);
+        --badge-intent-content: var(--color-neutral-content);
+        --badge-intent-soft: var(--color-neutral-soft);
+        --badge-intent-soft-border: var(--color-neutral-soft-border);
+        --badge-intent-outline-border: var(--color-neutral-outline-border);
+    }
+
+    .badge-info {
+        --badge-intent: var(--color-info);
+        --badge-intent-content: var(--color-info-content);
+        --badge-intent-soft: var(--color-info-soft);
+        --badge-intent-soft-border: var(--color-info-soft-border);
+        --badge-intent-outline-border: var(--color-info-outline-border);
+    }
+
+    .badge-success {
+        --badge-intent: var(--color-success);
+        --badge-intent-content: var(--color-success-content);
+        --badge-intent-soft: var(--color-success-soft);
+        --badge-intent-soft-border: var(--color-success-soft-border);
+        --badge-intent-outline-border: var(--color-success-outline-border);
+    }
+
+    .badge-warning {
+        --badge-intent: var(--color-warning);
+        --badge-intent-content: var(--color-warning-content);
+        --badge-intent-soft: var(--color-warning-soft);
+        --badge-intent-soft-border: var(--color-warning-soft-border);
+        --badge-intent-outline-border: var(--color-warning-outline-border);
+    }
+
+    .badge-error {
+        --badge-intent: var(--color-error);
+        --badge-intent-content: var(--color-error-content);
+        --badge-intent-soft: var(--color-error-soft);
+        --badge-intent-soft-border: var(--color-error-soft-border);
+        --badge-intent-outline-border: var(--color-error-outline-border);
+    }
+
+    .badge-primary {
+        --badge-intent: var(--color-primary);
+        --badge-intent-content: var(--color-primary-content);
+        --badge-intent-soft: var(--color-primary-soft);
+        --badge-intent-soft-border: var(--color-primary-soft-border);
+        --badge-intent-outline-border: var(--color-primary-outline-border);
+    }
+
+    .badge-secondary {
+        --badge-intent: var(--color-secondary);
+        --badge-intent-content: var(--color-secondary-content);
+        --badge-intent-soft: var(--color-secondary-soft);
+        --badge-intent-soft-border: var(--color-secondary-soft-border);
+        --badge-intent-outline-border: var(--color-secondary-outline-border);
+    }
+
+    .badge-accent {
+        --badge-intent: var(--color-accent);
+        --badge-intent-content: var(--color-accent-content);
+        --badge-intent-soft: var(--color-accent-soft);
+        --badge-intent-soft-border: var(--color-accent-soft-border);
+        --badge-intent-outline-border: var(--color-accent-outline-border);
+    }
+
+    /* ------------------------------
+   Shared API — variant
+   ------------------------------ */
+
+    .badge-solid {
+        --badge-bg: var(--badge-intent);
+        --badge-fg: var(--badge-intent-content);
+        --badge-border-width: 0px;
+    }
+
+    .badge-outlined {
+        --badge-bg: transparent;
+        --badge-border: var(--badge-intent-outline-border);
+        --badge-fg: var(--color-base-content);
+        --badge-border-width: var(--border-width-base);
+    }
+
+    /* Soft: medium-emphasis, subtle background with visible border, intent-colored text */
+    .badge-soft {
+        --badge-bg: var(--badge-intent-soft);
+        --badge-border: var(--badge-intent-soft-border);
+        --badge-fg: var(--badge-intent);
+        --badge-border-width: var(--border-width-base);
+    }
+
+    /* ------------------------------
+   Shared API — size
+   ------------------------------ */
+
+    .badge-xs {
+        --badge-height: 1rem;
+        --badge-px: var(--space-2xs);
+        --badge-gap: var(--space-3xs);
+        --badge-font-size: 0.625rem;
+        --badge-line-height: 0.75rem;
+    }
+
+    .badge-sm {
+        --badge-height: 1.25rem;
+        --badge-px: var(--space-xs);
+        --badge-gap: var(--space-2xs);
+        --badge-font-size: 0.6875rem;
+        --badge-line-height: 0.875rem;
+    }
+
+    .badge-lg {
+        --badge-height: 1.75rem;
+        --badge-px: var(--space-md);
+        --badge-gap: var(--space-xs);
+        --badge-font-size: 0.875rem;
+        --badge-line-height: 1.125rem;
+    }
+
+    .badge-xl {
+        --badge-height: 2rem;
+        --badge-px: var(--space-xl);
+        --badge-gap: var(--space-sm);
+        --badge-font-size: 1rem;
+        --badge-line-height: 1.25rem;
+    }
+
+    /* ------------------------------
+   Shared API — rounded
+   ------------------------------ */
+
+    .badge-rounded-sm {
+        --badge-radius: 0.375rem;
+    }
+
+    .badge-rounded-md {
+        --badge-radius: var(--radius-field);
+    }
+
+    .badge-rounded-pill {
+        --badge-radius: var(--radius-pill);
+    }
+}
+@layer components {
+    /* ======================================================================
+   ALERT — Feedback & System State (DataInt UI)
+   Shared API: intent, variant, size, icon, dismissible
+   ====================================================================== */
+
+    /* ------------------------------
+   Base alert
+   ------------------------------ */
+    .alert {
+        @apply relative w-full flex items-start;
+
+        /* Intent defaults (neutral) */
+        --alert-intent: var(--color-neutral);
+        --alert-intent-content: var(--color-neutral-content);
+        --alert-intent-soft: var(--color-neutral-soft);
+        --alert-intent-soft-border: var(--color-neutral-soft-border);
+        --alert-intent-outline-border: var(--color-neutral-outline-border);
+
+        /* Default variant (solid) */
+        --alert-bg: var(--alert-intent);
+        --alert-border: transparent;
+        --alert-fg: var(--alert-intent-content);
+        --alert-icon-color: currentColor;
+        --alert-border-width: 0px;
+        --alert-shadow: var(--elevation-1-default);
+
+        /* Size defaults */
+        --alert-px: var(--space-md);
+        --alert-py: var(--space-sm);
+        --alert-radius: var(--radius-field);
+        --alert-gap: var(--space-sm);
+        --alert-font-size: 0.875rem;
+        --alert-line-height: 1.25rem;
+
+        @apply gap-3;
+        gap: var(--alert-gap);
+        padding: var(--alert-py) var(--alert-px);
+
+        background-color: var(--alert-bg);
+        border-width: var(--alert-border-width);
+        border-style: var(--border-style-base);
+        border-color: var(--alert-border);
+        border-radius: var(--alert-radius);
+
+        color: var(--alert-fg);
+        box-shadow: var(--alert-shadow);
+
+        font-size: var(--alert-font-size);
+        line-height: var(--alert-line-height);
+    }
+
+    /* ------------------------------
+   Slots
+   ------------------------------ */
+
+    .alert-icon {
+        @apply shrink-0 w-5 h-5 opacity-90;
+        color: var(--alert-icon-color);
+    }
+
+    .alert-content {
+        @apply min-w-0 flex-1;
+    }
+
+    .alert-title {
+        @apply font-semibold;
+    }
+
+    .alert-message {
+        @apply text-pretty;
+    }
+
+    .alert-dismiss {
+        @apply shrink-0 inline-flex items-center justify-center;
+        @apply w-8 h-8 rounded-md opacity-90;
+        @apply cursor-pointer;
+        @apply transition-colors duration-150 ease-in-out;
+
+        color: currentColor;
+    }
+
+    .alert-dismiss:hover {
+        background-color: var(--color-base-300);
+    }
+
+    .alert-dismiss:focus-visible {
+        outline: var(--outline-1);
+        outline-offset: var(--outline-offset-2);
+    }
+
+    /* ------------------------------
+   Shared API — intent
+   Sets accent + content. Subtle variant derives bg/border from it.
+   ------------------------------ */
+
+    .alert-neutral {
+        --alert-intent: var(--color-neutral);
+        --alert-intent-content: var(--color-neutral-content);
+        --alert-intent-soft: var(--color-neutral-soft);
+        --alert-intent-soft-border: var(--color-neutral-soft-border);
+        --alert-intent-outline-border: var(--color-neutral-outline-border);
+    }
+
+    .alert-info {
+        --alert-intent: var(--color-info);
+        --alert-intent-content: var(--color-info-content);
+        --alert-intent-soft: var(--color-info-soft);
+        --alert-intent-soft-border: var(--color-info-soft-border);
+        --alert-intent-outline-border: var(--color-info-outline-border);
+    }
+
+    .alert-success {
+        --alert-intent: var(--color-success);
+        --alert-intent-content: var(--color-success-content);
+        --alert-intent-soft: var(--color-success-soft);
+        --alert-intent-soft-border: var(--color-success-soft-border);
+        --alert-intent-outline-border: var(--color-success-outline-border);
+    }
+
+    .alert-warning {
+        --alert-intent: var(--color-warning);
+        --alert-intent-content: var(--color-warning-content);
+        --alert-intent-soft: var(--color-warning-soft);
+        --alert-intent-soft-border: var(--color-warning-soft-border);
+        --alert-intent-outline-border: var(--color-warning-outline-border);
+    }
+
+    .alert-error {
+        --alert-intent: var(--color-error);
+        --alert-intent-content: var(--color-error-content);
+        --alert-intent-soft: var(--color-error-soft);
+        --alert-intent-soft-border: var(--color-error-soft-border);
+        --alert-intent-outline-border: var(--color-error-outline-border);
+    }
+
+    .alert-primary {
+        --alert-intent: var(--color-primary);
+        --alert-intent-content: var(--color-primary-content);
+        --alert-intent-soft: var(--color-primary-soft);
+        --alert-intent-soft-border: var(--color-primary-soft-border);
+        --alert-intent-outline-border: var(--color-primary-outline-border);
+    }
+
+    .alert-secondary {
+        --alert-intent: var(--color-secondary);
+        --alert-intent-content: var(--color-secondary-content);
+        --alert-intent-soft: var(--color-secondary-soft);
+        --alert-intent-soft-border: var(--color-secondary-soft-border);
+        --alert-intent-outline-border: var(--color-secondary-outline-border);
+    }
+
+    .alert-accent {
+        --alert-intent: var(--color-accent);
+        --alert-intent-content: var(--color-accent-content);
+        --alert-intent-soft: var(--color-accent-soft);
+        --alert-intent-soft-border: var(--color-accent-soft-border);
+        --alert-intent-outline-border: var(--color-accent-outline-border);
+    }
+
+    /* ------------------------------
+   Shared API — variant (visual weight)
+   - solid: full accent fill + accent-content text
+   - outlined: transparent surface + accent border + colored icon
+   - soft: medium-emphasis, subtle background with visible border, intent-colored text
+   ------------------------------ */
+
+    .alert-solid {
+        --alert-bg: var(--alert-intent);
+        --alert-border-width: 0px;
+        --alert-fg: var(--alert-intent-content);
+        --alert-icon-color: currentColor;
+        --alert-shadow: var(--elevation-1-default);
+    }
+
+    .alert-outlined {
+        --alert-bg: transparent;
+        --alert-border-width: var(--border-width-base);
+        --alert-border: var(--alert-intent-outline-border);
+        --alert-fg: var(--color-base-content);
+        --alert-icon-color: var(--alert-intent);
+        --alert-shadow: none;
+    }
+
+    .alert-soft {
+        --alert-bg: var(--alert-intent-soft);
+        --alert-border-width: var(--border-width-base);
+        --alert-border: var(--alert-intent-soft-border);
+        --alert-fg: var(--color-base-content);
+        --alert-icon-color: var(--alert-intent);
+        --alert-shadow: none;
+    }
+
+    /* ------------------------------
+   Shared API — size
+   ------------------------------ */
+
+    .alert-xs {
+        --alert-px: var(--space-xs);
+        --alert-py: var(--space-2xs);
+        --alert-gap: var(--space-2xs);
+        --alert-font-size: 0.6875rem;
+        --alert-line-height: 1.125rem;
+    }
+
+    .alert-sm {
+        --alert-px: var(--space-sm);
+        --alert-py: var(--space-xs);
+        --alert-gap: var(--space-xs);
+        --alert-font-size: 0.8125rem;
+        --alert-line-height: 1.125rem;
+    }
+
+    .alert-lg {
+        --alert-px: var(--space-lg);
+        --alert-py: var(--space-md);
+        --alert-gap: var(--space-md);
+        --alert-font-size: 1rem;
+        --alert-line-height: 1.5rem;
+    }
+
+    .alert-xl {
+        --alert-px: var(--space-xl);
+        --alert-py: var(--space-lg);
+        --alert-gap: var(--space-lg);
+        --alert-font-size: 1.125rem;
+        --alert-line-height: 1.75rem;
+    }
+}
+@layer components {
+    /* ======================================================================
+   LOADING — Feedback & System State (DataInt UI)
+   Shared API alignment: intent, variant, size
+   ====================================================================== */
+
+    /* ------------------------------
+   Base loading (spinner)
+   ------------------------------ */
+    .loading {
+        @apply inline-block align-middle;
+        @apply animate-spin;
+
+        /* Shared API defaults */
+        --loading-intent: var(--color-base-content);
+        --loading-track: color-mix(in oklab, var(--loading-intent) 18%, transparent);
+
+        /* Size defaults */
+        --loading-size: 1.25rem; /* ~20px */
+        --loading-border: var(--border-width-strong);
+
+        /* Variant defaults */
+        --loading-opacity: 0.9;
+
+        width: var(--loading-size);
+        height: var(--loading-size);
+
+        border-radius: var(--radius-pill);
+        border-width: var(--loading-border);
+        border-style: var(--border-style-base);
+
+        border-color: var(--loading-track);
+        border-top-color: var(--loading-intent);
+
+        opacity: var(--loading-opacity);
+    }
+
+    /* ------------------------------
+   Shared API — intent
+   ------------------------------ */
+    .loading-neutral {
+        --loading-intent: var(--color-base-content);
+    }
+
+    .loading-info {
+        --loading-intent: var(--color-info);
+    }
+
+    .loading-success {
+        --loading-intent: var(--color-success);
+    }
+
+    .loading-warning {
+        --loading-intent: var(--color-warning);
+    }
+
+    .loading-error {
+        --loading-intent: var(--color-error);
+    }
+
+    .loading-primary {
+        --loading-intent: var(--color-primary);
+    }
+
+    .loading-secondary {
+        --loading-intent: var(--color-secondary);
+    }
+
+    .loading-accent {
+        --loading-intent: var(--color-accent);
+    }
+
+    /* ------------------------------
+   Shared API — variant
+   - solid: stronger track + higher opacity
+   ------------------------------ */
+
+    .loading-solid {
+        --loading-track: color-mix(in oklab, var(--loading-intent) 28%, transparent);
+        --loading-opacity: 1;
+    }
+
+    /* ------------------------------
+   Shared API — size
+   ------------------------------ */
+
+    .loading-xs {
+        --loading-size: 0.75rem; /* 12px */
+        --loading-border: var(--border-width-base);
+    }
+
+    .loading-sm {
+        --loading-size: 1rem; /* 16px */
+        --loading-border: var(--border-width-strong);
+    }
+
+    .loading-lg {
+        --loading-size: 1.75rem; /* 28px */
+        --loading-border: var(--border-width-heavy);
+    }
+
+    .loading-xl {
+        --loading-size: 2.25rem; /* 36px */
+        --loading-border: var(--border-width-heavy);
+    }
+
+    .loading-group {
+        @apply inline-flex items-center gap-2;
+        --loading-intent: var(--color-base-content);
+    }
+
+    .loading-group .loading-text {
+        @apply text-sm;
+        color: var(--color-base-content);
+    }
+}
+@layer components {
+    /* ======================================================================
+   OVERLAYS — Superposición (DataInt UI)
+   Component: dropdown overlay surface (content) styling
+   Shared API (conceptual): size, surface
+   Notes:
+   - This file styles ONLY the floating surface (overlay panel) and its content.
+   - Positioning (placement/align/offset) is controlled by Headless UI.
+   - Trigger/button styling lives in dropdown.css (Navigation & Structure).
+   ====================================================================== */
+
+    /* ------------------------------
+   Overlay surface (dropdown panel)
+   Recommended markup (conceptual):
+   <div class="dropdown dropdown-panel-sm">
+     <button class="dropdown-trigger" aria-expanded="true|false">...</button>
+     <div class="dropdown-content">...</div>
+   </div>
+   ------------------------------ */
+
+    .dropdown {
+        @apply relative inline-flex;
+
+        /* Surface tokens */
+        --overlay-bg: var(--color-base-100);
+        --overlay-fg: var(--color-base-content);
+        --overlay-border: var(--color-border-subtle);
+
+        --overlay-radius: var(--radius-box);
+        --overlay-shadow: var(--elevation-2-default);
+        --overlay-z: 50;
+
+        /* Shared API defaults */
+        --overlay-min-w: 14rem;
+    }
+
+    /* The floating surface itself (positioning handled externally) */
+    .dropdown-content {
+        @apply text-base p-3 hidden;
+
+        z-index: var(--overlay-z);
+        min-width: var(--overlay-min-w);
+
+        background-color: var(--overlay-bg);
+        color: var(--overlay-fg);
+
+        border: var(--overlay-border);
+        border-radius: var(--overlay-radius);
+        box-shadow: var(--overlay-shadow);
+    }
+
+    /* ------------------------------
+   Shared API — size (overlay panel)
+   (Separate from trigger sizing)
+   ------------------------------ */
+
+    .dropdown-panel-xs {
+        --overlay-min-w: 10rem;
+
+        .dropdown-content {
+            @apply text-xs p-2;
+        }
+        .dropdown-title {
+            @apply text-xs;
+        }
+    }
+
+    .dropdown-panel-sm {
+        --overlay-min-w: 12rem;
+
+        .dropdown-content {
+            @apply text-sm p-2;
+        }
+        .dropdown-title {
+            @apply text-xs;
+        }
+    }
+
+    .dropdown-panel-lg {
+        --overlay-min-w: 16rem;
+
+        .dropdown-content {
+            @apply text-lg p-4;
+        }
+        .dropdown-title {
+            @apply text-base;
+        }
+    }
+
+    .dropdown-panel-xl {
+        --overlay-min-w: 20rem;
+
+        .dropdown-content {
+            @apply text-xl p-4;
+        }
+        .dropdown-title {
+            @apply text-lg;
+        }
+    }
+
+    /* ------------------------------
+   Dropdown menu, items & title
+   ------------------------------ */
+    .dropdown-menu {
+        @apply flex flex-col gap-1;
+    }
+
+    .dropdown-item {
+        @apply w-full text-left rounded-md cursor-pointer px-2 py-2 transition-colors duration-150 ease-in-out;
+        background-color: transparent;
+    }
+
+    .dropdown-title {
+        @apply block text-xs font-medium uppercase tracking-wide;
+
+        margin-bottom: var(--space-sm);
+        color: var(--color-base-content-muted);
+    }
+
+    /* ------------------------------
+   Dropdown item states
+   ------------------------------ */
+
+    .dropdown-item:hover {
+        background-color: var(--color-base-300);
+    }
+
+    .dropdown-item.is-active,
+    .dropdown-item[aria-current="page"],
+    .dropdown-item[aria-current="true"],
+    .dropdown-item[data-state="active"] {
+        @apply font-semibold;
+        background-color: var(--color-base-200);
+        box-shadow: var(--elevation-1-default);
+    }
+
+    .dropdown-item.is-active:hover,
+    .dropdown-item[aria-current="page"]:hover,
+    .dropdown-item[aria-current="true"]:hover,
+    .dropdown-item[data-state="active"]:hover {
+        background-color: var(--color-base-300);
+        box-shadow: var(--elevation-1-default);
+    }
+
+    .dropdown-item:focus {
+        outline: var(--outline-1);
+        outline-offset: var(--outline-offset-2);
+    }
+
+    .dropdown-item-disabled,
+    .dropdown-item:disabled,
+    .dropdown-item[aria-disabled="true"] {
+        cursor: not-allowed;
+        color: var(--color-disabled-fg);
+        background-color: var(--color-disabled-bg);
+        opacity: var(--opacity-disabled);
+    }
+
+    .dropdown-item-disabled:hover,
+    .dropdown-item-disabled:active,
+    .dropdown-item-disabled:focus,
+    .dropdown-item-disabled:focus-visible,
+    .dropdown-item:disabled:hover,
+    .dropdown-item:disabled:active,
+    .dropdown-item:disabled:focus,
+    .dropdown-item:disabled:focus-visible,
+    .dropdown-item[aria-disabled="true"]:hover,
+    .dropdown-item[aria-disabled="true"]:active,
+    .dropdown-item[aria-disabled="true"]:focus,
+    .dropdown-item[aria-disabled="true"]:focus-visible {
+        color: var(--color-disabled-fg);
+        background-color: var(--color-disabled-bg);
+        outline: none;
+    }
+}
+@layer components {
+    /* ======================================================================
+   TABLES & DATA DISPLAY — Tables
+   Component: table
+   Shared API (conceptual): size, rowHighlight, striped
+   ====================================================================== */
+
+    .table,
+    .table-base {
+        @apply w-full text-sm border-separate border-spacing-0;
+
+        /* Internal design variables */
+        --table-bg: var(--color-base-100);
+        --table-bg-alt: var(--color-base-200);
+        --table-border: var(--color-border-subtle);
+        --table-fg: var(--color-base-content);
+
+        --table-head-bg: var(--color-base-200);
+        --table-head-fg: var(--color-base-content);
+
+        /* Density defaults (size) */
+        --table-cell-py: 0.5rem;
+        --table-cell-px: 0.75rem;
+
+        /* Row background resolver (striped/highlight override this per-row) */
+        --table-cell-bg: var(--table-bg);
+
+        /* Row highlight */
+        --table-row-hover-bg: color-mix(in oklab, var(--color-base-content) 10%, var(--table-bg));
+
+        color: var(--table-fg);
+        background-color: var(--table-bg);
+
+        /* Structure (embedded) */
+        thead th {
+            @apply font-medium text-left align-middle whitespace-nowrap border-b;
+            padding: var(--table-cell-py) var(--table-cell-px);
+            background-color: var(--table-head-bg);
+            color: var(--table-head-fg);
+            border-bottom-color: var(--table-border);
+        }
+
+        tbody td {
+            @apply align-middle border-b;
+            padding: var(--table-cell-py) var(--table-cell-px);
+            border-bottom-color: var(--table-border);
+            background-color: var(--table-cell-bg);
+        }
+
+        tfoot td {
+            @apply align-middle border-t;
+            padding: var(--table-cell-py) var(--table-cell-px);
+            border-top-color: var(--table-border);
+            background-color: var(--table-bg);
+        }
+    }
+
+    /* Sizes (density) */
+
+    .table-xs {
+        @apply text-xs;
+        --table-cell-py: 0.25rem;
+        --table-cell-px: 0.25rem;
+    }
+
+    .table-sm {
+        @apply text-sm;
+        --table-cell-py: 0.375rem;
+        --table-cell-px: 0.5rem;
+    }
+
+    .table-lg {
+        @apply text-lg;
+        --table-cell-py: 0.75rem;
+        --table-cell-px: 1rem;
+    }
+
+    .table-xl {
+        @apply text-xl;
+        --table-cell-py: 1rem;
+        --table-cell-px: 1.5rem;
+    }
+
+    /* Striped rows */
+    .table-striped {
+        tbody tr:nth-child(even) {
+            --table-cell-bg: var(--table-bg-alt);
+        }
+
+        tbody tr:nth-child(odd) {
+            --table-cell-bg: var(--table-bg);
+        }
+    }
+
+    /* Row highlight */
+    .table-row-highlight {
+        tbody tr:hover {
+            --table-cell-bg: var(--table-row-hover-bg);
+        }
+
+        &.table-striped tbody tr:hover {
+            --table-cell-bg: var(--table-row-hover-bg);
+        }
+    }
+}
+@layer components {
+    /* ------------------------------
+   STATS
+   ------------------------------ */
+
+    /* A single metric container */
+    .stat {
+        @apply inline-flex flex-col gap-1 rounded-lg border p-4 w-fit;
+
+        --stat-bg: var(--color-base-100);
+        --stat-border: var(--color-border-subtle);
+        --stat-fg: var(--color-base-content);
+
+        /* Accent used by intent utilities */
+        --stat-accent: var(--color-base-content);
+
+        background-color: var(--stat-bg);
+        border-color: var(--stat-border);
+        color: var(--stat-fg);
+    }
+
+    .stat-title {
+        @apply text-xs font-medium whitespace-nowrap;
+        color: var(--color-base-content-muted);
+    }
+
+    .stat-value {
+        @apply text-2xl font-semibold leading-tight whitespace-nowrap;
+        color: var(--stat-accent);
+    }
+
+    /* ------------------------------
+   Sizes (density)
+   ------------------------------ */
+
+    .stat-xs {
+        @apply p-2;
+
+        .stat-title {
+            @apply text-xs;
+        }
+
+        .stat-value {
+            @apply text-lg;
+        }
+    }
+
+    .stat-sm {
+        @apply p-3;
+
+        .stat-title {
+            @apply text-sm;
+        }
+
+        .stat-value {
+            @apply text-xl;
+        }
+    }
+
+    .stat-lg {
+        @apply p-5;
+
+        .stat-title {
+            @apply text-sm;
+        }
+
+        .stat-value {
+            @apply text-3xl;
+        }
+    }
+
+    .stat-xl {
+        @apply p-6;
+
+        .stat-title {
+            @apply text-base;
+        }
+
+        .stat-value {
+            @apply text-4xl;
+        }
+    }
+
+    /* ------------------------------
+   Intent (accent)
+   ------------------------------ */
+    .stat-neutral {
+        --stat-accent: var(--color-base-content);
+    }
+
+    .stat-primary {
+        --stat-accent: var(--color-primary);
+    }
+
+    .stat-success {
+        --stat-accent: var(--color-success);
+    }
+
+    .stat-warning {
+        --stat-accent: var(--color-warning);
+    }
+
+    .stat-error {
+        --stat-accent: var(--color-error);
+    }
+}
+@layer components {
+    /* ======================================================================
+   TEXTAREA — Multiline text input
+   Shared API (conceptual): size, state (default/error/disabled), resize
+   ====================================================================== */
+
+    /* Base textarea field */
+    .textarea {
+        /* Layout & box model */
+        @apply text-sm block w-full p-2;
+        gap: var(--space-inline-gap);
+        cursor: text;
+
+        /* Height behavior (multiline) */
+        min-height: var(--height-field-md);
+        line-height: 1.4;
+
+        /* Typography */
+        font-family: var(--font-body);
+
+        /* Visuals: background, border, radius, shadow */
+        background-color: var(--color-base-100);
+        border-width: var(--border-width-base);
+        border-style: var(--border-style-base);
+        border-radius: var(--radius-field);
+        border-color: var(--color-border-strong);
+        box-shadow: var(--elevation-1-default);
+
+        /* Behavior */
+        resize: vertical;
+
+        /* Focus state */
+        &:focus {
+            box-shadow: var(--elevation-1-default);
+            outline: var(--outline-1);
+            outline-offset: var(--outline-offset-4);
+            isolation: isolate;
+            z-index: 1;
+        }
+
+        /* Placeholder */
+        &::-moz-placeholder {
+            color: var(--color-base-content-muted);
+        }
+        &::placeholder {
+            color: var(--color-base-content-muted);
+        }
+    }
+
+    /* Disabled */
+    .textarea-disabled {
+        @apply cursor-not-allowed shadow-none;
+        color: var(--color-disabled-fg);
+        border-color: var(--color-disabled-border);
+        background-color: var(--color-disabled-bg);
+        opacity: var(--opacity-disabled);
+    }
+
+    /* HTML attribute based disabled state */
+    .textarea[disabled],
+    .textarea[aria-disabled="true"] {
+        @apply cursor-not-allowed shadow-none;
+        color: var(--color-disabled-fg);
+        border-color: var(--color-disabled-border);
+        background-color: var(--color-disabled-bg);
+        opacity: var(--opacity-disabled);
+    }
+
+    .textarea-disabled:focus,
+    .textarea-disabled:focus-visible,
+    .textarea[disabled]:focus,
+    .textarea[disabled]:focus-visible,
+    .textarea[aria-disabled="true"]:focus,
+    .textarea[aria-disabled="true"]:focus-visible {
+        box-shadow: none;
+        outline: none;
+        isolation: auto;
+        z-index: auto;
+    }
+
+    /* Error state */
+    .textarea-error {
+        border-color: var(--color-error);
+    }
+
+    .textarea-error:focus-visible {
+        outline-color: var(--color-error);
+    }
+}
+@layer components {
+    /* ======================================================================
+   NAVBAR — Navigation & Structure (DataInt UI)
+   Component: navbar
+   Goal: Using ONLY `.navbar` yields a complete toolbar-like navbar style.
+   ====================================================================== */
+
+    .navbar {
+        @apply sticky z-5 backdrop-blur-lg top-0 w-full flex items-center;
+
+        --navbar-bg: var(--color-base-100);
+
+        --navbar-border-color: var(--color-border-subtle);
+        --navbar-border-width: var(--border-width-base);
+        --navbar-border-style: var(--border-style-base);
+
+        --navbar-shadow: var(--elevation-1-default);
+
+        --navbar-px: var(--space-xs);
+        --navbar-py: var(--space-md);
+
+        background-color: var(--navbar-bg);
+        border-bottom-width: var(--navbar-border-width);
+        border-bottom-style: var(--navbar-border-style);
+        border-bottom-color: var(--navbar-border-color);
+        box-shadow: var(--navbar-shadow);
+        padding: var(--navbar-py) var(--navbar-px);
+    }
+}
+/* Keyframe lives outside @layer so it is always registered globally */
+@keyframes skeleton-shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+@layer components {
+    /* ======================================================================
+   SKELETON — Loading State Primitive (DataInt UI)
+   Always rectangular with rounded corners, shimmer animation.
+   Sizing is controlled by consumers via width/height utilities or styles.
+   ====================================================================== */
+
+    .skeleton {
+        display: block;
+        overflow: hidden;
+
+        /*
+         * Colors: base-300 as the fill, a mix toward base-100 as the shine.
+         * Both tokens are semantic and flip correctly between light and dark.
+         */
+        --skeleton-color-base: var(--color-base-300);
+        --skeleton-color-shine: color-mix(in oklab, var(--color-base-100) 35%, var(--color-base-300));
+
+        background: linear-gradient(
+            90deg,
+            var(--skeleton-color-base) 25%,
+            var(--skeleton-color-shine) 50%,
+            var(--skeleton-color-base) 75%
+        );
+        background-size: 200% 100%;
+        border-radius: var(--radius-field);
+        animation: skeleton-shimmer 1.5s ease-in-out infinite;
+
+        /* Sensible block default — consumers override with utility classes */
+        width: 100%;
+        height: var(--space-md);
+    }
+
+    /* Respect reduced-motion preference */
+    @media (prefers-reduced-motion: reduce) {
+        .skeleton {
+            animation: none;
+            background: var(--skeleton-color-base);
+        }
+    }
+}
+@layer components {
+    /* ======================================================================
+   PROGRESS — Feedback & System State (DataInt UI)
+   Shared API alignment: intent, size
+   Supports: native <progress> element (determinate + indeterminate)
+   ====================================================================== */
+
+    /* ------------------------------
+   Base progress bar
+   ------------------------------ */
+    .progress {
+        /* Reset browser defaults */
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+
+        display: block;
+        width: 100%;
+        overflow: hidden;
+        border: none;
+
+        /* Shared API defaults */
+        --progress-intent: var(--color-primary);
+        --progress-track: color-mix(in oklab, var(--progress-intent) 18%, var(--color-base-100));
+
+        /* Size defaults */
+        --progress-height: 0.5rem; /* 8px — md */
+
+        /* Radius */
+        --progress-radius: var(--radius-pill);
+
+        /* Transition for determinate fill */
+        --progress-transition: width 0.35s ease, background-color 0.2s ease;
+
+        /* Indeterminate animation */
+        --progress-indeterminate-duration: 1.6s;
+
+        height: var(--progress-height);
+        border-radius: var(--progress-radius);
+
+        /* Firefox: fallback color for fill */
+        color: var(--progress-intent);
+
+        /* Track background */
+        background-color: var(--progress-track);
+    }
+
+    /* ------------------------------
+   Webkit (Chrome / Safari / Edge) — Track + Value
+   ------------------------------ */
+    .progress::-webkit-progress-bar {
+        background-color: var(--progress-track);
+        border-radius: var(--progress-radius);
+    }
+
+    .progress::-webkit-progress-value {
+        background-color: var(--progress-intent);
+        border-radius: var(--progress-radius);
+        -webkit-transition: var(--progress-transition);
+        transition: var(--progress-transition);
+    }
+
+    /* ------------------------------
+   Firefox — Fill bar
+   ------------------------------ */
+    .progress::-moz-progress-bar {
+        background-color: var(--progress-intent);
+        border-radius: var(--progress-radius);
+        -moz-transition: var(--progress-transition);
+        transition: var(--progress-transition);
+    }
+
+    /* ------------------------------
+   Indeterminate mode
+   Triggered when <progress> has no `value` attribute.
+   We use a gradient sweep animation on the element itself.
+   ------------------------------ */
+    .progress:indeterminate {
+        background-image: linear-gradient(
+            to right,
+            var(--progress-track) 0%,
+            var(--progress-track) 25%,
+            var(--progress-intent) 50%,
+            var(--progress-track) 75%,
+            var(--progress-track) 100%
+        );
+        background-size: 300% 100%;
+        background-position: 130% 0;
+        animation: progress-indeterminate var(--progress-indeterminate-duration) ease-in-out infinite;
+    }
+
+    /* Suppress pseudo-elements in indeterminate to avoid double-painting */
+    .progress:indeterminate::-webkit-progress-bar {
+        background-color: transparent;
+    }
+
+    .progress:indeterminate::-webkit-progress-value {
+        background-color: transparent;
+    }
+
+    .progress:indeterminate::-moz-progress-bar {
+        background-color: transparent;
+    }
+
+    @keyframes progress-indeterminate {
+        0% {
+            background-position: 130% 0;
+        }
+        100% {
+            background-position: -30% 0;
+        }
+    }
+
+    /* ------------------------------
+   Shared API — intent
+   ------------------------------ */
+
+    .progress-neutral {
+        --progress-intent: var(--color-base-content);
+        --progress-track: color-mix(in oklab, var(--progress-intent) 14%, var(--color-base-100));
+    }
+
+    .progress-primary {
+        --progress-intent: var(--color-primary);
+        --progress-track: color-mix(in oklab, var(--progress-intent) 18%, var(--color-base-100));
+    }
+
+    .progress-secondary {
+        --progress-intent: var(--color-secondary);
+        --progress-track: color-mix(in oklab, var(--progress-intent) 18%, var(--color-base-100));
+    }
+
+    .progress-accent {
+        --progress-intent: var(--color-accent);
+        --progress-track: color-mix(in oklab, var(--progress-intent) 18%, var(--color-base-100));
+    }
+
+    .progress-info {
+        --progress-intent: var(--color-info);
+        --progress-track: color-mix(in oklab, var(--progress-intent) 18%, var(--color-base-100));
+    }
+
+    .progress-success {
+        --progress-intent: var(--color-success);
+        --progress-track: color-mix(in oklab, var(--progress-intent) 18%, var(--color-base-100));
+    }
+
+    .progress-warning {
+        --progress-intent: var(--color-warning);
+        --progress-track: color-mix(in oklab, var(--progress-intent) 18%, var(--color-base-100));
+    }
+
+    .progress-error {
+        --progress-intent: var(--color-error);
+        --progress-track: color-mix(in oklab, var(--progress-intent) 18%, var(--color-base-100));
+    }
+
+    /* ------------------------------
+   Shared API — size
+   ------------------------------ */
+
+    .progress-xs {
+        --progress-height: 0.25rem; /* 4px */
+    }
+
+    .progress-sm {
+        --progress-height: 0.375rem; /* 6px */
+    }
+
+    /* .progress-md is the default (0.5rem / 8px) */
+
+    .progress-lg {
+        --progress-height: 0.625rem; /* 10px */
+    }
+
+    .progress-xl {
+        --progress-height: 0.875rem; /* 14px */
+    }
+}

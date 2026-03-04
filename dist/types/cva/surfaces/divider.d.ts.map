@@ -1,0 +1,1 @@
+{"version":3,"file":"divider.d.ts","sourceRoot":"","sources":["../../../../src/types/cva/surfaces/divider.ts"],"names":[],"mappings":"AAAA;;;;;GAKG;AACH,MAAM,MAAM,cAAc,GAAG,SAAS,GAAG,OAAO,GAAG,QAAQ,CAAC;AAE5D,MAAM,MAAM,eAAe,GAAG;IAC1B,OAAO,EAAE,MAAM,CAAC,cAAc,EAAE,MAAM,CAAC,CAAC;CAC3C,CAAC"}

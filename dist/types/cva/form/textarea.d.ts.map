@@ -1,0 +1,1 @@
+{"version":3,"file":"textarea.d.ts","sourceRoot":"","sources":["../../../../src/types/cva/form/textarea.ts"],"names":[],"mappings":"AAAA;;;;;;GAMG;AACH,MAAM,MAAM,gBAAgB,GAAG;IAC3B,QAAQ,EAAE,MAAM,CAAC,MAAM,GAAG,OAAO,EAAE,MAAM,CAAC,CAAC;IAC3C,KAAK,EAAE,MAAM,CAAC,MAAM,GAAG,OAAO,EAAE,MAAM,CAAC,CAAC;CAC3C,CAAC"}
