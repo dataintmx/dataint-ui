@@ -1,0 +1,177 @@
+@layer components {
+    /* ======================================================================
+   PROGRESS — Feedback & System State (DataInt UI)
+   Shared API alignment: intent, size
+   Supports: native <progress> element (determinate + indeterminate)
+   ====================================================================== */
+
+    /* ------------------------------
+   Base progress bar
+   ------------------------------ */
+    .progress {
+        /* Reset browser defaults */
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+
+        display: block;
+        width: 100%;
+        overflow: hidden;
+        border: none;
+
+        /* Shared API defaults */
+        --progress-intent: var(--color-primary);
+        --progress-track: color-mix(in oklab, var(--progress-intent) 18%, var(--color-base-100));
+
+        /* Size defaults */
+        --progress-height: 0.5rem; /* 8px — md */
+
+        /* Radius */
+        --progress-radius: var(--radius-pill);
+
+        /* Transition for determinate fill */
+        --progress-transition: width 0.35s ease, background-color 0.2s ease;
+
+        /* Indeterminate animation */
+        --progress-indeterminate-duration: 1.6s;
+
+        height: var(--progress-height);
+        border-radius: var(--progress-radius);
+
+        /* Firefox: fallback color for fill */
+        color: var(--progress-intent);
+
+        /* Track background */
+        background-color: var(--progress-track);
+    }
+
+    /* ------------------------------
+   Webkit (Chrome / Safari / Edge) — Track + Value
+   ------------------------------ */
+    .progress::-webkit-progress-bar {
+        background-color: var(--progress-track);
+        border-radius: var(--progress-radius);
+    }
+
+    .progress::-webkit-progress-value {
+        background-color: var(--progress-intent);
+        border-radius: var(--progress-radius);
+        transition: var(--progress-transition);
+    }
+
+    /* ------------------------------
+   Firefox — Fill bar
+   ------------------------------ */
+    .progress::-moz-progress-bar {
+        background-color: var(--progress-intent);
+        border-radius: var(--progress-radius);
+        transition: var(--progress-transition);
+    }
+
+    /* ------------------------------
+   Indeterminate mode
+   Triggered when <progress> has no `value` attribute.
+   We use a gradient sweep animation on the element itself.
+   ------------------------------ */
+    .progress:indeterminate {
+        background-image: linear-gradient(
+            to right,
+            var(--progress-track) 0%,
+            var(--progress-track) 25%,
+            var(--progress-intent) 50%,
+            var(--progress-track) 75%,
+            var(--progress-track) 100%
+        );
+        background-size: 300% 100%;
+        background-position: 130% 0;
+        animation: progress-indeterminate var(--progress-indeterminate-duration) ease-in-out infinite;
+    }
+
+    /* Suppress pseudo-elements in indeterminate to avoid double-painting */
+    .progress:indeterminate::-webkit-progress-bar {
+        background-color: transparent;
+    }
+
+    .progress:indeterminate::-webkit-progress-value {
+        background-color: transparent;
+    }
+
+    .progress:indeterminate::-moz-progress-bar {
+        background-color: transparent;
+    }
+
+    @keyframes progress-indeterminate {
+        0% {
+            background-position: 130% 0;
+        }
+        100% {
+            background-position: -30% 0;
+        }
+    }
+
+    /* ------------------------------
+   Shared API — intent
+   ------------------------------ */
+
+    .progress-neutral {
+        --progress-intent: var(--color-base-content);
+        --progress-track: color-mix(in oklab, var(--progress-intent) 14%, var(--color-base-100));
+    }
+
+    .progress-primary {
+        --progress-intent: var(--color-primary);
+        --progress-track: color-mix(in oklab, var(--progress-intent) 18%, var(--color-base-100));
+    }
+
+    .progress-secondary {
+        --progress-intent: var(--color-secondary);
+        --progress-track: color-mix(in oklab, var(--progress-intent) 18%, var(--color-base-100));
+    }
+
+    .progress-accent {
+        --progress-intent: var(--color-accent);
+        --progress-track: color-mix(in oklab, var(--progress-intent) 18%, var(--color-base-100));
+    }
+
+    .progress-info {
+        --progress-intent: var(--color-info);
+        --progress-track: color-mix(in oklab, var(--progress-intent) 18%, var(--color-base-100));
+    }
+
+    .progress-success {
+        --progress-intent: var(--color-success);
+        --progress-track: color-mix(in oklab, var(--progress-intent) 18%, var(--color-base-100));
+    }
+
+    .progress-warning {
+        --progress-intent: var(--color-warning);
+        --progress-track: color-mix(in oklab, var(--progress-intent) 18%, var(--color-base-100));
+    }
+
+    .progress-error {
+        --progress-intent: var(--color-error);
+        --progress-track: color-mix(in oklab, var(--progress-intent) 18%, var(--color-base-100));
+    }
+
+    /* ------------------------------
+   Shared API — size
+   ------------------------------ */
+
+    .progress-xs {
+        --progress-height: 0.25rem; /* 4px */
+    }
+
+    .progress-sm {
+        --progress-height: 0.375rem; /* 6px */
+    }
+
+    /* .progress-md is the default (0.5rem / 8px) */
+
+    .progress-lg {
+        --progress-height: 0.625rem; /* 10px */
+    }
+
+    .progress-xl {
+        --progress-height: 0.875rem; /* 14px */
+    }
+}
