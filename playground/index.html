@@ -240,6 +240,7 @@
                         <li><a href="#components-navigation">Navegación</a></li>
                         <li><a href="#components-feedback">Feedback</a></li>
                         <li><a href="#components-skeleton">Skeleton</a></li>
+                        <li><a href="#components-progress">Progress</a></li>
                         <li><a href="#components-badges">Badges</a></li>
                         <li><a href="#components-data">Datos</a></li>
                         <li><a href="#components-overlays">Superposiciones</a></li>
@@ -2517,6 +2518,142 @@
                                     <div class="skeleton" style="height: var(--space-md); width: 75%"></div>
                                     <div class="skeleton" style="height: var(--space-md); width: 70%"></div>
                                     <div class="skeleton" style="height: var(--space-md); width: 3.5rem"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- ======================================================== -->
+                <!-- PROGRESS                                                   -->
+                <!-- ======================================================== -->
+                <section id="components-progress" class="section">
+                    <h2 class="section-title">Componentes — Progress</h2>
+                    <p class="section-subtitle">
+                        Barra de progreso nativa (<code>&lt;progress&gt;</code>) con estilo token-driven.
+                        Soporta modo <strong>determinado</strong> (con <code>value</code> / <code>max</code>) e
+                        <strong>indeterminado</strong> (sin atributo <code>value</code>), variantes de intent y tamaño.
+                    </p>
+
+                    <div class="component-grid">
+
+                        <!-- SIZES -->
+                        <div class="component-column" style="min-width: 320px">
+                            <span class="component-label">Sizes — determinado al 60%</span>
+                            <div style="display: flex; flex-direction: column; gap: 0.75rem">
+                                <div>
+                                    <p class="component-label" style="opacity: 0.7; margin-bottom: 0.25rem"><code>.progress-xs</code></p>
+                                    <progress class="progress progress-primary progress-xs" value="60" max="100" aria-label="Loading progress xs"></progress>
+                                </div>
+                                <div>
+                                    <p class="component-label" style="opacity: 0.7; margin-bottom: 0.25rem"><code>.progress-sm</code></p>
+                                    <progress class="progress progress-primary progress-sm" value="60" max="100" aria-label="Loading progress sm"></progress>
+                                </div>
+                                <div>
+                                    <p class="component-label" style="opacity: 0.7; margin-bottom: 0.25rem"><code>.progress</code> (md)</p>
+                                    <progress class="progress progress-primary" value="60" max="100" aria-label="Loading progress md"></progress>
+                                </div>
+                                <div>
+                                    <p class="component-label" style="opacity: 0.7; margin-bottom: 0.25rem"><code>.progress-lg</code></p>
+                                    <progress class="progress progress-primary progress-lg" value="60" max="100" aria-label="Loading progress lg"></progress>
+                                </div>
+                                <div>
+                                    <p class="component-label" style="opacity: 0.7; margin-bottom: 0.25rem"><code>.progress-xl</code></p>
+                                    <progress class="progress progress-primary progress-xl" value="60" max="100" aria-label="Loading progress xl"></progress>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- INTENTS -->
+                        <div class="component-column" style="min-width: 320px">
+                            <span class="component-label">Intents — determinado al 75%</span>
+                            <div style="display: flex; flex-direction: column; gap: 0.75rem">
+                                <div>
+                                    <p class="component-label" style="opacity: 0.7; margin-bottom: 0.25rem"><code>.progress-neutral</code></p>
+                                    <progress class="progress progress-neutral" value="75" max="100" aria-label="Neutral progress"></progress>
+                                </div>
+                                <div>
+                                    <p class="component-label" style="opacity: 0.7; margin-bottom: 0.25rem"><code>.progress-primary</code></p>
+                                    <progress class="progress progress-primary" value="75" max="100" aria-label="Primary progress"></progress>
+                                </div>
+                                <div>
+                                    <p class="component-label" style="opacity: 0.7; margin-bottom: 0.25rem"><code>.progress-info</code></p>
+                                    <progress class="progress progress-info" value="75" max="100" aria-label="Info progress"></progress>
+                                </div>
+                                <div>
+                                    <p class="component-label" style="opacity: 0.7; margin-bottom: 0.25rem"><code>.progress-success</code></p>
+                                    <progress class="progress progress-success" value="75" max="100" aria-label="Success progress"></progress>
+                                </div>
+                                <div>
+                                    <p class="component-label" style="opacity: 0.7; margin-bottom: 0.25rem"><code>.progress-warning</code></p>
+                                    <progress class="progress progress-warning" value="75" max="100" aria-label="Warning progress"></progress>
+                                </div>
+                                <div>
+                                    <p class="component-label" style="opacity: 0.7; margin-bottom: 0.25rem"><code>.progress-error</code></p>
+                                    <progress class="progress progress-error" value="75" max="100" aria-label="Error progress"></progress>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- INDETERMINATE -->
+                        <div class="component-column" style="min-width: 320px">
+                            <span class="component-label">Indeterminado — sin atributo <code>value</code></span>
+                            <div style="display: flex; flex-direction: column; gap: 0.75rem">
+                                <div>
+                                    <p class="component-label" style="opacity: 0.7; margin-bottom: 0.25rem"><code>.progress-primary</code></p>
+                                    <progress class="progress progress-primary" aria-label="Loading…"></progress>
+                                </div>
+                                <div>
+                                    <p class="component-label" style="opacity: 0.7; margin-bottom: 0.25rem"><code>.progress-success</code></p>
+                                    <progress class="progress progress-success" aria-label="Processing…"></progress>
+                                </div>
+                                <div>
+                                    <p class="component-label" style="opacity: 0.7; margin-bottom: 0.25rem"><code>.progress-warning</code></p>
+                                    <progress class="progress progress-warning" aria-label="Waiting…"></progress>
+                                </div>
+                                <div>
+                                    <p class="component-label" style="opacity: 0.7; margin-bottom: 0.25rem"><code>.progress-error</code></p>
+                                    <progress class="progress progress-error" aria-label="Error state"></progress>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- EXAMPLE 1: MapLoadingOverlay context -->
+                        <div class="component-column" style="min-width: 340px">
+                            <span class="component-label">Ejemplo — MapLoadingOverlay</span>
+                            <div class="card" style="padding: var(--space-md); display: flex; flex-direction: column; gap: var(--space-sm); background-color: var(--color-base-200)">
+                                <div style="display: flex; align-items: center; gap: var(--space-sm)">
+                                    <span class="loading loading-sm loading-primary"></span>
+                                    <span style="font-size: 0.875rem; font-weight: 600">Loading map data…</span>
+                                </div>
+                                <div style="display: flex; flex-direction: column; gap: var(--space-2xs)">
+                                    <div style="display: flex; justify-content: space-between; font-size: 0.75rem; opacity: 0.7">
+                                        <span>Progress</span>
+                                        <span>45%</span>
+                                    </div>
+                                    <progress class="progress progress-primary" value="45" max="100" aria-label="Map loading progress" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></progress>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- EXAMPLE 2: ReportsProgressModal context -->
+                        <div class="component-column" style="min-width: 340px">
+                            <span class="component-label">Ejemplo — ReportsProgressModal</span>
+                            <div class="card" style="padding: var(--space-md); display: flex; flex-direction: column; gap: var(--space-md); background-color: var(--color-base-200)">
+                                <div style="text-align: center; display: flex; flex-direction: column; align-items: center; gap: var(--space-xs)">
+                                    <span class="loading loading-primary"></span>
+                                    <strong style="font-size: 1rem">Generating report…</strong>
+                                    <span style="font-size: 0.75rem; opacity: 0.65">This process can take up to a minute</span>
+                                </div>
+                                <p style="font-size: 0.8rem; text-align: center; opacity: 0.85">Fetching analytics data…</p>
+                                <div style="display: flex; flex-direction: column; gap: var(--space-2xs)">
+                                    <div style="display: flex; justify-content: space-between; font-size: 0.75rem; opacity: 0.7">
+                                        <span>Progress</span>
+                                        <span>68%</span>
+                                    </div>
+                                    <progress class="progress progress-primary progress-lg" value="68" max="100" aria-label="Report generation progress" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100"></progress>
+                                    <span style="font-size: 0.7rem; text-align: center; opacity: 0.5">Estimated time remaining: ~15 seconds</span>
                                 </div>
                             </div>
                         </div>
