@@ -1,6 +1,6 @@
 # dataint-ui
 
-**Version:** 1.1.0 · **License:** GPL-3.0
+**Version:** 1.1.3 · **License:** GPL-3.0
 
 A lightweight CSS-based design system for DataInt applications.  
 This package provides tokens, base styles, components, and utilities built on top of Tailwind CSS v4 using `@theme` and `@layer`.  
@@ -68,6 +68,7 @@ dataint-ui/
 │  │     ├─ overlay.css
 │  │     ├─ radio.css
 │  │     ├─ select.css
+│  │     ├─ progress.css
 │  │     ├─ skeleton.css
 │  │     ├─ stats.css
 │  │     ├─ table.css
@@ -103,7 +104,7 @@ dataint-ui/
 
 ## 🛠️ Development
 
-Build the distributable stylesheet:
+Build the distributable:
 
 ```bash
 npm run build
@@ -112,14 +113,15 @@ npm run build
 This generates:
 
 ```
-dist/styles.css
+dist/styles.css        ← compiled stylesheet
+dist/index.js          ← JS entry point
+dist/cva/              ← CVA variant helpers
 ```
 
-Before publishing, the build runs automatically via:
+The build runs automatically in two scenarios:
 
-```
-npm run prepublishOnly
-```
+- **`prepare`** — triggered when installing the package directly from Git (e.g. `bun add git@github.com:dataintmx/dataint-ui.git`)
+- **`prepublishOnly`** — triggered before `npm publish`
 
 ---
 
@@ -144,3 +146,16 @@ playground/index.html
 GNU General Public License v3.0  
 © 2026 DataInt  
 See [LICENSE](./LICENSE) for details.
+
+---
+
+## 📋 Changelog
+
+### 1.1.1 — 2026-03-02
+
+- **fix:** add `prepare` script so the package builds automatically when installed from Git, resolving `TS2307` module resolution errors in consuming apps ([#91](https://github.com/dataintmx/dataint-ui/issues/91))
+- **fix:** move `@tailwindcss/cli` from `dependencies` to `devDependencies` — it is only needed for the playground build and should not be installed as a transitive runtime dependency
+
+### 1.1.0
+
+- Initial public release with tokens, base styles, components, CVA variant helpers, and TypeScript type definitions
