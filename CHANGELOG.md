@@ -7,6 +7,47 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [Unreleased]
+
+---
+
+## [1.1.4] - 2026-03-06
+
+### Fixed
+
+- **package**: add `style` export condition to the `styles.css` entry in `package.json` to ensure correct CSS resolution by bundlers ([#101](https://github.com/dataintmx/dataint-ui/pull/101))
+
+---
+
+## [1.1.3] - 2026-03-05
+
+### Build
+
+- Stop ignoring the `dist/` folder in `.gitignore` to expose build output to consumers ([#98](https://github.com/dataintmx/dataint-ui/pull/98))
+- Add compiled `dist/` output (`styles.css` + TypeScript declarations) to the repository ([#98](https://github.com/dataintmx/dataint-ui/pull/98))
+
+---
+
+## [1.1.2] - 2026-03-04
+
+### Added
+
+- **Progress component** — token-driven CSS styles with intent and size variants, determinate fill transition, and indeterminate gradient-sweep animation ([#95](https://github.com/dataintmx/dataint-ui/pull/95))
+- Progress CVA configuration (`progressBase`, `progressConfig`, `ProgressProps`) with re-export from the `feedback` index ([#95](https://github.com/dataintmx/dataint-ui/pull/95))
+- TypeScript type definitions: `ProgressIntent`, `ProgressSize`, and `ProgressVariants` ([#95](https://github.com/dataintmx/dataint-ui/pull/95))
+- Playground demos: size, intent, and indeterminate variants; `MapLoadingOverlay` and `ReportsProgressModal` usage examples ([#95](https://github.com/dataintmx/dataint-ui/pull/95))
+
+---
+
+## [1.1.1] - 2026-03-03
+
+### Fixed
+
+- **build**: add `prepare` script to `package.json` to support git-based installation builds ([#92](https://github.com/dataintmx/dataint-ui/pull/92))
+- **build**: pin `@tailwindcss/cli` as a dev dependency to fix missing CLI during `prepare` ([#92](https://github.com/dataintmx/dataint-ui/pull/92))
+
+---
+
 ## [1.1.0] - 2026-03-02
 
 ### Added
@@ -53,3 +94,11 @@ Initial release.
 - Components: Alert, Badge, Button, Card, Checkbox, Divider, Dropdown, Input, Link, Loading, Menu, Overlay, Radio, Select, Stats, Table, Toggle
 - CVA configuration objects and TypeScript types for all components
 - Playground for visual testing
+
+[Unreleased]: https://github.com/dataintmx/dataint-ui/compare/1.1.4...HEAD
+[1.1.4]: https://github.com/dataintmx/dataint-ui/compare/1.1.3...1.1.4
+[1.1.3]: https://github.com/dataintmx/dataint-ui/compare/1.1.2...1.1.3
+[1.1.2]: https://github.com/dataintmx/dataint-ui/compare/1.1.1...1.1.2
+[1.1.1]: https://github.com/dataintmx/dataint-ui/compare/1.1.0...1.1.1
+[1.1.0]: https://github.com/dataintmx/dataint-ui/compare/1.0.0...1.1.0
+[1.0.0]: https://github.com/dataintmx/dataint-ui/releases/tag/1.0.0
