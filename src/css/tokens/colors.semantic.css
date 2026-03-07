@@ -128,6 +128,37 @@
     --color-data-24: #0d7d70;
 }
 
+/*  Light theme semantic tokens
+    - Chart data colors are defined here to match light theme palette
+*/
+:root,
+:root[data-theme="light"] {
+    --color-data-1: #2e435f;
+    --color-data-2: #688ae8;
+    --color-data-3: #c33d69;
+    --color-data-4: #2ea597;
+    --color-data-5: #8456ce;
+    --color-data-6: #e07941;
+    --color-data-7: #3759ce;
+    --color-data-8: #962249;
+    --color-data-9: #096f64;
+    --color-data-10: #6237a7;
+    --color-data-11: #a84401;
+    --color-data-12: #273ea5;
+    --color-data-13: #780d35;
+    --color-data-14: #03524a;
+    --color-data-15: #4a238b;
+    --color-data-16: #7e3103;
+    --color-data-17: #1b2b88;
+    --color-data-18: #ce567c;
+    --color-data-19: #003e38;
+    --color-data-20: #9469d6;
+    --color-data-21: #602400;
+    --color-data-22: #4066df;
+    --color-data-23: #a32952;
+    --color-data-24: #0d7d70;
+}
+
 /*  Dark theme semantic tokens
 */
 :root[data-theme="dark"] {
