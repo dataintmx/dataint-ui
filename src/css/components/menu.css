@@ -195,6 +195,12 @@
         box-shadow: var(--elevation-1-default);
     }
 
+    /* Active + hover: stronger background */
+    .menu-item.is-active:hover,
+    .menu-item[aria-current="page"]:hover {
+        --menu-item-bg-hover: var(--color-base-300);
+    }
+
     /* Active + hover MUST win over active with box shadow
 */
     .menu-item.is-active:not(:disabled):not([aria-disabled="true"]):hover,
