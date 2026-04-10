@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.1.6] - 2026-04-10
+
+### Added
+
+- Sidebar tooltip, nav-icon and active menu hover styles by @tomiplevak in [#107](https://github.com/dataintmx/dataint-ui/pull/107)
+
+**Full Changelog**: https://github.com/dataintmx/dataint-ui/compare/1.1.5...1.1.6
+
+---
+
 ## [1.1.5] - 2026-03-10
 
 ### Fixed
